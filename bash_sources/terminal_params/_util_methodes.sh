@@ -58,6 +58,7 @@ downlaod_code_source_pkgs(){
     echo -e "$DONE"
 
     downlaod_code_source_pkgs_other_sources $COURENT_DIR
+    cd ..
 }
 
 
