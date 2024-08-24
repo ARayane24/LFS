@@ -1,0 +1,2 @@
+su
+rm bash.bashrc && mv bash.bashrc.NOUSE bash.bashrc
