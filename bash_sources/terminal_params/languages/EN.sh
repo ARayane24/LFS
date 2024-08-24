@@ -42,6 +42,7 @@ export TEST_PASS=\" ${TEST}Test passed ! ${NO_STYLE}\"
 export TEST_FAIL=\" ${ERROR}Test failed !! ${NO_STYLE}\"
 export BUILD_FAILED=\"${ERROR}Build failed. !!${NO_STYLE}\"
 export BUILD_SUCCEEDED=\"${OK}Build succeeded. !!${NO_STYLE}\"
+export TOOL_READY=\"${OK}Tool is ready :) \n\n${NO_STYLE}\"
 export END_STEP2=\"${TITLE}  END 2 - extracting & compiling - ${NO_STYLE}\"
 #**************
 export START_STEP3=\"${TITLE}  START 3 -  compiling in Chroot - ${NO_STYLE}\"
