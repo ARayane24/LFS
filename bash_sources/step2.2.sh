@@ -584,6 +584,7 @@ echo $Binutils_P2
 tar -xf "$Binutils_P2.tar.xz"
 cd $Binutils_P2
 sed '6009s/$add_dir//' -i ltmain.sh
+mkdir build
 cd       build
 ../configure                   \
     --prefix=/usr              \
@@ -629,6 +630,7 @@ case $(uname -m) in
 esac
 sed '/thread_header =/s/@.*@/gthr-posix.h/' \
     -i libgcc/Makefile.in $Libstdc-v3/include/Makefile.in
+mkdir build
 cd       build
 ../configure                                       \
     --build=$(../config.guess)                     \
