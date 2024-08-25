@@ -93,7 +93,7 @@ if ! [ -n "$STEP1_ENDED" ] || ! $STEP1_ENDED; then
     ######################
     #   *  Starting  *   #
     ######################
-
+    cd $HELPER_DIR
     source ./bash_sources/step1.sh
 fi
 
