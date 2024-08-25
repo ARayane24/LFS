@@ -4,7 +4,6 @@
 # don't edit this file to insure that it works properly unless you know what are you doing
 
 source ~/.bashrc
-source ./_pakages_names.sh
 source ./_util_methodes.sh
 
 echo -e "$N_THREADS $(nproc)"
@@ -685,7 +684,7 @@ SAVE="
 
 ### copied vars to other user
 export STEP2_ENDED=true
-export NEXT_STEP=./bash_sources/step3.1.sh
+export NEXT_STEP=./bash_sources/step3.sh
 
 "
 echo "$SAVE" >> $SHARED_FILE

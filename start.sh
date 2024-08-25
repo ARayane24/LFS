@@ -42,6 +42,7 @@ if ! [ -n "$STEP1_ENDED" ] || ! $STEP1_ENDED; then
     export STEP2_ENDED=false
     export STEP3_ENDED=false
     export STEP4_ENDED=false
+    export STEP5_ENDED=false
     export SHARED_FILE=/etc/bash.bashrc
 
     export CPU_ARCH_HUMAN=("64-bit(x86) architecture" "64-bit(ARM) architecture")
@@ -60,6 +61,7 @@ if ! [ -n "$STEP1_ENDED" ] || ! $STEP1_ENDED; then
     export STEP2_ENDED=false
     export STEP3_ENDED=false
     export STEP4_ENDED=false
+    export STEP5_ENDED=false
 
     export CPU_ARCH_HUMAN=$formatted_cpu_arch_human
     export CPU_ARCH=$formatted_cpu_arch
@@ -125,6 +127,7 @@ if ! [ -n "$STEP1_ENDED" ] || ! $STEP1_ENDED; then
     #############################
     echo -e "$CHOOSE_CPU_ARCHI"
     select_cpu_archi
+    source $SHARED_FILE
     
     ######################
     #   *  Starting  *   #
@@ -150,3 +153,22 @@ if ! [ -n "$STEP3_ENDED" ] || ! $STEP3_ENDED; then
 
     su #root
 fi
+
+if ! [ -n "$STEP4_ENDED" ] || ! $STEP4_ENDED; then
+    echo -e "$DONE"
+    echo -e "STEP3_ENDED=$STEP3_ENDED"
+    echo -e "$RUN_CMD_TO_START_NEXT_STEP"
+    echo "bash \$NEXT_STEP"
+
+    #entering chroot you can set other vars here also 
+    chroot "$LFS" /usr/bin/env -i   \
+        HOME=/root                  \
+        TERM="$TERM"                \
+        PS1='(lfs chroot) \u:\w\$ ' \
+        PATH=/usr/bin:/usr/sbin     \
+        MAKEFLAGS="-j$(nproc)"      \
+        TESTSUITEFLAGS="-j$(nproc)" \
+        /bin/bash --login
+fi
+
+

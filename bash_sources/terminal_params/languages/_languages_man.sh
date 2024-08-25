@@ -29,5 +29,5 @@ export SCRIPT_DIR=$SCRIPT_DIR
 
 # Append the content to $SHARED_FILE
 echo "$SAVE"  >> $SHARED_FILE
-source $SHARED_FILE
+
 

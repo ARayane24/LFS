@@ -11,10 +11,6 @@
     ############################################### ${NO_STYLE}
     "
 
-#############################################################
-echo -e "${PROCESS}Entering Chroot and Building Additional Temporary Tools...${NO_STYLE}"
-#############################################################
-
 findmnt # check For proper operation of the isolated environment, some communication with the running kernel must be established. This is done via the so-called Virtual Kernel File Systems, which will be mounted before entering the chroot environment. 
 
 #change the ownership of the $LFS/* directories to user root 
@@ -58,24 +54,7 @@ SAVE="
 
 ### copied vars to other user
 export STEP3_ENDED=true
-export NEXT_STEP=$HELPER_DIR/bash_sources/step3.sh
+export NEXT_STEP=./bash_sources/step4.1.sh
 
 "
 echo "$SAVE" >> $SHARED_FILE
-
-
-#cp step 2 to the new user so the operations can be started
-cp /etc/bash.bashrc $LFS/mybash.bashrc
-cp $HELPER_DIR/bash_sources/step3.2.sh $LFS
-
-
-
-#entering chroot you can set other vars here also 
-chroot "$LFS" /usr/bin/env -i   \
-    HOME=/root                  \
-    TERM="$TERM"                \
-    PS1='(lfs chroot) \u:\w\$ ' \
-    PATH=/usr/bin:/usr/sbin     \
-    MAKEFLAGS="-j$(nproc)"      \
-    TESTSUITEFLAGS="-j$(nproc)" \
-    /bin/bash --login

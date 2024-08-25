@@ -29,10 +29,12 @@ cd ./languages
 source ./_languages_man.sh
 # select_lang found in ./_methodes
 source ./_methodes.sh
+source $SHARED_FILE
 cd ..
 
 #Choosing language
 select_lang
+source $SHARED_FILE
 bash $SELECTED_LANG
 echo -e "$DONE"
 

@@ -56,6 +56,5 @@ select_lang(){
     # Append the content to $SHARED_FILE
     echo "$SAVE"  >> $SHARED_FILE
     echo "Selected language : ${ALL_LANGUAGES[$(( $USER_Lang - 1 ))]%.sh}" 
-    bash $SHARED_FILE
 }
 

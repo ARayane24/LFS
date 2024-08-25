@@ -58,14 +58,18 @@ create_and_save_partition $LFS $SAVE_Partition || {
     return 1
 }
 
+cp -rf $HELPER_DIR $LFS/_myhelper
 mkdir -v $LFS/sources
 chmod -v a+wt $LFS/sources #all users can write. only the owner of the file who can delete it
+chmod -v a+wt $LFS/_myhelper #all users can write. only the owner of the file who can delete it
 
-#copy sources if foound to sources dir in the partion file
-cp -rf $THIS_FILE_LOCATION/sources $LFS || downlaod_code_source_pkgs $LFS
+
+#mouve sources if foound to sources dir in the partion file
+mv -rf $LFS/_myhelper/sources $LFS || downlaod_code_source_pkgs $LFS
 
 #change the owner to root
 chown root:root $LFS/sources/*
+chown root:root $LFS/_myhelper/*
 
 
 echo -e "$CREATE_DIR_TO_PUT_RESULTS_OF_COMPILE"
@@ -105,14 +109,6 @@ echo -e "$DONE \n"
     "
 
 
-
-#cp step 2 to the new user so the operations can be started
-cp $HELPER_DIR/bash_sources/step2.1.sh /home/$DEV_NAME
-cp $HELPER_DIR/bash_sources/step2.2.sh /home/$DEV_NAME
-cp $HELPER_DIR/bash_sources/terminal_params/_util_methodes.sh /home/$DEV_NAME
-cp $HELPER_DIR/bash_sources/terminal_params/_pakages_names.sh /home/$DEV_NAME
-
-
 #save to SHARED_FILE
 SAVE="
 
@@ -128,10 +124,9 @@ export USER_Lang=$USER_Lang
 export STEP1_ENDED=$STEP1_ENDED
 export LFS=/mnt/$DISTRO_NAME
 export PATH=$PATH:/usr/sbin #to let the os find all the commands
-export NEXT_STEP=/home/$DEV_NAME/step2.1.sh
+export NEXT_STEP=$LFS/_myhelper/bash_sources/step2.1.sh
 "
 echo "$SAVE" >> $SHARED_FILE
-source $SHARED_FILE
 
 
 

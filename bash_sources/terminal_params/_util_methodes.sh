@@ -221,5 +221,4 @@ select_cpu_archi() {
     # Append the content to $SHARED_FILE
     echo "$SAVE"  >> $SHARED_FILE
     echo "$SELECTED_ARCHI_IS" "$CPU_SELECTED_ARCH"
-    source $SHARED_FILE
 }
