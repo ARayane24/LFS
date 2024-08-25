@@ -29,7 +29,7 @@ if ! [[ -n "${INIT_FOR_SAFETY+x}" ]] && [[ -f /etc/bash.bashrc ]]; then
     chmod -v a+wt ./start.sh
     source /etc/bash.bashrc
     
-    echo "Init Done !"
+    echo -e "Init Done ! \n"
 fi
 
 if ! [ -n "$STEP1_ENDED" ] || ! $STEP1_ENDED; then
@@ -48,6 +48,9 @@ if ! [ -n "$STEP1_ENDED" ] || ! $STEP1_ENDED; then
     export CPU_ARCH=("x86_64" "aarch64")
     export CPU_SELECTED_ARCH=$(uname -m) # current cpu archi
 
+    printf -v formatted_cpu_arch_human "(%s)" "$(printf '"%s" ' "${CPU_ARCH_HUMAN[@]}")"
+    printf -v formatted_cpu_arch "(%s)" "$(printf '"%s" ' "${CPU_ARCH[@]}")"
+
     # Prepare the content to be appended
     SAVE="
     # INIT
@@ -58,8 +61,8 @@ if ! [ -n "$STEP1_ENDED" ] || ! $STEP1_ENDED; then
     export STEP3_ENDED=false
     export STEP4_ENDED=false
 
-    export CPU_ARCH_HUMAN=$CPU_ARCH_HUMAN
-    export CPU_ARCH=$CPU_ARCH
+    export CPU_ARCH_HUMAN=$formatted_cpu_arch_human
+    export CPU_ARCH=$formatted_cpu_arch
     "
     echo "$SAVE" >> $SHARED_FILE
     source $SHARED_FILE
@@ -91,25 +94,38 @@ if ! [ -n "$STEP1_ENDED" ] || ! $STEP1_ENDED; then
     #######################
     #   *  backup OS  *   #
     #######################
-    BACK_UP_OS_IN_THE_END=$(yes_no_question "$BACK_UP_OS_IN_THE_END")
+    echo -e "$DO_YOU_WANT_BACKUP_OS_REC"
+    BACK_UP_OS_IN_THE_END=$(yes_no_question "$DO_YOU_WANT_BACKUP_OS")
+    if $STATIC_ONLY; then
+        echo -e "$YES_BACK_UP_OS"
+    else
+        echo -e "$NO_BACK_UP_OS"
+    fi
     #################################
     #   *  static vs dync libs  *   #
     #################################
     STATIC_ONLY=$(yes_no_question "$DO_YOU_WANT_HAVING_ONLY_STATIC")
-    #############################
-    #   *  target cpu archi *   #
-    #############################
-    CPU_SELECTED_ARCH=$(select_cpu_archi $SELECT_TARGET_ARCHI)
-
-
+    if $STATIC_ONLY; then
+        echo -e "$ONLY_STATIC"
+    else
+        echo -e "$NOT_ONLY_STATIC"
+    fi
+   
+   
     SAVE="
     # Backup
     export BACK_UP_OS_IN_THE_END=$BACK_UP_OS_IN_THE_END
     export STATIC_ONLY=$STATIC_ONLY
-    export CPU_SELECTED_ARCH=$CPU_SELECTED_ARCH
     "
     echo "$SAVE" >> $SHARED_FILE
-
+   
+   
+    #############################
+    #   *  target cpu archi *   #
+    #############################
+    echo -e "$CHOOSE_CPU_ARCHI"
+    select_cpu_archi
+    
     ######################
     #   *  Starting  *   #
     ######################
