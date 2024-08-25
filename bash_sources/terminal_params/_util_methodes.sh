@@ -173,3 +173,46 @@ yes_no_question(){
 
     echo $result
 }
+
+
+select_cpu_archi(){
+    local message=$1
+    if [[ -z "$message" ]]; then
+        #echo -e "$MISSING_PARAM"
+        exit 1
+    elif [[ ${#CPU_ARCH_HUMAN[@]} -ne ${#CPU_ARCH[@]} ]]; then
+       # echo -e "$NO_MATCH_ERROR" 
+        exit 1
+    fi
+
+    # Format and collect the list of archi into a variable
+    local formatted_archi=""
+    for ((i = 0; i < ${#CPU_ARCH_HUMAN[@]}; i++)); do
+        # Append formatted string to the variable
+        formatted_archi+=$(printf "%-5s" "$((i+1))- ${CPU_ARCH_HUMAN[$i]}")
+
+        # Add a newline every 2 entries for the desired output format
+        if (( (i + 1) % 2 == 0 )); then
+            formatted_archi+="\n"
+        else
+            formatted_archi+="\t"
+        fi
+    done
+
+    # Print the formatted list of archis
+    echo -e "$formatted_archi"
+    echo -e "\n"
+
+
+    while true; do
+        read -p "$message" USER_archi
+
+        if  [[ "$USER_archi" =~ ^[0-9]+$ ]] && ! [ "$USER_archi" -le 0 ] && ! [ "$USER_archi" -gt "${#CPU_ARCH_HUMAN[@]}" ]; then
+            break
+        fi
+        #echo -e "$NOT_VALID_NUMBER"
+    done
+    local result_index="$(( $USER_archi - 1 ))"
+    echo "$SELECTED_ARCHI_IS" "$CPU_ARCH_HUMAN"
+    echo "${CPU_ARCH[$result_index]}"
+}

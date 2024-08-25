@@ -22,7 +22,7 @@ disable_hashing="set +h" #to force the shell to search the PATH whenever a progr
 set_umask="umask 022" # ensures that newly created files and directories are only writable by their owner, but are readable and executable by anyone
 set_lfs_dir="LFS=${LFS}"
 set_locale="LC_ALL=POSIX"
-set_target="LFS_TGT=\$(uname -m)-lfs-linux-gnu"
+set_target="LFS_TGT=${CPU_SELECTED_ARCH}-${DEV_NAME}-${DISTRO_NAME}"
 set_path="/usr/bin"
 conditional_path='if [ ! -L /bin ]; then PATH=/bin:$PATH; fi'
 extend_path="PATH=\$LFS/tools/bin:\$PATH"

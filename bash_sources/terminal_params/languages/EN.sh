@@ -6,8 +6,10 @@
 SAVE="
 ###Language
 #msgs:
+export LFS_IS_NOT_SET=\"${ERROR}ERROR : ${NO_STYLE}The \$LFS var is not set !!\"
+export DO_YOU_WANT_HAVING_ONLY_STATIC=\"Do you want us to use only static libs? (otherwais, we'll use dynamic libs when ever it's possible) [y/n] \"
 export DO_YOU_HAVE_CODE_SOURCES=\"Do you have the code sources? [y/n] \"
-export DO_YOU_WANT_BACKUP_OS=\"Colse to the final steps ${OK}it's recommended${NO_STYLE} to have backup for the progress [requier about 10GB] \n Do you want to backup the progress? [y/n] \"
+export DO_YOU_WANT_BACKUP_OS=\"Colse to the final steps ${OK}it's recommended${NO_STYLE} to have backup for the progress [requier about 5GB] \n Do you want to backup the progress? [y/n] \"
 export YOU_HAVE_CODE_SOURCES=\"${OK}You indicated that you have the code sources.${NO_STYLE}\"
 export YOU_DONNOT_HAVE_CODE_SOURCES=\"${OK}You indicated that you do not have the code sources.${NO_STYLE}\"
 export UPDATE_DOWNLOAD_NEEDED_PKGS=\"${PROCESS}Downlading and updating required packges ...${NO_STYLE}\"
@@ -17,7 +19,11 @@ export CANNOT_INSTALL_PAKAGES=\"${ERROR}Error:${NO_STYLE} Cannont download neces
 export MISSING_PARAM=\"${ERROR}Error:${NO_STYLE} Missing params\"
 export START_DOWNLOAD_CODE_SOURCES=\"${PROCESS}Downloading the code sources ...${NO_STYLE}\"
 export START_DOWNLOAD_CODE_SOURCES_OTHER=\"${PROCESS}Downloading the code sources from other links ...${NO_STYLE}\"
+export SELECT_TARGET_ARCHI=\"Select your target CPU-archi : \"
+export NOT_VALID_NUMBER=\"${ERROR}Error:${NO_STYLE} The parameter is not a valid number.\"
+export SELECTED_ARCHI_IS=\"Your target CPU-archi is : \"
 export INPUT_NEW_USER_NAME_msg=\"Input new user name: \"
+export NO_MATCH_ERROR=\"${ERROR}Error:${NO_STYLE} no match :\"
 export INPUT_THE_NAME_OF_THE_NEW_DISTRO_msg=\"Input the name of your new distro: \"
 #**************
 export START_STEP0=\"${TITLE}  START 0 - getting data from user - ${NO_STYLE}\"
