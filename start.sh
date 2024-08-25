@@ -114,8 +114,8 @@ if ! [ -n "$STEP1_ENDED" ] || ! $STEP1_ENDED; then
    
     SAVE="
     # Backup
-    export BACK_UP_OS_IN_THE_END=$BACK_UP_OS_IN_THE_END
-    export STATIC_ONLY=$STATIC_ONLY
+    export BACK_UP_OS_IN_THE_END=${BACK_UP_OS_IN_THE_END}
+    export STATIC_ONLY=${STATIC_ONLY}
     "
     echo "$SAVE" >> $SHARED_FILE
    

@@ -216,9 +216,7 @@ select_cpu_archi() {
     
 
      # Prepare the content to be appended
-    SAVE="
-    export CPU_SELECTED_ARCH=${CPU_ARCH[$result_index]}
-    "
+    SAVE="  export CPU_SELECTED_ARCH=${CPU_ARCH[$result_index]}"
 
     # Append the content to $SHARED_FILE
     echo "$SAVE"  >> $SHARED_FILE
