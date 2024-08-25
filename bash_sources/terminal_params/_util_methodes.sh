@@ -149,3 +149,27 @@ create_and_save_partition(){
     systemctl daemon-reload #update
 }
 
+
+yes_no_question(){
+    local QUESTION=$1
+
+    if [ -z "$QUESTION" ]; then
+        echo -e "$MISSING_PARAM"
+        exit 1
+    fi
+
+    local result=false
+    while true; do
+        read -p "$QUESTION" user_input
+
+        if [[ "$user_input" != "y" && "$user_input" != "Y" && "$user_input" == "n" && "$user_input" == "N" ]]; then
+            echo -e "$PLEASE_Y_OR_N"
+            continue           
+        elif [[ "$user_input" == "y" || "$user_input" == "Y" ]]; then
+            result=true
+        fi
+        break
+    done
+
+    echo $result
+}

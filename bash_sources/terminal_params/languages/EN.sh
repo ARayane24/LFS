@@ -7,6 +7,7 @@ SAVE="
 ###Language
 #msgs:
 export DO_YOU_HAVE_CODE_SOURCES=\"Do you have the code sources? [y/n] \"
+export DO_YOU_WANT_BACKUP_OS=\"Colse to the final steps ${OK}it's recommended${NO_STYLE} to have backup for the progress [requier about 10GB] \n Do you want to backup the progress? [y/n] \"
 export YOU_HAVE_CODE_SOURCES=\"${OK}You indicated that you have the code sources.${NO_STYLE}\"
 export YOU_DONNOT_HAVE_CODE_SOURCES=\"${OK}You indicated that you do not have the code sources.${NO_STYLE}\"
 export UPDATE_DOWNLOAD_NEEDED_PKGS=\"${PROCESS}Downlading and updating required packges ...${NO_STYLE}\"
@@ -45,14 +46,18 @@ export BUILD_SUCCEEDED=\"${OK}Build succeeded. !!${NO_STYLE}\"
 export TOOL_READY=\"${OK}Tool is ready :) \n\n${NO_STYLE}\"
 export END_STEP2=\"${TITLE}  END 2 - extracting & compiling - ${NO_STYLE}\"
 #**************
-export START_STEP3=\"${TITLE}  START 3 -  compiling in Chroot - ${NO_STYLE}\"
-
-export END_STEP3=\"${TITLE}  END 3 - compiling in Chroot - ${NO_STYLE}\"
+export START_STEP3=\"${TITLE}  START 3 -  moving to Chroot - ${NO_STYLE}\"
+export END_STEP3=\"${TITLE}  END 3 - moving to Chroot - ${NO_STYLE}\"
+#**************
+#**************
+export START_STEP4=\"${TITLE}  START 4 - Building Temporary Tools - ${NO_STYLE}\"
+export END_STEP4=\"${TITLE}  END 4 - Building Temporary Tools - ${NO_STYLE}\"
 #**************
 
 
 #actions:
 export START_JOB=\"${PROCESS}Making ...${NO_STYLE}\"
+export START_CLEANING_JOB=\"${PROCESS} Cleaning ...${NO_STYLE}\"
 export DONE=\"${OK}Done${NO_STYLE}\n\"
 export STOP_MSG_ERROR=\"${ERROR}ERROR${NO_STYLE}\n\"
 "

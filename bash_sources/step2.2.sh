@@ -685,7 +685,7 @@ SAVE="
 
 ### copied vars to other user
 export STEP2_ENDED=true
-export NEXT_STEP=./bash_sources/step3.sh
+export NEXT_STEP=./bash_sources/step3.1.sh
 
 "
 echo "$SAVE" >> $SHARED_FILE

@@ -5,7 +5,7 @@
 
 
 ### List aLL the packages names
-# Compiling a Cross-Toolchain..
+# Compiling a Cross-Toolchain.. (used in step2.2)
 export Binutils_P1="binutils-2.42"      # contains a linker, an assembler, and other tools for handling object files.
 export GCC_P1="gcc-13.2.0"              # contains the GNU compiler collection, which includes the C and C++ compilers.
     export GCC_P1_mpfr="mpfr-4.2.1"
@@ -15,7 +15,7 @@ export Linux="linux-6.7.4"              # expose the kernel's API for use by Gli
 export Glibc="glibc-2.39"               # contains the main C library. This library provides the basic routines for allocating memory, searching directories, opening and closing files, reading and writing files, string handling, pattern matching, arithmetic, and so on.
 export Libstdc="libstdc++"              # from gcc-13.2.0 and it is the standard C++ library. It is needed to compile C++ code (part of GCC is written in C++), but we had to defer its installation when we built gcc-pass1 because Libstdc++ depends on Glibc, which was not yet available in the target directory.
 
-# Cross Compiling Temporary Tools
+# Cross Compiling Temporary Tools (used in step2.2)
 export M4="m4-1.4.19"                   # contains a macro processor.
 export Ncurses="ncurses-6.4-20230520"   # contains libraries for terminal-independent handling of character screens.
 export Bash="bash-5.2.21"               # contains the Bourne-Again Shell
@@ -37,7 +37,13 @@ export GCC_P2="gcc-13.2.0"
     export GCC_P2_gmp="gmp-6.3.0"
     export GCC_P2_mpc="mpc-1.3.1"
 
-# Entering Chroot and Building Additional Temporary Tools
+# Entering Chroot and Building Additional Temporary Tools (used in step 4)
+export Gettext="gettext-0.22.4"         # contains utilities for internationalization and localization. These allow programs to be compiled with NLS (Native Language Support), enabling them to output messages in the user's native language.
+export Bison="bison-3.8.2"              # contains a parser generator.
+export Perl="perl-5.38.2"               # contains the Practical Extraction and Report Language.
+export Python="Python-3.12.2"           # contains the Python development environment
+export Texinfo="texinfo-7.1"            # contains programs for reading, writing, and converting info pages.
+export Util_linux="util-linux-2.39.3"   # contains miscellaneous utility programs.
 
 export Expat="expat-2.6.2"              #
 

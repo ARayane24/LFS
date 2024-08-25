@@ -1,9 +1,9 @@
 #!/bin/bash
 # this bash code was made by ATOUI Rayane to automate the operation of creating Linux from scratch with the help of LFS book v12 (https://www.linuxfromscratch.org/lfs)
 # don't edit this file to insure that it works properly unless you know what are you doing
-
-clear
+source /etc/bash.bashrc
 if ! [[ -n "${INIT_FOR_SAFETY+x}" ]] && [[ -f /etc/bash.bashrc ]]; then
+    clear
     mv -v /etc/bash.bashrc /etc/bash.bashrc.NOUSE || {
         echo "Error: Failed to move /etc/bash.bashrc."
         exit 1
@@ -64,24 +64,12 @@ if ! [ -n "$STEP1_ENDED" ] || ! $STEP1_ENDED; then
     #######################
     #   *  downloads  *   #
     #######################
-    CODE_SOURCES_INSTALLED=false
-    while true; do
-        read -p "$DO_YOU_HAVE_CODE_SOURCES" user_input
+    CODE_SOURCES_INSTALLED=$(yes_no_question "$DO_YOU_HAVE_CODE_SOURCES")
 
-        if [[ "$user_input" == "y" || "$user_input" == "Y" ]]; then
-            echo -e "$YOU_HAVE_CODE_SOURCES"
-            CODE_SOURCES_INSTALLED=true
-        elif [[ "$user_input" == "n" || "$user_input" == "N" ]]; then
-            echo -e "$YOU_DONNOT_HAVE_CODE_SOURCES"
-        else
-            echo -e "$PLEASE_Y_OR_N"
-            continue
-        fi
-        break
-    done
-
-    
-    if ! $CODE_SOURCES_INSTALLED; then
+    if $CODE_SOURCES_INSTALLED; then
+        echo -e "$YOU_HAVE_CODE_SOURCES"
+    else
+        echo -e "$YOU_DONNOT_HAVE_CODE_SOURCES"
         echo -e "$UPDATE_DOWNLOAD_NEEDED_PKGS"
         downlaod_utils_pkgs
 
@@ -89,6 +77,16 @@ if ! [ -n "$STEP1_ENDED" ] || ! $STEP1_ENDED; then
         downlaod_code_source_pkgs $HELPER_DIR
     fi
 
+
+    #######################
+    #   *  backup OS  *   #
+    #######################
+    BACK_UP_OS_IN_THE_END=$(yes_no_question "$BACK_UP_OS_IN_THE_END")
+    SAVE="
+    # Backup
+    export BACK_UP_OS_IN_THE_END=$BACK_UP_OS_IN_THE_END
+    "
+    echo "$SAVE" >> $SHARED_FILE
 
     ######################
     #   *  Starting  *   #
@@ -111,4 +109,6 @@ if ! [ -n "$STEP3_ENDED" ] || ! $STEP3_ENDED; then
     echo -e "STEP2_ENDED=$STEP2_ENDED"
     echo -e "$RUN_CMD_TO_START_NEXT_STEP"
     echo "bash \$NEXT_STEP"
+
+    su #root
 fi

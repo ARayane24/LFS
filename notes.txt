@@ -1,2 +1,4 @@
-su
-rm bash.bashrc && mv bash.bashrc.NOUSE bash.bashrc
+# step 3.2
+to change "root" key word in the system edit step3.2 file !!
+
+The utmp, wtmp, btmp, and lastlog files use 32-bit integers for timestamps and they'll be fundamentally broken after year 2038. Many packages have stopped using them and other packages are going to stop using them. It is probably best to consider them deprecated.

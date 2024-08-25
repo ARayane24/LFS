@@ -26,7 +26,17 @@ echo -e "${DONE}"
 
 #creating the directories on which virtual file systems will be mounted
 mkdir -pv $LFS/{dev,proc,sys,run}
+mount -v --bind /dev $LFS/dev
+mount -vt devpts devpts -o gid=5,mode=0620 $LFS/dev/pts
+mount -vt proc proc $LFS/proc
+mount -vt sysfs sysfs $LFS/sys
+mount -vt tmpfs tmpfs $LFS/run
 
+if [ -h $LFS/dev/shm ]; then
+  install -v -d -m 1777 $LFS$(realpath /dev/shm)
+else
+  mount -vt tmpfs -o nosuid,nodev tmpfs $LFS/dev/shm
+fi
 
 
 
@@ -53,3 +63,19 @@ export NEXT_STEP=$HELPER_DIR/bash_sources/step3.sh
 "
 echo "$SAVE" >> $SHARED_FILE
 
+
+#cp step 2 to the new user so the operations can be started
+cp /etc/bash.bashrc $LFS/mybash.bashrc
+cp $HELPER_DIR/bash_sources/step3.2.sh $LFS
+
+
+
+#entering chroot you can set other vars here also 
+chroot "$LFS" /usr/bin/env -i   \
+    HOME=/root                  \
+    TERM="$TERM"                \
+    PS1='(lfs chroot) \u:\w\$ ' \
+    PATH=/usr/bin:/usr/sbin     \
+    MAKEFLAGS="-j$(nproc)"      \
+    TESTSUITEFLAGS="-j$(nproc)" \
+    /bin/bash --login
