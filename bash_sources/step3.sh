@@ -3,7 +3,7 @@
 # this bash code was made by ATOUI Rayane to automate the operation of creating Linux from scratch with the help of LFS book v12 (https://www.linuxfromscratch.org/lfs)
 # don't edit this file to insure that it works properly unless you know what are you doing
 
-
+cd $LFS/_myhelper/bash_sources
 #***************************************************************************#
     echo -e "${STEP}
     ###############################################
@@ -22,6 +22,8 @@ echo -e "${DONE}"
 
 #creating the directories on which virtual file systems will be mounted
 mkdir -pv $LFS/{dev,proc,sys,run}
+
+
 mount -v --bind /dev $LFS/dev
 mount -vt devpts devpts -o gid=5,mode=0620 $LFS/dev/pts
 mount -vt proc proc $LFS/proc
@@ -53,8 +55,29 @@ SAVE="
 ############################################### ${NO_STYLE}
 
 ### copied vars to other user
-export STEP3_ENDED=true
-export NEXT_STEP=./bash_sources/step4.1.sh
+export STEP3_ENDED=$STEP3_ENDED
+export NEXT_STEP=./step4.1.sh
 
 "
 echo "$SAVE" >> $SHARED_FILE
+
+
+if ! [ -n "$STEP4_ENDED" ] || ! $STEP4_ENDED; then
+    echo -e "$DONE"
+    echo -e "STEP3_ENDED=$STEP3_ENDED"
+    echo -e "$RUN_CMD_TO_START_NEXT_STEP"
+    echo "bash \$NEXT_STEP"
+
+    #entering chroot you can set other vars here also 
+    chroot "$LFS" /usr/bin/env -i   \
+        HOME=/root                  \
+        TERM="$TERM"                \
+        PS1='(lfs chroot) \u:\w\$ ' \
+        PATH=/usr/bin:/usr/sbin     \
+        MAKEFLAGS="-j$(nproc)"      \
+        TESTSUITEFLAGS="-j$(nproc)" \
+        /bin/bash --login
+fi
+
+#test for result todo- remove
+source ./step4.1.sh || true

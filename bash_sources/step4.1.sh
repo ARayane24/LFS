@@ -5,8 +5,6 @@
 
 
 #***************************************************************************#
-source /mybash.bashrc
-
    echo -e "${STEP}
     ###############################################
     #   *${NO_STYLE}$START_STEP4${STEP}*   #
@@ -99,4 +97,4 @@ chmod -v 664  /var/log/lastlog
 chmod -v 600  /var/log/btmp
 # The /run/utmp file records the users that are currently logged in. This file is created dynamically in the boot scripts.
 
-source ./step4.1.sh
+source ./step4.2.sh

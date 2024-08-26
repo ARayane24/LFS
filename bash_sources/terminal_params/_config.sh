@@ -26,9 +26,9 @@ for text in "${lines[@]}"; do
 done
 
 cd ./languages
-source ./_languages_man.sh
 # select_lang found in ./_methodes
 source ./_methodes.sh
+source ./_languages_man.sh
 source $SHARED_FILE
 cd ..
 

@@ -15,8 +15,6 @@ echo -e "$START_EXTRACTION"
 extract_tar_files $LFS/sources/ "$Binutils_P1 $GCC_P1 $Linux $Glibc $Libstdc $M4 $Ncurses $Bash $Coreutils $Diffutils $File $Findutils $Gawk $Grep $Gzip $Make $Patch $Sed $Tar $Xz"
 echo -e "$DONE"
 
-source _pakages_names.sh 
-
 #############################################################
 echo -e "${PROCESS}Compiling a Cross-Toolchain...${NO_STYLE}"
 #############################################################
@@ -683,11 +681,18 @@ SAVE="
 ############################################### ${NO_STYLE}
 
 ### copied vars to other user
-export STEP2_ENDED=true
-export NEXT_STEP=./bash_sources/step3.sh
+export STEP2_ENDED=$STEP2_ENDED
+export NEXT_STEP=$LFS/_myhelper/bash_sources/step3.sh
 
 "
 echo "$SAVE" >> $SHARED_FILE
 
-su -c 'bash $HELPER_DIR/start.sh' #return to root
+if ! [ -n "$STEP3_ENDED" ] || ! $STEP3_ENDED; then
+    echo -e "$DONE"
+    echo -e "STEP2_ENDED=$STEP2_ENDED"
+    echo -e "$RUN_CMD_TO_START_NEXT_STEP"
+    echo "bash \$NEXT_STEP"
+
+    su #root
+fi
 

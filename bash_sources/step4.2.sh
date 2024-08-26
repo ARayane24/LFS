@@ -146,6 +146,7 @@ rm -rf /tools                               # delete tools
 echo -e "$DONE"
 
 if $BACK_UP_OS_IN_THE_END; then
-    
-    exit
+    source ./step4.3_backup.sh
 fi
+
+source ./step5.sh

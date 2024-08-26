@@ -129,5 +129,13 @@ export NEXT_STEP=$LFS/_myhelper/bash_sources/step2.1.sh
 echo "$SAVE" >> $SHARED_FILE
 
 
+if ! [ -n "$STEP2_ENDED" ] || ! $STEP2_ENDED; then
+    echo -e "$DONE"
+    echo -e "STEP1_ENDED=$STEP1_ENDED"
+    echo -e "$RUN_CMD_TO_START_NEXT_STEP"
+    echo "bash \$NEXT_STEP"
+
+    su - $DEV_NAME  #change the user 
+fi
 
 

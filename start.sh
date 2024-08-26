@@ -5,7 +5,6 @@
 # Tips :
 # don't forget to cd to this file location so every thing works fine !!
 
-source /etc/bash.bashrc
 if ! [[ -n "${INIT_FOR_SAFETY+x}" ]] && [[ -f /etc/bash.bashrc ]]; then
     clear
     mv -v /etc/bash.bashrc /etc/bash.bashrc.NOUSE || {
@@ -26,7 +25,6 @@ if ! [[ -n "${INIT_FOR_SAFETY+x}" ]] && [[ -f /etc/bash.bashrc ]]; then
     }
 
     chmod -v a+wt /etc/bash.bashrc #all users can write and read & only owner can delete
-    chmod -v a+wt ./start.sh
     source /etc/bash.bashrc
     
     echo -e "Init Done ! \n"
@@ -71,10 +69,8 @@ if ! [ -n "$STEP1_ENDED" ] || ! $STEP1_ENDED; then
 
     # Starting _config
     cd ./bash_sources/terminal_params
-
     source ./_config.sh
     cd $HELPER_DIR
-    source $SHARED_FILE
 
     #######################
     #   *  downloads  *   #
@@ -135,40 +131,4 @@ if ! [ -n "$STEP1_ENDED" ] || ! $STEP1_ENDED; then
     cd $HELPER_DIR
     source ./bash_sources/step1.sh
 fi
-
-if ! [ -n "$STEP2_ENDED" ] || ! $STEP2_ENDED; then
-    echo -e "$DONE"
-    echo -e "STEP1_ENDED=$STEP1_ENDED"
-    echo -e "$RUN_CMD_TO_START_NEXT_STEP"
-    echo "bash \$NEXT_STEP"
-
-    su - $DEV_NAME  #change the user 
-fi
-
-if ! [ -n "$STEP3_ENDED" ] || ! $STEP3_ENDED; then
-    echo -e "$DONE"
-    echo -e "STEP2_ENDED=$STEP2_ENDED"
-    echo -e "$RUN_CMD_TO_START_NEXT_STEP"
-    echo "bash \$NEXT_STEP"
-
-    su #root
-fi
-
-if ! [ -n "$STEP4_ENDED" ] || ! $STEP4_ENDED; then
-    echo -e "$DONE"
-    echo -e "STEP3_ENDED=$STEP3_ENDED"
-    echo -e "$RUN_CMD_TO_START_NEXT_STEP"
-    echo "bash \$NEXT_STEP"
-
-    #entering chroot you can set other vars here also 
-    chroot "$LFS" /usr/bin/env -i   \
-        HOME=/root                  \
-        TERM="$TERM"                \
-        PS1='(lfs chroot) \u:\w\$ ' \
-        PATH=/usr/bin:/usr/sbin     \
-        MAKEFLAGS="-j$(nproc)"      \
-        TESTSUITEFLAGS="-j$(nproc)" \
-        /bin/bash --login
-fi
-
 

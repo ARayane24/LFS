@@ -63,6 +63,8 @@ export END_STEP3=\"${TITLE}  END 3 - moving to Chroot - ${NO_STYLE}\"
 #**************
 #**************
 export START_STEP4=\"${TITLE}  START 4 - Building Temporary Tools - ${NO_STYLE}\"
+export BACKING_UP_PROGRESS_TO_TARBALL=\"${PROCESS}Backing-up the progress ...${NO_STYLE}\"
+export RESTORE_PROGRESS_TO_TARBALL=\"${PROCESS}Restoring the progress ...${NO_STYLE}\"
 export END_STEP4=\"${TITLE}  END 4 - Building Temporary Tools - ${NO_STYLE}\"
 #**************
 
