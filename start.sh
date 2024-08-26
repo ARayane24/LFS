@@ -131,4 +131,11 @@ if ! [ -n "$STEP1_ENDED" ] || ! $STEP1_ENDED; then
     cd $HELPER_DIR
     source ./bash_sources/step1.sh
 fi
+if [ -n "$STEP1_ENDED" ] && [ "$STEP1_ENDED" = true ] \
+   && [ -n "$STEP2_ENDED" ] && [ "$STEP2_ENDED" = true ] \
+   && [ -n "$STEP3_ENDED" ] && [ "$STEP3_ENDED" = true ] \
+   && [ -n "$STEP4_ENDED" ] && [ "$STEP4_ENDED" = true ]; then
+    # Restore
+    source "$LFS/_myhelper/bash_sources/step3.sh"
+fi
 
