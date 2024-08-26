@@ -32,10 +32,10 @@ export INPUT_NEW_USER_NAME_msg=\"Input new user name: \"
 export NO_MATCH_ERROR=\"${ERROR}Error:${NO_STYLE} no match :\"
 export INPUT_THE_NAME_OF_THE_NEW_DISTRO_msg=\"Input the name of your new distro: \"
 #**************
-export START_STEP0=\"${TITLE}  START 0 - getting data from user - ${NO_STYLE}\"
-export END_STEP0=\"${TITLE}  END 0 - getting data from user - ${NO_STYLE}\"
+export START_STEP0=\"${TITLE}  START 0 - Getting data from user - ${NO_STYLE}\"
+export END_STEP0=\"${TITLE}  END 0 - Getting data from user - ${NO_STYLE}\"
 #**************
-export START_STEP1=\"${TITLE} START 1 - create user & partition - ${NO_STYLE}\"
+export START_STEP1=\"${TITLE} START 1 - Create user & partition - ${NO_STYLE}\"
 export INPUT_NAME_OF_PARTITION=\"Input the name of partition : \"
 export CANNOT_GET_UUID=\"${ERROR}Error:${NO_STYLE} Could not get UUID for \"
 export SUCCESS_MOUNT=\"${OK}Disk successfully mounted and fstab updated. ${NO_STYLE}\"
@@ -43,9 +43,9 @@ export ERROR_MOUNT=\"${ERROR}Error:${NO_STYLE} Disk could not be mounted. Check 
 export CREATE_DIR_TO_PUT_RESULTS_OF_COMPILE=\"${PROCESS}Creating directories to put the results of compilation in it ...${NO_STYLE}\"
 export ADD_USER_AND_GROUPE=\"${PROCESS}Adding new user and user group ...${NO_STYLE}\"
 export RUN_CMD_TO_START_NEXT_STEP=\"Run this command to start the next step : \"
-export END_STEP1=\"${TITLE} END 1 - create user & partition - ${NO_STYLE}\"
+export END_STEP1=\"${TITLE} END 1 - Create user & partition - ${NO_STYLE}\"
 #**************
-export START_STEP2=\"${TITLE}  START 2 - extracting & compiling - ${NO_STYLE}\"
+export START_STEP2=\"${TITLE}  START 2 - Extracting & Compiling - ${NO_STYLE}\"
 export START_EXTRACTION=\"${PROCESS}Extracting files ...${NO_STYLE}\"
 export N_THREADS=\"${OK}#number of threads:${NO_STYLE} \"
 export START_TEST=\" ${TEST}Starting test ... ${NO_STYLE}\"
@@ -56,16 +56,21 @@ export TEST_FAIL=\" ${ERROR}Test failed !! ${NO_STYLE}\"
 export BUILD_FAILED=\"${ERROR}Build failed. !!${NO_STYLE}\"
 export BUILD_SUCCEEDED=\"${OK}Build succeeded. !!${NO_STYLE}\"
 export TOOL_READY=\"${OK}Tool is ready :) \n\n${NO_STYLE}\"
-export END_STEP2=\"${TITLE}  END 2 - extracting & compiling - ${NO_STYLE}\"
+export END_STEP2=\"${TITLE}  END 2 - Extracting & Compiling - ${NO_STYLE}\"
 #**************
-export START_STEP3=\"${TITLE}  START 3 -  moving to Chroot - ${NO_STYLE}\"
-export END_STEP3=\"${TITLE}  END 3 - moving to Chroot - ${NO_STYLE}\"
+export START_STEP3=\"${TITLE}  START 3 -  Moving to Chroot - ${NO_STYLE}\"
+export END_STEP3=\"${TITLE}  END 3 - Moving to Chroot - ${NO_STYLE}\"
 #**************
-#**************
-export START_STEP4=\"${TITLE}  START 4 - Building Temporary Tools - ${NO_STYLE}\"
+export START_STEP4=\"${TITLE}  START 4 - Adding necessary dirs - ${NO_STYLE}\"
 export BACKING_UP_PROGRESS_TO_TARBALL=\"${PROCESS}Backing-up the progress ...${NO_STYLE}\"
 export RESTORE_PROGRESS_TO_TARBALL=\"${PROCESS}Restoring the progress ...${NO_STYLE}\"
-export END_STEP4=\"${TITLE}  END 4 - Building Temporary Tools - ${NO_STYLE}\"
+export END_STEP4=\"${TITLE}  END 4 - Adding necessary dirs - ${NO_STYLE}\"
+#**************
+export START_STEP5=\"${TITLE}  START 5 - Building Temporary Tools - ${NO_STYLE}\"
+export INPUT_TZ_VALUE=\"Input the result of previous command (TZ value): \"
+export VALID_TZ=\"${OK}Valid time zone: ${NO_STYLE}\n\"
+export NOT_VALID_TZ=\"${ERROR}ERROR: Invalid time zone. Please try again.${NO_STYLE}\n\"
+export END_STEP5=\"${TITLE}  END 5 - Building Temporary Tools - ${NO_STYLE}\"
 #**************
 
 

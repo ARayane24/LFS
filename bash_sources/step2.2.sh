@@ -4,7 +4,8 @@
 # don't edit this file to insure that it works properly unless you know what are you doing
 
 source ~/.bashrc
-source ./_util_methodes.sh
+source ./terminal_params/_util_methodes.sh
+source ./terminal_params/_pakages_names.sh
 
 echo -e "$N_THREADS $(nproc)"
 

@@ -4,8 +4,6 @@
 # don't edit this file to insure that it works properly unless you know what are you doing
 
 cd $LFS/_myhelper/bash_sources
-pushd $LFS/_myhelper/bash_sources
-source ./_pakages_names.sh
 #***************************************************************************#
         echo -e "${STEP}
     ###############################################
@@ -53,4 +51,3 @@ echo -e "$DONE"
 bash -n ~/.bash_profile
 
 source ./step2.2.sh
-popd

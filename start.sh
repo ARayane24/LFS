@@ -136,6 +136,15 @@ if [ -n "$STEP1_ENDED" ] && [ "$STEP1_ENDED" = true ] \
    && [ -n "$STEP3_ENDED" ] && [ "$STEP3_ENDED" = true ] \
    && [ -n "$STEP4_ENDED" ] && [ "$STEP4_ENDED" = true ]; then
     # Restore
-    source "$LFS/_myhelper/bash_sources/step3.sh"
+    source "$LFS/_myhelper/bash_sources/step4.4_restore.sh"
 fi
 
+bash $NEXT_STEP
+
+sleep ? 
+tests ?
+do you wanna continue in after Backup?
+add option to save progress in case of error?
+your system is UEFI ?
+do you wanna add documontations ?
+is curent cpu archi == target cpu archi
