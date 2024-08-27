@@ -113,27 +113,31 @@ export OP_GRUB="grub-2.12"                 # *****contains the GRand Unified Boo
     export OP_Which="which-2.21"            # shows the full path of (shell) commands installed in your PATH
     export OP_Libping="libpng-1.6.42"       # contains libraries used by other programs for reading and writing PNG files. The PNG format was designed as a replacement for GIF and, to a lesser extent, TIFF, with many improvements and extensions and lack of patent problems.
         export OP_Libping_patch="libpng-1.6.40"
-    export 
-
-
-export OP_Gzip="gzip-1.13"                 # contains programs for compressing and decompressing files.
-export OP_IPRoute="iproute2-6.7.0"         # contains programs for basic and advanced IPV4-based networking.
-export OP_Kbd="kbd-2.6.4"                  # contains key-table files, console fonts, and keyboard utilities.
-export OP_Libpipeline="libpipeline-1.5.7"  # contains a library for manipulating pipelines of subprocesses in a flexible and convenient way.
-export OP_Make="make-4.4.1"                # contains a program for controlling the generation of executables and other non-source files of a package from source files.
-export OP_Patch="patch-2.7.6"              # contains a program for modifying or creating files by applying a “patch” file typically created by the diff program.
-export OP_Tar="tar-1.35"                   # provides the ability to create tar archives as well as perform various other kinds of archive manipulation. Tar can be used on previously created archives to extract files, to store additional files, or to update or list files which were already stored.
-export Texinfo="texinfo-7.1"               # contains programs for reading, writing, and converting info pages.
-export OP_Vim="vim-9.1.0041"               # text editor.
-export OP_MarkupSafe="markupsafe-2.1.5"    # Python module that implements an XML/HTML/XHTML Markup safe string.
-export OP_Jinja="jinja2-3.1.3"             # Python module that implements a simple pythonic template language.
-export OP_Udev="systemd-255.tar.xz"        # contains programs for dynamic creation of device nodes.
-export OP_Man_DB="man_db-2.12.0"           # contains programs for finding and viewing man pages.
-export OP_Procps_ng="procps-ng-4.0.4"      # contains programs for monitoring processes.
-export OP_Util_linux="util-linux-2.39.3"   # contains miscellaneous utility programs. Among them are utilities for handling file systems, consoles, partitions, and messages.
-export OP_E2fsprogs="e2fsprogs-1.47.0"     # contains the utilities for handling the ext2 file system. It also supports the ext3 and ext4 journaling file systems.
-export OP_Sysklogd="sysklogd-1.5.1"        # contains programs for logging system messages, such as those emitted by the kernel when unusual things happen.
-export OP_Sysvinit="sysvinit-3.08"         # contains programs for controlling the startup, running, and shutdown of the system.
+    export OP_Harfbuzz="harfbuzz-8.3.0"     # contains an OpenType text shaping engine.
+    export OP_Freetype="freetype-2.13.2"    # contains a library which allows applications to properly render TrueType fonts.
+        export OP_Freetype_docs="freetype-doc-2.13.2"
+    export OP_Popt="popt-1.19"              # contains the popt libraries which are used by some programs to parse command-line options.
+    export OP_Mandoc="mandoc-1.14.6"        # an utility to format manual pages.
+    export OP_Efivar="efivar-39"            # provides tools and libraries to manipulate EFI variables.
+    export OP_Efibootmgr="efibootmgr-18"    # provides tools and libraries to manipulate EFI variables.
+export OP_Gzip="gzip-1.13"                 # **contains programs for compressing and decompressing files.
+export OP_IPRoute="iproute2-6.7.0"         # ****contains programs for basic and advanced IPV4-based networking.
+export OP_Kbd="kbd-2.6.4"                  # *****contains key-table files, console fonts, and keyboard utilities.
+export OP_Libpipeline="libpipeline-1.5.7"  # ***contains a library for manipulating pipelines of subprocesses in a flexible and convenient way.
+export OP_Make="make-4.4.1"                # *****contains a program for controlling the generation of executables and other non-source files of a package from source files.
+export OP_Patch="patch-2.7.6"              # contains a program for modifying or creating files by applying a “patch” file typically created by the diff program. (Note:: the use)
+export OP_Tar="tar-1.35"                   # ****provides the ability to create tar archives as well as perform various other kinds of archive manipulation. Tar can be used on previously created archives to extract files, to store additional files, or to update or list files which were already stored.
+export Texinfo="texinfo-7.1"               # **contains programs for reading, writing, and converting info pages.
+export OP_Vim="vim-9.1.0041"               # ***text editor.
+export OP_MarkupSafe="markupsafe-2.1.5"    # *Python module that implements an XML/HTML/XHTML Markup safe string.
+export OP_Jinja="jinja2-3.1.3"             # *Python module that implements a simple pythonic template language.
+export OP_Udev="systemd-255"               # contains programs for dynamic creation of device nodes.
+export OP_Man_DB="man-db-2.12.0"           # ***contains programs for finding and viewing man pages.
+export OP_Procps_ng="procps-ng-4.0.4"      # **contains programs for monitoring processes.
+export OP_Util_linux="util-linux-2.39"     # contains miscellaneous utility programs. Among them are utilities for handling file systems, consoles, partitions, and messages.
+export OP_E2fsprogs="e2fsprogs-1.47.0"     # ***contains the utilities for handling the ext2 file system. It also supports the ext3 and ext4 journaling file systems.
+export OP_Sysklogd="sysklogd-1.5.1"        # ***contains programs for logging system messages, such as those emitted by the kernel when unusual things happen.
+export OP_Sysvinit="sysvinit-3.08"         # *****contains programs for controlling the startup, running, and shutdown of the system.
 
 
 

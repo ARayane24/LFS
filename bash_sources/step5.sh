@@ -450,7 +450,7 @@ if [ -n "$OP_Flex" ] ;then
     tar -xf $OP_Flex.tar.gz
     cd $OP_Flex
 
-     if $STATIC_ONLY;then
+    if $STATIC_ONLY;then
         ./configure --prefix=/usr \
                 --docdir=/usr/share/doc/$OP_Flex \
                 --enable-static \
@@ -2254,7 +2254,7 @@ if [ -n "$OP_Groff" ] ;then
 fi
 ###********************************
 
-
+sleep_before_complite
 
 ###OP_GRUB (NO_UEFI): 
 if [ -n "$OP_GRUB" ] && ! UEFI;then
@@ -2295,14 +2295,54 @@ if [ -n "$OP_GRUB" ] && UEFI;then
     tar -xf $OP_GRUB.tar.xz
     cd $OP_GRUB
 
+    mkdir -pv /usr/share/fonts/unifont &&
+    gunzip -c ../unifont-15.1.04.pcf.gz > /usr/share/fonts/unifont/unifont.pcf
+    unset {C,CPP,CXX,LD}FLAGS
 
+    echo depends bli part_gpt > grub-core/extra_deps.lst
 
-    make -s && make -s install
-    if [ $? -ne 0 ]; then
-        echo -e "$BUILD_FAILED"
-        exit 1
+    if [ "$CPU_SELECTED_ARCH" == "x86_64" ] && [ "$(uname -m)" == "i?86" ] ; then
+        case $(uname -m) in i?86 )
+        tar xf ../$OP_GCC.tar.xz
+        mkdir $OP_GCC/build
+        pushd $OP_GCC/build
+            ../configure --prefix=$PWD/../../x86_64-gcc \
+                        --target=x86_64-linux-gnu      \
+                        --with-system-zlib             \
+                        --enable-languages=c,c++       \
+                        --with-ld=/usr/bin/ld
+            make all-gcc
+            make install-gcc
+        popd
+        export TARGET_CC=$PWD/x86_64-gcc/bin/x86_64-linux-gnu-gcc
+        esac
+
+        if [ $? -ne 0 ]; then
+            echo -e "$BUILD_FAILED"
+            exit 1
+        fi
+        echo -e "$BUILD_SUCCEEDED" 
     fi
-    echo -e "$BUILD_SUCCEEDED"   
+
+    if [ "$(uname -m)" == "x86_64" ]
+        ./configure --prefix=/usr        \
+            --sysconfdir=/etc    \
+            --disable-efiemu     \
+            --enable-grub-mkfont \
+            --with-platform=efi  \
+            --target=x86_64      \
+            --disable-werror     &&
+        unset TARGET_CC
+        make -s && make -s install
+
+        if [ $? -ne 0 ]; then
+            echo -e "$BUILD_FAILED"
+            exit 1
+        fi
+        echo -e "$BUILD_SUCCEEDED"   
+    fi
+    
+    mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions
 
     cd /sources/
     rm -Rf $OP_GRUB #rm extracted pkg
@@ -2311,8 +2351,9 @@ if [ -n "$OP_GRUB" ] && UEFI;then
 fi
 ###********************************
 
+sleep_before_complite
 
-###OP_Gzip:
+###OP_Gzip: 0.3 SBU
 if [ -n "$OP_Gzip" ] ;then
     echo -e "$START_JOB"
     echo $OP_Gzip
@@ -2338,7 +2379,7 @@ fi
 
 
 
-###OP_IPRoute:
+###OP_IPRoute: 0.1SBU
 if [ -n "$OP_IPRoute" ] ;then
     echo -e "$START_JOB"
     echo $OP_IPRoute
@@ -2366,7 +2407,7 @@ fi
 
 
 
-###OP_Kbd:
+###OP_Kbd: 0.1SBU
 if [ -n "$OP_Kbd" ] ;then
     echo -e "$START_JOB"
     echo $OP_Kbd
@@ -2385,7 +2426,9 @@ if [ -n "$OP_Kbd" ] ;then
     fi
     echo -e "$BUILD_SUCCEEDED"
 
-    cp -R -v docs/doc -T /usr/share/doc/$OP_Kbd
+    if $ADD_OPTIONNAL_DOCS; then
+        cp -R -v docs/doc -T /usr/share/doc/$OP_Kbd
+    fi
 
     cd /sources/
     rm -Rf $OP_Kbd #rm extracted pkg
@@ -2394,13 +2437,13 @@ if [ -n "$OP_Kbd" ] ;then
 fi
 ###********************************
 
+sleep_before_complite
 
-
-###OP_Libpipeline:
+###OP_Libpipeline: 0.1SBU
 if [ -n "$OP_Libpipeline" ] ;then
     echo -e "$START_JOB"
     echo $OP_Libpipeline
-    tar -xf $OP_Libpipeline.tar.xz
+    tar -xf $OP_Libpipeline.tar.gz
     cd $OP_Libpipeline
 
    ./configure --prefix=/usr
@@ -2421,11 +2464,11 @@ fi
 
 
 
-###OP_Make:
+###OP_Make: 0.5SBU
 if [ -n "$OP_Make" ] ;then
     echo -e "$START_JOB"
     echo $OP_Make
-    tar -xf $OP_Make.tar.xz
+    tar -xf $OP_Make.tar.gz
     cd $OP_Make
 
    ./configure --prefix=/usr
@@ -2454,7 +2497,7 @@ fi
 
 
 
-###OP_Patch:
+###OP_Patch: 0.1SBU
 if [ -n "$OP_Patch" ] ;then
     echo -e "$START_JOB"
     echo $OP_Patch
@@ -2479,7 +2522,7 @@ fi
 
 
 
-###OP_Tar:
+###OP_Tar: 0.5SBU
 if [ -n "$OP_Tar" ] ;then
     echo -e "$START_JOB"
     echo $OP_Tar
@@ -2505,9 +2548,9 @@ if [ -n "$OP_Tar" ] ;then
 fi
 ###********************************
 
+sleep_before_complite
 
-
-###Texinfo:
+###Texinfo: 0.3SBU
 if [ -n "$Texinfo" ] ;then
     echo -e "$START_JOB"
     echo $Texinfo
@@ -2540,11 +2583,11 @@ fi
 
 
 
-###OP_Vim:
+###OP_Vim: 2.5SBU
 if [ -n "$OP_Vim" ] ;then
     echo -e "$START_JOB"
     echo $OP_Vim
-    tar -xf $OP_Vim.tar.xz
+    tar -xf $OP_Vim.tar.gz
     cd $OP_Vim
 
     echo '#define SYS_VIMRC_FILE "/etc/vimrc"' >> src/feature.h
@@ -2553,6 +2596,8 @@ if [ -n "$OP_Vim" ] ;then
     chown -R tester .
     su tester -c "TERM=xterm-256color LANG=en_US.UTF-8 make -sj1 test" \
    &> vim-test.log
+
+    grep 'ALL DONE' vim-test.log
 
     make -s install
     ln -sv vim /usr/bin/vi
@@ -2578,7 +2623,6 @@ endif
 
 " End /etc/vimrc
 EOF
-    vim -c ':options'
 
     cd /sources/
     rm -Rf $OP_Vim #rm extracted pkg
@@ -2589,11 +2633,11 @@ fi
 
 
 
-###OP_MarkupSafe:
+###OP_MarkupSafe: 0.1SBU
 if [ -n "$OP_MarkupSafe" ] ;then
     echo -e "$START_JOB"
     echo $OP_MarkupSafe
-    tar -xf $OP_MarkupSafe.tar.xz
+    tar -xf $OP_MarkupSafe.tar.gz
     cd $OP_MarkupSafe
 
     pip3 wheel -w dist --no-cache-dir --no-build-isolation --no-deps $PWD
@@ -2606,13 +2650,13 @@ if [ -n "$OP_MarkupSafe" ] ;then
 fi
 ###********************************
 
+sleep_before_complite
 
-
-###OP_Jinja:
+###OP_Jinja: 0.1SBU
 if [ -n "$OP_Jinja" ] ;then
     echo -e "$START_JOB"
     echo $OP_Jinja
-    tar -xf $OP_Jinja.tar.xz
+    tar -xf $OP_Jinja.tar.gz
     cd $OP_Jinja
 
     pip3 wheel -w dist --no-cache-dir --no-build-isolation --no-deps $PWD
@@ -2627,11 +2671,11 @@ fi
 
 
 
-###OP_Udev:
+###OP_Udev: 0.2SBU
 if [ -n "$OP_Udev" ] ;then
     echo -e "$START_JOB"
     echo $OP_Udev
-    tar -xf $OP_Udev.tar.xz
+    tar -xf $OP_Udev.tar.gz
     cd $OP_Udev
 
     sed -i -e 's/GROUP="render"/GROUP="video"/' \
@@ -2713,7 +2757,7 @@ fi
 
 
 
-###OP_Man_DB:
+###OP_Man_DB: 0.1SBU
 if [ -n "$OP_Man_DB" ] ;then
     echo -e "$START_JOB"
     echo $OP_Man_DB
@@ -2746,7 +2790,7 @@ fi
 
 
 
-###OP_Procps_ng:
+###OP_Procps_ng: 0.1SBU
 if [ -n "$OP_Procps_ng" ] ;then
     echo -e "$START_JOB"
     echo $OP_Procps_ng
@@ -2754,16 +2798,16 @@ if [ -n "$OP_Procps_ng" ] ;then
     cd $OP_Procps_ng
 
     if $STATIC_ONLY;then
-        ./configure --prefix=/usr                           \
-            --docdir=/usr/share/doc/$OP_Procps_ng\
-            --enable-static \
-            --disable-shared \
-            --disable-kill
+        ./configure --prefix=/usr                 \
+                    --docdir=/usr/share/doc/$OP_Procps_ng \
+                    --enable-static \
+                    --disable-shared \
+                    --disable-kill
     else
         ./configure --prefix=/usr                           \
-            --docdir=/usr/share/doc/$OP_Procps_ng \
-            --disable-static                        \
-            --disable-kill
+                    --docdir=/usr/share/doc/$OP_Procps_ng \
+                    --disable-static                        \
+                    --disable-kill
     fi
     
     make -s && make -ks check && make -s install
@@ -2782,7 +2826,7 @@ fi
 
 
 
-###OP_Util_linux:
+###OP_Util_linux: 0.5SBU
 if [ -n "$OP_Util_linux" ] ;then
     echo -e "$START_JOB"
     echo $OP_Util_linux
@@ -2830,12 +2874,26 @@ if [ -n "$OP_Util_linux" ] ;then
             --docdir=/usr/share/doc/$OP_Util_linux
     fi
     
-    make -s && make -s install
+    make -s 
     if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
         exit 1
     fi
     echo -e "$BUILD_SUCCEEDED"
+
+    if DO_OPTIONNAL_TESTS; then
+        chown -R tester .
+        su tester -c "make -k check"
+    fi  
+
+    make -s install
+    if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
+
+
 
     cd /sources/
     rm -Rf $OP_Util_linux #rm extracted pkg
@@ -2844,13 +2902,13 @@ if [ -n "$OP_Util_linux" ] ;then
 fi
 ###********************************
 
+sleep_before_complite
 
-
-###OP_E2fsprogs:
+###OP_E2fsprogs: 0.4SBU
 if [ -n "$OP_E2fsprogs" ] ;then
     echo -e "$START_JOB"
     echo $OP_E2fsprogs
-    tar -xf $OP_E2fsprogs.tar.xz
+    tar -xf $OP_E2fsprogs.tar.gz
     cd $OP_E2fsprogs
 
     mkdir -v build
@@ -2879,6 +2937,12 @@ if [ -n "$OP_E2fsprogs" ] ;then
     install -v -m644 doc/com_err.info /usr/share/info
     install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info
 
+    if $ADD_OPTIONNAL_DOCS; then
+        makeinfo -o      doc/com_err.info ../lib/et/com_err.texinfo
+        install -v -m644 doc/com_err.info /usr/share/info
+        install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info
+    fi
+
     cd /sources/
     rm -Rf $OP_E2fsprogs #rm extracted pkg
     echo -e "$DONE" 
@@ -2886,16 +2950,56 @@ if [ -n "$OP_E2fsprogs" ] ;then
 fi
 ###********************************
 
+sleep_before_complite
 
-
-###OP_Sysklogd:
+###OP_Sysklogd: 0.1SBU
 if [ -n "$OP_Sysklogd" ] ;then
     echo -e "$START_JOB"
     echo $OP_Sysklogd
-    tar -xf $OP_Sysklogd.tar.xz
+    tar -xf $OP_Sysklogd.tar.gz
     cd $OP_Sysklogd
 
-    patch -Np1 -i ../$OP_Sysklogd-consolidated-1.patch
+    sed -i '/Error loading kernel symbols/{n;n;d}' ksym_mod.c
+    sed -i 's/union wait/int/' syslogd.c
+    make -s && make -s BINDIR=/sbin install
+     if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
+
+    cat > /etc/syslog.conf << "EOF"
+# Begin /etc/syslog.confcat > /etc/syslog.conf << "EOF"
+# Begin /etc/syslog.conf
+
+auth,authpriv.* -/var/log/auth.log
+*.*;auth,authpriv.none -/var/log/sys.log
+daemon.* -/var/log/daemon.log
+kern.* -/var/log/kern.log
+mail.* -/var/log/mail.log
+user.* -/var/log/user.log
+*.emerg *
+
+# End /etc/syslog.conf
+EOF
+
+    cd /sources/
+    rm -Rf $OP_Sysklogd #rm extracted pkg
+    echo -e "$DONE" 
+    echo -e $OP_Sysklogd "$TOOL_READY"
+fi
+###********************************
+
+
+
+###OP_Sysvinit:
+if [ -n "$OP_Sysvinit" ] ;then
+    echo -e "$START_JOB"
+    echo $OP_Sysvinit
+    tar -xf $OP_Sysvinit.tar.xz
+    cd $OP_Sysvinit
+
+    patch -Np1 -i ../$OP_Sysvinit-consolidated-1.patch
     make -s && make -s install
      if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
@@ -2904,9 +3008,9 @@ if [ -n "$OP_Sysklogd" ] ;then
     echo -e "$BUILD_SUCCEEDED"
 
     cd /sources/
-    rm -Rf $OP_Sysklogd #rm extracted pkg
+    rm -Rf $OP_Sysvinit #rm extracted pkg
     echo -e "$DONE" 
-    echo -e $OP_Sysklogd "$TOOL_READY"
+    echo -e $OP_Sysvinit "$TOOL_READY"
 fi
 ###********************************
 
