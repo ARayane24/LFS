@@ -110,7 +110,12 @@ export OP_Gawk="gawk-5.3.0"                # *contains programs for manipulating
 export OP_Findutils="findutils-4.9.0"      # *****contains programs to find files. Programs are provided to search through all the files in a directory tree and to create, maintain, and search a database (often faster than the recursive find, but unreliable unless the database has been updated recently). Findutils also supplies the xargs program, which can be used to run a specified command on each file selected by a search.
 export OP_Groff="groff-1.23.0"             # **contains programs for processing and formatting text and images.
 export OP_GRUB="grub-2.12"                 # *****contains the GRand Unified Bootloader.
-    export OP_Which="which-2.21"
+    export OP_Which="which-2.21"            # shows the full path of (shell) commands installed in your PATH
+    export OP_Libping="libpng-1.6.42"       # contains libraries used by other programs for reading and writing PNG files. The PNG format was designed as a replacement for GIF and, to a lesser extent, TIFF, with many improvements and extensions and lack of patent problems.
+        export OP_Libping_patch="libpng-1.6.40"
+    export 
+
+
 export OP_Gzip="gzip-1.13"                 # contains programs for compressing and decompressing files.
 export OP_IPRoute="iproute2-6.7.0"         # contains programs for basic and advanced IPV4-based networking.
 export OP_Kbd="kbd-2.6.4"                  # contains key-table files, console fonts, and keyboard utilities.

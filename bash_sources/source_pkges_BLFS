@@ -7,6 +7,8 @@ http://downloads.skullsecurity.org/passwords/cain.txt.bz2
 http://downloads.skullsecurity.org/passwords/500-worst-passwords.txt.bz2
 http://downloads.skullsecurity.org/passwords/twitter-banned.txt.bz2
 
+
+
 ## GRUB (UEFI-support)
 https://ftp.gnu.org/gnu/grub/grub-2.12.tar.xz
 # Unicode font data used to display GRUB menu
@@ -15,5 +17,14 @@ https://unifoundry.com/pub/unifont/unifont-15.1.04/font-builds/unifont-15.1.04.p
 #-----Required pckgs for GRUB-----# 
 # which
 https://ftp.gnu.org/gnu/which/which-2.21.tar.gz
+
+# libping
+https://downloads.sourceforge.net/libpng/libpng-1.6.42.tar.xz
+#- patch
+https://downloads.sourceforge.net/sourceforge/libpng-apng/libpng-1.6.40-apng.patch.gz
+
+#
+
+
 
 ###################################

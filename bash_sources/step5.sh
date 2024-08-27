@@ -2287,24 +2287,8 @@ fi
 ###********************************
 
 if [ -n "$OP_GRUB" ] && UEFI;then
-    # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
-    #Recommended PKGS for GRUB (UEFI) version
-    # 1 - OP_Which
-    if [-n "$OP_Which"] ;then
-        echo -e "$START_JOB"
-        echo $OP_Which
-        tar -xf $OP_Which.tar.gz
-        cd $OP_Which
+    source /myhelper/bash_sources/step5_grub_uefi_requirement.sh
 
-        ./configure --prefix=/usr &&
-        make -s && make -s install
-
-        cd /sources/
-        rm -Rf $OP_Which #rm extracted pkg
-        echo -e "$DONE" 
-        echo -e $OP_Which "$TOOL_READY"
-    fi
-    # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
     ###OP_GRUB (WITH_UEFI BLFS): 
     echo -e "$START_JOB"
     echo $OP_GRUB
