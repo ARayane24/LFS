@@ -61,6 +61,7 @@ if ! [ -n "$STEP1_ENDED" ] || ! $STEP1_ENDED; then
     export STEP4_ENDED=false
     export STEP5_ENDED=false
 
+
     export CPU_ARCH_HUMAN=$formatted_cpu_arch_human
     export CPU_ARCH=$formatted_cpu_arch
     "
@@ -108,12 +109,50 @@ if ! [ -n "$STEP1_ENDED" ] || ! $STEP1_ENDED; then
     else
         echo -e "$NOT_ONLY_STATIC"
     fi
-   
-   
+    ##############################
+    #   * DO optionnal tests *   #
+    ##############################
+    WANT_TO_DO_OPTIONNAL_TESTS=$(yes_no_question "$DO_YOU_WANT_TO_EXE_OPTIONNAL_TESTS")
+    if $WANT_TO_DO_OPTIONNAL_TESTS; then
+        echo -e "$DO_ALL_TESTS"
+    else
+        echo -e "$DONT_DO_ALL_TESTS"
+    fi
+    ##############################
+    #   * ADD optionnal docs *   #
+    ##############################
+    # optionnal documentation of the used pkgs
+    WANT_TO_ADD_OPTIONNAL_DOCS=$(yes_no_question "$DO_YOU_WANT_TO_ADD_OPTIONNAL_DOCS")
+    if $WANT_TO_ADD_OPTIONNAL_DOCS; then
+        echo -e "$ADD_ALL_DOCS"
+    else
+        echo -e "$DONT_ADD_ALL_DOCS"
+    fi
+    ###########################
+    #   * optionnal SLEEP *   #
+    ###########################
+    echo -e "$RUNING_WITH_FULL_CPU_POWER_FOR_LONG_TIME_HARM_PC"
+    SLEEP_FOR_N_SECONDS=$(read_positive_numbers_only "$HOW_MATCH_TIME_SLEEP_IN_SECONDS")
+    echo -e "$EACH_5_SBU_SLEEP" "$SLEEP_FOR_N_SECONDS"
+    #######################
+    #   * UEFI System *   #
+    #######################
+    IS_UEFI=$(yes_no_question "$IS_YOUR_TARGET_UEFI")
+    if $IS_UEFI; then
+        echo -e "$YOUR_TARGET_IS_UEFI"
+    else
+        echo -e "$YOUR_TARGET_IS_NOT_UEFI"
+    fi
+
+
     SAVE="
     # Backup
     export BACK_UP_OS_IN_THE_END=${BACK_UP_OS_IN_THE_END}
     export STATIC_ONLY=${STATIC_ONLY}
+    export DO_OPTIONNAL_TESTS=$WANT_TO_DO_OPTIONNAL_TESTS
+    export ADD_OPTIONNAL_DOCS=$WANT_TO_ADD_OPTIONNAL_DOCS
+    export SLEEP_FOR_N_SECONDS=$SLEEP_FOR_N_SECONDS
+    export IS_UEFI=$IS_UEFI
     "
     echo "$SAVE" >> $SHARED_FILE
    
@@ -132,7 +171,7 @@ if ! [ -n "$STEP1_ENDED" ] || ! $STEP1_ENDED; then
     source ./bash_sources/step1.sh
 fi
 if [ -n "$STEP1_ENDED" ] && [ "$STEP1_ENDED" = true ] \
-   && [ -n "$STEP2_ENDED" ] && [ "$STEP2_ENDED" = true ] \
+   && [ -n "$STEP2_ENDED" ] && [ "$STEP2_ENDED" = t"12.2SBU" "$FOR" "$"rue ] \
    && [ -n "$STEP3_ENDED" ] && [ "$STEP3_ENDED" = true ] \
    && [ -n "$STEP4_ENDED" ] && [ "$STEP4_ENDED" = true ]; then
     # Restore
@@ -141,10 +180,10 @@ fi
 
 bash $NEXT_STEP
 
-sleep ? 
-tests ?
-do you wanna continue in after Backup?
-add option to save progress in case of error?
-your system is UEFI ?
-do you wanna add documontations ?
+
+
+
 is curent cpu archi == target cpu archi
+
+## Future improvment :
+# add option to save progress in case of error to complite where it has stopted

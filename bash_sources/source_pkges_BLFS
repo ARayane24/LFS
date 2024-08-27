@@ -1,0 +1,19 @@
+## CrackLib
+https://github.com/cracklib/cracklib/releases/download/v2.9.11/cracklib-2.9.11.tar.xz
+# Password dictionaries
+https://github.com/cracklib/cracklib/releases/download/v2.9.11/cracklib-words-2.9.11.xz
+http://downloads.skullsecurity.org/passwords/john.txt.bz2
+http://downloads.skullsecurity.org/passwords/cain.txt.bz2
+http://downloads.skullsecurity.org/passwords/500-worst-passwords.txt.bz2
+http://downloads.skullsecurity.org/passwords/twitter-banned.txt.bz2
+
+## GRUB (UEFI-support)
+https://ftp.gnu.org/gnu/grub/grub-2.12.tar.xz
+# Unicode font data used to display GRUB menu
+https://unifoundry.com/pub/unifont/unifont-15.1.04/font-builds/unifont-15.1.04.pcf.gz
+
+#-----Required pckgs for GRUB-----# 
+# which
+https://ftp.gnu.org/gnu/which/which-2.21.tar.gz
+
+###################################

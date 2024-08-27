@@ -6,18 +6,39 @@
 SAVE="
 ###Language
 #msgs:
+export INPUT_POSI_NUMBER=\"Input a positive number (>0): \"
+export NO_VALID_NUMBER=\"${ERROR}Error:${NO_STYLE} The parameter is not a valid number\"
+
+export DO_YOU_WANT_TO_EXE_OPTIONNAL_TESTS=\"Do you want to execute recommended and optionnal testes ? [y/n] \"
+export DO_ALL_TESTS=\"${OK}You have indicated that you want all the tests to be done\n${NO_STYLE}\"
+export DONT_DO_ALL_TESTS=\"${OK}You have indicated that you don not want all the tests to be done (do only the neccessary ones)\n${NO_STYLE}\"
+
+export DO_YOU_WANT_TO_ADD_OPTIONNAL_DOCS=\"Do you want to add documentation for all used pkgs ? [y/n] \"
+export ADD_ALL_DOCS=\"${OK}You have indicated that you want to add all documentation of all used pkgs\n${NO_STYLE}\"
+export DONT_ADD_ALL_DOCS=\"${OK}You have indicated that you do not want to add all documentation of all used pkgs (only the neccessary ones)\n${NO_STYLE}\"
+
+export RUNING_WITH_FULL_CPU_POWER_FOR_LONG_TIME_HARM_PC=\"${ERROR}IMPORTANT : ${NO_STYLE} Using 100% of your CPU for realy long time could harm your CPU\"
+export HOW_MATCH_TIME_SLEEP_IN_SECONDS=\"For How long (in seconds) you want to pause the proccess after each period (5SBU -aprox) ?\"
+export EACH_5_SBU_SLEEP=\"Each period the proccess will sleep for : \"
+export SLEEPPING_AFTER=\"Sleeping after \"
+export WAKINNG=\"Waking up ... \"
+
+export IS_YOUR_TARGET_UEFI=\"Does your target has UEFI bios? [y/n] \"
+export YOUR_TARGET_IS_UEFI=\"You have indicated that your target has UEFI bios \"
+export YOUR_TARGET_IS_NOT_UEFI=\"You have indicated that your target has not UEFI bios \"
+
 export LFS_IS_NOT_SET=\"${ERROR}ERROR : ${NO_STYLE}The \$LFS var is not set !!\"
 export DO_YOU_WANT_HAVING_ONLY_STATIC=\"Do you want us to use only static libs? (otherwais, we'll use dynamic libs when ever it's possible) [y/n] \"
 export CHOOSE_CPU_ARCHI=\"Choose your Target CPU-archi \n\"
-export ONLY_STATIC=\"${OK}You indicated that you want us to use only static libs.\n${NO_STYLE}\"
-export NOT_ONLY_STATIC=\"${OK}You indicated that you want us to use dynamic libs when ever we can.\n${NO_STYLE}\"
+export ONLY_STATIC=\"${OK}You have indicated that you want us to use only static libs.\n${NO_STYLE}\"
+export NOT_ONLY_STATIC=\"${OK}You have indicated that you want us to use dynamic libs when ever we can.\n${NO_STYLE}\"
 export DO_YOU_HAVE_CODE_SOURCES=\"Do you have the code sources? [y/n] \"
 export DO_YOU_WANT_BACKUP_OS_REC=\"Colse to the final steps ${OK}it is recommended${NO_STYLE} to have backup for the progress [requier about 5GB]\"
 export DO_YOU_WANT_BACKUP_OS=\"Do you want to backup the progress? [y/n] \"
-export YES_BACK_UP_OS=\"${OK}You indicated that you want us to backup the progress\n${NO_STYLE}\"
-export NO_BACK_UP_OS=\"${OK}You indicated that you do not want us to backup the progress\n${NO_STYLE}\"
-export YOU_HAVE_CODE_SOURCES=\"${OK}You indicated that you have the code sources.\n${NO_STYLE}\"
-export YOU_DONNOT_HAVE_CODE_SOURCES=\"${OK}You indicated that you do not have the code sources.\n${NO_STYLE}\"
+export YES_BACK_UP_OS=\"${OK}You have indicated that you want us to backup the progress\n${NO_STYLE}\"
+export NO_BACK_UP_OS=\"${OK}You have indicated that you do not want us to backup the progress\n${NO_STYLE}\"
+export YOU_HAVE_CODE_SOURCES=\"${OK}You have indicated that you have the code sources.\n${NO_STYLE}\"
+export YOU_DONNOT_HAVE_CODE_SOURCES=\"${OK}You have indicated that you do not have the code sources.\n${NO_STYLE}\"
 export UPDATE_DOWNLOAD_NEEDED_PKGS=\"${PROCESS}Downlading and updating required packges ...${NO_STYLE}\"
 export PLEASE_Y_OR_N=\"${ERROR}Error:${NO_STYLE} Invalid input. Please enter y or n.\"
 export STARTING_DOWNLOADS=\"${PROCESS}Starting the download ...${NO_STYLE}\"
@@ -64,6 +85,11 @@ export END_STEP3=\"${TITLE}  END 3 - Moving to Chroot - ${NO_STYLE}\"
 export START_STEP4=\"${TITLE}  START 4 - Adding necessary dirs - ${NO_STYLE}\"
 export BACKING_UP_PROGRESS_TO_TARBALL=\"${PROCESS}Backing-up the progress ...${NO_STYLE}\"
 export RESTORE_PROGRESS_TO_TARBALL=\"${PROCESS}Restoring the progress ...${NO_STYLE}\"
+
+export DO_YOU_WANNA_EXIT_AFTER_BACKUP=\"Do you want to exit now the backup is complited ?  [y/n] \"
+export SELECTED_EXIT_AFTER_BACKUP=\"${PROCESS}You have indicated that you want to exit ... ${NO_STYLE}\"
+export SELECTED_DONNT_EXIT_AFTER_BACKUP=\"${PROCESS}You have indicated that you do want to exit, compliting the work ... ${NO_STYLE}\"
+
 export END_STEP4=\"${TITLE}  END 4 - Adding necessary dirs - ${NO_STYLE}\"
 #**************
 export START_STEP5=\"${TITLE}  START 5 - Building Temporary Tools - ${NO_STYLE}\"

@@ -6,8 +6,9 @@ downlaod_utils_pkgs(){
     #install requited packages
     apt update  #update list pkgs
     apt upgrade #update existing pkgs
+    apt full-upgrade  #update all pkgs
 
-    if ! apt-get install binutils bison coreutils diffutils findutils gawk gcc g++ grep gzip m4 make patch perl python3 texinfo sed tar xz-utils; then
+    if ! apt-get install binutils bison coreutils diffutils findutils gawk gcc g++ grep gzip m4 make patch perl python3 texinfo sed tar xz-utils bunzip2; then
         echo -e "$CANNOT_INSTALL_PAKAGES"
         exit 1
     else
@@ -216,9 +217,37 @@ select_cpu_archi() {
     
 
      # Prepare the content to be appended
-    SAVE="  export CPU_SELECTED_ARCH=${CPU_ARCH[$result_index]}"
+    SAVE="  export CPU_SELECTED_ARCH=${CPU_ARCH[$result_index]} "
 
     # Append the content to $SHARED_FILE
     echo "$SAVE"  >> $SHARED_FILE
-    echo "$SELECTED_ARCHI_IS" "$CPU_SELECTED_ARCH"
+    echo "$SELECTED_ARCHI_IS" "${CPU_ARCH[$result_index]}"
+}
+
+
+read_positive_numbers_only(){
+    local QUESTION=$1
+
+    if [ -z "$QUESTION" ]; then
+        echo -e "$MISSING_PARAM"
+        exit 1
+    fi
+
+    echo -e "$QUESTION"
+    while true; do
+        read -p "$INPUT_POSI_NUMBER" USER_pos_number
+
+        if  [[ "$USER_pos_number" =~ ^[0-9]+$ ]] && ! [ "$USER_pos_number" -le 0 ]; then
+            break
+        fi
+        echo -e "$NO_VALID_NUMBER"
+    done
+
+    echo "$USER_pos_number"
+}
+
+sleep_before_complite(){
+    echo -e "${PROCESS}$SLEEPPING_AFTER" "12.2SBU" "$FOR" "$SLEEP_FOR_N_SECONDS" "...${NO_STYLE}"
+    sleep $SLEEP_FOR_N_SECONDS
+    echo -e "${PROCESS}$WAKINNG ${NO_STYLE}"
 }
