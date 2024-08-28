@@ -3020,7 +3020,7 @@ popd
     STEP4_ENDED=true
     echo -e "${STEP}
     ###############################################
-    #   *${NO_STYLE}$END_STEP5${STEP}* these      #
+    #   *${NO_STYLE}$END_STEP5${STEP}*       #
     ############################################### ${NO_STYLE}
     "
 
@@ -3043,4 +3043,4 @@ if ! $KEEP_DEBUG_FILES; then
     source /LFS/bash_sources/step6.sh
 fi
 
-bash /LFS/bash_sources/step7.sh
+source /LFS/bash_sources/step7.sh

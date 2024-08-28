@@ -144,7 +144,7 @@ rm -rf /usr/share/{info,man,doc}/*          # remove the currently installed doc
 find /usr/{lib,libexec} -name \*.la -delete # can cause BLFS package failures. Remove those files now:
 rm -rf /tools                               # delete tools
 echo -e "$DONE"
-cd $LFS/LFS/bash_sources
+cd /LFS/bash_sources
 
 if $BACK_UP_OS_IN_THE_END; then
     source ./step4.3_backup.sh
@@ -156,7 +156,7 @@ fi
 STEP4_ENDED=true
     echo -e "${STEP}
     ###############################################
-    #   *${NO_STYLE}$END_STEP4${STEP}* these      #
+    #   *${NO_STYLE}$END_STEP4${STEP}*       #
     ############################################### ${NO_STYLE}
     "
 
@@ -171,7 +171,7 @@ SAVE="
 
 ### copied vars to other user
 export STEP4_ENDED=$STEP4_ENDED
-export NEXT_STEP=./step5.sh
+export NEXT_STEP=/LFS/bash_sources/step5.sh
 
 "
 echo "$SAVE" >> $SHARED_FILE

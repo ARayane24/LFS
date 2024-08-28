@@ -57,9 +57,11 @@ SAVE="
 ### copied vars to other user
 export STEP3_ENDED=$STEP3_ENDED
 export NEXT_STEP=/LFS/bash_sources/step4.1.sh
+export SHARED_FILE=/bash.bashrc
 
 "
 echo "$SAVE" >> $SHARED_FILE
+cp -v /etc/bash.bashrc $LFS #keep shared vars
 
 
 if ! [ -n "$STEP4_ENDED" ] || ! $STEP4_ENDED; then
@@ -67,6 +69,8 @@ if ! [ -n "$STEP4_ENDED" ] || ! $STEP4_ENDED; then
     echo -e "STEP3_ENDED=$STEP3_ENDED"
     echo -e "$RUN_CMD_TO_START_NEXT_STEP"
     echo "bash \$NEXT_STEP"
+
+    
 
     #entering chroot you can set other vars here also 
     chroot "$LFS" /usr/bin/env -i   \
