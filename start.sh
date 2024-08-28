@@ -36,7 +36,7 @@ if ! [ -n "$STEP1_ENDED" ] || ! $STEP1_ENDED; then
     ######################
     # Important vars
     export HELPER_DIR=$(pwd)
-    export SHARED_FILE=/etc/bash.bashrc
+    export SHARED_FILE="/etc/bash.bashrc"
 
     export CPU_ARCH_HUMAN=("64-bit(x86) architecture" "64-bit(ARM) architecture")
     export CPU_ARCH=("x86_64" "aarch64")
