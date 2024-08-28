@@ -8,7 +8,7 @@ downlaod_utils_pkgs(){
     apt upgrade #update existing pkgs
     apt full-upgrade  #update all pkgs
 
-    if ! apt-get install binutils bison coreutils diffutils findutils gawk gcc g++ grep gzip m4 make patch perl python3 texinfo sed tar xz-utils bunzip2; then
+    if ! apt-get install binutils bison coreutils diffutils findutils gawk gcc g++ grep gzip m4 make patch perl python3 texinfo sed tar xz-utils bzip2; then
         echo -e "$CANNOT_INSTALL_PAKAGES"
         exit 1
     else

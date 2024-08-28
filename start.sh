@@ -72,6 +72,7 @@ SAVE="
     cd ./bash_sources/terminal_params
     source ./_config.sh
     cd $HELPER_DIR
+    source $SHARED_FILE
 
     #######################
     #   *  Welcome  *   #
