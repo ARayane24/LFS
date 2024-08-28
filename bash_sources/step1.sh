@@ -57,14 +57,13 @@ create_and_save_partition $LFS $SAVE_Partition || {
 }
 
 cp -rf $HELPER_DIR $LFS
-mkdir -v $LFS/sources
-chmod -v a+wt $LFS/sources #all users can write. only the owner of the file who can delete it
 chmod -v a+wt $LFS/LFS #all users can write. only the owner of the file who can delete it
 
 
 #mouve sources if foound to sources dir in the partion file
 mv -f $LFS/LFS/sources $LFS || downlaod_code_source_pkgs $LFS
 
+chmod -v a+wt $LFS/sources #all users can write. only the owner of the file who can delete it
 #change the owner to root
 chown root:root $LFS/sources/*
 chown root:root $LFS/LFS/*
