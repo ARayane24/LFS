@@ -28,7 +28,7 @@ if ! [[ -n "${INIT_FOR_SAFETY+x}" ]] && [[ -f /etc/bash.bashrc ]]; then
     source /etc/bash.bashrc
     
     echo -e "Init Done ! \n"
-fibash /myhelper/bash_sources/step7.sh
+fi
 
 if ! [ -n "$STEP1_ENDED" ] || ! $STEP1_ENDED; then
     ######################
@@ -214,7 +214,6 @@ bash $NEXT_STEP
 
 
 
-is curent cpu archi == target cpu archi
 
 ## Future improvment :
 # add option to save progress in case of error to complite where it has stopted
