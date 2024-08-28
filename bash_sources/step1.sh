@@ -63,7 +63,7 @@ chmod -v a+wt $LFS/LFS #all users can write. only the owner of the file who can 
 
 
 #mouve sources if foound to sources dir in the partion file
-mv -rf $LFS/LFS/sources $LFS || downlaod_code_source_pkgs $LFS
+mv -f $LFS/LFS/sources $LFS || downlaod_code_source_pkgs $LFS
 
 #change the owner to root
 chown root:root $LFS/sources/*
