@@ -155,7 +155,8 @@ SAVE="
     #   * optionnal SLEEP *   #
     ###########################
     echo -e "$RUNING_WITH_FULL_CPU_POWER_FOR_LONG_TIME_HARM_PC"
-    SLEEP_FOR_N_SECONDS=$(read_positive_numbers_only "$HOW_MATCH_TIME_SLEEP_IN_SECONDS")
+    echo -e "$HOW_MATCH_TIME_SLEEP_IN_SECONDS"
+    SLEEP_FOR_N_SECONDS=$(read_positive_numbers_only)
     echo -e "$EACH_5_SBU_SLEEP" "$SLEEP_FOR_N_SECONDS"
     #######################
     #   * UEFI System *   #

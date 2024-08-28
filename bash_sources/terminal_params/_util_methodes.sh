@@ -225,15 +225,7 @@ select_cpu_archi() {
 }
 
 
-read_positive_numbers_only(){
-    local QUESTION=$1
-
-    if [ -z "$QUESTION" ]; then
-        echo -e "$MISSING_PARAM"
-        exit 1
-    fi
-
-    echo -e "$QUESTION"
+read_positive_numbers_only(){  
     while true; do
         read -p "$INPUT_POSI_NUMBER" USER_pos_number
 
