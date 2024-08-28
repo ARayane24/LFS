@@ -74,6 +74,28 @@ if ! [ -n "$STEP1_ENDED" ] || ! $STEP1_ENDED; then
     cd $HELPER_DIR
 
     #######################
+    #   *  Welcome  *   #
+    #######################
+    # Define multiple lines of text to center
+    lines=("$WELCOME"
+        "$LOGO")
+    layout=("${STEP}${lines[0]}${NO_STYLE}"
+        "${TITLE}${lines[1]}${NO_STYLE}")
+
+    # Get the width of the terminal
+    terminal_width=$(tput cols)
+
+    # Loop through each line and print it centered
+    i=0
+    for text in "${lines[@]}"; do
+        text_length=${#text}
+        spaces=$(( (terminal_width - text_length) / 2 ))
+        padding=$(printf "%${spaces}s")
+        echo -e "${padding}${layout[$i]}"
+        ((i++))
+    done
+
+    #######################
     #   *  downloads  *   #
     #######################
     CODE_SOURCES_INSTALLED=$(yes_no_question "$DO_YOU_HAVE_CODE_SOURCES")

@@ -56,6 +56,8 @@ export SELECTED_ARCHI_IS=\"Your target CPU-archi is : \"
 export INPUT_NEW_USER_NAME_msg=\"Input new user name: \"
 export NO_MATCH_ERROR=\"${ERROR}Error:${NO_STYLE} no match :\"
 export INPUT_THE_NAME_OF_THE_NEW_DISTRO_msg=\"Input the name of your new distro: \"
+export WELCOME=\"Welcome to My Program\"
+export LOGO=\"Create LFS easily !!\"
 #**************
 export START_STEP0=\"${TITLE}  START 0 - Getting data from user - ${NO_STYLE}\"
 export END_STEP0=\"${TITLE}  END 0 - Getting data from user - ${NO_STYLE}\"
