@@ -201,7 +201,7 @@ SAVE="
     #   *  Starting  *   #
     ######################
     cd $HELPER_DIR
-    bash ./bash_sources/step1.sh
+    source ./bash_sources/step1.sh
 fi
 if [ -n "$STEP1_ENDED" ] && [ "$STEP1_ENDED" = true ] \
    && [ -n "$STEP2_ENDED" ] && [ "$STEP2_ENDED" = true ] \
