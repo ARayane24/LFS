@@ -6,6 +6,10 @@
 SAVE="
 ###Language
 #msgs:
+export DO_YOU_WANNA_KEEP_DEBUG_FILES=\"Do you want to keep the debug files ? [y/n] \"
+export YEP_KEEP_DEBUG_FILES=\"${OK}You have indicated that you want to keep them\n${NO_STYLE}\"
+export YEP_KEEP_DEBUG_FILES=\"${OK}You have indicated that you do not want to keep them\n${NO_STYLE}\"
+
 export INPUT_POSI_NUMBER=\"Input a positive number (>0): \"
 export NO_VALID_NUMBER=\"${ERROR}Error:${NO_STYLE} The parameter is not a valid number\"
 
@@ -97,6 +101,12 @@ export INPUT_TZ_VALUE=\"Input the result of previous command (TZ value): \"
 export VALID_TZ=\"${OK}Valid time zone: ${NO_STYLE}\n\"
 export NOT_VALID_TZ=\"${ERROR}ERROR: Invalid time zone. Please try again.${NO_STYLE}\n\"
 export END_STEP5=\"${TITLE}  END 5 - Building Temporary Tools - ${NO_STYLE}\"
+#**************
+export START_STEP6=\"${TITLE}  START 6 - Removing debug files - ${NO_STYLE}\"
+export END_STEP6=\"${TITLE}  END 6 - Removing debug files - ${NO_STYLE}\"
+#**************
+export START_STEP7=\"${TITLE}  START 7 - Cleaning build - ${NO_STYLE}\"
+export END_STEP7=\"${TITLE}  END 7 - Cleaning build - ${NO_STYLE}\"
 #**************
 
 

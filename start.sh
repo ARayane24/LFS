@@ -28,7 +28,7 @@ if ! [[ -n "${INIT_FOR_SAFETY+x}" ]] && [[ -f /etc/bash.bashrc ]]; then
     source /etc/bash.bashrc
     
     echo -e "Init Done ! \n"
-fi
+fibash /myhelper/bash_sources/step7.sh
 
 if ! [ -n "$STEP1_ENDED" ] || ! $STEP1_ENDED; then
     ######################
@@ -143,7 +143,15 @@ if ! [ -n "$STEP1_ENDED" ] || ! $STEP1_ENDED; then
     else
         echo -e "$YOUR_TARGET_IS_NOT_UEFI"
     fi
-
+    ######################
+    #   * Debug mode *   #
+    ######################
+    KEEP_DEBUG_FILES=$(yes_no_question "$DO_YOU_WANNA_KEEP_DEBUG_FILES")
+    if $KEEP_DEBUG_FILES; then
+        echo -e "$YEP_KEEP_DEBUG_FILES"
+    else
+        echo -e "$NO_KEEP_DEBUG_FILES"
+    fi
 
     SAVE="
     # Backup
@@ -153,6 +161,7 @@ if ! [ -n "$STEP1_ENDED" ] || ! $STEP1_ENDED; then
     export ADD_OPTIONNAL_DOCS=$WANT_TO_ADD_OPTIONNAL_DOCS
     export SLEEP_FOR_N_SECONDS=$SLEEP_FOR_N_SECONDS
     export IS_UEFI=$IS_UEFI
+    export KEEP_DEBUG_FILES=$KEEP_DEBUG_FILES
     "
     echo "$SAVE" >> $SHARED_FILE
    

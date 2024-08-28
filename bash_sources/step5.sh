@@ -6,7 +6,7 @@ source ./terminal_params/_util_methodes.sh
 source ./terminal_params/_pakages_names.sh
 
 
-cd /sources/
+pushd /sources/
 #***************************************************************************#
    echo -e "${STEP}
     ###############################################
@@ -3016,7 +3016,7 @@ fi
 
 
 
-
+popd
     STEP4_ENDED=true
     echo -e "${STEP}
     ###############################################
@@ -3035,7 +3035,12 @@ SAVE="
 
 ### copied vars to other user
 export STEP5_ENDED=$STEP5_ENDED
-export NEXT_STEP=
 
 "
 echo "$SAVE" >> $SHARED_FILE
+
+if ! $KEEP_DEBUG_FILES; then
+    source /myhelper/bash_sources/step6.sh
+fi
+
+bash /myhelper/bash_sources/step7.sh
