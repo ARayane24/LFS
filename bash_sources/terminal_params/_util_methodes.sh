@@ -48,13 +48,13 @@ downlaod_code_source_pkgs(){
 
     #download list of names
     echo -e "${downloading_pkg_started_msg[$USER_Lang]}"
-    wget -nv https://www.linuxfromscratch.org/lfs/view/stable/wget-list-sysv --directory-prefix=$COURENT_DIR/sources
-    wget -nv https://www.linuxfromscratch.org/lfs/view/stable/md5sums --directory-prefix=$COURENT_DIR/sources
-
+    
     #download files using the lists
-    wget -nv --input-file=$COURENT_DIR/sources/wget-list-sysv --continue --directory-prefix=$COURENT_DIR/sources
+    wget -nv --input-file=$COURENT_DIR/bash_sources/source_pkges_LFS --continue --directory-prefix=$COURENT_DIR/sources
+    wget -nv --input-file=$COURENT_DIR/bash_sources/source_pkges_BLFS --continue --directory-prefix=$COURENT_DIR/sources
     pushd $COURENT_DIR/sources
-        md5sum -c $COURENT_DIR/sources/md5sums #find missing pkgs
+        md5sum -c $COURENT_DIR/bash_sources/check_source_pkges_LFS #find missing pkgs
+        md5sum -c $COURENT_DIR/bash_sources/check_source_pkges_BLFS #find missing pkgs
     popd
     echo -e "$DONE"
 
