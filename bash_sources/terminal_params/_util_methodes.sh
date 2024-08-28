@@ -43,7 +43,7 @@ downlaod_code_source_pkgs(){
         exit 1
     fi
 
-
+    mkdir $COURENT_DIR/sources
     cd $COURENT_DIR/sources
 
     #download list of names
