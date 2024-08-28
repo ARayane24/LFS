@@ -41,7 +41,7 @@ fi
 STEP3_ENDED=true
     echo -e "${STEP}
     ###############################################
-    #   *${NO_STYLE}$END_STEP3${STEP}* these      #
+    #     *${NO_STYLE}$END_STEP3${STEP}*         #
     ############################################### ${NO_STYLE}
     "
 
@@ -56,7 +56,7 @@ SAVE="
 
 ### copied vars to other user
 export STEP3_ENDED=$STEP3_ENDED
-export NEXT_STEP=./step4.1.sh
+export NEXT_STEP=/LFS/bash_sources/step4.1.sh
 
 "
 echo "$SAVE" >> $SHARED_FILE
@@ -78,6 +78,3 @@ if ! [ -n "$STEP4_ENDED" ] || ! $STEP4_ENDED; then
         TESTSUITEFLAGS="-j$(nproc)" \
         /bin/bash --login
 fi
-
-#test for result todo- remove
-source ./step4.1.sh || true
