@@ -144,7 +144,7 @@ rm -rf /usr/share/{info,man,doc}/*          # remove the currently installed doc
 find /usr/{lib,libexec} -name \*.la -delete # can cause BLFS package failures. Remove those files now:
 rm -rf /tools                               # delete tools
 echo -e "$DONE"
-cd $LFS/_myhelper/bash_sources
+cd $LFS/LFS/bash_sources
 
 if $BACK_UP_OS_IN_THE_END; then
     source ./step4.3_backup.sh

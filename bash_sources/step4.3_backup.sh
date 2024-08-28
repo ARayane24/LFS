@@ -11,5 +11,5 @@ umount $LFS/{sys,proc,run,dev}
 
 # compress tools
 cd $LFS
-tar -cJpf $HOME/lfs-temp-tools-12.1.tar.xz .
+tar -cJpf $HOME/${DISTRO_NAME}-temp-tools.tar.xz .
 echo -e "$DONE"

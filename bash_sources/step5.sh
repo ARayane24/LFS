@@ -2287,7 +2287,7 @@ fi
 ###********************************
 
 if [ -n "$OP_GRUB" ] && UEFI;then
-    source /myhelper/bash_sources/step5_grub_uefi_requirement.sh
+    source /LFS/bash_sources/step5_grub_uefi_requirement.sh
 
     ###OP_GRUB (WITH_UEFI BLFS): 
     echo -e "$START_JOB"
@@ -3040,7 +3040,7 @@ export STEP5_ENDED=$STEP5_ENDED
 echo "$SAVE" >> $SHARED_FILE
 
 if ! $KEEP_DEBUG_FILES; then
-    source /myhelper/bash_sources/step6.sh
+    source /LFS/bash_sources/step6.sh
 fi
 
-bash /myhelper/bash_sources/step7.sh
+bash /LFS/bash_sources/step7.sh

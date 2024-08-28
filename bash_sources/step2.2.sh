@@ -683,7 +683,7 @@ SAVE="
 
 ### copied vars to other user
 export STEP2_ENDED=$STEP2_ENDED
-export NEXT_STEP=$LFS/_myhelper/bash_sources/step3.sh
+export NEXT_STEP=$LFS/LFS/bash_sources/step3.sh
 
 "
 echo "$SAVE" >> $SHARED_FILE

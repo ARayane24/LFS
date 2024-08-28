@@ -36,11 +36,6 @@ if ! [ -n "$STEP1_ENDED" ] || ! $STEP1_ENDED; then
     ######################
     # Important vars
     export HELPER_DIR=$(pwd)
-    export STEP1_ENDED=false
-    export STEP2_ENDED=false
-    export STEP3_ENDED=false
-    export STEP4_ENDED=false
-    export STEP5_ENDED=false
     export SHARED_FILE=/etc/bash.bashrc
 
     export CPU_ARCH_HUMAN=("64-bit(x86) architecture" "64-bit(ARM) architecture")
@@ -51,7 +46,7 @@ if ! [ -n "$STEP1_ENDED" ] || ! $STEP1_ENDED; then
     printf -v formatted_cpu_arch "(%s)" "$(printf '"%s" ' "${CPU_ARCH[@]}")"
 
     # Prepare the content to be appended
-    SAVE="
+SAVE="
     # INIT
     export SHARED_FILE=$SHARED_FILE
     export HELPER_DIR=$(pwd)
@@ -60,11 +55,16 @@ if ! [ -n "$STEP1_ENDED" ] || ! $STEP1_ENDED; then
     export STEP3_ENDED=false
     export STEP4_ENDED=false
     export STEP5_ENDED=false
+    export STEP6_ENDED=false
+    export STEP7_ENDED=false
+    export STEP8_ENDED=false
+    export STEP9_ENDED=false
+    export STEP10_ENDED=false
 
 
     export CPU_ARCH_HUMAN=$formatted_cpu_arch_human
     export CPU_ARCH=$formatted_cpu_arch
-    "
+"
     echo "$SAVE" >> $SHARED_FILE
     source $SHARED_FILE
 
@@ -199,7 +199,7 @@ if ! [ -n "$STEP1_ENDED" ] || ! $STEP1_ENDED; then
     #   *  Starting  *   #
     ######################
     cd $HELPER_DIR
-    source ./bash_sources/step1.sh
+    bash ./bash_sources/step1.sh
 fi
 if [ -n "$STEP1_ENDED" ] && [ "$STEP1_ENDED" = true ] \
    && [ -n "$STEP2_ENDED" ] && [ "$STEP2_ENDED" = true ] \

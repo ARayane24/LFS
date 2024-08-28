@@ -4,8 +4,6 @@
 # don't edit this file to insure that it works properly unless you know what are you doing
 
 source ./_colors_in_consol.sh
-source $SHARED_FILE
-
 cd ./languages
 # select_lang found in ./_methodes
 source ./_methodes.sh

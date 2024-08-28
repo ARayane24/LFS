@@ -17,7 +17,6 @@ export Logs_path=$THIS_FILE_LOCATION/logs #show results only
 # copied vars to other user
 export DEV_NAME=lfs
 export DISTRO_NAME=lfs
-export USER_Lang=3
 
 
 #***************************************************************************#
@@ -46,7 +45,6 @@ fi
     #   *${NO_STYLE}$START_STEP1${STEP}*   #
     ############################################### ${NO_STYLE}
     "
-#source $SHARED_FILE
 
 #export Important vars
 export LFS=/mnt/$DISTRO_NAME
@@ -58,18 +56,18 @@ create_and_save_partition $LFS $SAVE_Partition || {
     return 1
 }
 
-cp -rf $HELPER_DIR $LFS/_myhelper
+cp -rf $HELPER_DIR $LFS
 mkdir -v $LFS/sources
 chmod -v a+wt $LFS/sources #all users can write. only the owner of the file who can delete it
-chmod -v a+wt $LFS/_myhelper #all users can write. only the owner of the file who can delete it
+chmod -v a+wt $LFS/LFS #all users can write. only the owner of the file who can delete it
 
 
 #mouve sources if foound to sources dir in the partion file
-mv -rf $LFS/_myhelper/sources $LFS || downlaod_code_source_pkgs $LFS
+mv -rf $LFS/LFS/sources $LFS || downlaod_code_source_pkgs $LFS
 
 #change the owner to root
 chown root:root $LFS/sources/*
-chown root:root $LFS/_myhelper/*
+chown root:root $LFS/LFS/*
 
 
 echo -e "$CREATE_DIR_TO_PUT_RESULTS_OF_COMPILE"
@@ -120,11 +118,10 @@ SAVE="
 ### copied vars to other user
 export DEV_NAME=$DEV_NAME
 export DISTRO_NAME=$DISTRO_NAME
-export USER_Lang=$USER_Lang
 export STEP1_ENDED=$STEP1_ENDED
 export LFS=/mnt/$DISTRO_NAME
 export PATH=$PATH:/usr/sbin #to let the os find all the commands
-export NEXT_STEP=$LFS/_myhelper/bash_sources/step2.1.sh
+export NEXT_STEP=$LFS/LFS/bash_sources/step2.1.sh
 "
 echo "$SAVE" >> $SHARED_FILE
 
