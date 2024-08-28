@@ -28,8 +28,8 @@ export SLEEPPING_AFTER=\"Sleeping after \"
 export WAKINNG=\"Waking up ... \"
 
 export IS_YOUR_TARGET_UEFI=\"Does your target has UEFI bios? [y/n] \"
-export YOUR_TARGET_IS_UEFI=\"You have indicated that your target has UEFI bios \"
-export YOUR_TARGET_IS_NOT_UEFI=\"You have indicated that your target has not UEFI bios \"
+export YOUR_TARGET_IS_UEFI=\"${OK}You have indicated that your target has UEFI bios \n${NO_STYLE}\"
+export YOUR_TARGET_IS_NOT_UEFI=\"${OK}You have indicated that your target has not UEFI bios \n${NO_STYLE}\"
 
 export LFS_IS_NOT_SET=\"${ERROR}ERROR : ${NO_STYLE}The \$LFS var is not set !!\"
 export DO_YOU_WANT_HAVING_ONLY_STATIC=\"Do you want us to use only static libs? (otherwais, we'll use dynamic libs when ever it's possible) [y/n] \"
