@@ -49,7 +49,7 @@ export Util_linux="util-linux-2.39.3"   # contains miscellaneous utility program
 
 # Installing Basic System Software (OP_ optional)
 export OP_Man_pages="man-pages-6.06"       # ***contains over 2,400 man pages.
-export OP_Iana_Etc="iana-Etc-20240125"     # ***provides data for network services and protocols.
+export OP_Iana_Etc="iana-etc-20240125"     # ***provides data for network services and protocols.
 export OP_Glibc="glibc-2.39"               # ***contains the main C library. This library provides the basic routines for allocating memory, searching directories, opening and closing files, reading and writing files, string handling, pattern matching, arithmetic, and so on. (Note :: uses locals ?)
 export OP_Zlib="zlib-1.3.1"                # *contains compression and decompression routines used by some programs
 export OP_Bzip="bzip2-1.0.8"               # **contains programs for compressing and decompressing files. Compressing text files with bzip2 yields a much better compression percentage than with the traditional gzip.
