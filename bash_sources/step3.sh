@@ -65,7 +65,7 @@ echo "$SAVE" >> $SHARED_FILE
 cp -v $SHARED_FILE $LFS/.bashrc #keep shared vars
 
 
-if ! [ -n "$STEP4_ENDED" ] || ! $STEP4_ENDED; then
+if ! [ -n "$STEP5_ENDED" ] || ! $STEP5_ENDED; then
     echo -e "$DONE"
     echo -e "STEP3_ENDED=$STEP3_ENDED"
     echo -e "$RUN_CMD_TO_START_NEXT_STEP"
@@ -81,5 +81,35 @@ if ! [ -n "$STEP4_ENDED" ] || ! $STEP4_ENDED; then
         PATH=/usr/bin:/usr/sbin     \
         MAKEFLAGS="-j$(nproc)"      \
         TESTSUITEFLAGS="-j$(nproc)" \
-        /bin/bash --login -c "source /.bashrc"
+        /bin/bash --login -c "bash $NEXT_STEP"
+
+    # return from chroot :
+    if [ -z "$LFS" ]; then
+      echo "$LFS_IS_NOT_SET"
+      exit 1
+    fi
+    cat $LFS/.bashrc $SHARED_FILE #update shared file with last vars
+    source $SHARED_FILE
+
+    if $BACK_UP_OS_IN_THE_END; then
+
+      source ./step4.3_backup.sh
+
+
+      BACK_UP_OS_IN_THE_END=false #already has been done !!
+      SAVE="
+      # Backup
+      export BACK_UP_OS_IN_THE_END=${BACK_UP_OS_IN_THE_END}
+      "
+      echo "$SAVE" >> $SHARED_FILE
+      echo "$SAVE" >> $LFS/.bashrc #keep shared vars
+
+      if $EXIT_AFTER_BACKUP; then
+          echo -e "$SELECTED_EXIT_AFTER_BACKUP"
+          exit 0
+      else
+          echo -e "$SELECTED_DONNT_EXIT_AFTER_BACKUP"
+          bash ./step3.sh
+      fi
+    fi
 fi

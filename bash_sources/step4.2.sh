@@ -170,14 +170,6 @@ rm -rf /tools                               # delete tools
 echo -e "$DONE"
 cd /LFS/bash_sources
 
-if $BACK_UP_OS_IN_THE_END; then
-    source ./step4.3_backup.sh
-
-    EXIT_AFTER_BACKUP=$(yes_no_question "$DO_YOU_WANNA_EXIT_AFTER_BACKUP")
-else
-    EXIT_AFTER_BACKUP=false
-fi
-
 
 STEP4_ENDED=true
     echo -e "${STEP}
@@ -186,28 +178,20 @@ STEP4_ENDED=true
     ############################################### ${NO_STYLE}
     "
 
+if $BACK_UP_OS_IN_THE_END; then
+    SAVE="
+    #${STEP}
+    ###############################################
+    #   *${NO_STYLE}$START_STEP4${STEP}*     #
+    ############################################### ${NO_STYLE}
 
-#save to SHARED_FILE
-SAVE="
-
-#${STEP}
-###############################################
-#   *${NO_STYLE}$START_STEP4${STEP}*     #
-############################################### ${NO_STYLE}
-
-### copied vars to other user
-export STEP4_ENDED=$STEP4_ENDED
-export NEXT_STEP=/LFS/bash_sources/step5.sh
-
-"
-echo "$SAVE" >> /.bashrc
-
-
-if $EXIT_AFTER_BACKUP; then
-    echo -e "$SELECTED_EXIT_AFTER_BACKUP"
-    echo -e "cp \$LFS/.bashrc \$SHARED_FILE"
-    exit 0
-else
-    echo -e "$SELECTED_DONNT_EXIT_AFTER_BACKUP"
-    source ./step5.sh
+    ### copied vars to other user
+    export STEP4_ENDED=$STEP4_ENDED
+    export NEXT_STEP=$LFS/LFS/bash_sources/step3.sh
+    "
+    echo "$SAVE" >> /.bashrc
+    exit
 fi
+
+
+source ./step5.sh

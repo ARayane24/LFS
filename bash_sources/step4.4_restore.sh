@@ -14,11 +14,4 @@ cd $LFS
 rm -rf ./*
 tar -xpf $HOME/${DISTRO_NAME}-temp-tools.tar.xz
 echo "$DONE"
-BACK_UP_OS_IN_THE_END=false #already has been done !!
-SAVE="
-    # Backup
-    export BACK_UP_OS_IN_THE_END=${BACK_UP_OS_IN_THE_END}
-    "
-    echo "$SAVE" >> $SHARED_FILE
-    cp -v $SHARED_FILE 
-source ./step3.sh
+bash ./step3.sh

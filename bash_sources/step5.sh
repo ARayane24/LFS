@@ -13,6 +13,11 @@ pushd /sources/
     #   *${NO_STYLE}$START_STEP5${STEP}*   #
     ############################################### ${NO_STYLE}
     "
+
+if [ -z "$START_STEP5" ]; then
+  exit 1
+fi
+
 ###OP_Man_pages: 0.1SBU
 if [ -n "$OP_Man_pages" ] ;then
     echo -e "$START_JOB"
