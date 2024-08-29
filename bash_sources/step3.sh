@@ -81,5 +81,5 @@ if ! [ -n "$STEP4_ENDED" ] || ! $STEP4_ENDED; then
         PATH=/usr/bin:/usr/sbin     \
         MAKEFLAGS="-j$(nproc)"      \
         TESTSUITEFLAGS="-j$(nproc)" \
-        /bin/bash --login
+        /bin/bash --login -c "source /.bashrc"
 fi
