@@ -21,6 +21,8 @@ chmod -v 600  /var/log/btmp
 cd /sources 
 
 ### Gettext
+echo -e "$START_JOB"
+echo $Gettext
 tar -xf "$Gettext.tar.xz"
 cd $Gettext
 ./configure --disable-shared
@@ -39,6 +41,8 @@ echo -e $Gettext "$TOOL_READY"
 
 
 ### Bison
+echo -e "$START_JOB"
+echo $Bison
 tar -xf "$Bison.tar.xz"
 cd $Bison
 ./configure --prefix=/usr \
@@ -57,6 +61,8 @@ echo -e $Bison "$TOOL_READY"
 
 
 ### Perl
+echo -e "$START_JOB"
+echo $Perl
 tar -xf "$Perl.tar.xz"
 cd $Perl
 
@@ -84,6 +90,8 @@ echo -e $Perl "$TOOL_READY"
 
 
 ### Python
+echo -e "$START_JOB"
+echo Python
 tar -xf "$Python.tar.xz"
 cd $Python
 
@@ -104,6 +112,8 @@ echo -e $Python "$TOOL_READY"
 
 
 ### Texinfo
+echo -e "$START_JOB"
+echo $Textinfo
 tar -xf "$Texinfo.tar.xz"
 cd $Texinfo
 
@@ -122,6 +132,8 @@ echo -e $Texinfo "$TOOL_READY"
 
 
 ### Util-linux
+echo -e "$START_JOB"
+echo $Util_linux
 tar -xf "$Util_linux.tar.xz"
 cd $Util_linux
 
