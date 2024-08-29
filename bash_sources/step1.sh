@@ -3,7 +3,7 @@
 # this bash code was made by ATOUI Rayane to automate the operation of creating Linux from scratch with the help of LFS book v12 (https://www.linuxfromscratch.org/lfs)
 # don't edit this file to insure that it works properly unless you know what are you doing
 
-
+source ./bash_sources/terminal_params/_util_methodes.sh
 #***************************************************************************#
 #####################################################
 #                      *  settings  *               #
@@ -52,7 +52,7 @@ export PATH=$PATH:/usr/sbin #to let the os find all the commands
 #create partion
 create_and_save_partition $LFS $SAVE_Partition || {
     echo "$STOP_MSG_ERROR"
-    return 1
+    exit 1
 }
 
 cp -rf $HELPER_DIR $LFS
