@@ -150,6 +150,8 @@ if $BACK_UP_OS_IN_THE_END; then
     source ./step4.3_backup.sh
 
     EXIT_AFTER_BACKUP=$(yes_no_question "$DO_YOU_WANNA_EXIT_AFTER_BACKUP")
+else
+    EXIT_AFTER_BACKUP=false
 fi
 
 
@@ -174,11 +176,12 @@ export STEP4_ENDED=$STEP4_ENDED
 export NEXT_STEP=/LFS/bash_sources/step5.sh
 
 "
-echo "$SAVE" >> $SHARED_FILE
+echo "$SAVE" >> /.bashrc
 
 
 if $EXIT_AFTER_BACKUP; then
     echo -e "$SELECTED_EXIT_AFTER_BACKUP"
+    echo -e "cp \$LFS/.bashrc \$SHARED_FILE"
     exit 0
 else
     echo -e "$SELECTED_DONNT_EXIT_AFTER_BACKUP"

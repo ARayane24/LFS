@@ -3,6 +3,7 @@
 # this bash code was made by ATOUI Rayane to automate the operation of creating Linux from scratch with the help of LFS book v12 (https://www.linuxfromscratch.org/lfs)
 # don't edit this file to insure that it works properly unless you know what are you doing
 
+source $SHARED_FILE
 cd $LFS/LFS/bash_sources
 #***************************************************************************#
     echo -e "${STEP}
@@ -57,11 +58,11 @@ SAVE="
 ### copied vars to other user
 export STEP3_ENDED=$STEP3_ENDED
 export NEXT_STEP=/LFS/bash_sources/step4.1.sh
-export SHARED_FILE=/bash.bashrc
 
 "
 echo "$SAVE" >> $SHARED_FILE
-cp -v /etc/bash.bashrc $LFS #keep shared vars
+
+cp -v $SHARED_FILE $LFS/.bashrc #keep shared vars
 
 
 if ! [ -n "$STEP4_ENDED" ] || ! $STEP4_ENDED; then

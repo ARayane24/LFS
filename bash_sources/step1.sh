@@ -4,7 +4,6 @@
 # don't edit this file to insure that it works properly unless you know what are you doing
 
 
-
 #***************************************************************************#
 #####################################################
 #                      *  settings  *               #

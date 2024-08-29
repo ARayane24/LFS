@@ -14,20 +14,21 @@ if ! [[ -n "${INIT_FOR_SAFETY+x}" ]] && [[ -f /etc/bash.bashrc ]]; then
    
      # Initialize INIT_FOR_SAFETY and append the old bashrc contents
     if ! [[ -n "${INIT_FOR_SAFETY}" ]]; then
-        echo 'export INIT_FOR_SAFETY="OK"' > ./bash_vars.sh || {
-            echo "Error: Failed to write to ./bash_vars.sh."
-            exit 1
-        }
-        cat /etc/bash.bashrc.NOUSE >> ./bash_vars.sh || {
-            echo "Error: Failed to append /etc/bash.bashrc.NOUSE."
+        echo 'export INIT_FOR_SAFETY="OK"' > /etc/bash.bashrc || {
+            echo "Error: Failed to write to /etc/bash.bashrc."
             exit 1
         }
     fi
+    cat /etc/bash.bashrc.NOUSE >> /etc/bash.bashrc || {
+        echo "Error: Failed to append /etc/bash.bashrc.NOUSE."
+        exit 1
+    }
 
-    chmod -v a+wt ./bash_vars.sh #all users can write and read & only owner can delete
-    source ./bash_vars.sh
+    chmod -v a+wt /etc/bash.bashrc #all users can write and read & only owner can delete
+    source /etc/bash.bashrc
     
     echo -e "Init Done ! \n"
+    sync
 fi
 
 if ! [ -n "$STEP1_ENDED" ] || ! $STEP1_ENDED; then
@@ -38,7 +39,7 @@ if ! [ -n "$STEP1_ENDED" ] || ! $STEP1_ENDED; then
     export HELPER_DIR=$(pwd)
     find $HELPER_DIR -type f -name "*.sh" -exec bash -n {} \; #chexk if there is a syntax error in all the bash files that will be excuted
 
-    export SHARED_FILE="$HELPER_DIR/bash_vars.sh"
+    export SHARED_FILE="/etc/bash.bashrc"
 
     export CPU_ARCH_HUMAN=("64-bit(x86) architecture" "64-bit(ARM) architecture")
     export CPU_ARCH=("x86_64" "aarch64")
@@ -68,8 +69,7 @@ SAVE="
     export CPU_ARCH=$formatted_cpu_arch
 "
     echo "$SAVE" >> $SHARED_FILE
-    source $SHARED_FILE
-
+    sync
     # Starting _config
     cd ./bash_sources/terminal_params
     source ./_config.sh
@@ -197,13 +197,13 @@ SAVE="
     #############################
     echo -e "$CHOOSE_CPU_ARCHI"
     select_cpu_archi
-    source $SHARED_FILE
+    
     
     ######################
     #   *  Starting  *   #
     ######################
     cd $HELPER_DIR
-    source ./bash_sources/step1.sh
+    bash ./bash_sources/step1.sh
 fi
 if [ -n "$STEP1_ENDED" ] && [ "$STEP1_ENDED" = true ] \
    && [ -n "$STEP2_ENDED" ] && [ "$STEP2_ENDED" = true ] \

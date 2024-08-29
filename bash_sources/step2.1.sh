@@ -4,6 +4,7 @@
 # don't edit this file to insure that it works properly unless you know what are you doing
 
 cd $LFS/LFS/bash_sources
+source /etc/bash.bashrc
 #***************************************************************************#
         echo -e "${STEP}
     ###############################################
@@ -50,4 +51,4 @@ echo "$lines" >> ~/.bashrc
 echo -e "$DONE"
 bash -n ~/.bash_profile
 
-source ./step2.2.sh
+bash ./step2.2.sh

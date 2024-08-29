@@ -13,7 +13,6 @@ cd ..
 
 #Choosing language
 select_lang
-source $SHARED_FILE
 bash $SELECTED_LANG
 source $SHARED_FILE
 echo -e "$DONE"

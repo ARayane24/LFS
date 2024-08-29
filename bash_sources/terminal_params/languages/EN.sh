@@ -121,3 +121,4 @@ export STOP_MSG_ERROR=\"${ERROR}ERROR${NO_STYLE}\n\"
 
 echo "$SAVE" >> $SHARED_FILE
 
+    sync

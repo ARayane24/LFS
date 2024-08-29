@@ -3037,7 +3037,7 @@ SAVE="
 export STEP5_ENDED=$STEP5_ENDED
 
 "
-echo "$SAVE" >> $SHARED_FILE
+echo "$SAVE" >> /.bashrc
 
 if ! $KEEP_DEBUG_FILES; then
     source /LFS/bash_sources/step6.sh

@@ -8,7 +8,11 @@ source ./terminal_params/_util_methodes.sh
 source ./terminal_params/_pakages_names.sh
 
 echo -e "$N_THREADS $(nproc)"
-
+if [ -z "${LFS_TGT+x}" ]; then
+    echo "Variable is not defined. Exiting."
+    exit 1
+fi
+echo -e "$N_THREADS $(nproc)"
 cd $LFS/sources/
 
 #extract_all_files
@@ -687,7 +691,6 @@ export NEXT_STEP=$LFS/LFS/bash_sources/step3.sh
 
 "
 echo "$SAVE" >> $SHARED_FILE
-
 if ! [ -n "$STEP3_ENDED" ] || ! $STEP3_ENDED; then
     echo -e "$DONE"
     echo -e "STEP2_ENDED=$STEP2_ENDED"

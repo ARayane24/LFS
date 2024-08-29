@@ -20,4 +20,5 @@ SAVE="
     export BACK_UP_OS_IN_THE_END=${BACK_UP_OS_IN_THE_END}
     "
     echo "$SAVE" >> $SHARED_FILE
+    cp -v $SHARED_FILE 
 source ./step3.sh

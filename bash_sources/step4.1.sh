@@ -4,7 +4,7 @@
 # don't edit this file to insure that it works properly unless you know what are you doing
 
 cd /LFS/bash_sources
-source /bash.bashrc
+source /.bashrc
 #***************************************************************************#
    echo -e "${STEP}
     ###############################################
