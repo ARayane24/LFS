@@ -5,6 +5,8 @@
 
 source $SHARED_FILE
 cd $LFS/LFS/bash_sources
+source ./terminal_params/_pakages_names.sh
+source ./terminal_params/_util_methodes.sh
 #***************************************************************************#
     echo -e "${STEP}
     ###############################################

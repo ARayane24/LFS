@@ -207,10 +207,9 @@ SAVE="
 fi
 if [ -n "$STEP1_ENDED" ] && [ "$STEP1_ENDED" = true ] \
    && [ -n "$STEP2_ENDED" ] && [ "$STEP2_ENDED" = true ] \
-   && [ -n "$STEP3_ENDED" ] && [ "$STEP3_ENDED" = true ] \
-   && [ -n "$STEP4_ENDED" ] && [ "$STEP4_ENDED" = true ]; then
+   && [ -n "$STEP3_ENDED" ] && [ "$STEP3_ENDED" = true ] ; then
     # Restore
-    source "$LFS/_myhelper/bash_sources/step4.4_restore.sh"
+    source "$LFS/LFS/bash_sources/step4.4_restore.sh"
 fi
 
 bash $NEXT_STEP

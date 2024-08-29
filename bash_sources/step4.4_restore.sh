@@ -13,5 +13,5 @@ fi
 cd $LFS
 rm -rf ./*
 tar -xpf $HOME/${DISTRO_NAME}-temp-tools.tar.xz
-echo "$DONE"
+echo -e "$DONE"
 bash ./step3.sh

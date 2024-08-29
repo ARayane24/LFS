@@ -178,19 +178,21 @@ STEP4_ENDED=true
     ############################################### ${NO_STYLE}
     "
 
-if $BACK_UP_OS_IN_THE_END; then
-    SAVE="
-    #${STEP}
-    ###############################################
-    #   *${NO_STYLE}$START_STEP4${STEP}*     #
-    ############################################### ${NO_STYLE}
+SAVE="
+#${STEP}
+###############################################
+#   *${NO_STYLE}$START_STEP4${STEP}*     #
+############################################### ${NO_STYLE}
 
-    ### copied vars to other user
-    export STEP4_ENDED=$STEP4_ENDED
-    export NEXT_STEP=$LFS/LFS/bash_sources/step3.sh
-    "
-    echo "$SAVE" >> /.bashrc
-    exit
+### copied vars to other user
+export STEP4_ENDED=$STEP4_ENDED
+export NEXT_STEP=$LFS/LFS/bash_sources/step3.sh
+"
+echo "$SAVE" >> /.bashrc
+sync
+
+if $BACK_UP_OS_IN_THE_END; then
+    exit 0
 fi
 
 
