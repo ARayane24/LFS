@@ -18,7 +18,7 @@ umount $LFS/{sys,proc,run,dev}
 
 # compress tools
 cd $LFS
-tar -cJpf $HOME/${DISTRO_NAME}-temp-tools.tar.xz . || exit 1
+tar -cvJpf $HOME/${DISTRO_NAME}-temp-tools.tar.xz . || exit 1
 echo -e "$DONE"
 
 export EXIT_AFTER_BACKUP=$(yes_no_question "$DO_YOU_WANNA_EXIT_AFTER_BACKUP")
