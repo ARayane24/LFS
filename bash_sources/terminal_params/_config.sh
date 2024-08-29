@@ -6,8 +6,8 @@
 bash ./_colors_in_consol.sh
 cd ./languages
 # select_lang found in ./_methodes
-source ./_methodes.sh
 bash ./_languages_man.sh
+source ./_methodes.sh
 source $SHARED_FILE
 cd ..
 
