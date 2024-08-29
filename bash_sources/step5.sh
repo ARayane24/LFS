@@ -2324,7 +2324,7 @@ if [ -n "$OP_GRUB" ] && UEFI;then
         echo -e "$BUILD_SUCCEEDED" 
     fi
 
-    if [ "$(uname -m)" == "x86_64" ]
+    if [ "$(uname -m)" == "x86_64" ]; then
         ./configure --prefix=/usr        \
             --sysconfdir=/etc    \
             --disable-efiemu     \

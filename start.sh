@@ -36,6 +36,8 @@ if ! [ -n "$STEP1_ENDED" ] || ! $STEP1_ENDED; then
     ######################
     # Important vars
     export HELPER_DIR=$(pwd)
+    find $HELPER_DIR -type f -name "*.sh" -exec bash -n {} \; #chexk if there is a syntax error in all the bash files that will be excuted
+
     export SHARED_FILE="/etc/bash.bashrc"
 
     export CPU_ARCH_HUMAN=("64-bit(x86) architecture" "64-bit(ARM) architecture")

@@ -177,8 +177,8 @@
         fi
         echo -e "$BUILD_SUCCEEDED"
 
-        if ADD_OPTIONNAL_DOCS; then
-            install -v -m755 -d /usr/share/doc/popt-1.19 &&
+        if $ADD_OPTIONNAL_DOCS; then
+            install -v -m755 -d /usr/share/doc/$OP_Popt
         fi
 
         cd /sources/
