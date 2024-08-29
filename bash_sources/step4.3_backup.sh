@@ -10,6 +10,6 @@ umount $LFS/dev/pts
 umount $LFS/{sys,proc,run,dev}
 
 # compress tools
-cd $LFS
-tar -cJpf $HOME/${DISTRO_NAME}-temp-tools.tar.xz .
+cd /
+tar -cJpf $HOME/${DISTRO_NAME}-temp-tools.tar.xz . || exit 1
 echo -e "$DONE"
