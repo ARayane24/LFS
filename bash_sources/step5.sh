@@ -259,7 +259,7 @@ if [ -n "$OP_Bzip" ] ;then
     sed -i 's@\(ln -f \)$(PREFIX)/bin/@\1@' Makefile
     sed -i "s@(PREFIX)/man@(PREFIX)/share/man@g" Makefile
 
-    make -fs Makefile-libbz2_so && make clean && make && make PREFIX=/usr install
+    make -f Makefile-libbz2_so && make clean && make && make PREFIX=/usr install
     if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
         exit 1
