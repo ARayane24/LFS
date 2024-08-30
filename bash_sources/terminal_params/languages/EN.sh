@@ -73,6 +73,7 @@ export RUN_CMD_TO_START_NEXT_STEP=\"Run this command to start the next step : \"
 export END_STEP1=\"${TITLE} END 1 - Create user & partition - ${NO_STYLE}\"
 #**************
 export START_STEP2=\"${TITLE}  START 2 - Extracting & Compiling - ${NO_STYLE}\"
+export SWICH_TO_ROOT=\"${PROCESS} Swiching to Root user of the host ... ${NO_STYLE}\"
 export START_EXTRACTION=\"${PROCESS}Extracting files ...${NO_STYLE}\"
 export N_THREADS=\"${OK}#number of threads:${NO_STYLE} \"
 export START_TEST=\" ${TEST}Starting test ... ${NO_STYLE}\"

@@ -697,6 +697,7 @@ if ! [ -n "$STEP3_ENDED" ] || ! $STEP3_ENDED; then
     echo -e "STEP2_ENDED=$STEP2_ENDED"
     echo -e "$RUN_CMD_TO_START_NEXT_STEP"
     echo "bash \$NEXT_STEP"
+    echo -e "$SWICH_TO_ROOT"
 
     su #root
 fi
