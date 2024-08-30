@@ -12,6 +12,7 @@ fi
 cd $LFS
 rm -rf ./*
 tar -xpf $HOME/${DISTRO_NAME}-temp-tools.tar.xz
+cp $HELPER_DIR $LFS
 echo -e "$DONE"
 cd $LFS/LFS/bash_sources || cd /LFS/bash_sources 
 bash ./step3.sh
