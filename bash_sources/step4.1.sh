@@ -92,7 +92,9 @@ install -o tester -d /home/tester
 SAVE="
 export NEXT_STEP=/LFS/bash_sources/step4.2.sh
 "
-echo "$SAVE" >> $SHARED_FILE
+echo "$SAVE" >> /.bashrc
+source /.bashrc
+
 
 echo -e "$DONE"
 echo -e "$RUN_CMD_TO_START_NEXT_STEP"
