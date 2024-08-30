@@ -239,7 +239,7 @@ read_positive_numbers_only(){
 }
 
 sleep_before_complite(){
-    echo -e "${PROCESS}$SLEEPPING_AFTER" "12.2SBU" "$FOR" "$SLEEP_FOR_N_SECONDS" "...${NO_STYLE}"
+    echo -e "${PROCESS}$SLEEPPING_AFTER" "12.2SBU" "$FOR" "$SLEEP_FOR_N_SECONDS s " "...${NO_STYLE}"
     sleep $SLEEP_FOR_N_SECONDS
     echo -e "${PROCESS}$WAKINNG ${NO_STYLE}"
 }

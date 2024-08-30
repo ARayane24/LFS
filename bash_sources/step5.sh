@@ -184,7 +184,7 @@ EOF
     zic -d $ZONEINFO -p America/New_York
     unset ZONEINFO
     tzselect
-    TIMEZONES=$(timedatectl list-timezones)
+    
     while true; do
         read -p "$INPUT_TZ_VALUE" TZ_VALUE
         if echo "$TIMEZONES" | grep -q "^$TZ_VALUE$"; then
