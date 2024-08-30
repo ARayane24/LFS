@@ -111,7 +111,7 @@ if ! [ -n "$STEP5_ENDED" ] || ! $STEP5_ENDED; then
           exit 0
       else
           echo -e "$SELECTED_DONNT_EXIT_AFTER_BACKUP"
-          bash ./step3.sh
+          bash $LFS/sources/step3.sh || bash LFS/sources/step3.sh
       fi
     fi
 fi
