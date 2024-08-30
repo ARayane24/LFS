@@ -12,7 +12,6 @@ if [ -z "${LFS_TGT+x}" ]; then
     echo "Variable is not defined. Exiting."
     exit 1
 fi
-echo -e "$N_THREADS $(nproc)"
 cd $LFS/sources/
 
 #extract_all_files
