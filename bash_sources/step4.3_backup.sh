@@ -20,5 +20,6 @@ umount $LFS/{sys,proc,run,dev}
 cd $LFS
 tar -cvJpf $HOME/${DISTRO_NAME}-temp-tools.tar.xz . || exit 1
 echo -e "$DONE"
+echo $HOME/${DISTRO_NAME}-temp-tools.tar.xz
 
 export EXIT_AFTER_BACKUP=$(yes_no_question "$DO_YOU_WANNA_EXIT_AFTER_BACKUP")
