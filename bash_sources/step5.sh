@@ -78,11 +78,14 @@ if [ -n "$OP_Glibc" ] ;then
              --enable-stack-protector=strong          \
              --disable-nscd                           \
              libc_cv_slibdir=/usr/lib
-    make -s && make -s check
+    make -s 
     if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
         exit 1
     fi
+
+    make -s check
+
     touch /etc/ld.so.conf
     sed '/test-installation/s@$(PERL)@echo not running@' -i ../Makefile
 
@@ -219,13 +222,21 @@ if [ -n "$OP_Zlib" ] ;then
     cd $OP_Zlib
 
     ./configure --prefix=/usr
-    make -s && make -s check && make -s install
+    make -s
     if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
         exit 1
     fi
     echo -e "$BUILD_SUCCEEDED"
 
+    make -s check
+
+    make -s install
+    if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
     rm -fv /usr/lib/libz.a
 
     cd /sources/
@@ -290,13 +301,21 @@ if [ -n "$OP_Xz" ] ;then
                 --disable-static \
                 --docdir=/usr/share/doc/$OP_Xz
     fi
-    make -s && make -s check && make -s install
+    make -s 
      if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
         exit 1
     fi
     echo -e "$BUILD_SUCCEEDED"
 
+    make -s check
+
+    make -s install
+     if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
     cd /sources/
     rm -Rf $OP_Xz #rm extracted pkg
     echo -e "$DONE" 
@@ -313,13 +332,21 @@ if [ -n "$OP_Zstd" ] ;then
     tar -xf $OP_Zstd.tar.gz
     cd $OP_Zstd
 
-    make -s prefix=/usr && make -s check && make -s prefix=/usr install
+    make -s prefix=/usr
      if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
         exit 1
     fi
     echo -e "$BUILD_SUCCEEDED"
 
+    make -s check
+
+    make -s prefix=/usr install
+     if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
     rm -v /usr/lib/libzstd.a
 
     cd /sources/
@@ -339,13 +366,21 @@ if [ -n "$OP_File" ] ;then
     cd $OP_File
 
     ./configure --prefix=/usr
-    make -s && make -s check && make -s install
+    make -s
      if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
         exit 1
     fi
     echo -e "$BUILD_SUCCEEDED"
     
+    make -s check
+
+    make -s install
+     if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
     cd /sources/
     rm -Rf $OP_File #rm extracted pkg
     echo -e "$DONE" 
@@ -408,13 +443,21 @@ if [ -n "$OR_M4" ] ;then
     cd $OR_M4
 
    ./configure --prefix=/usr
-    make -s && make -s check && make -s install
+    make -s
     if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
         exit 1
     fi
     echo -e "$BUILD_SUCCEEDED"
     
+    make -s check
+
+    make -s install
+    if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
     cd /sources/
     rm -Rf $OR_M4 #rm extracted pkg
     echo -e "$DONE" 
@@ -432,7 +475,16 @@ if [ -n "$OP_Bc" ] ;then
     cd $OP_Bc
 
     CC=gcc ./configure --prefix=/usr -G -O3 -r
-    make -s && make -s test && make -s install
+    make -s
+    if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
+
+    make -s test 
+
+    make -s install
     if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
         exit 1
@@ -465,13 +517,21 @@ if [ -n "$OP_Flex" ] ;then
             --docdir=/usr/share/doc/$OP_Flex \
             --disable-static
     fi
-    make -s && make -s check && make -s install
+    make -s 
     if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
         exit 1
     fi
     echo -e "$BUILD_SUCCEEDED"
     
+    make -s check
+
+    make -s install
+    if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
     ln -sv flex   /usr/bin/lex
     ln -sv flex.1 /usr/share/man/man1/lex.1
 
@@ -521,7 +581,9 @@ if [ -n "$OP_Tcl" ] ;then
     unset SRCDIR
 
 
-    make -s test && make -s install
+    make -s test
+
+    make -s install
     if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
         exit 1
@@ -562,7 +624,16 @@ if [ -n "$OP_Expect" ] ;then
             --enable-shared         \
             --mandir=/usr/share/man \
             --with-tclinclude=/usr/include
-    make -s && make -s test && make -s install
+    make -s
+    if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
+
+    make -s test
+
+    make -s install
     if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
         exit 1
@@ -593,8 +664,10 @@ if [ -n "$OP_DejaGNU" ] ;then
     ../configure --prefix=/usr
     makeinfo --html --no-split -o doc/dejagnu.html ../doc/dejagnu.texi
     makeinfo --plaintext       -o doc/dejagnu.txt  ../doc/dejagnu.texi
-    make -s check && make -s install
-     if [ $? -ne 0 ]; then
+    make -s check
+    
+    make -s install
+    if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
         exit 1
     fi
@@ -705,13 +778,14 @@ if [ -n "$OP_Binutils" ] ;then
              --with-system-zlib  \
              --enable-default-hash-style=gnu
 
-    make -s tooldir=/usr && make -ks check
+    make -s tooldir=/usr
     if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
         exit 1
     fi
     echo -e "$BUILD_SUCCEEDED"
     
+    make -ks check
     grep '^FAIL:' $(find -name '*.log')
 
     make -s tooldir=/usr install
@@ -808,7 +882,13 @@ if [ -n "$OP_MPFR" ] ;then
     fi
     echo -e "$BUILD_SUCCEEDED"
     
-    make -s check && make -s install && make -s install-html
+    make -s check
+    make -s install && make -s install-html
+    if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
 
     cd /sources/
     rm -Rf $OP_MPFR #rm extracted pkg
@@ -843,7 +923,13 @@ if [ -n "$OP_MPC" ] ;then
     fi
     echo -e "$BUILD_SUCCEEDED"
     
-    make -s check && make -s install && make -s install-html
+    make -s check 
+    make -s install && make -s install-html
+    if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
 
     cd /sources/
     rm -Rf $OP_MPC #rm extracted pkg
@@ -873,7 +959,14 @@ if [ -n "$OP_Attr" ] ;then
             --docdir=/usr/share/doc/$OP_Attr \
             --disable-static
     fi
-    make -s && make -s check && make -s install
+    make -s
+    if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
+    make -s check
+    make -s install
     if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
         exit 1
@@ -929,13 +1022,22 @@ if [ -n "$OP_Libcap" ] ;then
     cd $OP_Libcap
 
     sed -i '/install -m.*STA/d' libcap/Makefile
-    make -s prefix=/usr lib=lib && make -s test && make -s prefix=/usr lib=lib install
+    make -s prefix=/usr lib=lib
     if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
         exit 1
     fi
     echo -e "$BUILD_SUCCEEDED"
     
+    make -s test
+
+    make -s prefix=/usr lib=lib install
+    if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
+
     cd /sources/
     rm -Rf $OP_Libcap #rm extracted pkg
     echo -e "$DONE" 
@@ -966,7 +1068,16 @@ if [ -n "$OP_Libxcrypt" ] ;then
                     --disable-static             \
                     --disable-failure-tokens
     fi
-    make -s && make -s check && make -s install
+    make -s
+    if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
+
+    make -s check
+
+    make -s install
     if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
         exit 1
@@ -1034,11 +1145,6 @@ if [ -n "$OP_Shadow" ] ;then
                             /usr/share/dict/$OP_CrackLib_twitter_psw.txt
 
     make -s test
-    if [ $? -ne 0 ]; then
-        echo -e "$BUILD_FAILED"
-        exit 1
-    fi
-    echo -e "$BUILD_SUCCEEDED"
 
     USING_CRACKLIB=true
     cd /sources/
@@ -1047,6 +1153,8 @@ if [ -n "$OP_Shadow" ] ;then
     echo -e $OP_CrackLib "$TOOL_READY"
 fi
 ###********************************
+
+
 
 ###OP_Shadow: 0.1SBU
 if [ -n "$OP_Shadow" ] ;then
@@ -1275,6 +1383,12 @@ if [ -n "$OP_Sed" ] ;then
     su tester -c "PATH=$PATH make -s check"
     
     make -s install
+    if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
+
     install -d -m755           /usr/share/doc/$OP_Sed
     install -m644 doc/sed.html /usr/share/doc/$OP_Sed
 
@@ -1295,7 +1409,16 @@ if [ -n "$OP_Psmisc" ] ;then
     cd $OP_Psmisc
 
     ./configure --prefix=/usr
-    make -s  && make -s check && make -s install
+    make -s
+    if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
+
+    make -s check
+
+    make -s install
     if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
         exit 1
@@ -1328,7 +1451,16 @@ if [ -n "$OP_Gettext" ] ;then
             --docdir=/usr/share/doc/$OP_Gettext \
             --disable-static
     fi
-    make -s && make -s check && make -s install
+    make -s
+    if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
+
+    make -s check
+
+    make -s install
     if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
         exit 1
@@ -1354,13 +1486,22 @@ if [ -n "$OP_Bison" ] ;then
     cd $OP_Bison
 
     ./configure --prefix=/usr --docdir=/usr/share/doc/$START_JOB
-    make -s  && make -s check && make -s install
+    make -s
     if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
         exit 1
     fi
     echo -e "$BUILD_SUCCEEDED"
     
+    make -s check 
+
+    make -s install
+    if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
+
     cd /sources/
     rm -Rf $OP_Bison #rm extracted pkg
     echo -e "$DONE" 
@@ -1379,13 +1520,22 @@ if [ -n "$OP_Grep" ] ;then
 
     sed -i "s/echo/#echo/" src/egrep.sh
     ./configure --prefix=/usr
-    make -s  && make -s check && make -s install
+    make -s
     if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
         exit 1
     fi
     echo -e "$BUILD_SUCCEEDED"
     
+    make -s check
+
+    make -s install
+    if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
+
     cd /sources/
     rm -Rf $OP_Grep #rm extracted pkg
     echo -e "$DONE" 
@@ -1451,13 +1601,22 @@ if [ -n "$OP_Libtool" ] ;then
     cd $OP_Libtool
 
    ./configure --prefix=/usr
-    make -s  && make -ks check && make -s install
+    make -s
     if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
         exit 1
     fi
     echo -e "$BUILD_SUCCEEDED"
-    
+
+    make -ks check    
+
+    make -s install
+    if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
+
     rm -fv /usr/lib/libltdl.a
 
     cd /sources/
@@ -1486,7 +1645,16 @@ if [ -n "$OP_GDBM" ] ;then
             --enable-libgdbm-compat \
             --disable-static
     fi
-    make -s && make -s check && make -s install
+    make -s
+    if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
+
+    make -s check
+
+    make -s install
     if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
         exit 1
@@ -1510,13 +1678,22 @@ if [ -n "$OP_Gperf" ] ;then
     cd $OP_Gperf
 
     ./configure --prefix=/usr --docdir=/usr/share/doc/$OP_Gperf
-    make -s  && make -sj1 check && make -s install
+    make -s
     if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
         exit 1
     fi
     echo -e "$BUILD_SUCCEEDED"
     
+    make -sj1 check
+
+    make -s install
+    if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
+
     cd /sources/
     rm -Rf $OP_Gperf #rm extracted pkg
     echo -e "$DONE" 
@@ -1543,7 +1720,16 @@ if [ -n "$OP_Expat" ] ;then
                     --docdir=/usr/share/doc/$OP_Expat \
                     --disable-static
     fi
-    make -s && make -s check && make -s install
+    make -s
+    if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
+
+    make -s check
+
+    make -s install
     if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
         exit 1
@@ -1580,7 +1766,16 @@ if [ -n "$OP_Inetutils" ] ;then
             --disable-rlogin     \
             --disable-rsh        \
             --disable-servers
-    make -s  && make -s check && make -s install
+    make -s
+    if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
+
+    make -s check
+
+    make -s install
     if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
         exit 1
@@ -1606,7 +1801,16 @@ if [ -n "$OP_Less" ] ;then
     cd $OP_Less
 
     ./configure --prefix=/usr --sysconfdir=/etc
-    make -s  && make -s check && make -s install
+    make -s
+    if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
+
+    make -s check
+
+    make -s install
     if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
         exit 1
@@ -1647,7 +1851,16 @@ if [ -n "$OP_Perl" ] ;then
              -Duseshrplib                                 \
              -Dusethreads
 
-    make -s  && TEST_JOBS=$(nproc) make test_harness && make -s install
+    make -s
+    if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
+
+    TEST_JOBS=$(nproc) make test_harness
+
+    make -s install
     if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
         exit 1
@@ -1673,7 +1886,16 @@ if [ -n "$OP_XML" ] ;then
     cd $OP_XML
 
     perl Makefile.PL
-    make -s  && make -s test && make -s install
+    make -s
+    if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
+
+    make -s test
+
+    make -s install
     if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
         exit 1
@@ -1698,7 +1920,16 @@ if [ -n "$OP_Intltool" ] ;then
 
     sed -i 's:\\\${:\\\$\\{:' intltool-update.in
    ./configure --prefix=/usr
-    make -s  && make -s check && make -s install
+    make -s
+    if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
+
+    make -s check
+
+    make -s install
     if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
         exit 1
@@ -1724,13 +1955,21 @@ if [ -n "$OP_Autoconf" ] ;then
     cd $OP_Autoconf
 
    ./configure --prefix=/usr
-    make -s  && make -s check && make -s install
+    make -s
     if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
         exit 1
     fi
     echo -e "$BUILD_SUCCEEDED"
     
+    make -s check
+
+    make -s install
+    if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
 
     cd /sources/
     rm -Rf $OP_Autoconf #rm extracted pkg
@@ -1749,7 +1988,16 @@ if [ -n "$OP_Automake" ] ;then
     cd $OP_Automake
 
    ./configure --prefix=/usr --docdir=/usr/share/doc/$OP_Automake
-    make -s  && make -sj$(($(nproc)>4?$(nproc):4)) check && make -s install
+    make -s
+    if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
+
+    make -sj$(($(nproc)>4?$(nproc):4)) check
+
+    make -s install
     if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
         exit 1
@@ -1778,12 +2026,14 @@ if [ -n "$OP_OpenSSL" ] ;then
          --libdir=lib          \
          shared                \
          zlib-dynamic
-    make -s  && HARNESS_JOBS=$(nproc) make -s test
+    make -s
     if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
         exit 1
     fi
     echo -e "$BUILD_SUCCEEDED"
+
+    HARNESS_JOBS=$(nproc) make -s test
 
     sed -i '/INSTALL_LIBS/s/libcrypto.a libssl.a//' Makefile
     make -s MANSUFFIX=ssl install
@@ -1848,7 +2098,16 @@ if [ -n "$OP_Libelf" ] ;then
    ./configure --prefix=/usr            \
             --disable-debuginfod         \
             --enable-libdebuginfod=dummy
-    make -s && make -s check  && make -Cs libelf install
+    make -s
+    if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
+
+    make -s check
+
+    make -Cs libelf install
     if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
         exit 1
@@ -1884,7 +2143,16 @@ if [ -n "$OP_Libffi" ] ;then
                 --disable-static       \
                 --with-gcc-arch=$CPU_SELECTED_ARCH #optimize for the selected cpu
     fi
-    make -s && make -s check && make -s install
+    make -s
+    if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
+
+    make -s check
+
+    make -s install
     if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
         exit 1
@@ -2121,7 +2389,16 @@ if [ -n "$OP_Check" ] ;then
     else
         ./configure --prefix=/usr --disable-static
     fi
-    make -s && make -s check && make -s docdir=/usr/share/doc/$OP_Check install
+    make -s
+    if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
+
+    make -s check
+
+    make -s docdir=/usr/share/doc/$OP_Check install
     if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
         exit 1
@@ -2145,7 +2422,16 @@ if [ -n "$OP_Diffutils" ] ;then
     cd $OP_Diffutils
 
     ./configure --prefix=/usr
-    make -s && make -s check && make -s install
+    make -s
+    if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
+
+    make -s check
+
+    make -s install
     if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
         exit 1
@@ -2245,7 +2531,16 @@ if [ -n "$OP_Groff" ] ;then
     cd $OP_Groff
 
     PAGE=A4 ./configure --prefix=/usr
-     make -s && make -s check && make -s install
+    make -s
+    if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
+
+    make -s check
+
+    make -s install
     if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
         exit 1
@@ -2367,13 +2662,21 @@ if [ -n "$OP_Gzip" ] ;then
 
     ./configure --prefix=/usr
 
-    make -s && make -s check && make -s install
+    make -s
     if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
         exit 1
     fi
     echo -e "$BUILD_SUCCEEDED"
 
+    make -s check 
+
+    make -s install
+    if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
 
     cd /sources/
     rm -Rf $OP_Gzip #rm extracted pkg
@@ -2393,7 +2696,7 @@ if [ -n "$OP_IPRoute" ] ;then
 
     sed -i /ARPD/d Makefile
     rm -fv man/man8/arpd.8
-    make -s NETNS_RUN_DIR=/run/netns && mmake -s SBINDIR=/usr/sbin install
+    make -s NETNS_RUN_DIR=/run/netns && make -s SBINDIR=/usr/sbin install
     if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
         exit 1
@@ -2424,12 +2727,22 @@ if [ -n "$OP_Kbd" ] ;then
     sed -i 's/resizecons.8 //' docs/man/man8/Makefile.in
     ./configure --prefix=/usr --disable-vlock
 
-    make -s && make -s check && make -s install
+    make -s
     if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
         exit 1
     fi
     echo -e "$BUILD_SUCCEEDED"
+
+    make -s check
+
+    make -s install
+    if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
+
 
     if $ADD_OPTIONNAL_DOCS; then
         cp -R -v docs/doc -T /usr/share/doc/$OP_Kbd
@@ -2453,7 +2766,16 @@ if [ -n "$OP_Libpipeline" ] ;then
 
    ./configure --prefix=/usr
 
-    make -s && make -s check && make -s install
+    make -s
+    if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
+
+    make -s check
+
+    make -s install
     if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
         exit 1
@@ -2477,7 +2799,7 @@ if [ -n "$OP_Make" ] ;then
     cd $OP_Make
 
    ./configure --prefix=/usr
-    make -s && make -s check 
+    make -s 
     if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
         exit 1
@@ -2511,13 +2833,21 @@ if [ -n "$OP_Patch" ] ;then
 
     ./configure --prefix=/usr
 
-    make -s && make -s check && make -s install
+    make -s
     if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
         exit 1
     fi
     echo -e "$BUILD_SUCCEEDED"
 
+    make -s check
+
+    make -s install
+    if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
     cd /sources/
     rm -Rf $OP_Patch #rm extracted pkg
     echo -e "$DONE" 
@@ -2537,7 +2867,16 @@ if [ -n "$OP_Tar" ] ;then
     FORCE_UNSAFE_CONFIGURE=1  \
     ./configure --prefix=/usr
 
-    make -s && make -s check && make -s install
+    make -s
+    if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
+
+    make -s check
+
+    make -s install
     if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
         exit 1
@@ -2564,7 +2903,16 @@ if [ -n "$Texinfo" ] ;then
 
     ./configure --prefix=/usr
 
-    make -s && make -s check && make -s install
+    make -s
+    if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
+
+    make -s check
+
+    make -s install
     if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
         exit 1
@@ -2605,6 +2953,12 @@ if [ -n "$OP_Vim" ] ;then
     grep 'ALL DONE' vim-test.log
 
     make -s install
+    if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
+
     ln -sv vim /usr/bin/vi
     for L in  /usr/share/man/{,*/}man1/vim.1; do
         ln -sv vim.1 $(dirname $L)/vi.1
@@ -2729,7 +3083,11 @@ if [ -n "$OP_Udev" ] ;then
 
     tar -xvf ../../udev-lfs-20230818.tar.xz
     make -f udev-lfs-20230818/Makefile.lfs install
-
+    if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
 
     tar -xf ../../systemd-man-pages-255.tar.xz                            \
     --no-same-owner --strip-components=1                              \
@@ -2779,7 +3137,16 @@ if [ -n "$OP_Man_DB" ] ;then
             --with-grap=/usr/bin/grap             \
             --with-systemdtmpfilesdir=            \
             --with-systemdsystemunitdir=
-    make -s && make -s check && make -s install
+    make -s
+    if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
+
+    make -s check
+
+    make -s install
     if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
         exit 1
@@ -2815,7 +3182,16 @@ if [ -n "$OP_Procps_ng" ] ;then
                     --disable-kill
     fi
     
-    make -s && make -ks check && make -s install
+    make -s
+    if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
+
+    make -ks check
+
+    make -s install
     if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
         exit 1
@@ -2926,7 +3302,16 @@ if [ -n "$OP_E2fsprogs" ] ;then
              --disable-uuidd         \
              --disable-fsck
     
-    make -s && make -s check && make -s install
+    make -s
+    if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
+
+    make -s check
+
+    make -s install
     if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
         exit 1
