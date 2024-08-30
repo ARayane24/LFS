@@ -12,7 +12,7 @@ fi
 cd $LFS
 rm -rf ./*
 tar -xpf $HOME/${DISTRO_NAME}-temp-tools.tar.xz
-cp $HELPER_DIR $LFS
+cp -rf $HELPER_DIR $LFS
 echo -e "$DONE"
 cp $HELPER_DIR $LFS
 cd $LFS/LFS/bash_sources || cd /LFS/bash_sources 
