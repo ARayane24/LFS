@@ -209,7 +209,7 @@ if [ -n "$STEP1_ENDED" ] && [ "$STEP1_ENDED" = true ] \
    && [ -n "$STEP2_ENDED" ] && [ "$STEP2_ENDED" = true ] \
    && [ -n "$STEP3_ENDED" ] && [ "$STEP3_ENDED" = true ] ; then
     # Restore
-    source "$LFS/LFS/bash_sources/step4.4_restore.sh"
+    source "./bash_sources/step4.4_restore.sh"
 fi
 
 bash $NEXT_STEP
