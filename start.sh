@@ -212,7 +212,6 @@ if [ -n "$STEP1_ENDED" ] && [ "$STEP1_ENDED" = true ] \
     source "./bash_sources/step4.4_restore.sh"
 fi
 
-bash $NEXT_STEP
 
 
 
