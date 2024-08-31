@@ -442,7 +442,7 @@ if [ -n "$OR_M4" ] ;then
     tar -xf $OR_M4.tar.xz
     cd $OR_M4
 
-   ./configure --prefix=/usr
+    ./configure --prefix=/usr
     make
     if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
@@ -507,11 +507,11 @@ if [ -n "$OP_Flex" ] ;then
     tar -xf $OP_Flex.tar.gz
     cd $OP_Flex
 
-    if $STATIC_ONLY;then
+   if $STATIC_ONLY;then
         ./configure --prefix=/usr \
                 --docdir=/usr/share/doc/$OP_Flex \
                 --enable-static \
-                --disable-shared 
+                --disable-shared
     else
         ./configure --prefix=/usr \
             --docdir=/usr/share/doc/$OP_Flex \
@@ -523,7 +523,7 @@ if [ -n "$OP_Flex" ] ;then
         exit 1
     fi
     echo -e "$BUILD_SUCCEEDED"
-    
+
     make check
 
     make install
@@ -534,6 +534,7 @@ if [ -n "$OP_Flex" ] ;then
     echo -e "$BUILD_SUCCEEDED"
     ln -sv flex   /usr/bin/lex
     ln -sv flex.1 /usr/share/man/man1/lex.1
+
 
     cd /sources/
     rm -Rf $OP_Flex #rm extracted pkg
@@ -548,7 +549,7 @@ fi
 if [ -n "$OP_Tcl" ] ;then
     echo -e "$START_JOB"
     echo $OP_Tcl
-    tar -xf $OP_Tcl.tar.gz
+    tar -xf $OP_Tcl-src.tar.gz
     cd $OP_Tcl
 
     SRCDIR=$(pwd)

@@ -36,7 +36,7 @@ cd $Binutils_P1/build
             --enable-gprofng=no \
             --disable-werror    \
             --enable-default-hash-style=gnu
-make --silent && make install --silent
+make  && make install 
 if [ $? -ne 0 ]; then
     echo -e "$BUILD_FAILED"
     exit 1
@@ -91,7 +91,7 @@ cd  build
              --disable-libvtv          \
              --disable-libstdcxx       \
              --enable-languages=c,c++ 
-make --silent && make install --silent
+make  && make install 
 if [ $? -ne 0 ]; then
     echo -e "$BUILD_FAILED"
     exit 1
@@ -112,7 +112,7 @@ echo -e $GCC_P1"$TOOL_READY"
 echo -e "$START_JOB"
 echo $Linux
 cd $Linux
-make mrproper  --silent && make headers --silent
+make mrproper   && make headers 
 if [ $? -ne 0 ]; then
     echo -e "$BUILD_FAILED"
     exit 1
@@ -153,7 +153,7 @@ echo "rootsbindir=/usr/sbin" > configparms
     --with-headers=$LFS/usr/include    \
     --disable-nscd                     \
     libc_cv_slibdir=/usr/lib
-make --silent && make DESTDIR=$LFS install --silent
+make  && make DESTDIR=$LFS install 
 if [ $? -ne 0 ]; then
     echo -e "$BUILD_FAILED"
     exit 1
@@ -205,7 +205,7 @@ cd $GCC_P1/build
     --disable-nls                   \
     --disable-libstdcxx-pch         \
     --with-gxx-include-dir=/tools/$LFS_TGT/include/c++/13.2.0 && \
-make --silent && make DESTDIR=$LFS install --silent
+make  && make DESTDIR=$LFS install 
 if [ $? -ne 0 ]; then
     echo -e "$BUILD_FAILED"
     exit 1
@@ -230,7 +230,7 @@ cd $M4
 ./configure --prefix=/usr   \
             --host=$LFS_TGT \
             --build=$(build-aux/config.guess)
-make --silent && make DESTDIR=$LFS install --silent
+make  && make DESTDIR=$LFS install 
 if [ $? -ne 0 ]; then
     echo -e "$BUILD_FAILED"
     exit 1
@@ -266,7 +266,7 @@ popd
             --without-ada                \
             --disable-stripping          \
             --enable-widec
-make --silent && make DESTDIR=$LFS TIC_PATH=$(pwd)/build/progs/tic install --silent
+make  && make DESTDIR=$LFS TIC_PATH=$(pwd)/build/progs/tic install 
 if [ $? -ne 0 ]; then
     echo -e "$BUILD_FAILED"
     exit 1
@@ -291,7 +291,7 @@ cd $Bash
             --build=$(sh support/config.guess) \
             --host=$LFS_TGT                    \
             --without-bash-malloc
-make --silent && make DESTDIR=$LFS install --silent
+make  && make DESTDIR=$LFS install 
 if [ $? -ne 0 ]; then
     echo -e "$BUILD_FAILED"
     exit 1
@@ -315,7 +315,7 @@ cd $Coreutils
             --build=$(build-aux/config.guess) \
             --enable-install-program=hostname \
             --enable-no-install-program=kill,uptime
-make --silent && make DESTDIR=$LFS install --silent
+make  && make DESTDIR=$LFS install 
 if [ $? -ne 0 ]; then
     echo -e "$BUILD_FAILED"
     exit 1
@@ -340,7 +340,7 @@ cd $Diffutils
 ./configure --prefix=/usr   \
             --host=$LFS_TGT \
             --build=$(./build-aux/config.guess)
-make --silent && make DESTDIR=$LFS install --silent
+make  && make DESTDIR=$LFS install 
 if [ $? -ne 0 ]; then
     echo -e "$BUILD_FAILED"
     exit 1
@@ -394,7 +394,7 @@ cd $Findutils
             --localstatedir=/var/lib/locate \
             --host=$LFS_TGT                 \
             --build=$(build-aux/config.guess)
-make --silent && make DESTDIR=$LFS install --silent
+make  && make DESTDIR=$LFS install 
 if [ $? -ne 0 ]; then
     echo -e "$BUILD_FAILED"
     exit 1
@@ -416,7 +416,7 @@ sed -i 's/Fileextras//' Makefile.in
 ./configure --prefix=/usr   \
             --host=$LFS_TGT \
             --build=$(build-aux/config.guess)
-make --silent && make DESTDIR=$LFS install --silent
+make  && make DESTDIR=$LFS install 
 if [ $? -ne 0 ]; then
     echo -e "$BUILD_FAILED"
     exit 1
@@ -437,7 +437,7 @@ cd $Grep
 ./configure --prefix=/usr   \
             --host=$LFS_TGT \
             --build=$(./build-aux/config.guess)
-make --silent && make DESTDIR=$LFS install --silent
+make  && make DESTDIR=$LFS install 
 if [ $? -ne 0 ]; then
     echo -e "$BUILD_FAILED"
     exit 1
@@ -456,7 +456,7 @@ echo -e "$START_JOB"
 echo $Gzip
 cd $Gzip
 ./configure --prefix=/usr --host=$LFS_TGT
-make --silent && make DESTDIR=$LFS install --silent
+make  && make DESTDIR=$LFS install 
 if [ $? -ne 0 ]; then
     echo -e "$BUILD_FAILED"
     exit 1
@@ -478,7 +478,7 @@ cd $Make
             --without-guile \
             --host=$LFS_TGT \
             --build=$(build-aux/config.guess)
-make --silent && make DESTDIR=$LFS install --silent
+make  && make DESTDIR=$LFS install 
 if [ $? -ne 0 ]; then
     echo -e "$BUILD_FAILED"
     exit 1
@@ -499,7 +499,7 @@ cd $Patch
 ./configure --prefix=/usr   \
             --host=$LFS_TGT \
             --build=$(build-aux/config.guess)
-make --silent && make DESTDIR=$LFS install --silent
+make  && make DESTDIR=$LFS install 
 if [ $? -ne 0 ]; then
     echo -e "$BUILD_FAILED"
     exit 1
@@ -520,7 +520,7 @@ cd $Sed
 ./configure --prefix=/usr   \
             --host=$LFS_TGT \
             --build=$(./build-aux/config.guess)
-make --silent && make DESTDIR=$LFS install --silent
+make  && make DESTDIR=$LFS install 
 if [ $? -ne 0 ]; then
     echo -e "$BUILD_FAILED"
     exit 1
@@ -541,7 +541,7 @@ cd $Tar
 ./configure --prefix=/usr                     \
             --host=$LFS_TGT                   \
             --build=$(build-aux/config.guess)
-make --silent && make DESTDIR=$LFS install --silent
+make  && make DESTDIR=$LFS install 
 if [ $? -ne 0 ]; then
     echo -e "$BUILD_FAILED"
     exit 1
@@ -564,7 +564,7 @@ cd $Xz
             --build=$(build-aux/config.guess) \
             --disable-static                  \
             --docdir=/usr/share/doc/$Xz
-make --silent && make DESTDIR=$LFS install --silent
+make  && make DESTDIR=$LFS install 
 if [ $? -ne 0 ]; then
     echo -e "$BUILD_FAILED"
     exit 1
@@ -597,7 +597,7 @@ cd       build
     --disable-werror           \
     --enable-64-bit-bfd        \
     --enable-default-hash-style=gnu
-make --silent && make DESTDIR=$LFS install --silent
+make  && make DESTDIR=$LFS install 
 if [ $? -ne 0 ]; then
     echo -e "$BUILD_FAILED"
     exit 1
@@ -651,7 +651,7 @@ cd       build
     --disable-libssp                               \
     --disable-libvtv                               \
     --enable-languages=c,c++
-make --silent && make DESTDIR=$LFS install --silent
+make  && make DESTDIR=$LFS install 
 if [ $? -ne 0 ]; then
     echo -e "$BUILD_FAILED"
     exit 1
