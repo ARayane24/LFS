@@ -93,7 +93,7 @@ export OP_Intltool="intltool-0.51.0"       # **internationalization tool used fo
 export OP_Autoconf="autoconf-2.72"         # **contains programs for producing shell scripts that can automatically configure source code.
 export OP_Automake="automake-1.16.5"       # **contains programs for generating Makefiles for use with Autoconf.
 export OP_OpenSSL="openssl-3.2.1"          # *****contains management tools and libraries relating to cryptography. These are useful for providing cryptographic functions to other packages, such as OpenSSH, email applications, and web browsers (for accessing HTTPS sites).
-export OP_Kmod="Kmod-31"                   # *****contains libraries and utilities for loading kernel modules
+export OP_Kmod="kmod-31"                   # *****contains libraries and utilities for loading kernel modules
 export OP_Libelf="elfutils-0.190"          # a library for handling ELF (Executable and Linkable Format) files. (NOTE:: The use ?)
 export OP_Libffi="libffi-3.4.4"            # ***provides a portable, high level programming interface to various calling conventions. This allows a programmer to call any function specified by a call interface description at run time. FFI stands for Foreign Function Interface. An FFI allows a program written in one language to call a program written in another language. Specifically, Libffi can provide a bridge between an interpreter like Perl, or Python, and shared library subroutines written in C, or C++.
 export OP_Python="Python-3.12.2"           # **contains the Python development environment. It is useful for object-oriented programming, writing scripts, prototyping large programs, and developing entire applications. Python is an interpreted computer language.
@@ -129,12 +129,12 @@ export OP_Patch="patch-2.7.6"              # contains a program for modifying or
 export OP_Tar="tar-1.35"                   # ****provides the ability to create tar archives as well as perform various other kinds of archive manipulation. Tar can be used on previously created archives to extract files, to store additional files, or to update or list files which were already stored.
 export Texinfo="texinfo-7.1"               # **contains programs for reading, writing, and converting info pages.
 export OP_Vim="vim-9.1.0041"               # ***text editor.
-export OP_MarkupSafe="markupsafe-2.1.5"    # *Python module that implements an XML/HTML/XHTML Markup safe string.
-export OP_Jinja="jinja2-3.1.3"             # *Python module that implements a simple pythonic template language.
+export OP_MarkupSafe="MarkupSafe-2.1.5"    # *Python module that implements an XML/HTML/XHTML Markup safe string.
+export OP_Jinja="Jinja2-3.1.3"             # *Python module that implements a simple pythonic template language.
 export OP_Udev="systemd-255"               # contains programs for dynamic creation of device nodes.
 export OP_Man_DB="man-db-2.12.0"           # ***contains programs for finding and viewing man pages.
 export OP_Procps_ng="procps-ng-4.0.4"      # **contains programs for monitoring processes.
-export OP_Util_linux="util-linux-2.39"     # contains miscellaneous utility programs. Among them are utilities for handling file systems, consoles, partitions, and messages.
+export OP_Util_linux="util-linux-2.39.3"     # contains miscellaneous utility programs. Among them are utilities for handling file systems, consoles, partitions, and messages.
 export OP_E2fsprogs="e2fsprogs-1.47.0"     # ***contains the utilities for handling the ext2 file system. It also supports the ext3 and ext4 journaling file systems.
 export OP_Sysklogd="sysklogd-1.5.1"        # ***contains programs for logging system messages, such as those emitted by the kernel when unusual things happen.
 export OP_Sysvinit="sysvinit-3.08"         # *****contains programs for controlling the startup, running, and shutdown of the system.
@@ -142,10 +142,10 @@ export OP_Sysvinit="sysvinit-3.08"         # *****contains programs for controll
 
 
 #BLFS
-export OP_CrackLib="cracklib-2.9.11"       # **contains a library used to enforce strong passwords by comparing user selected passwords to words in chosen word lists.
-    export OP_CrackLib_words="cracklib-words-2.9.11"            # lib of passwords
-    export OP_CrackLib_jhon_psw="john"
-    export OP_CrackLib_cain_psw="cain"
-    export OP_CrackLib_500_psw="500-worst-passwords"
-    export OP_CrackLib_twitter_psw="twitter-banned"
+#export OP_CrackLib="cracklib-2.9.11"       # **contains a library used to enforce strong passwords by comparing user selected passwords to words in chosen word lists.
+#    export OP_CrackLib_words="cracklib-words-2.9.11"            # lib of passwords
+#    export OP_CrackLib_jhon_psw="john"
+#    export OP_CrackLib_cain_psw="cain"
+#    export OP_CrackLib_500_psw="500-worst-passwords"
+#    export OP_CrackLib_twitter_psw="twitter-banned"
     

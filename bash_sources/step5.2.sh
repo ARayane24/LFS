@@ -982,7 +982,7 @@ fi
 sleep_before_complite
 
 ###OP_GRUB (NO_UEFI): 
-if [ -n "$OP_GRUB" ] && ! UEFI;then
+if [ -n "$OP_GRUB" ] && ! $UEFI;then
     echo -e "$START_JOB"
     echo $OP_GRUB
     tar -xf $OP_GRUB.tar.xz
@@ -1011,7 +1011,7 @@ if [ -n "$OP_GRUB" ] && ! UEFI;then
 fi
 ###********************************
 
-if [ -n "$OP_GRUB" ] && UEFI;then
+if [ -n "$OP_GRUB" ] && $UEFI;then
     source /LFS/bash_sources/step5_grub_uefi_requirement.sh
 
     ###OP_GRUB (WITH_UEFI BLFS): 
@@ -1824,6 +1824,134 @@ if [ -n "$OP_Sysvinit" ] ;then
     rm -Rf $OP_Sysvinit #rm extracted pkg
     echo -e "$DONE" 
     echo -e $OP_Sysvinit "$TOOL_READY"
+fi
+###********************************
+
+
+
+###OP_CrackLib (BLFS): 0.1SBU
+if [ -n "$OP_Shadow" ] ;then
+    echo -e "$START_JOB"
+    echo $OP_CrackLib
+    tar -xf $OP_CrackLib.tar.xz
+    cd $OP_CrackLib
+
+    autoreconf -fiv &&
+
+    PYTHON=python3               \
+    ./configure --prefix=/usr    \
+                --disable-static \
+                --with-default-dict=/usr/lib/cracklib/pw_dict &&
+    make && make install
+    if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
+
+    install -v -m644 -D    ../$OP_CrackLib_words \
+                         /usr/share/dict/cracklib-words.xz    &&
+
+    unxz -v                  /usr/share/dict/cracklib-words.xz    &&
+    ln -v -sf cracklib-words /usr/share/dict/words                &&
+    echo $(hostname) >>      /usr/share/dict/cracklib-extra-words &&
+    install -v -m755 -d      /usr/lib/cracklib                    &&
+
+    cd /sources/
+    # ADD passwords lists
+    bunzip2 -k $OP_CrackLib_jhon_psw.txt.bz2
+    mv $OP_CrackLib_jhon_psw.txt /usr/share/dict/$OP_CrackLib_jhon_psw.txt
+
+    bunzip2 -k $OP_CrackLib_cain_psw.txt.bz2
+    mv $OP_CrackLib_cain_psw.txt /usr/share/dict/$OP_CrackLib_cain_psw.txt
+    
+    bunzip2 -k $OP_CrackLib_500_psw.txt.bz2
+    mv $OP_CrackLib_500_psw.txt /usr/share/dict/$OP_CrackLib_500_psw.txt
+    
+    bunzip2 -k $OP_CrackLib_twitter_psw.txt.bz2
+    mv $OP_CrackLib_twitter_psw.txt /usr/share/dict/$OP_CrackLib_twitter_psw.txt
+
+    # update cracklib
+    create-cracklib-dict /usr/share/dict/cracklib-words \
+                            /usr/share/dict/cracklib-extra-words \
+                            /usr/share/dict/$OP_CrackLib_jhon_psw.txt \
+                            /usr/share/dict/$OP_CrackLib_cain_psw.txt \
+                            /usr/share/dict/$OP_CrackLib_500_psw.txt \
+                            /usr/share/dict/$OP_CrackLib_twitter_psw.txt
+
+    make test
+
+    USING_CRACKLIB=true
+    cd /sources/
+    rm -Rf $OP_CrackLib #rm extracted pkg
+    echo -e "$DONE" 
+    echo -e $OP_CrackLib "$TOOL_READY"
+fi
+###********************************
+
+
+
+###OP_Shadow: 0.1SBU
+if [ -n "$OP_Shadow" ] ;then
+    echo -e "$START_JOB"
+    echo $OP_Shadow
+    tar -xf $OP_Shadow.tar.xz
+    cd $OP_Shadow
+
+    OPTIONNAL_HIGH_SECURITY=""
+    if $USING_CRACKLIB; then
+        OPTIONNAL_HIGH_SECURITY=" \ --with-libcrack"
+    fi
+
+    sed -i 's/groups$(EXEEXT) //' src/Makefile.in
+    find man -name Makefile.in -exec sed -i 's/groups\.1 / /'   {} \;
+    find man -name Makefile.in -exec sed -i 's/getspnam\.3 / /' {} \;
+    find man -name Makefile.in -exec sed -i 's/passwd\.5 / /'   {} \;
+    sed -e 's:#ENCRYPT_METHOD DES:ENCRYPT_METHOD YESCRYPT:' \
+    -e 's:/var/spool/mail:/var/mail:'                   \
+    -e '/PATH=/{s@/sbin:@@;s@/bin:@@}'                  \
+    -i etc/login.defs
+
+    if $USING_CRACKLIB; then
+        sed -i 's:DICTPATH.*:DICTPATH\t/lib/cracklib/pw_dict:' etc/login.defs
+    fi
+
+    touch /usr/bin/passwd
+    if $STATIC_ONLY;then
+        ./configure --sysconfdir=/etc   \
+            --enable-static \
+            --disable-shared \
+            --with-{b,yes}crypt \
+            --without-libbsd    \
+            --with-group-name-max-length=32
+            $OPTIONNAL_HIGH_SECURITY
+    else
+       ./configure --sysconfdir=/etc   \
+            --disable-static    \
+            --with-{b,yes}crypt \
+            --without-libbsd    \
+            --with-group-name-max-length=32
+            $OPTIONNAL_HIGH_SECURITY
+    fi
+    make && make exec_prefix=/usr install && make -C man install-man
+    if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
+
+    pwconv
+    grpconv
+    mkdir -p /etc/default
+    useradd -D --gid 999
+    sed -i '/MAIL/s/yes/no/' /etc/default/useradd
+
+    passwd root
+
+    cd /sources/
+    rm -Rf $OP_Shadow #rm extracted pkg
+    echo -e "$DONE" 
+    echo -e $OP_Shadow "$TOOL_READY"
 fi
 ###********************************
 

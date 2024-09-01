@@ -1056,70 +1056,7 @@ if [ -n "$OP_Libxcrypt" ] ;then
 fi
 ###********************************
 
-
-
-###OP_CrackLib (BLFS): 0.1SBU
 export USING_CRACKLIB=false
-if [ -n "$OP_Shadow" ] ;then
-    echo -e "$START_JOB"
-    echo $OP_CrackLib
-    tar -xf $OP_CrackLib.tar.xz
-    cd $OP_CrackLib
-
-    autoreconf -fiv &&
-
-    PYTHON=python3               \
-    ./configure --prefix=/usr    \
-                --disable-static \
-                --with-default-dict=/usr/lib/cracklib/pw_dict &&
-    make && make install
-    if [ $? -ne 0 ]; then
-        echo -e "$BUILD_FAILED"
-        exit 1
-    fi
-    echo -e "$BUILD_SUCCEEDED"
-
-    install -v -m644 -D    ../$OP_CrackLib_words \
-                         /usr/share/dict/cracklib-words.xz    &&
-
-    unxz -v                  /usr/share/dict/cracklib-words.xz    &&
-    ln -v -sf cracklib-words /usr/share/dict/words                &&
-    echo $(hostname) >>      /usr/share/dict/cracklib-extra-words &&
-    install -v -m755 -d      /usr/lib/cracklib                    &&
-
-    cd /sources/
-    # ADD passwords lists
-    bunzip2 -k $OP_CrackLib_jhon_psw.txt.bz2
-    mv $OP_CrackLib_jhon_psw.txt /usr/share/dict/$OP_CrackLib_jhon_psw.txt
-
-    bunzip2 -k $OP_CrackLib_cain_psw.txt.bz2
-    mv $OP_CrackLib_cain_psw.txt /usr/share/dict/$OP_CrackLib_cain_psw.txt
-    
-    bunzip2 -k $OP_CrackLib_500_psw.txt.bz2
-    mv $OP_CrackLib_500_psw.txt /usr/share/dict/$OP_CrackLib_500_psw.txt
-    
-    bunzip2 -k $OP_CrackLib_twitter_psw.txt.bz2
-    mv $OP_CrackLib_twitter_psw.txt /usr/share/dict/$OP_CrackLib_twitter_psw.txt
-
-    # update cracklib
-    create-cracklib-dict /usr/share/dict/cracklib-words \
-                            /usr/share/dict/cracklib-extra-words \
-                            /usr/share/dict/$OP_CrackLib_jhon_psw.txt \
-                            /usr/share/dict/$OP_CrackLib_cain_psw.txt \
-                            /usr/share/dict/$OP_CrackLib_500_psw.txt \
-                            /usr/share/dict/$OP_CrackLib_twitter_psw.txt
-
-    make test
-
-    USING_CRACKLIB=true
-    cd /sources/
-    rm -Rf $OP_CrackLib #rm extracted pkg
-    echo -e "$DONE" 
-    echo -e $OP_CrackLib "$TOOL_READY"
-fi
-###********************************
-
-
 
 ###OP_Shadow: 0.1SBU
 if [ -n "$OP_Shadow" ] ;then
