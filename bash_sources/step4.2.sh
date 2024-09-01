@@ -22,9 +22,9 @@ cd /sources
 
 ### Gettext
 echo -e "$START_JOB"
-echo $Gettext
-tar -xf "$Gettext.tar.xz"
-cd $Gettext
+echo $Gettext_Tool
+tar -xf "$Gettext_Tool.tar.xz"
+cd $Gettext_Tool
 ./configure --disable-shared
 make --silent
 if [ $? -ne 0 ]; then
@@ -33,38 +33,38 @@ if [ $? -ne 0 ]; then
 fi
 cp -v gettext-tools/src/{msgfmt,msgmerge,xgettext} /usr/bin
 cd /sources 
-rm -Rf $Gettext
+rm -Rf $Gettext_Tool
 echo -e "$DONE"
-echo -e $Gettext "$TOOL_READY"
+echo -e $Gettext_Tool "$TOOL_READY"
 #-------------------
 
 
 
 ### Bison
 echo -e "$START_JOB"
-echo $Bison
-tar -xf "$Bison.tar.xz"
-cd $Bison
+echo $Bison_Tool
+tar -xf "$Bison_Tool.tar.xz"
+cd $Bison_Tool
 ./configure --prefix=/usr \
-            --docdir=/usr/share/doc/$Bison
+            --docdir=/usr/share/doc/$Bison_Tool
 make --silent && make install --silent
 if [ $? -ne 0 ]; then
     echo -e "$BUILD_FAILED"
     exit 1
 fi
 cd /sources 
-rm -Rf $Bison
+rm -Rf $Bison_Tool
 echo -e "$DONE"
-echo -e $Bison "$TOOL_READY"
+echo -e $Bison_Tool "$TOOL_READY"
 #-------------------
 
 
 
 ### Perl
 echo -e "$START_JOB"
-echo $Perl
-tar -xf "$Perl.tar.xz"
-cd $Perl
+echo $Perl_Tool
+tar -xf "$Perl_Tool.tar.xz"
+cd $Perl_Tool
 
 sh Configure -des                                        \
              -Dprefix=/usr                               \
@@ -82,9 +82,9 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 cd /sources 
-rm -Rf $Perl
+rm -Rf $Perl_Tool
 echo -e "$DONE"
-echo -e $Perl "$TOOL_READY"
+echo -e $Perl_Tool "$TOOL_READY"
 #-------------------
 
 
@@ -92,8 +92,8 @@ echo -e $Perl "$TOOL_READY"
 ### Python
 echo -e "$START_JOB"
 echo Python
-tar -xf "$Python.tar.xz"
-cd $Python
+tar -xf "$Python_Tool.tar.xz"
+cd $Python_Tool
 
 ./configure --prefix=/usr   \
             --enable-shared \
@@ -104,9 +104,9 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 cd /sources 
-rm -Rf $Python
+rm -Rf $Python_Tool
 echo -e "$DONE"
-echo -e $Python "$TOOL_READY"
+echo -e $Python_Tool "$TOOL_READY"
 #-------------------
 
 
@@ -114,8 +114,8 @@ echo -e $Python "$TOOL_READY"
 ### Texinfo
 echo -e "$START_JOB"
 echo $Textinfo
-tar -xf "$Texinfo.tar.xz"
-cd $Texinfo
+tar -xf "$Texinfo_Tool.tar.xz"
+cd $Texinfo_Tool
 
 ./configure --prefix=/usr
 make --silent && make install --silent
@@ -124,9 +124,9 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 cd /sources 
-rm -Rf $Texinfo
+rm -Rf $Texinfo_Tool
 echo -e "$DONE"
-echo -e $Texinfo "$TOOL_READY"
+echo -e $Texinfo_Tool "$TOOL_READY"
 #-------------------
 
 

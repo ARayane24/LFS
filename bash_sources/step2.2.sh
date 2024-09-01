@@ -16,7 +16,7 @@ cd $LFS/sources/
 
 #extract_all_files
 echo -e "$START_EXTRACTION"
-extract_tar_files $LFS/sources/ "$Binutils_P1 $GCC_P1 $Linux $Glibc $Libstdc $M4 $Ncurses $Bash $Coreutils $Diffutils $File $Findutils $Gawk $Grep $Gzip $Make $Patch $Sed $Tar $Xz"
+extract_tar_files $LFS/sources/ "$Binutils_P1 $GCC_P1 $Linux_Kernel $Glibc_Tool $Libstdc_Tool $M4_Tool $Ncurses_Tool $Bash_Tool $Coreutils_Tool $Diffutils_Tool $File_Tool $Findutils_Tool $Gawk_Tool $Grep_Tool $Gzip_Tool $Make_Tool $Patch_Tool $Sed_Tool $Tar_Tool $Xz_Tool"
 echo -e "$DONE"
 
 #############################################################
@@ -110,8 +110,8 @@ echo -e $GCC_P1"$TOOL_READY"
 
 ###Linux-6 headers
 echo -e "$START_JOB"
-echo $Linux
-cd $Linux
+echo $Linux_Kernel
+cd $Linux_Kernel
 make mrproper   && make headers 
 if [ $? -ne 0 ]; then
     echo -e "$BUILD_FAILED"
@@ -121,17 +121,17 @@ echo -e "$BUILD_SUCCEEDED"
 find usr/include -type f ! -name '*.h' -delete
 cp -rv usr/include $LFS/usr
 cd $LFS/sources/
-rm -Rf $Linux
+rm -Rf $Linux_Kernel
 echo -e "$DONE" 
-echo -e $Linux "$TOOL_READY"
+echo -e $Linux_Kernel "$TOOL_READY"
 ###********************************
 
 
 
 ###glibc
 echo -e "$START_JOB"
-echo $Glibc
-cd $Glibc
+echo $Glibc_Tool
+cd $Glibc_Tool
 case $(uname -m) in
     i?86)   ln -sfv ld-linux.so.2 $LFS/lib/ld-lsb.so.3
     ;;
@@ -140,7 +140,7 @@ case $(uname -m) in
     ;;
 esac
 
-patch -Np1 -i ../$Glibc-fhs-1.patch
+patch -Np1 -i ../$Glibc_Tool-fhs-1.patch
 
 cd   build
 echo "rootsbindir=/usr/sbin" > configparms
@@ -184,20 +184,20 @@ else
     exit 1
 fi
 cd $LFS/sources/
-rm -Rf $Glibc
+rm -Rf $Glibc_Tool
 echo -e "$DONE" 
-echo -e $Glibc "$TOOL_READY"
+echo -e $Glibc_Tool "$TOOL_READY"
 ###********************************
 
 
 
-### $Libstdc
+### $Libstdc_Tool
 echo -e "$START_JOB"
 echo $GCC_P1
 tar -xf "$GCC_P1.tar.xz"
 mkdir -v $GCC_P1/build
 cd $GCC_P1/build
-../$Libstdc-v3/configure           \
+../$Libstdc_Tool-v3/configure           \
     --host=$LFS_TGT                 \
     --build=$(../config.guess)      \
     --prefix=/usr                   \
@@ -225,8 +225,8 @@ echo -e "${PROCESS}Cross Compiling Temporary Tools...${NO_STYLE}"
 #############################################################
 ### M4
 echo -e "$START_JOB"
-echo $M4
-cd $M4
+echo $M4_Tool
+cd $M4_Tool
 ./configure --prefix=/usr   \
             --host=$LFS_TGT \
             --build=$(build-aux/config.guess)
@@ -237,17 +237,17 @@ if [ $? -ne 0 ]; then
 fi
 echo -e "$BUILD_SUCCEEDED"
 cd $LFS/sources/
-rm -Rf $M4
+rm -Rf $M4_Tool
 echo -e "$DONE" 
-echo -e $M4 "$TOOL_READY"
+echo -e $M4_Tool "$TOOL_READY"
 ###********************************
 
 
 
 ### Ncurses
 echo -e "$START_JOB"
-echo $Ncurses
-cd $Ncurses
+echo $Ncurses_Tool
+cd $Ncurses_Tool
 sed -i s/mawk// configure
 pushd build
   ../configure
@@ -276,17 +276,17 @@ ln -sv libncursesw.so $LFS/usr/lib/libncurses.so
 sed -e 's/^#if.*XOPEN.*$/#if 1/' \
     -i $LFS/usr/include/curses.h
 cd $LFS/sources/
-rm -Rf $Ncurses
+rm -Rf $Ncurses_Tool
 echo -e "$DONE"
-echo -e $Ncurses "$TOOL_READY"
+echo -e $Ncurses_Tool "$TOOL_READY"
 ###********************************
 
 
 
 ### Bash
 echo -e "$START_JOB"
-echo $Bash
-cd $Bash
+echo $Bash_Tool
+cd $Bash_Tool
 ./configure --prefix=/usr                      \
             --build=$(sh support/config.guess) \
             --host=$LFS_TGT                    \
@@ -299,17 +299,17 @@ fi
 echo -e "$BUILD_SUCCEEDED"
 ln -sv bash $LFS/bin/sh
 cd $LFS/sources/
-rm -Rf $Bash
+rm -Rf $Bash_Tool
 echo -e "$DONE" 
-echo -e $Bash "$TOOL_READY"
+echo -e $Bash_Tool "$TOOL_READY"
 ###********************************
 
 
 
 ### Coreutils
 echo -e "$START_JOB"
-echo $Coreutils
-cd $Coreutils
+echo $Coreutils_Tool
+cd $Coreutils_Tool
 ./configure --prefix=/usr                     \
             --host=$LFS_TGT                   \
             --build=$(build-aux/config.guess) \
@@ -326,17 +326,17 @@ mkdir -pv $LFS/usr/share/man/man8
 mv -v $LFS/usr/share/man/man1/chroot.1 $LFS/usr/share/man/man8/chroot.8
 sed -i 's/"1"/"8"/'                    $LFS/usr/share/man/man8/chroot.8
 cd $LFS/sources/
-rm -Rf $Coreutils
-echo -e "$DONE" $Coreutils
-echo -e $Coreutils "$TOOL_READY"
+rm -Rf $Coreutils_Tool
+echo -e "$DONE" $Coreutils_Tool
+echo -e $Coreutils_Tool "$TOOL_READY"
 ###********************************
 
 
 
 ### Diffutils
 echo -e "$START_JOB"
-echo $Diffutils
-cd $Diffutils
+echo $Diffutils_Tool
+cd $Diffutils_Tool
 ./configure --prefix=/usr   \
             --host=$LFS_TGT \
             --build=$(./build-aux/config.guess)
@@ -347,17 +347,17 @@ if [ $? -ne 0 ]; then
 fi
 echo -e "$BUILD_SUCCEEDED"
 cd $LFS/sources/
-rm -Rf $Diffutils
+rm -Rf $Diffutils_Tool
 echo -e "$DONE" 
-echo -e $Diffutils "$TOOL_READY"
+echo -e $Diffutils_Tool "$TOOL_READY"
 ###********************************
 
 
 
 ### File
 echo -e "$START_JOB"
-echo $File
-cd $File
+echo $File_Tool
+cd $File_Tool
 pushd build
   ../configure --disable-bzlib      \
                --disable-libseccomp \
@@ -379,17 +379,17 @@ fi
 echo -e "$BUILD_SUCCEEDED"
 rm -v $LFS/usr/lib/libmagic.la
 cd $LFS/sources/
-rm -Rf $File
+rm -Rf $File_Tool
 echo -e "$DONE" 
-echo -e $File "$TOOL_READY"
+echo -e $File_Tool "$TOOL_READY"
 ###********************************
 
 
 
 ### Findutils
 echo -e "$START_JOB"
-echo $Findutils
-cd $Findutils
+echo $Findutils_Tool
+cd $Findutils_Tool
 ./configure --prefix=/usr                   \
             --localstatedir=/var/lib/locate \
             --host=$LFS_TGT                 \
@@ -401,17 +401,17 @@ if [ $? -ne 0 ]; then
 fi
 echo -e "$BUILD_SUCCEEDED"
 cd $LFS/sources/
-rm -Rf $Findutils
+rm -Rf $Findutils_Tool
 echo -e "$DONE" 
-echo -e $Findutils "$TOOL_READY"
+echo -e $Findutils_Tool "$TOOL_READY"
 ###********************************
 
 
 
 ### Gawk
 echo -e "$START_JOB"
-echo $Gawk
-cd $Gawk
+echo $Gawk_Tool
+cd $Gawk_Tool
 sed -i 's/Fileextras//' Makefile.in
 ./configure --prefix=/usr   \
             --host=$LFS_TGT \
@@ -423,17 +423,17 @@ if [ $? -ne 0 ]; then
 fi
 echo -e "$BUILD_SUCCEEDED"
 cd $LFS/sources/
-rm -Rf $Gawk
+rm -Rf $Gawk_Tool
 echo -e "$DONE"
-echo -e  $Gawk "$TOOL_READY"
+echo -e  $Gawk_Tool "$TOOL_READY"
 ###********************************
 
 
 
 ### Grep
 echo -e "$START_JOB"
-echo $Grep
-cd $Grep
+echo $Grep_Tool
+cd $Grep_Tool
 ./configure --prefix=/usr   \
             --host=$LFS_TGT \
             --build=$(./build-aux/config.guess)
@@ -444,17 +444,17 @@ if [ $? -ne 0 ]; then
 fi
 echo -e "$BUILD_SUCCEEDED"
 cd $LFS/sources/
-rm -Rf $Grep
+rm -Rf $Grep_Tool
 echo -e "$DONE" 
-echo -e  $Grep "$TOOL_READY"
+echo -e  $Grep_Tool "$TOOL_READY"
 ###********************************
 
 
 
 ### Gzip
 echo -e "$START_JOB"
-echo $Gzip
-cd $Gzip
+echo $Gzip_Tool
+cd $Gzip_Tool
 ./configure --prefix=/usr --host=$LFS_TGT
 make  && make DESTDIR=$LFS install 
 if [ $? -ne 0 ]; then
@@ -463,17 +463,17 @@ if [ $? -ne 0 ]; then
 fi
 echo -e "$BUILD_SUCCEEDED"
 cd $LFS/sources/
-rm -Rf $Gzip
+rm -Rf $Gzip_Tool
 echo -e "$DONE" 
-echo -e $Gzip "$TOOL_READY"
+echo -e $Gzip_Tool "$TOOL_READY"
 ###********************************
 
 
 
 ### Make
 echo -e "$START_JOB"
-echo $Make
-cd $Make
+echo $Make_Tool
+cd $Make_Tool
 ./configure --prefix=/usr   \
             --without-guile \
             --host=$LFS_TGT \
@@ -485,17 +485,17 @@ if [ $? -ne 0 ]; then
 fi
 echo -e "$BUILD_SUCCEEDED"
 cd $LFS/sources/
-rm -Rf $Make
+rm -Rf $Make_Tool
 echo -e "$DONE" 
-echo -e $Make "$TOOL_READY"
+echo -e $Make_Tool "$TOOL_READY"
 ###********************************
 
 
 
 ### Patch
 echo -e "$START_JOB"
-echo $Patch
-cd $Patch
+echo $Patch_Tool
+cd $Patch_Tool
 ./configure --prefix=/usr   \
             --host=$LFS_TGT \
             --build=$(build-aux/config.guess)
@@ -506,17 +506,17 @@ if [ $? -ne 0 ]; then
 fi
 echo -e "$BUILD_SUCCEEDED"
 cd $LFS/sources/
-rm -Rf $Patch
-echo -e "$DONE" $Patch
-echo -e  $Patch "$TOOL_READY"
+rm -Rf $Patch_Tool
+echo -e "$DONE"
+echo -e  $Patch_Tool "$TOOL_READY"
 ###********************************
 
 
 
 ### Sed
 echo -e "$START_JOB"
-echo $Sed
-cd $Sed
+echo $Sed_Tool
+cd $Sed_Tool
 ./configure --prefix=/usr   \
             --host=$LFS_TGT \
             --build=$(./build-aux/config.guess)
@@ -527,17 +527,17 @@ if [ $? -ne 0 ]; then
 fi
 echo -e "$BUILD_SUCCEEDED"
 cd $LFS/sources/
-rm -Rf $Sed
+rm -Rf $Sed_Tool
 echo -e "$DONE" 
-echo -e $Sed "$TOOL_READY"
+echo -e $Sed_Tool "$TOOL_READY"
 ###********************************
 
 
 
 ### Tar
 echo -e "$START_JOB"
-echo $Tar
-cd $Tar
+echo $Tar_Tool
+cd $Tar_Tool
 ./configure --prefix=/usr                     \
             --host=$LFS_TGT                   \
             --build=$(build-aux/config.guess)
@@ -548,22 +548,22 @@ if [ $? -ne 0 ]; then
 fi
 echo -e "$BUILD_SUCCEEDED"
 cd $LFS/sources/
-rm -Rf $Tar
+rm -Rf $Tar_Tool
 echo -e "$DONE" 
-echo -e $Tar "$TOOL_READY"
+echo -e $Tar_Tool "$TOOL_READY"
 ###********************************
 
 
 
 ### Xz
 echo -e "$START_JOB"
-echo $Xz
-cd $Xz
+echo $Xz_Tool
+cd $Xz_Tool
 ./configure --prefix=/usr                     \
             --host=$LFS_TGT                   \
             --build=$(build-aux/config.guess) \
             --disable-static                  \
-            --docdir=/usr/share/doc/$Xz
+            --docdir=/usr/share/doc/$Xz_Tool
 make  && make DESTDIR=$LFS install 
 if [ $? -ne 0 ]; then
     echo -e "$BUILD_FAILED"
@@ -572,9 +572,9 @@ fi
 echo -e "$BUILD_SUCCEEDED"
 rm -v $LFS/usr/lib/liblzma.la
 cd $LFS/sources/
-rm -Rf $Xz
+rm -Rf $Xz_Tool
 echo -e "$DONE" 
-echo -e $Xz "$TOOL_READY"
+echo -e $Xz_Tool "$TOOL_READY"
 ###********************************
 
 
@@ -630,7 +630,7 @@ case $(uname -m) in
   ;;
 esac
 sed '/thread_header =/s/@.*@/gthr-posix.h/' \
-    -i libgcc/Makefile.in $Libstdc-v3/include/Makefile.in
+    -i libgcc/Makefile.in $Libstdc_Tool-v3/include/Makefile.in
 mkdir build
 cd       build
 ../configure                                       \
