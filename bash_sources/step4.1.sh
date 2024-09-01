@@ -97,9 +97,4 @@ source /.bashrc
 
 
 echo -e "$DONE"
-echo -e "$RUN_CMD_TO_START_NEXT_STEP"
-echo "bash \$NEXT_STEP"
-
-
-
-exec /usr/bin/bash --login
+exec /usr/bin/bash --login -c "bash $NEXT_STEP"

@@ -90,7 +90,7 @@ if ! [ -n "$STEP5_ENDED" ] || ! $STEP5_ENDED; then
       echo "$LFS_IS_NOT_SET"
       exit 1
     fi
-    cat $LFS/.bashrc $SHARED_FILE #update shared file with last vars
+    cat $LFS/.bashrc > $SHARED_FILE #update shared file with last vars
     source $SHARED_FILE
 
     if $BACK_UP_OS_IN_THE_END; then
