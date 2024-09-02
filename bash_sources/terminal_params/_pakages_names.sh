@@ -142,10 +142,10 @@ export OP_Sysvinit="sysvinit-3.08"         # *****contains programs for controll
 
 
 #BLFS
-#export OP_CrackLib="cracklib-2.9.11"       # **contains a library used to enforce strong passwords by comparing user selected passwords to words in chosen word lists.
-#    export OP_CrackLib_words="cracklib-words-2.9.11"            # lib of passwords
-#    export OP_CrackLib_jhon_psw="john"
-#    export OP_CrackLib_cain_psw="cain"
-#    export OP_CrackLib_500_psw="500-worst-passwords"
-#    export OP_CrackLib_twitter_psw="twitter-banned"
+export OP_CrackLib="cracklib-2.9.11"       # **contains a library used to enforce strong passwords by comparing user selected passwords to words in chosen word lists.
+    export OP_CrackLib_words="cracklib-words-2.9.11"            # lib of passwords
+    export OP_CrackLib_jhon_psw="john"
+    export OP_CrackLib_cain_psw="cain"
+    export OP_CrackLib_500_psw="500-worst-passwords"
+    export OP_CrackLib_twitter_psw="twitter-banned"
     
