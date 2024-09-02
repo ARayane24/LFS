@@ -5,7 +5,7 @@
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
     #Recommended PKGS for GRUB (UEFI) version
     # 1 - OP_Which
-    if [-n "$OP_Which"] ;then
+    if [ -n "$OP_Which" ] ;then
         echo -e "$START_JOB"
         echo $OP_Which
         tar -xf $OP_Which.tar.gz
@@ -26,7 +26,7 @@
     fi
   
     # 2 - OP_Libping
-    if [-n "$OP_Libping"] ;then
+    if [ -n "$OP_Libping" ] ;then
         echo -e "$START_JOB"
         echo $OP_Libping
         tar -xf $OP_Libping.tar.xz
@@ -61,7 +61,7 @@
     fi
 
      # 4 - OP_Freetype step 1
-    if [-n "$OP_Freetype"] ;then
+    if [ -n "$OP_Freetype" ] ;then
         echo -e "$START_JOB"
         echo $OP_Freetype
         tar -xf $OP_Freetype.tar.xz
@@ -95,7 +95,7 @@
     fi
 
     # 3 - OP_Harfbuzz
-    if [-n "$OP_Harfbuzz"] ;then
+    if [ -n "$OP_Harfbuzz" ] ;then
         echo -e "$START_JOB"
         echo $OP_Harfbuzz
         tar -xf $OP_Harfbuzz.tar.xz
@@ -119,7 +119,7 @@
     fi
 
      # 4 - OP_Freetype step 2
-    if [-n "$OP_Freetype"] ;then
+    if [ -n "$OP_Freetype" ] ;then
         echo -e "$START_JOB"
         echo $OP_Freetype
         tar -xf $OP_Freetype.tar.xz
@@ -157,7 +157,7 @@
     fi
 
       # 5 - OP_Popt
-    if [-n "$OP_Popt"] ;then
+    if [ -n "$OP_Popt" ] ;then
         echo -e "$START_JOB"
         echo $OP_Popt
         tar -xf $OP_Popt.tar.gz
@@ -188,7 +188,7 @@
     fi
 
       # 6 - OP_Mandoc
-    if [-n "$OP_Mandoc"] ;then
+    if [ -n "$OP_Mandoc" ] ;then
         echo -e "$START_JOB"
         echo $OP_Mandoc
         tar -xf $OP_Mandoc.tar.gz
@@ -212,7 +212,7 @@
     fi
 
       # 7 - OP_Efivar
-    if [-n "$OP_Efivar"] ;then
+    if [ -n "$OP_Efivar" ] ;then
         echo -e "$START_JOB"
         echo $OP_Efivar
         tar -xf $OP_Efivar.tar.gz
@@ -232,7 +232,7 @@
     fi
 
       # 8 - OP_Efibootmgr
-    if [-n "$OP_Efibootmgr"] ;then
+    if [ -n "$OP_Efibootmgr" ] ;then
         echo -e "$START_JOB"
         echo $OP_Efibootmgr
         tar -xf $OP_Efibootmgr.tar.gz
