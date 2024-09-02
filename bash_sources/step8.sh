@@ -149,7 +149,6 @@ EOF
 fi
 ###********************************
 
-popd
 
 ## init
 cat > /etc/inittab <<EOF
@@ -379,6 +378,7 @@ EOF
  #  echo -e $Linux_Kernel "$TOOL_READY"
 fi
 ###********************************
+popd
 echo -e "${STEP}
     ###############################################
     #   *${NO_STYLE}$END_STEP8${STEP}*     #
