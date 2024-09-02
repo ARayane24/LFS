@@ -50,3 +50,6 @@ https://github.com/rhboot/efibootmgr/archive/18/efibootmgr-18.tar.gz
 
 ## DHCP
 https://github.com/NetworkConfiguration/dhcpcd/releases/download/v10.0.8/dhcpcd-10.0.8.tar.xz
+
+## dosfstools
+https://github.com/dosfstools/dosfstools/releases/download/v4.2/dosfstools-4.2.tar.gz

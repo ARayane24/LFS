@@ -35,6 +35,11 @@
 #
 #  [*] PCI support --->                                                     [PCI]
 #    [*] Message Signaled Interrupts (MSI and MSI-X)                    [PCI_MSI]
+#
+#-*- Enable the block layer --->                                          [BLOCK]
+#  Partition Types --->
+#    [ /*] Advanced partition selection                      [PARTITION_ADVANCED]
+#    [*]     EFI GUID Partition support                           [EFI_PARTITION]
 #    
 #  Graphics support --->
 #    < /*/M> Direct Rendering Manager (XFree86 4.1.0 and higher DRI support) --->
@@ -52,13 +57,10 @@
 #  [*] IOMMU Hardware Support --->                                [IOMMU_SUPPORT]
 #    [*] Support for Interrupt Remapping                              [IRQ_REMAP]
 #    
-#-*- Enable the block layer --->                                          [BLOCK]
-#  Partition Types --->
-#    [ /*] Advanced partition selection                      [PARTITION_ADVANCED]
-#    [*]     EFI GUID Partition support                           [EFI_PARTITION]
 #File systems --->
 #  DOS/FAT/EXFAT/NT Filesystems --->
-#    <*/M> VFAT (Windows-95) fs support                                 [VFAT_FS]
+#    < /*/M> MSDOS fs support                                          [MSDOS_FS]
+#    <*/M>   VFAT (Windows-95) fs support                               [VFAT_FS]
 #  Pseudo filesystems --->
 #    <*/M> EFI Variable filesystem                                    [EFIVAR_FS]
 #  -*- Native language support --->                                         [NLS]

@@ -151,7 +151,5 @@ export OP_CrackLib="cracklib-2.9.11"       # **contains a library used to enforc
     export OP_CrackLib_cain_psw="cain"
     export OP_CrackLib_500_psw="500-worst-passwords"
     export OP_CrackLib_twitter_psw="twitter-banned"
-export OP_dhcpcd="dhcpcd-10.0.8"                        #  an implementation of the DHCP client specified in RFC2131. A DHCP client is useful for connecting your computer to a network which uses DHCP to assign network addresses. dhcpcd strives to be a fully featured, yet very lightweight DHCP client.
-
-
-    
+export OP_dhcpcd="dhcpcd-10.0.8"                        # an implementation of the DHCP client specified in RFC2131. A DHCP client is useful for connecting your computer to a network which uses DHCP to assign network addresses. dhcpcd strives to be a fully featured, yet very lightweight DHCP client.
+export OP_dosfstools="dosfstools-4.2"                   # contains various utilities for use with the FAT family of file systems. (Helps in Createing an Emergency Boot Disk)

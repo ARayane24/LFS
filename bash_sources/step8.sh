@@ -32,6 +32,7 @@ if [ -n "$SC_LFS_Bootscripts" ] ;then
 fi
 ###********************************
 
+
 bash /usr/lib/udev/init-net-rules.sh
 
 ###OP_dhcpcd: 0.1SBU
@@ -371,12 +372,65 @@ install uhci_hcd /sbin/modprobe ehci_hcd ; /sbin/modprobe -i uhci_hcd ; true
 # End /etc/modprobe.d/usb.conf
 EOF
 
- #  cd /sources/
+ cd /sources/
  #  rm -Rf $Linux_Kernel #rm extracted pkg
  #  echo -e "$DONE" 
  #  echo -e $Linux_Kernel "$TOOL_READY"
 fi
 ###********************************
+
+
+
+###OP_dosfstools: 0.1SBU
+if [ -n "$OP_dosfstools" ] ;then
+   echo -e "$START_JOB"
+   echo $OP_dosfstools
+   tar -xf $OP_dosfstools.tar.gz
+   cd $OP_dosfstools
+
+   ./configure --prefix=/usr      \
+         --enable-compat-symlinks \
+         --mandir=/usr/share/man  \
+         --docdir=/usr/share/doc/$OP_dosfstools
+   make
+   if [ $? -ne 0 ]; then
+      echo -e "$BUILD_FAILED"
+      exit 1
+   fi
+   echo -e "$BUILD_SUCCEEDED"
+
+   make check
+
+   make install
+   if [ $? -ne 0 ]; then
+      echo -e "$BUILD_FAILED"
+      exit 1
+   fi
+   echo -e "$BUILD_SUCCEEDED"
+
+   cd /sources/
+   rm -Rf $OP_dosfstools #rm extracted pkg
+   echo -e "$DONE" 
+   echo -e $OP_dosfstools "$TOOL_READY"
+fi
+###********************************
+
+
+read -p "$PLUGIN_THE_USB_YOU_WANT_USE_INPUT_ANY_TO_CONTINUE" X
+lsblk
+EM_Boot=$(read_non_empty_string "$INPUT_USB_NAME")
+mkfs.vfat /dev/$EM_Boot
+
+fdisk /dev/$EM_Boot
+
+mount --mkdir -v -t vfat /dev/$EM_Boot -o codepage=437,iocharset=iso8859-1 \
+      /mnt/rescue
+
+grub-install --target=x86_64-efi --removable \
+             --efi-directory=/mnt/rescue --boot-directory=/mnt/rescue
+
+umount /mnt/rescue
+
 popd
 echo -e "${STEP}
     ###############################################
