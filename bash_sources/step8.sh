@@ -76,6 +76,7 @@ if [ -n "$OP_dhcpcd" ] ;then
    fi
    echo -e "$BUILD_SUCCEEDED"
 
+   cd ..
 
    #config
    echo -e "$START_JOB"
@@ -98,7 +99,7 @@ if [ -n "$OP_dhcpcd" ] ;then
    ip a #veiw all network interface names and @address 
 
    while true; do
-    NET_WORK_INTERFACE_NAME=$(read_non_empty_string $INPUT_NETWORK_INTERFACE_NAME)
+    NET_WORK_INTERFACE_NAME=$(read_non_empty_string "$INPUT_NETWORK_INTERFACE_NAME")
 
     if [[ "$NET_WORK_INTERFACE_NAME" == "exit" ]]; then
         echo "$FINISHED_ADDING_NW_I_N"
@@ -207,11 +208,11 @@ EOF
 
 ## sys local
 echo -e "$CHOOSE_SYS_LOCAL"
-ALL_SYS_LOCALS="$(locale -a)"
+ALL_SYS_LOCALS="$(locale -a | sort)"
 echo -e $ALL_SYS_LOCALS
 
 while true; do
-   chosen_local=$(read_non_empty_string $INPUT_SYS_L_VALUE)
+   chosen_local=$(read_non_empty_string "$INPUT_SYS_L_VALUE")
    if echo "$ALL_SYS_LOCALS" | grep -q "^$chosen_local$"; then
       echo -e "$VALID_SYS_L $chosen_local"
       break
