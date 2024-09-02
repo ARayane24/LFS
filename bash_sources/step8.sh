@@ -358,7 +358,6 @@ if [ -n "$Linux_Kernel" ] ;then
       cp -r Documentation -T /usr/share/doc/$Linux_Kernel
    fi
 
-   chown -R 0:0
    chown -R 0:0 ../$Linux_Kernel
 
 
