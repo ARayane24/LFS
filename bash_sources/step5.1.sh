@@ -1393,7 +1393,7 @@ if [ -n "$OP_Bison" ] ;then
     tar -xf $OP_Bison.tar.xz
     cd $OP_Bison
 
-    ./configure --prefix=/usr --docdir=/usr/share/doc/$START_JOB
+    ./configure --prefix=/usr --docdir=/usr/share/doc/$OP_Bison
     make
     if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"

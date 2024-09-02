@@ -1830,7 +1830,7 @@ fi
 
 
 ###OP_CrackLib (BLFS): 0.1SBU
-if [ -n "$OP_Shadow" ] ;then
+if [ -n "$OP_CrackLib" ] ;then
     echo -e "$START_JOB"
     echo $OP_CrackLib
     tar -xf $OP_CrackLib.tar.xz
