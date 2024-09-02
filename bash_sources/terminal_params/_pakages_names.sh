@@ -11,7 +11,7 @@ export GCC_P1="gcc-13.2.0"              # contains the GNU compiler collection, 
     export GCC_P1_mpfr="mpfr-4.2.1"
     export GCC_P1_gmp="gmp-6.3.0"
     export GCC_P1_mpc="mpc-1.3.1"
-export Linux_Kernel="linux-6.7.4"              # expose the kernel's API for use by Glibc.
+export Linux_Kernel="linux-6.7.4"            # expose the kernel's API for use by Glibc.
 export Glibc_Tool="glibc-2.39"               # contains the main C library. This library provides the basic routines for allocating memory, searching directories, opening and closing files, reading and writing files, string handling, pattern matching, arithmetic, and so on.
 export Libstdc_Tool="libstdc++"              # from gcc-13.2.0 and it is the standard C++ library. It is needed to compile C++ code (part of GCC is written in C++), but we had to defer its installation when we built gcc-pass1 because Libstdc++ depends on Glibc, which was not yet available in the target directory.
 
@@ -134,12 +134,15 @@ export OP_Jinja="Jinja2-3.1.3"             # *Python module that implements a si
 export OP_Udev="systemd-255"               # contains programs for dynamic creation of device nodes.
 export OP_Man_DB="man-db-2.12.0"           # ***contains programs for finding and viewing man pages.
 export OP_Procps_ng="procps-ng-4.0.4"      # **contains programs for monitoring processes.
-export OP_Util_linux="util-linux-2.39.3"     # contains miscellaneous utility programs. Among them are utilities for handling file systems, consoles, partitions, and messages.
+export OP_Util_linux="util-linux-2.39.3"   # contains miscellaneous utility programs. Among them are utilities for handling file systems, consoles, partitions, and messages.
 export OP_E2fsprogs="e2fsprogs-1.47.0"     # ***contains the utilities for handling the ext2 file system. It also supports the ext3 and ext4 journaling file systems.
 export OP_Sysklogd="sysklogd-1.5.1"        # ***contains programs for logging system messages, such as those emitted by the kernel when unusual things happen.
 export OP_Sysvinit="sysvinit-3.08"         # *****contains programs for controlling the startup, running, and shutdown of the system.
 
 
+# Pakages for System Configuration
+export SC_LFS_Bootscripts="lfs-bootscripts-20230728"    # contains a set of scripts to start/stop the LFS system at bootup/shutdown. The configuration files and procedures needed to customize the boot process are described in the following sections.
+export SC_BLFS_Bootscripts="blfs-bootscripts-20240416"  # contains the init scripts that are used throughout the BLFS book. It is assumed that you will be using the BLFS Bootscripts package in conjunction with a compatible LFS-Bootscripts package.
 
 #BLFS
 export OP_CrackLib="cracklib-2.9.11"       # **contains a library used to enforce strong passwords by comparing user selected passwords to words in chosen word lists.
@@ -148,4 +151,7 @@ export OP_CrackLib="cracklib-2.9.11"       # **contains a library used to enforc
     export OP_CrackLib_cain_psw="cain"
     export OP_CrackLib_500_psw="500-worst-passwords"
     export OP_CrackLib_twitter_psw="twitter-banned"
+export OP_dhcpcd="dhcpcd-10.0.8"                        #  an implementation of the DHCP client specified in RFC2131. A DHCP client is useful for connecting your computer to a network which uses DHCP to assign network addresses. dhcpcd strives to be a fully featured, yet very lightweight DHCP client.
+
+
     

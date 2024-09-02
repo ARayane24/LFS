@@ -765,7 +765,7 @@ if [ -n "$OP_Coreutils" ] ;then
     fi
     echo -e "$BUILD_SUCCEEDED"
 
-    if DO_OPTIONNAL_TESTS; then
+    if $DO_OPTIONNAL_TESTS; then
         make NON_ROOT_USERNAME=tester check-root
         groupadd -g 102 dummy -U tester
         chown -R tester . 
@@ -1686,7 +1686,7 @@ if [ -n "$OP_Util_linux" ] ;then
     fi
     echo -e "$BUILD_SUCCEEDED"
 
-    if DO_OPTIONNAL_TESTS; then
+    if $DO_OPTIONNAL_TESTS; then
         chown -R tester .
         su tester -c "make -k check"
     fi  
@@ -1961,7 +1961,7 @@ popd
     STEP4_ENDED=true
     echo -e "${STEP}
     ###############################################
-    #   *${NO_STYLE}$END_STEP5${STEP}*       #
+    #   *${NO_STYLE}$END_STEP5${STEP}*     #
     ############################################### ${NO_STYLE}
     "
 

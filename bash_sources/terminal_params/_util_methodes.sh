@@ -148,6 +148,11 @@ create_and_save_partition(){
         fi
     fi
     systemctl daemon-reload #update
+    SAVE="export DISTRO_PARTITION_NAME=/dev/$disk_partition_name"
+
+    # Append the content to $SHARED_FILE
+    echo "$SAVE"  >> $SHARED_FILE
+
 }
 
 
@@ -242,4 +247,25 @@ sleep_before_complite(){
     echo -e "${PROCESS}$SLEEPPING_AFTER" "12.2SBU" "$FOR" "$SLEEP_FOR_N_SECONDS s " "...${NO_STYLE}"
     sleep $SLEEP_FOR_N_SECONDS
     echo -e "${PROCESS}$WAKINNG ${NO_STYLE}"
+}
+
+read_non_empty_string(){
+    local MESSAGE_ASK_FOR_INPUT="$1"
+    if [ -z "$MESSAGE_ASK_FOR_INPUT" ]; then
+        echo -e "$MISSING_PARAM"
+        exit 1
+    fi
+
+    while true; do
+        read -p "$MESSAGE_ASK_FOR_INPUT" USER_input
+
+        # Check if the input is empty
+        if [[ -z "$USER_input" ]]; then
+            echo "$EMPTY_INPUT_IS_NOT_ALLOWED"
+            continue
+        fi
+        break
+    done
+
+    echo "$USER_input"
 }

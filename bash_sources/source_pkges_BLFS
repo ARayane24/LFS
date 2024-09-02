@@ -1,3 +1,5 @@
+https://anduin.linuxfromscratch.org/BLFS/blfs-bootscripts/blfs-bootscripts-20240416.tar.xz
+
 ## CrackLib
 https://github.com/cracklib/cracklib/releases/download/v2.9.11/cracklib-2.9.11.tar.xz
 # Password dictionaries
@@ -44,3 +46,7 @@ https://github.com/rhboot/efivar/archive/39/efivar-39.tar.gz
 https://github.com/rhboot/efibootmgr/archive/18/efibootmgr-18.tar.gz
 
 ###################################
+
+
+## DHCP
+https://github.com/NetworkConfiguration/dhcpcd/releases/download/v10.0.8/dhcpcd-10.0.8.tar.xz

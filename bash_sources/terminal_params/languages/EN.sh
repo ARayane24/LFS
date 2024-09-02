@@ -108,8 +108,19 @@ export END_STEP5=\"${TITLE}  END 5 - Building Temporary Tools - ${NO_STYLE}\"
 export START_STEP6=\"${TITLE}  START 6 - Removing debug files - ${NO_STYLE}\"
 export END_STEP6=\"${TITLE}  END 6 - Removing debug files - ${NO_STYLE}\"
 #**************
-export START_STEP7=\"${TITLE}  START 7 - Cleaning build - ${NO_STYLE}\"
-export END_STEP7=\"${TITLE}  END 7 - Cleaning build - ${NO_STYLE}\"
+export START_STEP7=\"${TITLE}  START 7 - Cleaning build -   ${NO_STYLE}\"
+export END_STEP7=\"${TITLE}  END 7 - Cleaning build -   ${NO_STYLE}\"
+#**************
+export START_STEP8=\"${TITLE}  START 8 - System config -   ${NO_STYLE}\"
+export INPUT_NETWORK_INTERFACE_NAME=\"Enter your network interface name (e.g., eth0, wlan0) or type 'exit' to finish: \"
+export FINISHED_ADDING_NW_I_N=\"Finished adding network interfaces.\"
+export INPUT_HOST_NAME=\"Enter your hostname (name apears after the @ ex: \\\"root@HOSTNAME:\\\" ): \"
+export EMPTY_NW_I_N=\"${ERROR}ERROR: Network interface name cannot be empty.${NO_STYLE} Please try again.\"
+export CHOOSE_SYS_LOCAL=\"Choose the system local from the list below : \"
+export INPUT_SYS_L_VALUE=\"Input the chosen value\"
+export NOT_VALID_SYS_L=\"${ERROR}ERROR: Not valid local !!${NO_STYLE}\"
+export VALID_SYS_L=\"${OK}Your choosen local is : ${NO_STYLE}\"
+export END_STEP8=\"${TITLE}  END 8 - System config -   ${NO_STYLE}\"
 #**************
 
 
@@ -118,6 +129,7 @@ export START_JOB=\"${PROCESS}Making ...${NO_STYLE}\"
 export START_CLEANING_JOB=\"${PROCESS} Cleaning ...${NO_STYLE}\"
 export DONE=\"${OK}Done${NO_STYLE}\n\"
 export STOP_MSG_ERROR=\"${ERROR}ERROR${NO_STYLE}\n\"
+export EMPTY_INPUT_IS_NOT_ALLOWED=\"${ERROR}ERROR : EMPTY INPUT IS NOT ALLOWED !!${NO_STYLE}\n\"
 "
 
 echo "$SAVE" >> $SHARED_FILE
