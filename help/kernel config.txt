@@ -1,4 +1,5 @@
-#### KERNEL CONFIG (X86_64 UEFI pc)
+#### KERNEL CONFIG (X86_64 UEFI pc) or load the config (from this path: /LFS/distro_configs/kernel-x86_64-UEFI-/.config) 
+                                            for faster use !!
 
 #General setup --->
 #  [ ] Compile the kernel with warnings as errors                        [WERROR]
@@ -23,6 +24,11 @@
 #  [*] Stack Protector buffer overflow detection                 [STACKPROTECTOR]
 #  [*]   Strong Stack Protector                           [STACKPROTECTOR_STRONG]
 #
+#-*- Enable the block layer --->                                          [BLOCK]
+#  Partition Types --->
+#    [ /*] Advanced partition selection                      [PARTITION_ADVANCED]
+#    [*]     EFI GUID Partition support                           [EFI_PARTITION]
+#
 #Device Drivers --->
 #  Generic Driver Options --->
 #    [ ] Support for uevent helper                                [UEVENT_HELPER]
@@ -30,16 +36,11 @@
 #    [*]   Automount devtmpfs at /dev, after the kernel mounted the rootfs
 #                                                           ...  [DEVTMPFS_MOUNT]
 #
-#  Firmware Drivers --->
-#    [*] Mark VGA/VBE/EFI FB as generic system framebuffer       [SYSFB_SIMPLEFB]
-#
 #  [*] PCI support --->                                                     [PCI]
 #    [*] Message Signaled Interrupts (MSI and MSI-X)                    [PCI_MSI]
 #
-#-*- Enable the block layer --->                                          [BLOCK]
-#  Partition Types --->
-#    [ /*] Advanced partition selection                      [PARTITION_ADVANCED]
-#    [*]     EFI GUID Partition support                           [EFI_PARTITION]
+#  Firmware Drivers --->
+#    [*] Mark VGA/VBE/EFI FB as generic system framebuffer       [SYSFB_SIMPLEFB]
 #    
 #  Graphics support --->
 #    < /*/M> Direct Rendering Manager (XFree86 4.1.0 and higher DRI support) --->
@@ -47,12 +48,12 @@
 #    # If [DRM] is selected as * or M, this must be selected:
 #    [*]   Enable legacy fbdev support for your modesetting driver
 #                                                      ...  [DRM_FBDEV_EMULATION]
+#    <*> Simple framebuffer driver                                [DRM_SIMPLEDRM]
 #    
 #    Console display driver support --->
 #      # If [DRM] is selected as * or M, this must be selected:
 #      [*] Framebuffer Console support                    [FRAMEBUFFER_CONSOLE]
 #      
-#    <*> Simple framebuffer driver                                [DRM_SIMPLEDRM]
 #    
 #  [*] IOMMU Hardware Support --->                                [IOMMU_SUPPORT]
 #    [*] Support for Interrupt Remapping                              [IRQ_REMAP]

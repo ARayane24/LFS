@@ -1,0 +1,24 @@
+
+## Emergency boot disk
+#
+#Welcome to fdisk (util-linux 2.39.1).
+#Changes will remain in memory only, until you decide to write them.
+#Be careful before using the write command.
+#
+#
+#Command (m for help): n
+#Partition type
+#   p   primary (0 primary, 0 extended, 4 free)
+#   e   extended (container for logical partitions)
+#
+#Select (default p): 
+#Using default response p.
+#
+#Partition number (1-9, default 9): 1
+#Command (m for help): t
+#Partition type or alias (type L to list all): uefi
+#Changed type of partition 'Linux filesystem' to 'EFI System'.
+#
+#Command (m for help): w
+#The partition table has been altered.
+#Syncing disks.
