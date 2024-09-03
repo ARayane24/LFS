@@ -416,6 +416,9 @@ fi
 ###********************************
 
 
+
+## emergency boot disk
+echo -e "$MAKING_EM_BOOT_DISK"
 read -p "$PLUGIN_THE_USB_YOU_WANT_USE_INPUT_ANY_TO_CONTINUE" X
 lsblk
 EM_Boot=$(read_non_empty_string "$INPUT_USB_NAME")
@@ -428,8 +431,79 @@ mount --mkdir -v -t vfat /dev/$EM_Boot -o codepage=437,iocharset=iso8859-1 \
 
 grub-install --target=x86_64-efi --removable \
              --efi-directory=/mnt/rescue --boot-directory=/mnt/rescue
-
 umount /mnt/rescue
+echo -e "$DONE"
+###*********************************
+
+
+
+## Find or Create the EFI System Partition
+echo -e "$MAKING_EFI_System_Partition"
+lsblk
+EFI_System_Partition=$(read_non_empty_string "$INPUT_EFI_System_Partition_NAME")
+mkfs.vfat /dev/$EFI_System_Partition
+
+fdisk /dev/$EFI_System_Partition
+
+mount --mkdir -v -t vfat /dev/$EFI_System_Partition -o codepage=437,iocharset=iso8859-1 \
+      /boot/efi
+
+cat >> /etc/fstab << EOF
+/dev/$EFI_System_Partition /boot/efi vfat codepage=437,iocharset=iso8859-1 0 1
+EOF
+echo -e "$DONE"
+###*********************************
+
+
+grub-install --target=x86_64-efi --removable
+mountpoint /sys/firmware/efi/efivars || mount -v -t efivarfs efivarfs /sys/firmware/efi/efivars
+cat >> /etc/fstab << EOF
+efivarfs /sys/firmware/efi/efivars efivarfs defaults 0 0
+EOF
+
+cat > /boot/grub/grub.cfg <<EOF
+# Begin /boot/grub/grub.cfg
+set default=0
+set timeout=5
+
+insmod part_gpt
+insmod ext2
+# partition used by grub
+set root=(hd0,7)
+
+insmod efi_gop
+insmod efi_uga
+if loadfont /boot/grub/fonts/unicode.pf2; then
+  terminal_output gfxterm
+fi
+
+menuentry "GNU/Linux, $DISTRO_NAME" {
+   #partition used by linux
+  linux   /boot/vmlinuz-6.7.4-$DISTRO_NAME root=$DISTRO_PARTITION_NAME ro
+}
+
+menuentry "Firmware Setup" {
+  fwsetup
+}
+EOF
+
+
+cat > /etc/lsb-release <<EOF
+DISTRIB_ID="$DISTRO_NAME"
+DISTRIB_RELEASE="0"
+DISTRIB_CODENAME="$DISTRO_NAME"
+DISTRIB_DESCRIPTION="$DISTRO_NAME was made by from scratch with help of LFS-BLFS"
+EOF
+
+cat > /etc/os-release <<EOF
+NAME="$DESTRO_HOSTNAME"
+VERSION="0"
+ID=$DISTRO_NAME
+PRETTY_NAME="Linux $DISTRO_NAME"
+VERSION_CODENAME="$DISTRO_NAME"
+HOME_URL="https://github.com/ARayane24/LFS"
+EOF
+
 
 popd
 echo -e "${STEP}
@@ -437,3 +511,25 @@ echo -e "${STEP}
     #   *${NO_STYLE}$END_STEP8${STEP}*     #
     ############################################### ${NO_STYLE}
     "
+
+echo -e "$DONE"
+echo -e "$END_OF_BASH_WORK"
+
+logout
+
+umount -v $LFS/dev/pts
+mountpoint -q $LFS/dev/shm && umount -v $LFS/dev/shm
+umount -v $LFS/dev
+umount -v $LFS/run
+umount -v $LFS/proc
+umount -v $LFS/sys
+
+umount -v $LFS/home
+umount -v $LFS
+
+umount -v $LFS
+
+cd $LFS
+tar -cvJpf $HOME/${DISTRO_NAME}-temp-os.tar.xz .
+echo -e "$DONE"
+echo $HOME/${DISTRO_NAME}-temp-os.tar.xz

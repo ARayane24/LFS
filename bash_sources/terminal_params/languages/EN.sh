@@ -122,6 +122,11 @@ export NOT_VALID_SYS_L=\"${ERROR}ERROR: Not valid local !!${NO_STYLE}\"
 export VALID_SYS_L=\"${OK}Your choosen local is : ${NO_STYLE}\"
 export PLUGIN_THE_USB_YOU_WANT_USE_INPUT_ANY_TO_CONTINUE=\"Plugin the usb you want to use as Emergency Boot (When you finish input any char to continue ...) \"
 export INPUT_USB_NAME=\"Please input the name of the usb that'll be used : \"
+
+export INPUT_EFI_System_Partition_NAME=\"Input the name of partition you want to use as boot partion (note: its type should be FAT32) : \"
+
+export MAKING_EM_BOOT_DISK=\"${PROCESS}Making emergency boot disk ...${NO_STYLE}\"
+export MAKING_EM_BOOT_DISK=\"${PROCESS}Making the EFI System Partition ...${NO_STYLE}\"
 export END_STEP8=\"${TITLE}  END 8 - System config -   ${NO_STYLE}\"
 #**************
 
@@ -132,6 +137,10 @@ export START_CLEANING_JOB=\"${PROCESS} Cleaning ...${NO_STYLE}\"
 export DONE=\"${OK}Done${NO_STYLE}\n\"
 export STOP_MSG_ERROR=\"${ERROR}ERROR${NO_STYLE}\n\"
 export EMPTY_INPUT_IS_NOT_ALLOWED=\"${ERROR}ERROR : EMPTY INPUT IS NOT ALLOWED !!${NO_STYLE}\n\"
+
+
+
+export END_OF_BASH_WORK=\"This bash script was made by ATOUI Rayane the leader of chroot team in the hackathon (first Linux from scratch in algeria) \n thank you for usig this tool !! \"
 "
 
 echo "$SAVE" >> $SHARED_FILE
