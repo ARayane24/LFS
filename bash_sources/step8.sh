@@ -469,7 +469,7 @@ set timeout=5
 insmod part_gpt
 insmod ext2
 # partition used by grub
-set root=(hd0,7)
+set root=(hd1,7)
 
 insmod efi_gop
 insmod efi_uga

@@ -7,3 +7,17 @@ The utmp, wtmp, btmp, and lastlog files use 32-bit integers for timestamps and t
 
 .a => static lib
 .o => dynamic lib
+
+
+
+
+
+#####################################################################
+Chap 2.4: Creating new partition (Any separate partition that you want automatically mounted when the system starts must be specified in the /etc/fstab
+file.)
+    part 1 : /boot partition (~ 200 Mb) should be the 1st partition (Note: 500 Mb)
+    part 2 : main NEW distro (10 ~ 40 Gb) (Note: 70Gb)
+    part 3 : swap for the new distro (1 ~ 3 Gb) (Note:  can be the same as the one used by the host system, in which case it is not necessary to create another one.)
+    part 4 : GRUB partition (~ 1 Mb) (Note: 500 Mb)
+    part 5 : /boot/efi for UEFI (~ 200 Mb) (Note: 500 Mb)
+    part 6 : /opt where multiple large packages like KDE or Texlive can be installed without embedding the files in the /usr hierarchy (Note: 30Gb)

@@ -58,7 +58,7 @@ downlaod_code_source_pkgs(){
     popd
     echo -e "$DONE"
 
-    downlaod_code_source_pkgs_other_sources $COURENT_DIR
+    #downlaod_code_source_pkgs_other_sources $COURENT_DIR
     cd ..
 }
 
@@ -133,7 +133,7 @@ create_and_save_partition(){
         if [ $? -eq 0 ]; then
             echo "The fstab entry for $UUID already exists."
         else
-            echo "UUID=$UUID $MOUNT_POINT $FILE_SYSTEM_TYPE defaults 0 2" | sudo tee -a /etc/fstab
+            echo "UUID=$UUID $MOUNT_POINT $FILE_SYSTEM_TYPE defaults 1 1" | sudo tee -a /etc/fstab
         fi
 
         # Test the new fstab entry
