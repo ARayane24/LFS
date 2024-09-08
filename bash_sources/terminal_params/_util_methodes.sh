@@ -63,40 +63,87 @@ downlaod_code_source_pkgs(){
 }
 
 
-extract_tar_files() {
-    # Vérifie si un répertoire a été passé en argument
+extract_tar_files_and_mkdir() {
     local dir="$1"
-    local list_files=(${2})
-    if  ! [ -d "$dir" ] || [ -z "$1" ]; then
-        echo -e "$MISSING_PARAM"
+    local list_files=($2)
+
+    # Check if the directory argument is valid
+    if [ -z "$dir" ] || [ ! -d "$dir" ]; then
+        echo -e "$MISSING_PARAM: Directory $dir does not exist or is invalid."
         exit 1
     fi
 
-    if  ! [ -d "$dir" ] || [ -z "$2" ]; then
-        echo -e "$MISSING_PARAM"
+    # Check if the list of files argument is valid
+    if [ ${#list_files[@]} -eq 0 ]; then
+        echo -e "$MISSING_PARAM: No files provided."
         exit 1
     fi
 
-    # Change le répertoire de travail au répertoire spécifié
-    cd "$dir" || return
-
-    # Trouve tous les fichiers d'archive dans le répertoire
-    for file in *.tar.gz *.tar.bz2 *.tar.xz *.zip; do
-        # Vérifie si le fichier existe avant de tenter de l'extraire
-        if [ -f "$file" ] && [[ " ${list_files[@]} " =~ " ${file%.tar.*} " ]]; then
+    # Process each file in the directory matching the patterns
+    for file in "$dir"/*.tar.gz "$dir"/*.tar.bz2 "$dir"/*.tar.xz "$dir"/*.zip; do
+        # Extract the base name of the file without the extension
+        local base_name=$(basename "$file")
+        local base_name_no_ext="${base_name%.*}"
+        local base_name_no_ext="${base_name_no_ext%.*}"
+        
+        # Check if the file exists and is in the list of files
+        if [ -f "$file" ] && [[ " ${list_files[@]} " =~ " $base_name_no_ext " ]]; then
+            # Determine the directory name for extracted contents
             case "$file" in
-                *.tar.gz)  tar -xzf "$file" -C $dir && mkdir -v ${file%.tar.gz}/build;;
-                *.tar.bz2) tar -xjf "$file" -C $dir && mkdir -v ${file%.tar.bz2}/build;;
-                *.tar.xz)  tar -xJf "$file" -C $dir && mkdir -v ${file%.tar.xz}/build;;
-                *)         echo "Format de fichier inconnu: $file" ;;
+                *.tar.gz)  local extract_dir="${dir}/${base_name_no_ext}/build"; tar -xzf "$file" -C "$dir" ;;
+                *.tar.bz2) local extract_dir="${dir}/${base_name_no_ext}/build"; tar -xjf "$file" -C "$dir" ;;
+                *.tar.xz)  local extract_dir="${dir}/${base_name_no_ext}/build"; tar -xJf "$file" -C "$dir" ;;
+                *.zip)     local extract_dir="${dir}/${base_name_no_ext}/build"; unzip "$file" -d "$dir"    ;;
+                *)         echo "Unknown file format: $file"; continue ;;
             esac
+            mkdir "$extract_dir"
+            echo -e $base_name_no_ext $DONE
+
         fi
     done
-
-    # Retourne au répertoire initial
-    cd -
 }
 
+
+
+
+
+extract_tar_files() {
+    local dir="$1"
+    local list_files=($2)
+
+    # Check if the directory argument is valid
+    if [ -z "$dir" ] || [ ! -d "$dir" ]; then
+        echo -e "$MISSING_PARAM: Directory $dir does not exist or is invalid."
+        exit 1
+    fi
+
+    # Check if the list of files argument is valid
+    if [ ${#list_files[@]} -eq 0 ]; then
+        echo -e "$MISSING_PARAM: No files provided."
+        exit 1
+    fi
+
+    # Process each file in the directory matching the patterns
+    for file in "$dir"/*.tar.gz "$dir"/*.tar.bz2 "$dir"/*.tar.xz "$dir"/*.zip; do
+        # Extract the base name of the file without the extension
+        local base_name=$(basename "$file")
+        local base_name_no_ext="${base_name%.*}"
+        local base_name_no_ext="${base_name_no_ext%.*}"
+        
+        # Check if the file exists and is in the list of files
+        if [ -f "$file" ] && [[ " ${list_files[@]} " =~ " $base_name_no_ext " ]]; then
+            # Determine the directory name for extracted contents
+            case "$file" in
+                *.tar.gz)  tar -xzf "$file" -C "$dir" ;;
+                *.tar.bz2) tar -xjf "$file" -C "$dir" ;;
+                *.tar.xz)  tar -xJf "$file" -C "$dir" ;;
+                *.zip)     unzip "$file" -d "$dir"    ;;
+                *)         echo "Unknown file format: $file"; continue ;;
+            esac
+            echo -e $base_name_no_ext $DONE
+        fi
+    done
+}
 
 create_and_save_partition(){
     local LFS=$1

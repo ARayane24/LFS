@@ -11,11 +11,14 @@ echo -e "${STEP}
 
 pushd /sources/
 
+echo -e "$START_EXTRACTION"
+extract_tar_files /sources/ "$SC_LFS_Bootscripts  $SC_BLFS_Bootscripts  $OP_dhcpcd   $OP_dosfstools $Linux_Kernel"
+echo -e "$DONE"
+
 ###SC_LFS_Bootscripts: 0.1SBU
 if [ -n "$SC_LFS_Bootscripts" ] ;then
-    echo -e "$START_JOB"
+    echo -e "$START_JOB" " 0.1 SBU"
     echo $SC_LFS_Bootscripts
-    tar -xf $SC_LFS_Bootscripts.tar.xz
     cd $SC_LFS_Bootscripts
 
     make install
@@ -37,9 +40,8 @@ bash /usr/lib/udev/init-net-rules.sh
 
 ###OP_dhcpcd: 0.1SBU
 if [ -n "$OP_dhcpcd" ] ;then
-    echo -e "$START_JOB"
+    echo -e "$START_JOB" " 0.1SBU"
     echo $OP_dhcpcd
-    tar -xf $OP_dhcpcd.tar.xz
     cd $OP_dhcpcd
 
    install  -v -m700 -d /var/lib/dhcpcd &&
@@ -82,7 +84,6 @@ if [ -n "$OP_dhcpcd" ] ;then
    #config
    echo -e "$START_JOB"
    echo $SC_BLFS_Bootscripts
-   tar -xf $SC_BLFS_Bootscripts.tar.xz
    cd $SC_BLFS_Bootscripts
 
    make install-service-dhcpcd
@@ -152,7 +153,7 @@ fi
 
 
 ## init
-cat > /etc/inittab <<EOF
+cat > /etc/inittab << "EOF"
 # Begin /etc/inittab
 
 id:3:initdefault:
@@ -208,8 +209,8 @@ EOF
 
 ## sys local
 echo -e "$CHOOSE_SYS_LOCAL"
-ALL_SYS_LOCALS="$(locale -a | sort)"
-echo -e $ALL_SYS_LOCALS
+ALL_SYS_LOCALS=$(locale -a | sort)
+printf "%s\n" "$ALL_SYS_LOCALS"
 
 while true; do
    chosen_local=$(read_non_empty_string "$INPUT_SYS_L_VALUE")
@@ -320,11 +321,10 @@ EOF
 
 
 
-###Linux_Kernel: 0.1SBU
+###Linux_Kernel: 2.5SBU
 if [ -n "$Linux_Kernel" ] ;then
-   echo -e "$START_JOB"
+   echo -e "$START_JOB" " 2.5 SBU"
    echo $Linux_Kernel
-   tar -xf $Linux_Kernel.tar.xz
    cd $Linux_Kernel
 
    make mrproper

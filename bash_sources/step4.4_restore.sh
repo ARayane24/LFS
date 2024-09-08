@@ -11,7 +11,7 @@ if [ -z "$LFS" ]; then
 fi
 cd $LFS
 rm -rf ./*
-tar -xpf $HOME/${DISTRO_NAME}-temp-tools.tar.xz
+tar -xvpf $HOME/${DISTRO_NAME}-temp-tools.tar.xz
 cp -rf $HELPER_DIR $LFS
 echo -e "$DONE"
 cd $LFS/LFS/bash_sources || cd /LFS/bash_sources 

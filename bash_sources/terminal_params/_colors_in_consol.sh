@@ -21,5 +21,4 @@ export NO_STYLE='\033[0m'         # No Color (reset)
 
 "
 echo "$SAVE" >> $SHARED_FILE
-sync
 

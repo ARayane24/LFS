@@ -8,11 +8,13 @@
 # Compiling a Cross-Toolchain.. (used in step2.2)
 export Binutils_P1="binutils-2.43.1"         # contains a linker, an assembler, and other tools for handling object files.
 export GCC_P1="gcc-14.2.0"                   # contains the GNU compiler collection, which includes the C and C++ compilers.
-    export GCC_P1_mpfr="mpfr-4.2.1"
-    export GCC_P1_gmp="gmp-6.3.0"
-    export GCC_P1_mpc="mpc-1.3.1"
+export GCC_V="14.2.0"
+    export GCC_P1_mpfr="mpfr-4.2.1"             # multiple-precision floating-point computations (needed on the host only not the target)
+    export GCC_P1_gmp="gmp-6.3.0"               # dependency of mpfr (needed on the host only not the target)
+    export GCC_P1_mpc="mpc-1.3.1"               # computation of complex numbers (needed on the host only not the target)
 export Linux_Kernel="linux-6.10.5"           # expose the kernel's API for use by Glibc.
 export Glibc_Tool="glibc-2.40"               # contains the main C library. This library provides the basic routines for allocating memory, searching directories, opening and closing files, reading and writing files, string handling, pattern matching, arithmetic, and so on.
+export Glibc_V="2.40"
 export Libstdc_Tool="libstdc++"              # from gcc-14.2.0 and it is the standard C++ library. It is needed to compile C++ code (part of GCC is written in C++), but we had to defer its installation when we built gcc-pass1 because Libstdc++ depends on Glibc, which was not yet available in the target directory.
 
 # Cross Compiling Temporary Tools (used in step2.2)
@@ -41,6 +43,7 @@ export GCC_P2="gcc-14.2.0"
 export Gettext_Tool="gettext-0.22.5"         # contains utilities for internationalization and localization. These allow programs to be compiled with NLS (Native Language Support), enabling them to output messages in the user's native language.
 export Bison_Tool="bison-3.8.2"              # contains a parser generator.
 export Perl_Tool="perl-5.40.0"               # contains the Practical Extraction and Report Language.
+export Perl_V="5.40"
 export Python_Tool="Python-3.12.5"           # contains the Python development environment
 export Texinfo_Tool="texinfo-7.1"            # contains programs for reading, writing, and converting info pages.
 export Util_linux="util-linux-2.40.2"        # contains miscellaneous utility programs.
@@ -55,6 +58,7 @@ export OP_Zlib="zlib-1.3.1"                # *contains compression and decompres
 export OP_Bzip="bzip2-1.0.8"               # **contains programs for compressing and decompressing files. Compressing text files with bzip2 yields a much better compression percentage than with the traditional gzip.
 export OP_Xz="xz-5.6.2"                    # ****contains programs for compressing and decompressing files. It provides capabilities for the lzma and the newer xz compression formats. Compressing text files with xz yields a better compression percentage than with the traditional gzip or bzip2 commands.
 export OP_Zstd="zstd-1.5.6"                # ***a real-time compression algorithm, providing high compression ratios. It offers a very wide range of compression / speed trade-offs, while being backed by a very fast decoder.
+export OP_Lz4="lz4-1.10.0"                 #  a lossless compression algorithm, providing compression speed greater than 500 MB/s per core. It features an extremely fast decoder, with speed in multiple GB/s per core. Lz4 can work with Zstandard to allow both algorithms to compress data faster.
 export OP_File="file-5.45"                 # ****contains a utility for determining the type of a given file or files.
 export OP_Readline="readline-8.2.13"       # ****a set of libraries that offer command-line editing and history capabilities.
 export OR_M4="m4-1.4.19"                   # contains a macro processor. (NOTE:: use?)
@@ -111,11 +115,11 @@ export OP_Findutils="findutils-4.10.0"     # *****contains programs to find file
 export OP_Groff="groff-1.23.0"             # **contains programs for processing and formatting text and images.
 export OP_GRUB="grub-2.12"                 # *****contains the GRand Unified Bootloader.
     export OP_Which="which-2.21"            # shows the full path of (shell) commands installed in your PATH
-    export OP_Libping="libpng-1.6.42"       # contains libraries used by other programs for reading and writing PNG files. The PNG format was designed as a replacement for GIF and, to a lesser extent, TIFF, with many improvements and extensions and lack of patent problems.
-        export OP_Libping_patch="libpng-1.6.40"
-    export OP_Harfbuzz="harfbuzz-8.3.0"     # contains an OpenType text shaping engine.
-    export OP_Freetype="freetype-2.13.2"    # contains a library which allows applications to properly render TrueType fonts.
-        export OP_Freetype_docs="freetype-doc-2.13.2"
+    export OP_Libping="libpng-1.6.43"       # contains libraries used by other programs for reading and writing PNG files. The PNG format was designed as a replacement for GIF and, to a lesser extent, TIFF, with many improvements and extensions and lack of patent problems.
+        export OP_Libping_patch="libpng-1.6.43"
+    export OP_Harfbuzz="harfbuzz-9.0.0"     # contains an OpenType text shaping engine.
+    export OP_Freetype="freetype-2.13.3"    # contains a library which allows applications to properly render TrueType fonts.
+        export OP_Freetype_docs="freetype-doc-2.13.3"
     export OP_Popt="popt-1.19"              # contains the popt libraries which are used by some programs to parse command-line options.
     export OP_Mandoc="mandoc-1.14.6"        # an utility to format manual pages.
     export OP_Efivar="efivar-39"            # provides tools and libraries to manipulate EFI variables.
@@ -145,8 +149,8 @@ export SC_LFS_Bootscripts="lfs-bootscripts-20240825"    # contains a set of scri
 export SC_BLFS_Bootscripts="blfs-bootscripts-20240416"  # contains the init scripts that are used throughout the BLFS book. It is assumed that you will be using the BLFS Bootscripts package in conjunction with a compatible LFS-Bootscripts package.
 
 #BLFS
-export OP_CrackLib="cracklib-2.9.11"       # **contains a library used to enforce strong passwords by comparing user selected passwords to words in chosen word lists.
-    export OP_CrackLib_words="cracklib-words-2.9.11"            # lib of passwords
+export OP_CrackLib="cracklib-2.9.11"                    # **contains a library used to enforce strong passwords by comparing user selected passwords to words in chosen word lists.
+    export OP_CrackLib_words="cracklib-words-2.10.2"            # lib of passwords
     export OP_CrackLib_jhon_psw="john"
     export OP_CrackLib_cain_psw="cain"
     export OP_CrackLib_500_psw="500-worst-passwords"

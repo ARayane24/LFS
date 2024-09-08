@@ -8,7 +8,7 @@
     ############################################### ${NO_STYLE}
     "
 
-rm -rf /tmp/*
+rm -rf /tmp/{*,.*}
 find /usr/lib /usr/libexec -name \*.la -delete
 find /usr -depth -name ${CPU_SELECTED_ARCH}-${DISTRO_NAME}-linux-gnu\* | xargs rm -rf
 userdel -r tester
@@ -19,4 +19,4 @@ userdel -r tester
     ############################################### ${NO_STYLE}
     "
 
-source /LFS/bash_sources/step8.sh
+#source /LFS/bash_sources/step8.sh

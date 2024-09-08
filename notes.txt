@@ -1,16 +1,24 @@
-# step 3.2
-to change "root" key word in the system edit step3.2 file !!
+## TO-DO List
+# check step2.2.sh [40] [669] you might need to change the gnu value to work on arm 
+# check start.sh to change "root" key word in the system edit [54]
+*****************************************************************************
 
-
+## To keep in mind :
 The utmp, wtmp, btmp, and lastlog files use 32-bit integers for timestamps and they'll be fundamentally broken after year 2038. Many packages have stopped using them and other packages are going to stop using them. It is probably best to consider them deprecated.
-
 
 .a => static lib
 .o => dynamic lib
 
+replace vim in step5.2.sh [1372]
+*****************************************************************************
+ 
+## Future improvment :
+# add option to save progress in case of error to complite where it has stopted
+*****************************************************************************
 
 
 
+## General Discription for the steps
 
 #####################################################################
 Chap 2.4: Creating new partition (Any separate partition that you want automatically mounted when the system starts must be specified in the /etc/fstab
@@ -21,3 +29,27 @@ file.)
     part 4 : GRUB partition (~ 1 Mb) (Note: 500 Mb)
     part 5 : /boot/efi for UEFI (~ 200 Mb) (Note: 500 Mb)
     part 6 : /opt where multiple large packages like KDE or Texlive can be installed without embedding the files in the /usr hierarchy (Note: 30Gb)
+#####################################################################
+
+#####################################################################
+create a set of directories in $LFS (in which we will install the temporary tools), add an unprivileged user (lfs), and create an appropriate
+build environment for that user.
+#####################################################################
+
+#####################################################################
+first, building a cross compiler and its associated libraries; second, using this
+cross toolchain to build several utilities in a way that isolates them from the host distribution; and third, entering the
+chroot environment (which further improves host isolation) and constructing the remaining tools needed to build the
+final system.
+#####################################################################
+
+#####################################################################
+For proper operation of the isolated environment, some communication with the running kernel must be established.
+This is done via the so-called Virtual Kernel File Systems, which will be mounted before entering the chroot
+environment. You may want to verify that they are mounted by issuing the findmnt command.
+#####################################################################
+
+#####################################################################
+At this point the essential programs and libraries have been created and your current LFS system is in a good state.
+Your system can now be backed up for later reuse.
+#####################################################################
