@@ -80,17 +80,19 @@ extract_tar_files_and_mkdir() {
     fi
 
     for file in  "${list_files[@]}" ; do
+        [ -z "$file" ] && continue
         local founded_files=$( ls "$dir" | grep "^$file.*\.\(tar\.gz\|tar\.bz2\|tar\.xz\|zip\)$" )
         [ -z "$founded_files" ] && continue
         local full_path="$dir/${founded_files[0]}"
         case "${founded_files[0]}" in
-                *.tar.gz)  tar -xzf "$full_path" -C "$dir"  && mkdir -v "$dir/$file/build";;
-                *.tar.bz2) tar -xjf "$full_path" -C "$dir"  && mkdir -v "$dir/$file/build";;
-                *.tar.xz)  tar -xJf "$full_path" -C "$dir"  && mkdir -v "$dir/$file/build";;
-                *.zip)     unzip "$full_path" -d "$dir"     && mkdir -v "$dir/$file/build";;
+                *.tar.gz)  tar -xzf "$full_path" -C "$dir"  || (echo $full_path "${founded_files[@]}" && exit 1);;
+                *.tar.bz2) tar -xjf "$full_path" -C "$dir"  || (echo $full_path "${founded_files[@]}" && exit 1);;
+                *.tar.xz)  tar -xJf "$full_path" -C "$dir"  || (echo $full_path "${founded_files[@]}" && exit 1);;
+                *.zip)     unzip "$full_path" -d "$dir"     || (echo $full_path "${founded_files[@]}" && exit 1);;
                 *)         echo "Unknown file format: $full_path" ;;
-            esac
-            echo -e "$founded_files $DONE"
+        esac
+        mkdir -v "$dir/$file/build"
+        echo -e "$founded_files $DONE"
     done
 }
 
@@ -116,17 +118,18 @@ extract_tar_files() {
 
     # Process files matching the patterns
     for file in  "${list_files[@]}" ; do
+        [ -z "$file" ] && continue
         local founded_files=$( ls "$dir" | grep "^$file.*\.\(tar\.gz\|tar\.bz2\|tar\.xz\|zip\)$" )
         [ -z "$founded_files" ] && continue
         local full_path="$dir/${founded_files[0]}"
         case "${founded_files[0]}" in
-                *.tar.gz)  tar -xzf "$full_path" -C "$dir" ;;
-                *.tar.bz2) tar -xjf "$full_path" -C "$dir" ;;
-                *.tar.xz)  tar -xJf "$full_path" -C "$dir" ;;
-                *.zip)     unzip "$full_path" -d "$dir" ;;
+                *.tar.gz)  tar -xzf "$full_path" -C "$dir" || (echo $full_path "${founded_files[@]}" && exit 1);;
+                *.tar.bz2) tar -xjf "$full_path" -C "$dir" || (echo $full_path "${founded_files[@]}" && exit 1);;
+                *.tar.xz)  tar -xJf "$full_path" -C "$dir" || (echo $full_path "${founded_files[@]}" && exit 1);;
+                *.zip)     unzip "$full_path" -d "$dir"    || (echo $full_path "${founded_files[@]}" && exit 1);;
                 *)         echo "Unknown file format: $full_path" ;;
-            esac
-            echo -e "$founded_files $DONE"
+        esac
+        echo -e "$founded_files $DONE"
     done
 }
 

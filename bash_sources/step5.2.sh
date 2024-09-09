@@ -468,7 +468,7 @@ if [ -n "$OP_Kmod" ] ;then
     echo -e "$START_JOB" " 0.1 SBU"
     echo $OP_Kmod
     cd $OP_Kmod
-elfutils-0.191
+
    ./configure --prefix=/usr     \
             --sysconfdir=/etc \
             --with-openssl    \
