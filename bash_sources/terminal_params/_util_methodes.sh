@@ -79,27 +79,18 @@ extract_tar_files_and_mkdir() {
         exit 1
     fi
 
-    # Process each file in the directory matching the patterns
-    for file in "$dir"/*.tar.gz "$dir"/*.tar.bz2 "$dir"/*.tar.xz "$dir"/*.zip; do
-        # Extract the base name of the file without the extension
-        local base_name=$(basename "$file")
-        local base_name_no_ext="${base_name%.*}"
-        local base_name_no_ext="${base_name_no_ext%.*}"
-        
-        # Check if the file exists and is in the list of files
-        if [ -f "$file" ] && [[ " ${list_files[@]} " =~ " $base_name_no_ext " ]]; then
-            # Determine the directory name for extracted contents
-            case "$file" in
-                *.tar.gz)  local extract_dir="${dir}/${base_name_no_ext}/build"; tar -xzf "$file" -C "$dir" ;;
-                *.tar.bz2) local extract_dir="${dir}/${base_name_no_ext}/build"; tar -xjf "$file" -C "$dir" ;;
-                *.tar.xz)  local extract_dir="${dir}/${base_name_no_ext}/build"; tar -xJf "$file" -C "$dir" ;;
-                *.zip)     local extract_dir="${dir}/${base_name_no_ext}/build"; unzip "$file" -d "$dir"    ;;
-                *)         echo "Unknown file format: $file"; continue ;;
+    for file in  "${list_files[@]}" ; do
+        local founded_files=$( ls "$dir" | grep "^$file.*\.\(tar\.gz\|tar\.bz2\|tar\.xz\|zip\)$" )
+        [ -z "$founded_files" ] && continue
+        local full_path="$dir/${founded_files[0]}"
+        case "${founded_files[0]}" in
+                *.tar.gz)  tar -xzf "$full_path" -C "$dir"  && mkdir -v "$dir/$file/build";;
+                *.tar.bz2) tar -xjf "$full_path" -C "$dir"  && mkdir -v "$dir/$file/build";;
+                *.tar.xz)  tar -xJf "$full_path" -C "$dir"  && mkdir -v "$dir/$file/build";;
+                *.zip)     unzip "$full_path" -d "$dir"     && mkdir -v "$dir/$file/build";;
+                *)         echo "Unknown file format: $full_path" ;;
             esac
-            mkdir "$extract_dir"
-            echo -e $base_name_no_ext $DONE
-
-        fi
+            echo -e "$founded_files $DONE"
     done
 }
 
@@ -111,37 +102,31 @@ extract_tar_files() {
     local dir="$1"
     local list_files=($2)
 
-    # Check if the directory argument is valid
+    # Validate directory argument
     if [ -z "$dir" ] || [ ! -d "$dir" ]; then
         echo -e "$MISSING_PARAM: Directory $dir does not exist or is invalid."
         exit 1
     fi
 
-    # Check if the list of files argument is valid
+    # Validate list of files argument
     if [ ${#list_files[@]} -eq 0 ]; then
         echo -e "$MISSING_PARAM: No files provided."
         exit 1
     fi
 
-    # Process each file in the directory matching the patterns
-    for file in "$dir"/*.tar.gz "$dir"/*.tar.bz2 "$dir"/*.tar.xz "$dir"/*.zip; do
-        # Extract the base name of the file without the extension
-        local base_name=$(basename "$file")
-        local base_name_no_ext="${base_name%.*}"
-        local base_name_no_ext="${base_name_no_ext%.*}"
-        
-        # Check if the file exists and is in the list of files
-        if [ -f "$file" ] && [[ " ${list_files[@]} " =~ " $base_name_no_ext " ]]; then
-            # Determine the directory name for extracted contents
-            case "$file" in
-                *.tar.gz)  tar -xzf "$file" -C "$dir" ;;
-                *.tar.bz2) tar -xjf "$file" -C "$dir" ;;
-                *.tar.xz)  tar -xJf "$file" -C "$dir" ;;
-                *.zip)     unzip "$file" -d "$dir"    ;;
-                *)         echo "Unknown file format: $file"; continue ;;
+    # Process files matching the patterns
+    for file in  "${list_files[@]}" ; do
+        local founded_files=$( ls "$dir" | grep "^$file.*\.\(tar\.gz\|tar\.bz2\|tar\.xz\|zip\)$" )
+        [ -z "$founded_files" ] && continue
+        local full_path="$dir/${founded_files[0]}"
+        case "${founded_files[0]}" in
+                *.tar.gz)  tar -xzf "$full_path" -C "$dir" ;;
+                *.tar.bz2) tar -xjf "$full_path" -C "$dir" ;;
+                *.tar.xz)  tar -xJf "$full_path" -C "$dir" ;;
+                *.zip)     unzip "$full_path" -d "$dir" ;;
+                *)         echo "Unknown file format: $full_path" ;;
             esac
-            echo -e $base_name_no_ext $DONE
-        fi
+            echo -e "$founded_files $DONE"
     done
 }
 
