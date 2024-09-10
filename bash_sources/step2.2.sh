@@ -16,8 +16,8 @@ cd $LFS/sources/
 
 #extract_all_files
 echo -e "$START_EXTRACTION"
-extract_tar_files_and_mkdir $LFS/sources/ "$Binutils_P1   $GCC_P1     $Linux_Kernel   $Glibc_Tool     $Libstdc_Tool   $M4_Tool    $Ncurses_Tool   $Bash_Tool  $Coreutils_Tool $Diffutils_Tool $File_Tool $Findutils_Tool" &
-extract_tar_files_and_mkdir $LFS/sources/ "$Gawk_Tool     $Grep_Tool  $Gzip_Tool      $Make_Tool      $Patch_Tool     $Sed_Tool   $Tar_Tool       $Xz_Tool"
+extract_tar_files_and_mkdir $LFS/sources "$Binutils_P1   $GCC_P1     $Linux_Kernel   $Glibc_Tool     $Libstdc_Tool   $M4_Tool    $Ncurses_Tool   $Bash_Tool  $Coreutils_Tool $Diffutils_Tool $File_Tool $Findutils_Tool" &
+extract_tar_files_and_mkdir $LFS/sources "$Gawk_Tool     $Grep_Tool  $Gzip_Tool      $Make_Tool      $Patch_Tool     $Sed_Tool   $Tar_Tool       $Xz_Tool"
 wait
 echo -e "$DONE"
 

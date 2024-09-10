@@ -14,17 +14,17 @@ pushd /sources/
 
 #extract_all_files
 echo -e "$START_EXTRACTION"
-extract_tar_files /sources/ "$OP_Man_pages      $OP_Iana_Etc                $OP_Glibc               $OP_Zlib        $OP_Bzip            $OP_Xz                  $OP_Zstd                $OP_Lz4                 $OP_File                $OP_Readline " &
-extract_tar_files /sources/ "$OR_M4             $OP_Bc                      $OP_Flex                $OP_Tcl-src     $OP_Expect          $OP_DejaGNU             $OP_Pkgconf             $OP_Binutils            $OP_GMP                 $OP_MPFR " &
-extract_tar_files /sources/ "$OP_MPC            $OP_Attr                    $OP_Acl                 $OP_Libcap      $OP_Libxcrypt       $OP_Shadow              $OP_GCC                 $OP_Ncurses             $OP_Sed                 $OP_Psmisc " &
-extract_tar_files /sources/ "$OP_Gettext        $OP_Bison                   $OP_Grep                $OP_Bash        $OP_Libtool         $OP_GDBM                $OP_Gperf               $OP_Expat               $OP_Inetutils           $OP_Less " &
-extract_tar_files /sources/ "$OP_Perl           $OP_XML                     $OP_Intltool            $OP_Autoconf    $OP_Automake        $OP_OpenSSL             $OP_Kmod                                        $OP_Libffi              $OP_Python " & extract_tar_files /sources/ "$OP_Libelf"  &
-extract_tar_files /sources/ "$OP_Python_docs    $OP_Flit_Core               $OP_Wheel               $OP_Setuptools  $OP_Ninja           $OP_Meson               $OP_Coreutils           $OP_Check               $OP_Diffutils           $OP_Gawk " &
-extract_tar_files /sources/ "$OP_Findutils      $OP_Groff                   $OP_GRUB                $OP_Which       $OP_Libping         $OP_Libping_patch       $OP_Harfbuzz            $OP_Freetype            $OP_Freetype_docs       $OP_Popt " &
-extract_tar_files /sources/ "$OP_Mandoc         $OP_Efivar                  $OP_Efibootmgr          $OP_Gzip        $OP_IPRoute         $OP_Kbd                 $OP_Libpipeline         $OP_Make                $OP_Patch               $OP_Tar " &
-extract_tar_files /sources/ "$Texinfo           $OP_Vim                     $OP_MarkupSafe          $OP_Jinja       $OP_Udev            $OP_Man_DB              $OP_Procps_ng           $OP_Util_linux          $OP_E2fsprogs           $OP_Sysklogd " &
-extract_tar_files /sources/ "$OP_Sysvinit       $SC_LFS_Bootscripts         $SC_BLFS_Bootscripts    $OP_CrackLib    $OP_Udev            $OP_CrackLib_words      $OP_CrackLib_jhon_psw   $OP_CrackLib_cain_psw   $OP_CrackLib_500_psw    $OP_CrackLib_twitter_psw " &
-extract_tar_files /sources/ "$OP_dhcpcd         $OP_dosfstools          "
+extract_tar_files /sources "$OP_Man_pages      $OP_Iana_Etc                $OP_Glibc               $OP_Zlib        $OP_Bzip            $OP_Xz                  $OP_Zstd                $OP_Lz4                 $OP_File                $OP_Readline " &
+extract_tar_files /sources "$OR_M4             $OP_Bc                      $OP_Flex                $OP_Tcl-src     $OP_Expect          $OP_DejaGNU             $OP_Pkgconf             $OP_Binutils            $OP_GMP                 $OP_MPFR " &
+extract_tar_files /sources "$OP_MPC            $OP_Attr                    $OP_Acl                 $OP_Libcap      $OP_Libxcrypt       $OP_Shadow              $OP_GCC                 $OP_Ncurses             $OP_Sed                 $OP_Psmisc " &
+extract_tar_files /sources "$OP_Gettext        $OP_Bison                   $OP_Grep                $OP_Bash        $OP_Libtool         $OP_GDBM                $OP_Gperf               $OP_Expat               $OP_Inetutils           $OP_Less " &
+extract_tar_files /sources "$OP_Perl           $OP_XML                     $OP_Intltool            $OP_Autoconf    $OP_Automake        $OP_OpenSSL             $OP_Kmod                $OP_Libelf              $OP_Libffi              $OP_Python " &
+extract_tar_files /sources "$OP_Python_docs    $OP_Flit_Core               $OP_Wheel               $OP_Setuptools  $OP_Ninja           $OP_Meson               $OP_Coreutils           $OP_Check               $OP_Diffutils           $OP_Gawk " &
+extract_tar_files /sources "$OP_Findutils      $OP_Groff                   $OP_GRUB                $OP_Which       $OP_Libping         $OP_Libping_patch       $OP_Harfbuzz            $OP_Freetype            $OP_Freetype_docs       $OP_Popt " &
+extract_tar_files /sources "$OP_Mandoc         $OP_Efivar                  $OP_Efibootmgr          $OP_Gzip        $OP_IPRoute         $OP_Kbd                 $OP_Libpipeline         $OP_Make                $OP_Patch               $OP_Tar " &
+extract_tar_files /sources "$Texinfo           $OP_Vim                     $OP_MarkupSafe          $OP_Jinja       $OP_Udev            $OP_Man_DB              $OP_Procps_ng           $OP_Util_linux          $OP_E2fsprogs           $OP_Sysklogd " &
+extract_tar_files /sources "$OP_Sysvinit       $SC_LFS_Bootscripts         $SC_BLFS_Bootscripts    $OP_CrackLib    $OP_Udev            $OP_CrackLib_words      $OP_CrackLib_jhon_psw   $OP_CrackLib_cain_psw   $OP_CrackLib_500_psw    $OP_CrackLib_twitter_psw " &
+extract_tar_files /sources "$OP_dhcpcd         $OP_dosfstools          "
 wait
 echo -e "$DONE"
 
