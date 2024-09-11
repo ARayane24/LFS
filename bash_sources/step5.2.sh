@@ -1626,29 +1626,7 @@ if [ -n "$OP_Util_linux" ] ;then
     echo $OP_Util_linux
     cd $OP_Util_linux
 
-    sed -i '/test_mkfds/s/^/#/' tests/helpers/Makemodule.am
-
-    if $STATIC_ONLY;then
-        ./configure --bindir=/usr/bin    \
-            --libdir=/usr/lib    \
-            --runstatedir=/run   \
-            --sbindir=/usr/sbin  \
-            --disable-chfn-chsh  \
-            --disable-login      \
-            --disable-nologin    \
-            --disable-su         \
-            --disable-setpriv    \
-            --disable-runuser    \
-            --disable-pylibmount \
-            --enable-static \
-            --disable-shared \
-            --without-python     \
-            --without-systemd    \
-            --without-systemdsystemunitdir        \
-            ADJTIME_PATH=/var/lib/hwclock/adjtime \
-            --docdir=/usr/share/doc/$OP_Util_linux
-    else
-        ./configure --bindir=/usr/bin     \
+    ./configure --bindir=/usr/bin     \
             --libdir=/usr/lib     \
             --runstatedir=/run    \
             --sbindir=/usr/sbin   \
@@ -1666,7 +1644,6 @@ if [ -n "$OP_Util_linux" ] ;then
             --without-systemdsystemunitdir        \
             ADJTIME_PATH=/var/lib/hwclock/adjtime \
             --docdir=/usr/share/doc/$OP_Util_linux
-    fi
     
     make 
     if [ $? -ne 0 ]; then
@@ -1674,6 +1651,12 @@ if [ -n "$OP_Util_linux" ] ;then
         exit 1
     fi
     echo -e "$BUILD_SUCCEEDED"
+
+    if $DO_OPTIONNAL_TESTS; then
+        touch /etc/fstab
+        chown -R tester .
+        su tester -c "make -k check"
+    fi
 
     make install
     if [ $? -ne 0 ]; then
@@ -1728,10 +1711,6 @@ if [ -n "$OP_E2fsprogs" ] ;then
     gunzip -v /usr/share/info/libext2fs.info.gz
     install-info --dir-file=/usr/share/info/dir /usr/share/info/libext2fs.info
 
-    makeinfo -o      doc/com_err.info ../lib/et/com_err.texinfo
-    install -v -m644 doc/com_err.info /usr/share/info
-    install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info
-
     if $ADD_OPTIONNAL_DOCS; then
         makeinfo -o      doc/com_err.info ../lib/et/com_err.texinfo
         install -v -m644 doc/com_err.info /usr/share/info
@@ -1766,7 +1745,6 @@ if [ -n "$OP_Sysklogd" ] ;then
 
    cat > /etc/syslog.conf <<EOF
 # Begin /etc/syslog.conf
-
 auth,authpriv.* -/var/log/auth.log
 *.*;auth,authpriv.none -/var/log/sys.log
 daemon.* -/var/log/daemon.log
@@ -1774,10 +1752,8 @@ kern.* -/var/log/kern.log
 mail.* -/var/log/mail.log
 user.* -/var/log/user.log
 *.emerg *
-
 # Do not open any internet ports.
 secure_mode 2
-
 # End /etc/syslog.conf
 EOF
 
