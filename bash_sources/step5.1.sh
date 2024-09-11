@@ -24,8 +24,7 @@ extract_tar_files /sources "$OP_Findutils      $OP_Groff                   $OP_G
 extract_tar_files /sources "$OP_Mandoc         $OP_Efivar                  $OP_Efibootmgr          $OP_Gzip        $OP_IPRoute         $OP_Kbd                 $OP_Libpipeline         $OP_Make                $OP_Patch               $OP_Tar " &
 extract_tar_files /sources "$Texinfo           $OP_Vim                     $OP_MarkupSafe          $OP_Jinja       $OP_Udev            $OP_Man_DB              $OP_Procps_ng           $OP_Util_linux          $OP_E2fsprogs           $OP_Sysklogd " &
 extract_tar_files /sources "$OP_Sysvinit       $SC_LFS_Bootscripts         $SC_BLFS_Bootscripts    $OP_CrackLib    $OP_Udev            $OP_CrackLib_words      $OP_CrackLib_jhon_psw   $OP_CrackLib_cain_psw   $OP_CrackLib_500_psw    $OP_CrackLib_twitter_psw " &
-extract_tar_files /sources "$OP_dhcpcd         $OP_dosfstools          " &
-extract_tar_files /sources "$OP_Libelf         "
+extract_tar_files /sources "$OP_dhcpcd         $OP_dosfstools          " 
 wait
 echo -e "$DONE"
 

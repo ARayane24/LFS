@@ -501,6 +501,7 @@ sleep_before_complite
 if [ -n "$OP_Libelf" ] ;then 
     echo -e "$START_JOB" " 0.3 SBU"
     echo $OP_Libelf
+    extract_tar_files /sources "$OP_Libelf"
     cd $OP_Libelf
 
    ./configure --prefix=/usr            \
