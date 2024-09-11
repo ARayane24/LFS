@@ -784,6 +784,7 @@ fi
 if [ -n "$OP_Acl" ] ;then
     echo -e "$START_JOB" " 0.1 SBU"
     echo $OP_Acl
+    extract_tar_files /sources "$OP_Acl"
     cd $OP_Acl
 
     if $STATIC_ONLY;then
@@ -1853,11 +1854,11 @@ fi
 
 
 
-###OP_Shadow: 0.1SBU
+###OP_Shadow 2: 0.1SBU
 if [ -n "$OP_Shadow" ] ;then
     echo -e "$START_JOB" " 0.1 SBU"
     echo $OP_Shadow
-    tar -xf $OP_Shadow.tar.xz
+    extract_tar_files /sources "$OP_Shadow"
     cd $OP_Shadow
 
     OPTIONNAL_HIGH_SECURITY=""
