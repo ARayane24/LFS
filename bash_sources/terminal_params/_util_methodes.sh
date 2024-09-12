@@ -58,45 +58,80 @@ downlaod_code_source_pkgs(){
     popd
     echo -e "$DONE"
 
-    downlaod_code_source_pkgs_other_sources $COURENT_DIR
+    #downlaod_code_source_pkgs_other_sources $COURENT_DIR
     cd ..
 }
 
 
-extract_tar_files() {
-    # Vérifie si un répertoire a été passé en argument
+extract_tar_files_and_mkdir() {
     local dir="$1"
-    local list_files=(${2})
-    if  ! [ -d "$dir" ] || [ -z "$1" ]; then
-        echo -e "$MISSING_PARAM"
+    local list_files=($2)
+
+    # Check if the directory argument is valid
+    if [ -z "$dir" ] || [ ! -d "$dir" ]; then
+        echo -e "$MISSING_PARAM: Directory $dir does not exist or is invalid."
         exit 1
     fi
 
-    if  ! [ -d "$dir" ] || [ -z "$2" ]; then
-        echo -e "$MISSING_PARAM"
+    # Check if the list of files argument is valid
+    if [ ${#list_files[@]} -eq 0 ]; then
+        echo -e "$MISSING_PARAM: No files provided."
         exit 1
     fi
 
-    # Change le répertoire de travail au répertoire spécifié
-    cd "$dir" || return
-
-    # Trouve tous les fichiers d'archive dans le répertoire
-    for file in *.tar.gz *.tar.bz2 *.tar.xz *.zip; do
-        # Vérifie si le fichier existe avant de tenter de l'extraire
-        if [ -f "$file" ] && [[ " ${list_files[@]} " =~ " ${file%.tar.*} " ]]; then
-            case "$file" in
-                *.tar.gz)  tar -xzf "$file" -C $dir && mkdir -v ${file%.tar.gz}/build;;
-                *.tar.bz2) tar -xjf "$file" -C $dir && mkdir -v ${file%.tar.bz2}/build;;
-                *.tar.xz)  tar -xJf "$file" -C $dir && mkdir -v ${file%.tar.xz}/build;;
-                *)         echo "Format de fichier inconnu: $file" ;;
-            esac
-        fi
+    for file in  "${list_files[@]}" ; do
+        [ -z "$file" ] && continue
+        local founded_files=$( ls "$dir" | grep "^$file.*\.\(tar\.gz\|tar\.bz2\|tar\.xz\|zip\)$" )
+        [ -z "$founded_files" ] && continue
+        local full_path="$dir/${founded_files[0]}"
+        case "${founded_files[0]}" in
+                *.tar.gz)  tar -xzf "$full_path" -C "$dir"  || (echo $(pwd) $full_path "${founded_files[@]}" && return 1);;
+                *.tar.bz2) tar -xjf "$full_path" -C "$dir"  || (echo $(pwd) $full_path "${founded_files[@]}" && return 1);;
+                *.tar.xz)  tar -xJf "$full_path" -C "$dir"  || (echo $(pwd) $full_path "${founded_files[@]}" && return 1);;
+                *.zip)     unzip "$full_path" -d "$dir"     || (echo $(pwd) $full_path "${founded_files[@]}" && return 1);;
+                *)         echo "Unknown file format: $full_path" ;;
+        esac
+        mkdir -v "$dir/$file/build"
+        echo -e "$founded_files $DONE"
     done
-
-    # Retourne au répertoire initial
-    cd -
 }
 
+
+
+
+
+extract_tar_files() {
+    local dir="$1"
+    local list_files=($2)
+
+    # Validate directory argument
+    if [ -z "$dir" ] || [ ! -d "$dir" ]; then
+        echo -e "$MISSING_PARAM: Directory $dir does not exist or is invalid."
+        exit 1
+    fi
+
+    # Validate list of files argument
+    if [ ${#list_files[@]} -eq 0 ]; then
+        echo -e "$MISSING_PARAM: No files provided."
+        exit 1
+    fi
+
+    # Process files matching the patterns
+    for file in  "${list_files[@]}" ; do
+        [ -z "$file" ] && continue
+        local founded_files=$( ls "$dir" | grep "^$file.*\.\(tar\.gz\|tar\.bz2\|tar\.xz\|zip\)$" )
+        [ -z "$founded_files" ] && continue
+        local full_path="$dir/${founded_files[0]}"
+        case "${founded_files[0]}" in
+                *.tar.gz)  tar -xzf "$full_path" -C "$dir" || (echo $(pwd) $full_path "${founded_files[@]}" && return 1);;
+                *.tar.bz2) tar -xjf "$full_path" -C "$dir" || (echo $(pwd) $full_path "${founded_files[@]}" && return 1);;
+                *.tar.xz)  tar -xJf "$full_path" -C "$dir" || (echo $(pwd) $full_path "${founded_files[@]}" && return 1);;
+                *.zip)     unzip "$full_path" -d "$dir"    || (echo $(pwd) $full_path "${founded_files[@]}" && return 1);;
+                *)         echo "Unknown file format: $full_path" ;;
+        esac
+        echo -e "$founded_files $DONE"
+    done
+}
 
 create_and_save_partition(){
     local LFS=$1
@@ -133,7 +168,7 @@ create_and_save_partition(){
         if [ $? -eq 0 ]; then
             echo "The fstab entry for $UUID already exists."
         else
-            echo "UUID=$UUID $MOUNT_POINT $FILE_SYSTEM_TYPE defaults 0 2" | sudo tee -a /etc/fstab
+            echo "UUID=$UUID $MOUNT_POINT $FILE_SYSTEM_TYPE defaults 1 1" | sudo tee -a /etc/fstab
         fi
 
         # Test the new fstab entry

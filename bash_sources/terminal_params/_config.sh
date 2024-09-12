@@ -4,20 +4,8 @@
 # don't edit this file to insure that it works properly unless you know what are you doing
 
 bash ./_colors_in_consol.sh
-cd ./languages
 # select_lang found in ./_methodes
-bash ./_languages_man.sh
-source ./_methodes.sh
-source $SHARED_FILE
-cd ..
-
-#Choosing language
-select_lang
-bash $SELECTED_LANG
-source $SHARED_FILE
-echo -e "$DONE"
-
-
+bash ./languages/_languages_man.sh
 # other methodes
 source ./_util_methodes.sh
 

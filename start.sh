@@ -51,6 +51,7 @@ if ! [ -n "$STEP1_ENDED" ] || ! $STEP1_ENDED; then
     # Prepare the content to be appended
 SAVE="
     # INIT
+    export My_ROOT=\"root\"
     export SHARED_FILE=$SHARED_FILE
     export HELPER_DIR=$(pwd)
     export STEP1_ENDED=false
@@ -69,12 +70,11 @@ SAVE="
     export CPU_ARCH=$formatted_cpu_arch
 "
     echo "$SAVE" >> $SHARED_FILE
-    sync
     # Starting _config
     cd ./bash_sources/terminal_params
     source ./_config.sh
-    cd $HELPER_DIR
     source $SHARED_FILE
+    cd $HELPER_DIR
 
     #######################
     #   *  Welcome  *   #
@@ -203,9 +203,11 @@ SAVE="
     #   *  Starting  *   #
     ######################
     cd $HELPER_DIR
-    bash ./bash_sources/step1.sh
+    source ./bash_sources/step1.sh
+    export SKIP_RESTORE=true
 fi
-if [ -n "$STEP1_ENDED" ] && [ "$STEP1_ENDED" = true ] \
+# [ -z "$SKIP_RESTORE" ] : if SKIP_RESTORE is empty
+if   [ -z "$SKIP_RESTORE" ] && [ -n "$STEP1_ENDED" ] && [ "$STEP1_ENDED" = true ] \
    && [ -n "$STEP2_ENDED" ] && [ "$STEP2_ENDED" = true ] \
    && [ -n "$STEP3_ENDED" ] && [ "$STEP3_ENDED" = true ] ; then
     # Restore
@@ -217,5 +219,3 @@ fi
 
 
 
-## Future improvment :
-# add option to save progress in case of error to complite where it has stopted

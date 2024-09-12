@@ -6,6 +6,8 @@
 SAVE="
 ###Language
 #msgs:
+export CURRENT_USER=\"${PROCESS} The current user is : \$(whoami)\n${NO_STYLE}\"
+
 export DO_YOU_WANNA_KEEP_DEBUG_FILES=\"Do you want to keep the debug files ? [y/n] \"
 export YEP_KEEP_DEBUG_FILES=\"${OK}You have indicated that you want to keep them\n${NO_STYLE}\"
 export YEP_KEEP_DEBUG_FILES=\"${OK}You have indicated that you do not want to keep them\n${NO_STYLE}\"
@@ -74,6 +76,7 @@ export END_STEP1=\"${TITLE} END 1 - Create user & partition - ${NO_STYLE}\"
 #**************
 export START_STEP2=\"${TITLE}  START 2 - Extracting & Compiling - ${NO_STYLE}\"
 export SWICH_TO_ROOT=\"${PROCESS} Swiching to Root user of the host ... ${NO_STYLE}\"
+export SWICH_TO_LFS=\"${PROCESS} Swiching to \$DEV_NAME user ... ${NO_STYLE}\"
 export START_EXTRACTION=\"${PROCESS}Extracting files ...${NO_STYLE}\"
 export N_THREADS=\"${OK}#number of threads:${NO_STYLE} \"
 export START_TEST=\" ${TEST}Starting test ... ${NO_STYLE}\"
@@ -145,4 +148,3 @@ export END_OF_BASH_WORK=\"This bash script was made by ATOUI Rayane the leader o
 
 echo "$SAVE" >> $SHARED_FILE
 
-    sync

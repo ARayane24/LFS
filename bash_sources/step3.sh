@@ -3,17 +3,14 @@
 # this bash code was made by ATOUI Rayane to automate the operation of creating Linux from scratch with the help of LFS book v12 (https://www.linuxfromscratch.org/lfs)
 # don't edit this file to insure that it works properly unless you know what are you doing
 
-source $SHARED_FILE
 cd $LFS/LFS/bash_sources
-source ./terminal_params/_pakages_names.sh
-source ./terminal_params/_util_methodes.sh
 #***************************************************************************#
     echo -e "${STEP}
     ###############################################
     #   *${NO_STYLE}$START_STEP3${STEP}*   #
     ############################################### ${NO_STYLE}
     "
-
+echo -e $CURRENT_USER
 findmnt # check For proper operation of the isolated environment, some communication with the running kernel must be established. This is done via the so-called Virtual Kernel File Systems, which will be mounted before entering the chroot environment. 
 
 #change the ownership of the $LFS/* directories to user root 
@@ -42,6 +39,7 @@ fi
 
 
 STEP3_ENDED=true
+export NEXT_STEP=/LFS/bash_sources/step4.1.sh
     echo -e "${STEP}
     ###############################################
     #     *${NO_STYLE}$END_STEP3${STEP}*         #
@@ -59,31 +57,26 @@ SAVE="
 
 ### copied vars to other user
 export STEP3_ENDED=$STEP3_ENDED
-export NEXT_STEP=/LFS/bash_sources/step4.1.sh
+export NEXT_STEP=$NEXT_STEP
 
 "
 echo "$SAVE" >> $SHARED_FILE
 
 cp -v $SHARED_FILE $LFS/.bashrc #keep shared vars
 
-
 if ! [ -n "$STEP5_ENDED" ] || ! $STEP5_ENDED; then
     echo -e "$DONE"
     echo -e "STEP3_ENDED=$STEP3_ENDED"
-    echo -e "$RUN_CMD_TO_START_NEXT_STEP"
-    echo "bash \$NEXT_STEP"
-
-    
 
     #entering chroot you can set other vars here also 
-    chroot "$LFS" /usr/bin/env -i   \
-        HOME=/root                  \
-        TERM="$TERM"                \
-        PS1='(lfs chroot) \u:\w\$ ' \
-        PATH=/usr/bin:/usr/sbin     \
-        MAKEFLAGS="-j$(nproc)"      \
-        TESTSUITEFLAGS="-j$(nproc)" \
-        /bin/bash --login -c "bash $NEXT_STEP"
+    chroot "$LFS" /usr/bin/env -i       \
+            HOME=/root                  \
+            TERM="$TERM"                \
+            PS1='(lfs chroot) \u:\w\$ ' \
+            PATH=/usr/bin:/usr/sbin     \
+            MAKEFLAGS="-j$(nproc)"      \
+            TESTSUITEFLAGS="-j$(nproc)" \
+            /bin/bash --login -c "bash $NEXT_STEP"
 
     # return from chroot :
     if [ -z "$LFS" ]; then
@@ -97,11 +90,9 @@ if ! [ -n "$STEP5_ENDED" ] || ! $STEP5_ENDED; then
 
       source ./step4.3_backup.sh
 
-
-      BACK_UP_OS_IN_THE_END=false #already has been done !!
       SAVE="
       # Backup
-      export BACK_UP_OS_IN_THE_END=${BACK_UP_OS_IN_THE_END}
+      export BACK_UP_OS_IN_THE_END=false #already has been done !!
       "
       echo "$SAVE" >> $SHARED_FILE
       echo "$SAVE" >> $LFS/.bashrc #keep shared vars

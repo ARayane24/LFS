@@ -3,7 +3,7 @@
 # this bash code was made by ATOUI Rayane to automate the operation of creating Linux from scratch with the help of LFS book v12 (https://www.linuxfromscratch.org/lfs)
 # don't edit this file to insure that it works properly unless you know what are you doing
 
-source ./bash_sources/terminal_params/_util_methodes.sh
+
 #***************************************************************************#
 #####################################################
 #                      *  settings  *               #
@@ -25,7 +25,7 @@ if $USER; then
     #   *${NO_STYLE}$START_STEP0${STEP}*   #
     ############################################### ${NO_STYLE}
     "
-    DEV_NAME=$(read_non_empty_string "${INPUT_NEW_USER_NAME_msg}" )
+    exportDEV_NAME=$(read_non_empty_string "${INPUT_NEW_USER_NAME_msg}" )
     echo -e "\n"
 
     DISTRO_NAME=$(read_non_empty_string "${INPUT_THE_NAME_OF_THE_NEW_DISTRO_msg}")
@@ -99,7 +99,8 @@ esac
 fg #connfirme that there is no error
 echo -e "$DONE \n"
 
-    STEP1_ENDED=true
+STEP1_ENDED=true
+export NEXT_STEP=$LFS/LFS/bash_sources/step2.1.sh
 
     echo -e "${STEP}
     ###############################################
@@ -119,21 +120,25 @@ SAVE="
 ### copied vars to other user
 export DEV_NAME=$DEV_NAME
 export DISTRO_NAME=$DISTRO_NAME
+export DESTRO_HOSTNAME=$DESTRO_HOSTNAME
 export STEP1_ENDED=$STEP1_ENDED
 export LFS=/mnt/$DISTRO_NAME
 export PATH=$PATH:/usr/sbin #to let the os find all the commands
-export NEXT_STEP=$LFS/LFS/bash_sources/step2.1.sh
+export NEXT_STEP=$NEXT_STEP
 "
 echo "$SAVE" >> $SHARED_FILE
-
+echo -e "$DONE"
 
 if ! [ -n "$STEP2_ENDED" ] || ! $STEP2_ENDED; then
-    echo -e "$DONE"
     echo -e "STEP1_ENDED=$STEP1_ENDED"
-    echo -e "$RUN_CMD_TO_START_NEXT_STEP"
-    echo "bash \$NEXT_STEP"
-
-    su - $DEV_NAME  #change the user 
+    echo -e "$SWICH_TO_LFS"
 fi
+su - "$DEV_NAME" -c " bash $NEXT_STEP " #change the user 
 
+source $SHARED_FILE
+
+#source $SHARED_FILE
+if { [ -z "$STEP3_ENDED" ] || [ "$STEP3_ENDED" = "false" ]; } && [ "$STEP2_ENDED" = "true" ]; then
+    source $NEXT_STEP # $LFS/LFS/bash_sources/step3.sh
+fi
 

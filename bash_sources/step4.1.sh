@@ -17,6 +17,7 @@ mkdir -pv /etc/{opt,sysconfig}
 mkdir -pv /lib/firmware
 mkdir -pv /media/{floppy,cdrom}
 mkdir -pv /usr/{,local/}{include,src}
+mkdir -pv /usr/lib/locale
 mkdir -pv /usr/local/{bin,lib,sbin}
 mkdir -pv /usr/{,local/}share/{color,dict,doc,info,locale,man}
 mkdir -pv /usr/{,local/}share/{misc,terminfo,zoneinfo}
@@ -45,8 +46,8 @@ EOF
 
 
 ### let the os recognized "root"
-cat > /etc/passwd << "EOF"
-root:x:0:0:root:/root:/bin/bash
+cat > /etc/passwd <<EOF
+$My_ROOT:x:0:0:$My_ROOT:/$My_ROOT:/bin/bash
 bin:x:1:1:bin:/dev/null:/usr/bin/false
 daemon:x:6:6:Daemon User:/dev/null:/usr/bin/false
 messagebus:x:18:18:D-Bus Message Daemon User:/run/dbus:/usr/bin/false
@@ -55,8 +56,8 @@ nobody:x:65534:65534:Unprivileged User:/dev/null:/usr/bin/false
 EOF
 
 
-cat > /etc/group << "EOF"
-root:x:0:
+cat > /etc/group <<EOF
+$My_ROOT:x:0:
 bin:x:1:daemon
 sys:x:2:
 kmem:x:3:
@@ -82,18 +83,19 @@ users:x:999:
 nogroup:x:65534:
 EOF
 
+localedef -i C -f UTF-8 C.UTF-8
 
 # create user named tester
 echo "tester:x:101:101::/home/tester:/bin/bash" >> /etc/passwd
 echo "tester:x:101:" >> /etc/group
 install -o tester -d /home/tester
 
+export NEXT_STEP=/LFS/bash_sources/step4.2.sh
 
 SAVE="
-export NEXT_STEP=/LFS/bash_sources/step4.2.sh
+export NEXT_STEP=$NEXT_STEP
 "
 echo "$SAVE" >> /.bashrc
-source /.bashrc
 
 
 echo -e "$DONE"

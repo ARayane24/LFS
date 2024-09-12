@@ -14,24 +14,24 @@ http://downloads.skullsecurity.org/passwords/twitter-banned.txt.bz2
 ## GRUB (UEFI-support)
 https://ftp.gnu.org/gnu/grub/grub-2.12.tar.xz
 # Unicode font data used to display GRUB menu
-https://unifoundry.com/pub/unifont/unifont-15.1.04/font-builds/unifont-15.1.04.pcf.gz
+https://unifoundry.com/pub/unifont/unifont-15.1.05/font-builds/unifont-15.1.05.pcf.gz
 
 #-----Required pckgs for GRUB-----# 
 # which
 https://ftp.gnu.org/gnu/which/which-2.21.tar.gz
 
 # libping
-https://downloads.sourceforge.net/libpng/libpng-1.6.42.tar.xz
+https://downloads.sourceforge.net/libpng/libpng-1.6.43.tar.xz
 #- patch
-https://downloads.sourceforge.net/sourceforge/libpng-apng/libpng-1.6.40-apng.patch.gz
+https://downloads.sourceforge.net/sourceforge/libpng-apng/libpng-1.6.43-apng.patch.gz
 
 # harfbuzz
-https://github.com/harfbuzz/harfbuzz/releases/download/8.3.0/harfbuzz-8.3.0.tar.xz
+https://github.com/harfbuzz/harfbuzz/releases/download/9.0.0/harfbuzz-9.0.0.tar.xz
 
 # freetype
-https://downloads.sourceforge.net/freetype/freetype-2.13.2.tar.xz
+https://downloads.sourceforge.net/freetype/freetype-2.13.3.tar.xz
 #- docs
-https://downloads.sourceforge.net/freetype/freetype-doc-2.13.2.tar.xz
+https://downloads.sourceforge.net/freetype/freetype-doc-2.13.3.tar.xz
 
 # popt
 http://ftp.rpm.org/popt/releases/popt-1.x/popt-1.19.tar.gz

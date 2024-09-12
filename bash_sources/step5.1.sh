@@ -2,9 +2,6 @@
 # this bash code was made by ATOUI Rayane to automate the operation of creating Linux from scratch with the help of LFS book v12 (https://www.linuxfromscratch.org/lfs)
 # don't edit this file to insure that it works properly unless you know what are you doing
 
-source ./terminal_params/_util_methodes.sh
-source ./terminal_params/_pakages_names.sh
-
 
 pushd /sources/
 #***************************************************************************#
@@ -14,15 +11,29 @@ pushd /sources/
     ############################################### ${NO_STYLE}
     "
 
-if [ -z "$START_STEP5" ]; then
-  exit 1
-fi
+
+#extract_all_files
+echo -e "$START_EXTRACTION"
+extract_tar_files /sources "$OP_Man_pages      $OP_Iana_Etc                $OP_Glibc               $OP_Zlib        $OP_Bzip            $OP_Xz                  $OP_Zstd                $OP_Lz4                 $OP_File                $OP_Readline " &
+extract_tar_files /sources "$OR_M4             $OP_Bc                      $OP_Flex                $OP_Tcl-src     $OP_Expect          $OP_DejaGNU             $OP_Pkgconf             $OP_Binutils            $OP_GMP                 $OP_MPFR " &
+extract_tar_files /sources "$OP_MPC            $OP_Attr                    $OP_Acl                 $OP_Libcap      $OP_Libxcrypt       $OP_Shadow              $OP_GCC                 $OP_Ncurses             $OP_Sed                 $OP_Psmisc " &
+extract_tar_files /sources "$OP_Gettext        $OP_Bison                   $OP_Grep                $OP_Bash        $OP_Libtool         $OP_GDBM                $OP_Gperf               $OP_Expat               $OP_Inetutils           $OP_Less " &
+extract_tar_files /sources "$OP_Perl           $OP_XML                     $OP_Intltool            $OP_Autoconf    $OP_Automake        $OP_OpenSSL             $OP_Kmod                                        $OP_Libffi              $OP_Python " &
+extract_tar_files /sources "                   $OP_Flit_Core               $OP_Wheel               $OP_Setuptools  $OP_Ninja           $OP_Meson               $OP_Coreutils           $OP_Check               $OP_Diffutils           $OP_Gawk " &
+extract_tar_files /sources "$OP_Findutils      $OP_Groff                   $OP_GRUB                $OP_Which       $OP_Libping         $OP_Libping_patch       $OP_Harfbuzz            $OP_Freetype            $OP_Freetype_docs       $OP_Popt " &
+extract_tar_files /sources "$OP_Mandoc         $OP_Efivar                  $OP_Efibootmgr          $OP_Gzip        $OP_IPRoute         $OP_Kbd                 $OP_Libpipeline         $OP_Make                $OP_Patch               $OP_Tar " &
+extract_tar_files /sources "$Texinfo           $OP_Vim                     $OP_MarkupSafe          $OP_Jinja       $OP_Udev            $OP_Man_DB              $OP_Procps_ng           $OP_Util_linux          $OP_E2fsprogs           $OP_Sysklogd " &
+extract_tar_files /sources "$OP_Sysvinit       $SC_LFS_Bootscripts         $SC_BLFS_Bootscripts    $OP_CrackLib    $OP_Udev            $OP_CrackLib_words      $OP_CrackLib_jhon_psw   $OP_CrackLib_cain_psw   $OP_CrackLib_500_psw    $OP_CrackLib_twitter_psw " &
+extract_tar_files /sources "$OP_dhcpcd         $OP_dosfstools          " 
+wait
+echo -e "$DONE"
+
+
 
 ###OP_Man_pages: 0.1SBU
 if [ -n "$OP_Man_pages" ] ;then
-    echo -e "$START_JOB"
+    echo -e "$START_JOB" " 0.1 SBU"
     echo $OP_Man_pages
-    tar -xf $OP_Man_pages.tar.xz
     cd $OP_Man_pages
    
     rm -v man3/crypt*
@@ -31,8 +42,8 @@ if [ -n "$OP_Man_pages" ] ;then
         echo -e "$BUILD_FAILED"
         exit 1
     fi
-
     echo -e "$BUILD_SUCCEEDED"
+
     cd /sources/
     rm -Rf $OP_Man_pages #rm extracted pkg
     echo -e "$DONE" 
@@ -45,12 +56,11 @@ fi
 
 ###OP_Iana_Etc: 0.1SBU
 if [ -n "$OP_Iana_Etc" ] ;then
-    echo -e "$START_JOB"
+    echo -e "$START_JOB" " 0.1 SBU"
     echo $OP_Iana_Etc
-    tar -xf $OP_Iana_Etc.tar.gz
     cd $OP_Iana_Etc
 
-    cp -v services protocols /etc
+    cp services protocols /etc
 
     cd /sources/
     rm -Rf $OP_Iana_Etc #rm extracted pkg
@@ -63,16 +73,15 @@ fi
 
 ###OP_Glibc: 12SBU
 if [ -n "$OP_Glibc" ] ;then
-    echo -e "$START_JOB"
+    echo -e "$START_JOB" " 12 SBU"
     echo $OP_Glibc
-    tar -xf $OP_Glibc.tar.xz
     cd $OP_Glibc
 
     patch -Np1 -i ../$OP_Glibc-fhs-1.patch
     mkdir -v build
     cd       build
     echo "rootsbindir=/usr/sbin" > configparms
-    ../configure --prefix=/usr                            \
+    ../configure --prefix=/usr                        \
              --disable-werror                         \
              --enable-kernel=4.19                     \
              --enable-stack-protector=strong          \
@@ -98,45 +107,7 @@ if [ -n "$OP_Glibc" ] ;then
 
     sed '/RTLDLIST=/s@/usr@@g' -i /usr/bin/ldd
 
-    mkdir -pv /usr/lib/locale
-    # add locals :
-    localedef -i ar_DZ -f UTF-8 ar_DZ.UTF-8
-    localedef -i C -f UTF-8 C.UTF-8
-    localedef -i cs_CZ -f UTF-8 cs_CZ.UTF-8
-    localedef -i de_DE -f ISO-8859-1 de_DE
-    localedef -i de_DE@euro -f ISO-8859-15 de_DE@euro
-    localedef -i de_DE -f UTF-8 de_DE.UTF-8
-    localedef -i el_GR -f ISO-8859-7 el_GR
-    localedef -i en_GB -f ISO-8859-1 en_GB
-    localedef -i en_GB -f UTF-8 en_GB.UTF-8
-    localedef -i en_HK -f ISO-8859-1 en_HK
-    localedef -i en_PH -f ISO-8859-1 en_PH
-    localedef -i en_US -f ISO-8859-1 en_US
-    localedef -i en_US -f UTF-8 en_US.UTF-8
-    localedef -i es_ES -f ISO-8859-15 es_ES@euro
-    localedef -i es_MX -f ISO-8859-1 es_MX
-    localedef -i fa_IR -f UTF-8 fa_IR
-    localedef -i fr_FR -f ISO-8859-1 fr_FR
-    localedef -i fr_FR@euro -f ISO-8859-15 fr_FR@euro
-    localedef -i fr_FR -f UTF-8 fr_FR.UTF-8
-    localedef -i is_IS -f ISO-8859-1 is_IS
-    localedef -i is_IS -f UTF-8 is_IS.UTF-8
-    localedef -i it_IT -f ISO-8859-1 it_IT
-    localedef -i it_IT -f ISO-8859-15 it_IT@euro
-    localedef -i it_IT -f UTF-8 it_IT.UTF-8
-    localedef -i ja_JP -f EUC-JP ja_JP
-    localedef -i ja_JP -f SHIFT_JIS ja_JP.SJIS 2> /dev/null || true
-    localedef -i ja_JP -f UTF-8 ja_JP.UTF-8
-    localedef -i nl_NL@euro -f ISO-8859-15 nl_NL@euro
-    localedef -i ru_RU -f KOI8-R ru_RU.KOI8-R
-    localedef -i ru_RU -f UTF-8 ru_RU.UTF-8
-    localedef -i se_NO -f UTF-8 se_NO.UTF-8
-    localedef -i ta_IN -f UTF-8 ta_IN.UTF-8
-    localedef -i tr_TR -f UTF-8 tr_TR.UTF-8
-    localedef -i zh_CN -f GB18030 zh_CN.GB18030
-    localedef -i zh_HK -f BIG5-HKSCS zh_HK.BIG5-HKSCS
-    localedef -i zh_TW -f UTF-8 zh_TW.UTF-8
-
+    # add locals 
     make localedata/install-locales
     if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
@@ -150,21 +121,17 @@ if [ -n "$OP_Glibc" ] ;then
     localedef -i ja_JP -f SHIFT_JIS ja_JP.SJIS 2> /dev/null || true
 
 
-    cat > /etc/nsswitch.conf << "EOF"
+cat > /etc/nsswitch.conf <<EOF
 # Begin /etc/nsswitch.conf
-
 passwd: files
 group: files
 shadow: files
-
 hosts: files dns
 networks: files
-
 protocols: files
 services: files
 ethers: files
 rpc: files
-
 # End /etc/nsswitch.conf
 EOF
 
@@ -216,9 +183,8 @@ sleep_before_complite
 
 ###OP_Zlib: 0.1SBU
 if [ -n "$OP_Zlib" ] ;then
-    echo -e "$START_JOB"
+    echo -e "$START_JOB" " 0.1 SBU"
     echo $OP_Zlib
-    tar -xf $OP_Zlib.tar.gz
     cd $OP_Zlib
 
     ./configure --prefix=/usr
@@ -250,13 +216,12 @@ fi
 
 ###OP_Bzip: 0.1SBU
 if [ -n "$OP_Bzip" ] ;then
-    echo -e "$START_JOB"
+    echo -e "$START_JOB" " 0.1 SBU"
     echo $OP_Bzip
-    tar -xf $OP_Bzip.tar.gz
     cd $OP_Bzip
 
     patch -Np1 -i ../$OP_Bzip-install_docs-1.patch
-    sed -i 's@\(ln -f \)$(PREFIX)/bin/@\1@' Makefile
+    sed -i 's@\(ln -s -f \)$(PREFIX)/bin/@\1@' Makefile
     sed -i "s@(PREFIX)/man@(PREFIX)/share/man@g" Makefile
 
     make -f Makefile-libbz2_so && make clean && make && make PREFIX=/usr install
@@ -272,7 +237,7 @@ if [ -n "$OP_Bzip" ] ;then
     cp -v bzip2-shared /usr/bin/bzip2
     for i in /usr/bin/{bzcat,bunzip2}; do
         ln -sfv bzip2 $i
-    done    
+    done
     rm -fv /usr/lib/libbz2.a
 
     cd /sources/
@@ -286,9 +251,8 @@ fi
 
 ###OP_Xz:0.1SBU
 if [ -n "$OP_Xz" ] ;then
-    echo -e "$START_JOB"
+    echo -e "$START_JOB" " 0.1 SBU"
     echo $OP_Xz
-    tar -xf $OP_Xz.tar.xz
     cd $OP_Xz
 
     if $STATIC_ONLY;then
@@ -325,11 +289,41 @@ fi
 
 
 
-###OP_Zstd:0.5SBU
+###OP_Lz4:0.1SBU
+if [ -n "$OP_Lz4" ] ;then
+    echo -e "$START_JOB" " 0.1 SBU"
+    echo $OP_Lz4
+    cd $OP_Lz4
+
+    make BUILD_STATIC=no PREFIX=/usr
+    if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
+
+    make -j1 check
+
+    make BUILD_STATIC=no PREFIX=/usr install
+     if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
+
+    cd /sources/
+    rm -Rf $OP_Lz4 #rm extracted pkg
+    echo -e "$DONE" 
+    echo -e $OP_Lz4 "$TOOL_READY"
+fi
+###********************************
+
+
+
+###OP_Zstd:0.4SBU
 if [ -n "$OP_Zstd" ] ;then
-    echo -e "$START_JOB"
+    echo -e "$START_JOB" " 0.4 SBU"
     echo $OP_Zstd
-    tar -xf $OP_Zstd.tar.gz
     cd $OP_Zstd
 
     make prefix=/usr
@@ -360,9 +354,8 @@ fi
 
 ###OP_File:0.1SBU
 if [ -n "$OP_File" ] ;then
-    echo -e "$START_JOB"
+    echo -e "$START_JOB" " 0.1 SBU"
     echo $OP_File
-    tar -xf $OP_File.tar.gz
     cd $OP_File
 
     ./configure --prefix=/usr
@@ -392,15 +385,14 @@ fi
 
 ###OP_Readline:0.1SBU
 if [ -n "$OP_Readline" ] ;then
-    echo -e "$START_JOB"
+    echo -e "$START_JOB" " 0.1 SBU"
     echo $OP_Readline
-    tar -xf $OP_Readline.tar.gz
     cd $OP_Readline
 
     sed -i '/MV.*old/d' Makefile.in
     sed -i '/{OLDSUFF}/c:' support/shlib-install
 
-    patch -Np1 -i ../$OP_Readline-upstream_fixes-3.patch
+    sed -i 's/-Wl,-rpath,[^ ]*//' support/shobj-conf
 
     if $STATIC_ONLY;then
         ./configure --prefix=/usr    \
@@ -437,9 +429,8 @@ fi
 
 ###OR_M4: 0.3SBU
 if [ -n "$OR_M4" ] ;then
-    echo -e "$START_JOB"
+    echo -e "$START_JOB" " 0.3 SBU"
     echo $OR_M4
-    tar -xf $OR_M4.tar.xz
     cd $OR_M4
 
     ./configure --prefix=/usr
@@ -469,9 +460,8 @@ fi
 
 ###OP_Bc: 0.1SBU
 if [ -n "$OP_Bc" ] ;then
-    echo -e "$START_JOB"
+    echo -e "$START_JOB" " 0.1 SBU"
     echo $OP_Bc
-    tar -xf $OP_Bc.tar.xz
     cd $OP_Bc
 
     CC=gcc ./configure --prefix=/usr -G -O3 -r
@@ -502,9 +492,8 @@ fi
 
 ###OP_Flex: 0.1SBU
 if [ -n "$OP_Flex" ] ;then
-    echo -e "$START_JOB"
+    echo -e "$START_JOB" " 0.1 SBU"
     echo $OP_Flex
-    tar -xf $OP_Flex.tar.gz
     cd $OP_Flex
 
    if $STATIC_ONLY;then
@@ -547,15 +536,15 @@ fi
 
 ###OP_Tcl: 2.7SBU
 if [ -n "$OP_Tcl" ] ;then
-    echo -e "$START_JOB"
+    echo -e "$START_JOB" " 2.7 SBU"
     echo $OP_Tcl
-    tar -xf $OP_Tcl-src.tar.gz
     cd $OP_Tcl
 
     SRCDIR=$(pwd)
     cd unix
-    ./configure --prefix=/usr           \
-                --mandir=/usr/share/man
+    ./configure --prefix=/usr \
+                --mandir=/usr/share/man \
+                --disable-rpath
 
     make
     if [ $? -ne 0 ]; then
@@ -564,21 +553,21 @@ if [ -n "$OP_Tcl" ] ;then
     fi
     echo -e "$BUILD_SUCCEEDED"
 
+    make
     sed -e "s|$SRCDIR/unix|/usr/lib|" \
-        -e "s|$SRCDIR|/usr/include|"  \
+        -e "s|$SRCDIR|/usr/include|" \
         -i tclConfig.sh
-
-    sed -e "s|$SRCDIR/unix/pkgs/tdbc1.1.5|/usr/lib/tdbc1.1.5|" \
-        -e "s|$SRCDIR/pkgs/tdbc1.1.5/generic|/usr/include|"    \
-        -e "s|$SRCDIR/pkgs/tdbc1.1.5/library|/usr/lib/tcl8.6|" \
-        -e "s|$SRCDIR/pkgs/tdbc1.1.5|/usr/include|"            \
-        -i pkgs/tdbc1.1.5/tdbcConfig.sh
-
-    sed -e "s|$SRCDIR/unix/pkgs/itcl4.2.3|/usr/lib/itcl4.2.3|" \
-        -e "s|$SRCDIR/pkgs/itcl4.2.3/generic|/usr/include|"    \
-        -e "s|$SRCDIR/pkgs/itcl4.2.3|/usr/include|"            \
-        -i pkgs/itcl4.2.3/itclConfig.sh
-
+    
+    sed -e "s|$SRCDIR/unix/pkgs/tdbc1.1.7|/usr/lib/tdbc1.1.7|"  \
+        -e "s|$SRCDIR/pkgs/tdbc1.1.7/generic|/usr/include|"     \
+        -e "s|$SRCDIR/pkgs/tdbc1.1.7/library|/usr/lib/tcl8.6|"  \
+        -e "s|$SRCDIR/pkgs/tdbc1.1.7|/usr/include|"             \
+        -i pkgs/tdbc1.1.7/tdbcConfig.sh
+    
+    sed -e "s|$SRCDIR/unix/pkgs/itcl4.2.4|/usr/lib/itcl4.2.4|"  \
+        -e "s|$SRCDIR/pkgs/itcl4.2.4/generic|/usr/include|"     \
+        -e "s|$SRCDIR/pkgs/itcl4.2.4|/usr/include|"             \
+        -i pkgs/itcl4.2.4/itclConfig.sh
     unset SRCDIR
 
 
@@ -599,8 +588,8 @@ if [ -n "$OP_Tcl" ] ;then
     if $ADD_OPTIONNAL_DOCS; then
         cd ..
         tar -xf ../$OP_Tcl-html.tar.gz --strip-components=1
-        mkdir -v -p /usr/share/doc/$OP_Tcl
-        cp -v -r  ./html/* /usr/share/doc/$OP_Tcl
+        mkdir -v -p /usr/share/doc/tcl-8.6.14
+        cp -v -r ./html/* /usr/share/doc/tcl-8.6.14
     fi
 
     cd /sources/
@@ -614,17 +603,20 @@ fi
 
 ###OP_Expect: 0.2SBU
 if [ -n "$OP_Expect" ] ;then
-    echo -e "$START_JOB"
+    echo -e "$START_JOB" " 0.2 SBU"
     echo $OP_Expect
-    tar -xf $OP_Expect.tar.gz
     cd $OP_Expect
 
     python3 -c 'from pty import spawn; spawn(["echo", "ok"])'
-    ./configure --prefix=/usr           \
-            --with-tcl=/usr/lib     \
-            --enable-shared         \
-            --mandir=/usr/share/man \
-            --with-tclinclude=/usr/include
+    
+    patch -Np1 -i ../expect-5.45.4-gcc14-1.patch
+
+    ./configure --prefix=/usr               \
+                --with-tcl=/usr/lib         \
+                --enable-shared             \
+                --disable-rpath             \
+                --mandir=/usr/share/man     \
+                --with-tclinclude=/usr/include
     make
     if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
@@ -654,9 +646,8 @@ fi
 
 ###OP_DejaGNU: 0.1SBU
 if [ -n "$OP_DejaGNU" ] ;then
-    echo -e "$START_JOB"
+    echo -e "$START_JOB" " 0.1 SBU"
     echo $OP_DejaGNU
-    tar -xf $OP_DejaGNU.tar.gz
     cd $OP_DejaGNU
 
     mkdir -v build
@@ -664,7 +655,8 @@ if [ -n "$OP_DejaGNU" ] ;then
 
     ../configure --prefix=/usr
     makeinfo --html --no-split -o doc/dejagnu.html ../doc/dejagnu.texi
-    makeinfo --plaintext       -o doc/dejagnu.txt  ../doc/dejagnu.texi
+    makeinfo --plaintext -o doc/dejagnu.txt ../doc/dejagnu.texi
+
     make check
     
     make install
@@ -688,9 +680,8 @@ fi
 
 ###OP_Pkgconf: 0.1SBU
 if [ -n "$OP_Pkgconf" ] ;then
-    echo -e "$START_JOB"
+    echo -e "$START_JOB" " 0.1 SBU"
     echo $OP_Pkgconf
-    tar -xf $OP_Pkgconf.tar.xz
     cd $OP_Pkgconf
 
      if $STATIC_ONLY;then
@@ -699,8 +690,8 @@ if [ -n "$OP_Pkgconf" ] ;then
                 --enable-static \
                 --disable-shared 
     else
-        ./configure --prefix=/usr \
-            --docdir=/usr/share/doc/$OP_Pkgconf\
+        ./configure --prefix=/usr               \
+            --docdir=/usr/share/doc/$OP_Pkgconf \
             --disable-static
     fi  
     make && make install
@@ -724,24 +715,24 @@ sleep_before_complite
 
 ###OP_Binutils: 2.2SBU
 if [ -n "$OP_Binutils" ] ;then
-    echo -e "$START_JOB"
+    echo -e "$START_JOB" " 2.2 SBU"
     echo $OP_Binutils
-    tar -xf $OP_Binutils.tar.xz
     cd $OP_Binutils
 
     mkdir -v build
     cd       build
 
-    ../configure --prefix=/usr       \
-             --sysconfdir=/etc   \
-             --enable-gold       \
-             --enable-ld=default \
-             --enable-plugins    \
-             --enable-shared     \
-             --disable-werror    \
-             --enable-64-bit-bfd \
-             --with-system-zlib  \
-             --enable-default-hash-style=gnu
+    ../configure --prefix=/usr      \
+                --sysconfdir=/etc   \
+                --enable-gold       \
+                --enable-ld=default \
+                --enable-plugins    \
+                --enable-shared     \
+                --disable-werror    \
+                --enable-64-bit-bfd \
+                --enable-new-dtags  \
+                --with-system-zlib  \
+                --enable-default-hash-style=gnu
 
     make tooldir=/usr
     if [ $? -ne 0 ]; then
@@ -750,7 +741,7 @@ if [ -n "$OP_Binutils" ] ;then
     fi
     echo -e "$BUILD_SUCCEEDED"
     
-    make -ks check
+    make -k check
     grep '^FAIL:' $(find -name '*.log')
 
     make tooldir=/usr install
@@ -773,9 +764,8 @@ fi
 
 ###OP_GMP: 0.3SBU
 if [ -n "$OP_GMP" ] ;then
-    echo -e "$START_JOB"
+    echo -e "$START_JOB" " 0.3 SBU"
     echo $OP_GMP
-    tar -xf $OP_GMP.tar.xz
     cd $OP_GMP
 
     CPU_ARCH_IS_32BIT_X86=""
@@ -823,9 +813,8 @@ fi
 
 ###OP_MPFR: 0.3SBU
 if [ -n "$OP_MPFR" ] ;then
-    echo -e "$START_JOB"
+    echo -e "$START_JOB" " 0.2 SBU"
     echo $OP_MPFR
-    tar -xf $OP_MPFR.tar.xz
     cd $OP_MPFR
 
      if $STATIC_ONLY;then
@@ -866,9 +855,8 @@ fi
 
 ###OP_MPC: 0.1SBU
 if [ -n "$OP_MPC" ] ;then
-    echo -e "$START_JOB"
+    echo -e "$START_JOB" " 0.1 SBU"
     echo $OP_MPC
-    tar -xf $OP_MPC.tar.gz
     cd $OP_MPC
 
      if $STATIC_ONLY;then
@@ -907,9 +895,8 @@ fi
 
 ###OP_Attr: 0.1SBU
 if [ -n "$OP_Attr" ] ;then
-    echo -e "$START_JOB"
+    echo -e "$START_JOB" " 0.1 SBU"
     echo $OP_Attr
-    tar -xf $OP_Attr.tar.gz
     cd $OP_Attr
 
      if $STATIC_ONLY;then
@@ -949,9 +936,8 @@ fi
 
 ###OP_Acl part 1: 0.1SBU
 if [ -n "$OP_Acl" ] ;then
-    echo -e "$START_JOB"
+    echo -e "$START_JOB" " 0.1 SBU"
     echo $OP_Acl
-    tar -xf $OP_Acl.tar.xz
     cd $OP_Acl
 
     if $STATIC_ONLY;then
@@ -972,7 +958,7 @@ if [ -n "$OP_Acl" ] ;then
     echo -e "$BUILD_SUCCEEDED"
 
     cd /sources/
-    #rm -Rf $OP_Acl #rm extracted pkg( run make check after the Coreutils package has been built.)
+    rm -Rf $OP_Acl #rm extracted pkg( run make check after the Coreutils package has been built.)
     echo -e "$DONE" 
     echo -e $OP_Acl "$TOOL_READY"
 fi
@@ -981,9 +967,8 @@ fi
 
 ###OP_Libcap: 0.1SBU
 if [ -n "$OP_Libcap" ] ;then
-    echo -e "$START_JOB"
+    echo -e "$START_JOB" " 0.1 SBU"
     echo $OP_Libcap
-    tar -xf $OP_Libcap.tar.xz
     cd $OP_Libcap
 
     sed -i '/install -m.*STA/d' libcap/Makefile
@@ -1014,9 +999,8 @@ fi
 
 ###OP_Libxcrypt: 0.1SBU
 if [ -n "$OP_Libxcrypt" ] ;then
-    echo -e "$START_JOB"
+    echo -e "$START_JOB" " 0.1 SBU"
     echo $OP_Libxcrypt
-    tar -xf $OP_Libxcrypt.tar.xz
     cd $OP_Libxcrypt
 
     if $STATIC_ONLY;then
@@ -1056,32 +1040,22 @@ if [ -n "$OP_Libxcrypt" ] ;then
 fi
 ###********************************
 
-export USING_CRACKLIB=false
 
 ###OP_Shadow: 0.1SBU
 if [ -n "$OP_Shadow" ] ;then
-    echo -e "$START_JOB"
+    echo -e "$START_JOB" " 0.1 SBU"
     echo $OP_Shadow
-    tar -xf $OP_Shadow.tar.xz
     cd $OP_Shadow
-
-    OPTIONNAL_HIGH_SECURITY=""
-    if $USING_CRACKLIB; then
-        OPTIONNAL_HIGH_SECURITY=" \ --with-libcrack"
-    fi
 
     sed -i 's/groups$(EXEEXT) //' src/Makefile.in
     find man -name Makefile.in -exec sed -i 's/groups\.1 / /'   {} \;
     find man -name Makefile.in -exec sed -i 's/getspnam\.3 / /' {} \;
     find man -name Makefile.in -exec sed -i 's/passwd\.5 / /'   {} \;
-    sed -e 's:#ENCRYPT_METHOD DES:ENCRYPT_METHOD YESCRYPT:' \
-    -e 's:/var/spool/mail:/var/mail:'                   \
-    -e '/PATH=/{s@/sbin:@@;s@/bin:@@}'                  \
-    -i etc/login.defs
 
-    if $USING_CRACKLIB; then
-        sed -i 's:DICTPATH.*:DICTPATH\t/lib/cracklib/pw_dict:' etc/login.defs
-    fi
+    sed -e 's:#ENCRYPT_METHOD DES:ENCRYPT_METHOD YESCRYPT:' \
+        -e 's:/var/spool/mail:/var/mail:'                   \
+        -e '/PATH=/{s@/sbin:@@;s@/bin:@@}'                  \
+        -i etc/login.defs
 
     touch /usr/bin/passwd
     if $STATIC_ONLY;then
@@ -1091,14 +1065,12 @@ if [ -n "$OP_Shadow" ] ;then
             --with-{b,yes}crypt \
             --without-libbsd    \
             --with-group-name-max-length=32
-            $OPTIONNAL_HIGH_SECURITY
     else
        ./configure --sysconfdir=/etc   \
             --disable-static    \
             --with-{b,yes}crypt \
             --without-libbsd    \
             --with-group-name-max-length=32
-            $OPTIONNAL_HIGH_SECURITY
     fi
     make && make exec_prefix=/usr install && make -C man install-man
     if [ $? -ne 0 ]; then
@@ -1113,7 +1085,7 @@ if [ -n "$OP_Shadow" ] ;then
     useradd -D --gid 999
     sed -i '/MAIL/s/yes/no/' /etc/default/useradd
 
-    passwd root
+    passwd $My_ROOT #change password of Root user
 
     cd /sources/
     rm -Rf $OP_Shadow #rm extracted pkg
@@ -1128,15 +1100,13 @@ sleep_before_complite
 
 ###OP_GCC: 42SBU
 if [ -n "$OP_GCC" ] ;then
-    echo -e "$START_JOB"
+    echo -e "$START_JOB" " 42 SBU"
     echo $OP_GCC
-    tar -xf $OP_GCC.tar.xz
     cd $OP_GCC
 
     case $(uname -m) in
     x86_64)
-        sed -e '/m64=/s/lib64/lib/' \
-            -i.orig gcc/config/i386/t-linux64
+        sed -e '/m64=/s/lib64/lib/'  -i.orig gcc/config/i386/t-linux64
     ;;
     esac
 
@@ -1144,23 +1114,30 @@ if [ -n "$OP_GCC" ] ;then
     cd       build
 
     ../configure --prefix=/usr            \
-             LD=ld                    \
-             --enable-languages=c,c++ \
-             --enable-default-pie     \
-             --enable-default-ssp     \
-             --disable-multilib       \
-             --disable-bootstrap      \
-             --disable-fixincludes    \
-             --with-system-zlib
-    make && ulimit -s 32768
+                LD=ld                    \
+                --enable-languages=c,c++ \
+                --enable-default-pie     \
+                --enable-default-ssp     \
+                --enable-host-pie        \
+                --disable-multilib       \
+                --disable-bootstrap      \
+                --disable-fixincludes    \
+                --with-system-zlib
+    make && ulimit -s -H unlimited
     if [ $? -ne 0 ]; then
         echo -e "$BUILD_FAILED"
         exit 1
     fi
     echo -e "$BUILD_SUCCEEDED"
 
+    sed -e '/cpython/d'               -i ../gcc/testsuite/gcc.dg/plugin/plugin.exp
+    sed -e 's/no-pic /&-no-pie /'     -i ../gcc/testsuite/gcc.target/i386/pr113689-1.c
+    sed -e 's/300000/(1|300000)/'     -i ../libgomp/testsuite/libgomp.c-c++-common/pr109062.c
+    sed -e 's/{ target nonpic } //' \
+        -e '/GOTPCREL/d'              -i ../gcc/testsuite/gcc.target/i386/fentryname3.c
+
     chown -R tester .
-    su tester -c "PATH=$PATH make -k check -j$(nproc)"
+    su tester -c "PATH=$PATH make -k check"
     ../contrib/test_summary
 
     make install
@@ -1171,13 +1148,12 @@ if [ -n "$OP_GCC" ] ;then
     echo -e "$BUILD_SUCCEEDED"
 
     chown -v -R root:root \
-    /usr/lib/gcc/$(gcc -dumpmachine)/13.2.0/include{,-fixed}
+    /usr/lib/gcc/$(gcc -dumpmachine)/$GCC_V/include{,-fixed}
 
     ln -svr /usr/bin/cpp /usr/lib
 
     ln -sv gcc.1 /usr/share/man/man1/cc.1 
-    ln -sfv ../../libexec/gcc/$(gcc -dumpmachine)/13.2.0/liblto_plugin.so \
-        /usr/lib/bfd-plugins/
+    ln -sfv ../../libexec/gcc/$(gcc -dumpmachine)/$GCC_V/liblto_plugin.so /usr/lib/bfd-plugins/
     
     #test
     echo -e "$START_TEST"
@@ -1190,7 +1166,6 @@ if [ -n "$OP_GCC" ] ;then
     # Check the program interpreter using readelf and grep for ld-linux
     output=$(readelf -l a.out | grep ld-linux)
     echo $output
-    grep -E -o '/usr/lib.*/S?crt[1in].*succeeded' dummy.log
 
 
     # Expected output format check
@@ -1205,6 +1180,7 @@ if [ -n "$OP_GCC" ] ;then
         exit 1
     fi
 
+    grep -E -o '/usr/lib.*/S?crt[1in].*succeeded' dummy.log
     grep -B4 '^ /usr/include' dummy.log
     grep 'SEARCH.*/usr/lib' dummy.log |sed 's|; |\n|g'
     grep "/lib.*/libc.so.6 " dummy.log
@@ -1225,9 +1201,8 @@ sleep_before_complite
 
 ###OP_Ncurses: 0.2SBU
 if [ -n "$OP_Ncurses" ] ;then
-    echo -e "$START_JOB"
+    echo -e "$START_JOB" " 0.2SBU"
     echo $OP_Ncurses
-    tar -xf $OP_Ncurses.tar.xz
     cd $OP_Ncurses
     
     ./configure --prefix=/usr           \
@@ -1237,7 +1212,6 @@ if [ -n "$OP_Ncurses" ] ;then
             --without-normal        \
             --with-cxx-shared       \
             --enable-pc-files       \
-            --enable-widec          \
             --with-pkg-config-libdir=/usr/lib/pkgconfig
 
     make && make DESTDIR=$PWD/dest install
@@ -1261,7 +1235,9 @@ if [ -n "$OP_Ncurses" ] ;then
 
     ln -sfv libncursesw.so /usr/lib/libcurses.so
 
-    cp -v -R doc -T /usr/share/doc/$OP_Ncurses
+    if $ADD_OPTIONNAL_DOCS; then
+        cp -v -R doc -T /usr/share/doc/$OP_Ncurses
+    fi
 
     cd /sources/
     rm -Rf $OP_Ncurses #rm extracted pkg
@@ -1274,9 +1250,8 @@ fi
 
 ###OP_Sed: 0.3SBU
 if [ -n "$OP_Sed" ] ;then
-    echo -e "$START_JOB"
+    echo -e "$START_JOB" " 0.3 SBU"
     echo $OP_Sed
-    tar -xf $OP_Sed.tar.xz
     cd $OP_Sed
 
     ./configure --prefix=/usr
@@ -1311,9 +1286,8 @@ fi
 
 ###OP_Psmisc: 0.1SBU
 if [ -n "$OP_Psmisc" ] ;then
-    echo -e "$START_JOB"
+    echo -e "$START_JOB" " 0.1 SBU"
     echo $OP_Psmisc
-    tar -xf $OP_Psmisc.tar.xz
     cd $OP_Psmisc
 
     ./configure --prefix=/usr
@@ -1344,9 +1318,8 @@ fi
 
 ###OP_Gettext: 1.4SBU
 if [ -n "$OP_Gettext" ] ;then
-    echo -e "$START_JOB"
+    echo -e "$START_JOB" " 1.4 SBU"
     echo $OP_Gettext
-    tar -xf $OP_Gettext.tar.xz
     cd $OP_Gettext
 
     if $STATIC_ONLY;then
@@ -1388,9 +1361,8 @@ fi
 
 ###OP_Bison: 2.3SBU
 if [ -n "$OP_Bison" ] ;then
-    echo -e "$START_JOB"
+    echo -e "$START_JOB" " 2.3 SBU"
     echo $OP_Bison
-    tar -xf $OP_Bison.tar.xz
     cd $OP_Bison
 
     ./configure --prefix=/usr --docdir=/usr/share/doc/$OP_Bison
@@ -1421,9 +1393,8 @@ sleep_before_complite
 
 ###OP_Grep: 0.4SBU
 if [ -n "$OP_Grep" ] ;then
-    echo -e "$START_JOB"
+    echo -e "$START_JOB" " 0.4SBU"
     echo $OP_Grep
-    tar -xf $OP_Grep.tar.xz
     cd $OP_Grep
 
     sed -i "s/echo/#echo/" src/egrep.sh
@@ -1457,13 +1428,12 @@ fi
 if [ -n "$OP_Bash" ] ;then
     echo -e "$START_JOB"
     echo $OP_Bash
-    tar -xf $OP_Bash.tar.gz
     cd $OP_Bash
 
-    patch -Np1 -i ../$OP_Bash.-upstream_fixes-1.patch
-    ./configure --prefix=/usr             \
+    ./configure --prefix=/usr         \
             --without-bash-malloc     \
             --with-installed-readline \
+            bash_cv_strtold_broken=no \
             --docdir=/usr/share/doc/$OP_Bash
     make
     if [ $? -ne 0 ]; then
@@ -1472,14 +1442,14 @@ if [ -n "$OP_Bash" ] ;then
     fi
     echo -e "$BUILD_SUCCEEDED"
     
-    if $DO_OPTIONNAL_TESTS; then    
-        chown -R tester .
+    if $DO_OPTIONNAL_TESTS; then   
+        chown -R tester . 
         su -s /usr/bin/expect tester << "EOF"
-set timeout -1
-spawn make tests
-expect eof
-lassign [wait] _ _ _ value
-exit $value
+            set timeout -1
+            spawn make tests
+            expect eof
+            lassign [wait] _ _ _ value
+            exit $value 
 EOF
     fi
 
@@ -1495,6 +1465,5 @@ EOF
     rm -Rf \"$OP_Bash\"; 
     echo -e \"$DONE\";
     echo -e \"$OP_Bash $TOOL_READY\";
-    bash ./step5.2.sh
-"
+    bash ./step5.2.sh"
 fi

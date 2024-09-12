@@ -3,14 +3,16 @@
 # this bash code was made by ATOUI Rayane to automate the operation of creating Linux from scratch with the help of LFS book v12 (https://www.linuxfromscratch.org/lfs)
 # don't edit this file to insure that it works properly unless you know what are you doing
 
-cd $LFS/LFS/bash_sources
 source /etc/bash.bashrc
+cd $LFS/LFS/bash_sources
 #***************************************************************************#
         echo -e "${STEP}
     ###############################################
     #   *${NO_STYLE}$START_STEP2${STEP}*   #
     ############################################### ${NO_STYLE}
     "
+
+echo -e $CURRENT_USER
 
 #creating new bash profile for the new user by Adding some lines to the file ~/.bash_profile to isolate variables from the host system and prevent them from being leaked into the build environment
 lines="exec env -i HOME=\$HOME TERM=\$TERM PS1='\u:\w\\$ ' /bin/bash "
@@ -22,7 +24,21 @@ disable_hashing="set +h" #to force the shell to search the PATH whenever a progr
 set_umask="umask 022" # ensures that newly created files and directories are only writable by their owner, but are readable and executable by anyone
 set_lfs_dir="LFS=${LFS}"
 set_locale="LC_ALL=POSIX"
-set_target="LFS_TGT=${CPU_SELECTED_ARCH}-${DISTRO_NAME}-linux-gnu"
+
+set_target="LFS_TGT=${CPU_SELECTED_ARCH}-${DISTRO_NAME}-linux-gnu" 
+# called toolchain tuple
+# has two forms ::
+# 1) <arch>-<vendor>-<os>-<libc/abi>
+# 2) <arch>-<os>-<libc/abi>
+# where :
+#   <arch>      : CPU archi (x86_64,arm,mips ....)
+#   <vendor>    : (mostly) free-form string, ignored by "autoconf"
+#   <os>        : OS (none - linux)
+#   <libc/abi>  : C lib and ABI (App Bin Interface : ensures that compiled code will be compatible with target) used
+# ex :
+# x86_64-linux-gnu
+# arm-linux-gnueabihf
+
 set_path="/usr/bin"
 conditional_path='if [ ! -L /bin ]; then PATH=/bin:$PATH; fi'
 extend_path="PATH=\$LFS/tools/bin:\$PATH"
