@@ -120,6 +120,7 @@ SAVE="
 ### copied vars to other user
 export DEV_NAME=$DEV_NAME
 export DISTRO_NAME=$DISTRO_NAME
+export DESTRO_HOSTNAME=$DESTRO_HOSTNAME
 export STEP1_ENDED=$STEP1_ENDED
 export LFS=/mnt/$DISTRO_NAME
 export PATH=$PATH:/usr/sbin #to let the os find all the commands
