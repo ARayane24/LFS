@@ -123,8 +123,7 @@ export CHOOSE_SYS_LOCAL=\"Choose the system local from the list below : \"
 export INPUT_SYS_L_VALUE=\"Input the chosen value : \"
 export NOT_VALID_SYS_L=\"${ERROR}ERROR: Not valid local !!${NO_STYLE}\"
 export VALID_SYS_L=\"${OK}Your choosen local is : ${NO_STYLE}\"
-export PLUGIN_THE_USB_YOU_WANT_USE_INPUT_ANY_TO_CONTINUE=\"Plugin the usb you want to use as Emergency Boot (When you finish input any char to continue ...) \"
-export INPUT_USB_NAME=\"Please input the name of the usb that'll be used : \"
+export INPUT_ANY_CHAR_TO_CONTINUE=\"${OK}(input any char to continue ...) ${NO_STYLE} \"
 
 export INPUT_EFI_System_Partition_NAME=\"Input the name of partition you want to use as boot partion (note: its type should be FAT32) : \"
 

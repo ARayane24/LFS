@@ -304,3 +304,17 @@ read_non_empty_string(){
 
     echo "$USER_input"
 }
+
+debug_mode(){
+    # used to wait until the user inputs somthing (or just entre) this allows him to read the output of console 
+    # before continuing the execution of the bash script 
+    local is_debug_mode="$1"
+    if [ -z "$is_debug_mode" ]; then
+        echo -e "$MISSING_PARAM"
+        return 1
+    fi
+    local v=""
+    if $is_debug_mode; then
+        read -p "$INPUT_ANY_CHAR_TO_CONTINUE" v
+    fi
+}
