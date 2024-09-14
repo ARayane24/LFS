@@ -11,11 +11,12 @@ cd $LFS/LFS/bash_sources
     ############################################### ${NO_STYLE}
     "
 echo -e $CURRENT_USER
+debug_mode true
 findmnt # check For proper operation of the isolated environment, some communication with the running kernel must be established. This is done via the so-called Virtual Kernel File Systems, which will be mounted before entering the chroot environment. 
 
 #change the ownership of the $LFS/* directories to user root 
 chown -R root:root $LFS/{usr,lib,var,etc,bin,sbin,tools}
-case $(uname -m) in
+case $CPU_SELECTED_ARCH in
   x86_64) chown -R root:root $LFS/lib64 ;;
 esac
 echo -e "${DONE}"
@@ -63,13 +64,14 @@ export NEXT_STEP=$NEXT_STEP
 echo "$SAVE" >> $SHARED_FILE
 
 cp -v $SHARED_FILE $LFS/.bashrc #keep shared vars
+debug_mode true
 
 if ! [ -n "$STEP5_ENDED" ] || ! $STEP5_ENDED; then
     echo -e "$DONE"
     echo -e "STEP3_ENDED=$STEP3_ENDED"
 
     #entering chroot you can set other vars here also 
-    chroot "$LFS" /usr/bin/env -i       \
+    chroot "$LFS" /usr/bin/env -i   \
             HOME=/root                  \
             TERM="$TERM"                \
             PS1='(lfs chroot) \u:\w\$ ' \
@@ -85,6 +87,7 @@ if ! [ -n "$STEP5_ENDED" ] || ! $STEP5_ENDED; then
     fi
     cat $LFS/.bashrc > $SHARED_FILE #update shared file with last vars
     source $SHARED_FILE
+    debug_mode true
 
     if $BACK_UP_OS_IN_THE_END; then
 
