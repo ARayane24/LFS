@@ -10,7 +10,7 @@ downlaod_utils_pkgs(){
 
     if ! apt-get install binutils bison coreutils diffutils findutils gawk gcc g++ grep gzip m4 make patch perl python3 texinfo sed tar xz-utils bzip2 autoconf; then
         echo -e "$CANNOT_INSTALL_PAKAGES"
-        exit 1
+        return 1
     else
         echo -e "$DONE"
     fi
@@ -23,7 +23,7 @@ downlaod_code_source_pkgs_other_sources(){
 
     if [ -z "$COURENT_DIR" ]; then
         echo -e "$MISSING_PARAM"
-        exit 1
+        return 1
     fi
 
     echo -e "$START_DOWNLOAD_CODE_SOURCES_OTHER"
@@ -40,7 +40,7 @@ downlaod_code_source_pkgs(){
 
     if [ -z "$COURENT_DIR" ]; then
         echo -e "$MISSING_PARAM"
-        exit 1
+        return 1
     fi
 
     mkdir $COURENT_DIR/sources
@@ -70,13 +70,13 @@ extract_tar_files_and_mkdir() {
     # Check if the directory argument is valid
     if [ -z "$dir" ] || [ ! -d "$dir" ]; then
         echo -e "$MISSING_PARAM: Directory $dir does not exist or is invalid."
-        exit 1
+        return 1
     fi
 
     # Check if the list of files argument is valid
     if [ ${#list_files[@]} -eq 0 ]; then
         echo -e "$MISSING_PARAM: No files provided."
-        exit 1
+        return 1
     fi
 
     for file in  "${list_files[@]}" ; do
@@ -107,13 +107,13 @@ extract_tar_files() {
     # Validate directory argument
     if [ -z "$dir" ] || [ ! -d "$dir" ]; then
         echo -e "$MISSING_PARAM: Directory $dir does not exist or is invalid."
-        exit 1
+        return 1
     fi
 
     # Validate list of files argument
     if [ ${#list_files[@]} -eq 0 ]; then
         echo -e "$MISSING_PARAM: No files provided."
-        exit 1
+        return 1
     fi
 
     # Process files matching the patterns
@@ -159,7 +159,7 @@ create_and_save_partition(){
         # Check if UUID was obtained
         if [ -z "$UUID" ]; then
             echo -e "${CANNOT_GET_UUID} $disk_partition_name"
-            exit 1
+            return 1
         fi
 
         # Add the new entry to /etc/fstab
@@ -179,7 +179,7 @@ create_and_save_partition(){
             echo -e "$SUCCESS_MOUNT"
         else
             echo -e "$ERROR_MOUNT"
-            exit 1
+            return 1
         fi
     fi
     systemctl daemon-reload #update
@@ -196,7 +196,7 @@ yes_no_question(){
 
     if [ -z "$QUESTION" ]; then
         echo -e "$MISSING_PARAM"
-        exit 1
+        return 1
     fi
 
     local result=false
@@ -220,7 +220,7 @@ select_cpu_archi() {
     # Check if the lengths of the arrays are the same
     if [[ ${#CPU_ARCH_HUMAN[@]} -ne ${#CPU_ARCH[@]} ]]; then
         echo -e "$NO_MATCH_ERROR"
-        exit 1
+        return 1
     fi
 
     # Format and collect the list of architectures into a variable
@@ -288,7 +288,7 @@ read_non_empty_string(){
     local MESSAGE_ASK_FOR_INPUT="$1"
     if [ -z "$MESSAGE_ASK_FOR_INPUT" ]; then
         echo -e "$MISSING_PARAM"
-        exit 1
+        return 1
     fi
 
     while true; do
