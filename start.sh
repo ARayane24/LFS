@@ -43,7 +43,7 @@ if ! [ -n "$STEP1_ENDED" ] || ! $STEP1_ENDED; then
 
     export CPU_ARCH_HUMAN=("64-bit(x86) architecture" "64-bit(ARM) architecture")
     export CPU_ARCH=("x86_64" "aarch64")
-    export CPU_SELECTED_ARCH=$(uname -m) # current cpu archi
+    export CPU_SELECTED_ARCH=$(uname -m) # default (current cpu archi) 
 
     printf -v formatted_cpu_arch_human "(%s)" "$(printf '"%s" ' "${CPU_ARCH_HUMAN[@]}")"
     printf -v formatted_cpu_arch "(%s)" "$(printf '"%s" ' "${CPU_ARCH[@]}")"
@@ -197,6 +197,7 @@ SAVE="
     #############################
     echo -e "$CHOOSE_CPU_ARCHI"
     select_cpu_archi
+    source $SHARED_FILE ## update selected cpu var value
     
     
     ######################
@@ -205,6 +206,7 @@ SAVE="
     cd $HELPER_DIR
     source ./bash_sources/step1.sh
     export SKIP_RESTORE=true
+    echo "export SKIP_RESTORE=true" >> $SHARED_FILE
 fi
 # [ -z "$SKIP_RESTORE" ] : if SKIP_RESTORE is empty
 if   [ -z "$SKIP_RESTORE" ] && [ -n "$STEP1_ENDED" ] && [ "$STEP1_ENDED" = true ] \

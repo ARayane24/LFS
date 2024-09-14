@@ -77,7 +77,7 @@ for i in bin lib sbin; do
     ln -sv usr/$i $LFS/$i #creating shortcuts from the working dir to the main system files
 done
 #if system is 64bit than mkdir lib64
-case $(uname -m) in
+case $CPU_SELECTED_ARCH in
     x86_64) mkdir -pv $LFS/lib64 ;;
 esac
 mkdir -pv $LFS/tools
@@ -93,7 +93,7 @@ passwd $DEV_NAME #password for user
 
 #Setting the owner to DEV_NAME
 chown -v $DEV_NAME $LFS/{usr{,/*},lib,var,etc,bin,sbin,tools}
-case $(uname -m) in
+case $CPU_SELECTED_ARCH in
 x86_64) chown -v $DEV_NAME $LFS/lib64 ;;
 esac
 fg #connfirme that there is no error
@@ -133,9 +133,11 @@ if ! [ -n "$STEP2_ENDED" ] || ! $STEP2_ENDED; then
     echo -e "STEP1_ENDED=$STEP1_ENDED"
     echo -e "$SWICH_TO_LFS"
 fi
+
+debug_mode true
 su - "$DEV_NAME" -c " bash $NEXT_STEP " #change the user 
 
-source $SHARED_FILE
+source $SHARED_FILE #update the value of $NEXT_STEP
 
 #source $SHARED_FILE
 if { [ -z "$STEP3_ENDED" ] || [ "$STEP3_ENDED" = "false" ]; } && [ "$STEP2_ENDED" = "true" ]; then
