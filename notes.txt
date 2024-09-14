@@ -81,11 +81,12 @@ rrm() {
 
     # Convert relative path to absolute path
     if [[ "$path_to_remove" == ./* || "$path_to_remove" == ..* ]]; then
-        path_to_remove=$(realpath "$path_to_remove")
+        path_to_remove=$(realpath "$path_to_remove") || return 1
+        echo "realpath : $path_to_remove"
     fi
 
     # Check if path_to_remove is an absolute path and is not root
-    if [[ "$path_to_remove" == /* && "$path_to_remove" != "/" ]]; then
+    if [[ "$(pwd)" != "/"  && "$path_to_remove" != "/" ]]; then
         # Remove without confirmation
         rm -Rfv "$path_to_remove"
     else
