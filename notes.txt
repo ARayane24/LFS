@@ -1,9 +1,9 @@
-## TO-DO List
+### TO-DO List
 # check step2.2.sh [40] [669] you might need to change the gnu value to work on arm 
 # check start.sh to change "root" key word in the system edit [54]
 *****************************************************************************
 
-## To keep in mind :
+### To keep in mind :
 The utmp, wtmp, btmp, and lastlog files use 32-bit integers for timestamps and they'll be fundamentally broken after year 2038. Many packages have stopped using them and other packages are going to stop using them. It is probably best to consider them deprecated.
 
 .a => static lib
@@ -12,13 +12,16 @@ The utmp, wtmp, btmp, and lastlog files use 32-bit integers for timestamps and t
 replace vim in step5.2.sh [1372]
 *****************************************************************************
  
-## Future improvment :
-# add option to save progress in case of error to complite where it has stopted
+### Future improvement :
+# add option to save progress in case of error to complete where it has stopped
+# add bash code to easily add new languages
 *****************************************************************************
 
 
 
-## General Discription for the steps
+
+
+### General Description for the steps
 
 #####################################################################
 Chap 2.4: Creating new partition (Any separate partition that you want automatically mounted when the system starts must be specified in the /etc/fstab
@@ -37,8 +40,8 @@ build environment for that user.
 #####################################################################
 
 #####################################################################
-first, building a cross compiler and its associated libraries; second, using this
-cross toolchain to build several utilities in a way that isolates them from the host distribution; and third, entering the
+first, building a cross compiler and its associated libraries; 
+second, using this cross toolchain to build several utilities in a way that isolates them from the host distribution; and third, entering the
 chroot environment (which further improves host isolation) and constructing the remaining tools needed to build the
 final system.
 #####################################################################
@@ -53,3 +56,43 @@ environment. You may want to verify that they are mounted by issuing the findmnt
 At this point the essential programs and libraries have been created and your current LFS system is in a good state.
 Your system can now be backed up for later reuse.
 #####################################################################
+
+#####################################################################
+Config Network/Console/Kernel/GRUB than reboot
+#####################################################################
+
+
+
+
+### Tips :
+## comment this instruction : [ -z "$PS1" ] && return 
+# in order to the bash code to work properly you have to comment that instruction in /etc/bash.bashrc
+
+
+## use method rrm :
+# use this method "rrm" instead of "rm -Rfv" to prevent the deletion of root files by safely remove only the user dirs 
+rrm() {
+    local path_to_remove="$1"
+
+    if [ -z "$path_to_remove" ]; then
+        echo -e "\033[31;49;1mERROR:\033[0m Missing parameter!"
+        return 1
+    fi
+
+    # Convert relative path to absolute path
+    if [[ "$path_to_remove" == ./* || "$path_to_remove" == ..* ]]; then
+        path_to_remove=$(realpath "$path_to_remove")
+    fi
+
+    # Check if path_to_remove is an absolute path and is not root
+    if [[ "$path_to_remove" == /* && "$path_to_remove" != "/" ]]; then
+        # Remove without confirmation
+        rm -Rfv "$path_to_remove"
+    else
+        echo -e "\033[31;49;1mERROR:\033[0m Invalid path or relative path detected"
+        return 1
+    fi
+}
+
+
+## cd to where the start.sh file found
