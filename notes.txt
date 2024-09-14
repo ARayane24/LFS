@@ -1,28 +1,28 @@
-### TO-DO List
-# check step2.2.sh [40] [669] you might need to change the gnu value to work on arm 
+### TO-DO List *********************************************************************
+# check step2.2.sh [44] [683] you might need to change the gnu value to work on arm 
 # check start.sh to change "root" key word in the system edit [54]
-*****************************************************************************
+************************************************************************************
 
-### To keep in mind :
+
+### To keep in mind : *****************************************************************************************************
+Filesystem Hierarchy Standard (FHS) 
+
 The utmp, wtmp, btmp, and lastlog files use 32-bit integers for timestamps and they'll be fundamentally broken after year 2038. Many packages have stopped using them and other packages are going to stop using them. It is probably best to consider them deprecated.
 
 .a => static lib
 .o => dynamic lib
 
 replace vim in step5.2.sh [1372]
-*****************************************************************************
+****************************************************************************************************************************
  
-### Future improvement :
+
+### Future improvement :********************************************************
 # add option to save progress in case of error to complete where it has stopped
 # add bash code to easily add new languages
-*****************************************************************************
+********************************************************************************
 
 
-
-
-
-### General Description for the steps
-
+### General Description for the steps**************************************************************************************
 #####################################################################
 Chap 2.4: Creating new partition (Any separate partition that you want automatically mounted when the system starts must be specified in the /etc/fstab
 file.)
@@ -61,10 +61,10 @@ Your system can now be backed up for later reuse.
 Config Network/Console/Kernel/GRUB than reboot
 #####################################################################
 
+*****************************************************************************************************************************
 
 
-
-### Tips :
+### Tips :******************************************************************************************************************
 ## comment this instruction : [ -z "$PS1" ] && return 
 # in order to the bash code to work properly you have to comment that instruction in /etc/bash.bashrc
 
@@ -97,3 +97,5 @@ rrm() {
 
 
 ## cd to where the start.sh file found
+
+*****************************************************************************************************************************

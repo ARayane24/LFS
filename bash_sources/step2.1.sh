@@ -15,8 +15,9 @@ cd $LFS/LFS/bash_sources
 echo -e $CURRENT_USER
 
 #creating new bash profile for the new user by Adding some lines to the file ~/.bash_profile to isolate variables from the host system and prevent them from being leaked into the build environment
-lines="exec env -i HOME=\$HOME TERM=\$TERM PS1='\u:\w\\$ ' /bin/bash "
-echo "$lines" > ~/.bash_profile
+cat > ~/.bash_profile <<EOF
+exec env -i HOME=$HOME TERM=$TERM PS1='\u:\w\$ ' /bin/bash -c \"bash ./step2.2.sh\"
+EOF
 echo -e "$DONE \n"
 
 # Define variables for each part of the content
@@ -40,9 +41,9 @@ set_target="LFS_TGT=${CPU_SELECTED_ARCH}-${DISTRO_NAME}-linux-gnu"
 # arm-linux-gnueabihf
 
 set_path="/usr/bin"
-conditional_path='if [ ! -L /bin ]; then PATH=/bin:$PATH; fi'
-extend_path="PATH=\$LFS/tools/bin:\$PATH"
-set_config_site="CONFIG_SITE=\$LFS/usr/share/config.site"
+conditional_path="if [ ! -L /bin ]; then PATH=/bin:$PATH; fi"
+extend_path="PATH=$LFS/tools/bin:$PATH"
+set_config_site="CONFIG_SITE=$LFS/usr/share/config.site"
 export_vars="export LFS LC_ALL LFS_TGT PATH CONFIG_SITE"
 export_var_MAKEFLAGS="export MAKEFLAGS=-j$(nproc)"
 
@@ -65,6 +66,7 @@ $export_var_MAKEFLAGS"
 cat $SHARED_FILE > ~/.bashrc
 echo "$lines" >> ~/.bashrc
 echo -e "$DONE"
-bash -n ~/.bash_profile
 
-bash ./step2.2.sh
+debug_mode true
+source ~/.bash_profile
+

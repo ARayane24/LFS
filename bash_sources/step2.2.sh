@@ -24,6 +24,14 @@ echo -e "$DONE"
 #############################################################
 echo -e "${PROCESS}Compiling a Cross-Toolchain...${NO_STYLE}"
 #############################################################
+# native toolchain : build == host == target
+# cross-compilation toolchain : build == host != target
+# canadian cross-compilation toolchain : build != host != target
+# key :
+#   - build  : is the machine where we build programs (Default OS on pc NOTE: debian)
+#   - host   : is the machine/system where the built programs will run ie: where to run the compiler
+#   - target : is only used for compilers. It is the machine the compiler produces code for 
+
 ###binutils 1 : assambly -> bin
 echo -e "$START_JOB" " 1 SBU"
 echo $Binutils_P1
@@ -32,6 +40,7 @@ time {
     cd $Binutils_P1/build
     # "-prefix=$LFS/tools" install the Binutils programs in the $LFS/tools directory.
     # "--with-sysroot=$LFS" look in $LFS for the target system libraries as needed.
+    # "--target=$LFS_TGT" target tuple 
 
     ../configure --prefix=$LFS/tools \
              --with-sysroot=$LFS \
@@ -57,7 +66,7 @@ echo -e "$DONE"
 echo -e $Binutils_P1 "$TOOL_READY"
 ###********************************
 
-
+debug_mode true
 
 ###GCC: Source code -> assambly (NOTE: is not a compiler it drives the compilation op only -the compiler is cc1-)
 echo -e "$START_JOB" " 3.2 SBU"
@@ -72,7 +81,7 @@ mv -v $GCC_P1_mpc mpc
 
 #If the system's architecture is x86_64, it modifies the gcc/config/i386/t-linux64 file by replacing lib64 with lib on any line that contains m64=. The original file is backed up with the extension .orig.
 # It adjusts the configuration to ensure that certain libraries are found in the correct directory,
-case $(uname -m) in
+case $CPU_SELECTED_ARCH in
 x86_64)
     sed -e '/m64=/s/lib64/lib/' \
         -i.orig gcc/config/i386/t-linux64
@@ -111,7 +120,7 @@ echo -e "$BUILD_SUCCEEDED"
 
 cd ..
 cat gcc/limitx.h gcc/glimits.h gcc/limity.h > \
-`dirname $($LFS_TGT-gcc -print-libgcc-file-name)`/include/limits.h
+  `dirname $($LFS_TGT-gcc -print-libgcc-file-name)`/include/limits.h
 
 cd $LFS/sources/
 rm -Rf $GCC_P1
@@ -119,7 +128,7 @@ echo -e "$DONE"
 echo -e $GCC_P1"$TOOL_READY"
 ###********************************
 
-
+debug_mode true
 
 ###Linux-6 headers
 echo -e "$START_JOB" " 0.1 SBU"
@@ -142,14 +151,14 @@ echo -e "$DONE"
 echo -e $Linux_Kernel "$TOOL_READY"
 ###********************************
 
-
+debug_mode true
 
 ###glibc (or uClibc/uClibc-ng :only for linux and suports ARM)
 echo -e "$START_JOB" " 1.3 SBU"
 echo $Glibc_Tool
 cd $Glibc_Tool
 
-case $(uname -m) in
+case $CPU_SELECTED_ARCH in
     i?86)   ln -sfv ld-linux.so.2 $LFS/lib/ld-lsb.so.3
     ;;
     x86_64) ln -sfv ../lib/ld-linux-x86-64.so.2 $LFS/lib64
@@ -209,13 +218,12 @@ echo -e "$DONE"
 echo -e $Glibc_Tool "$TOOL_READY"
 ###********************************
 
-
+debug_mode true
 
 ### $Libstdc_Tool
 echo -e "$START_JOB"
 echo $GCC_P1
-tar -xf "$GCC_P1.tar.xz"
-mkdir -v $GCC_P1/build
+extract_tar_files_and_mkdir $LFS/sources "$GCC_P1"
 cd $GCC_P1/build
 
 ../$Libstdc_Tool-v3/configure           \
@@ -242,6 +250,7 @@ echo -e "${DONE}"
 echo -e $GCC_P1 "$TOOL_READY"
 ###********************************
 
+debug_mode true
 echo -e "${DONE}"
 
 #############################################################
@@ -269,7 +278,7 @@ echo -e "$DONE"
 echo -e $M4_Tool "$TOOL_READY"
 ###********************************
 
-
+debug_mode true
 
 ### Ncurses
 echo -e "$START_JOB" " 0.4 SBU"
@@ -311,7 +320,7 @@ echo -e "$DONE"
 echo -e $Ncurses_Tool "$TOOL_READY"
 ###********************************
 
-
+debug_mode true
 
 ### Bash
 echo -e "$START_JOB" " 0.2 SBU"
@@ -339,7 +348,7 @@ echo -e "$DONE"
 echo -e $Bash_Tool "$TOOL_READY"
 ###********************************
 
-
+debug_mode true
 
 ### Coreutils
 echo -e "$START_JOB" " 0.3 SBU"
@@ -359,10 +368,10 @@ if [ $? -ne 0 ]; then
 fi
 echo -e "$BUILD_SUCCEEDED"
 
-mv -v $LFS/usr/bin/chroot $LFS/usr/sbin
+mv -v $LFS/usr/bin/chroot              $LFS/usr/sbin
 mkdir -pv $LFS/usr/share/man/man8
 mv -v $LFS/usr/share/man/man1/chroot.1 $LFS/usr/share/man/man8/chroot.8
-sed -i 's/"1"/"8"/' $LFS/usr/share/man/man8/chroot.8
+sed -i 's/"1"/"8"/'                    $LFS/usr/share/man/man8/chroot.8
 
 cd $LFS/sources/
 rm -Rf $Coreutils_Tool
@@ -370,7 +379,7 @@ echo -e "$DONE" $Coreutils_Tool
 echo -e $Coreutils_Tool "$TOOL_READY"
 ###********************************
 
-
+debug_mode true
 
 ### Diffutils
 echo -e "$START_JOB" " 0.1 SBU"
@@ -394,7 +403,7 @@ echo -e "$DONE"
 echo -e $Diffutils_Tool "$TOOL_READY"
 ###********************************
 
-
+debug_mode true
 
 ### File
 echo -e "$START_JOB" " 0.1 SBU" 
@@ -429,7 +438,7 @@ echo -e "$DONE"
 echo -e $File_Tool "$TOOL_READY"
 ###********************************
 
-
+debug_mode true
 
 ### Findutils
 echo -e "$START_JOB" " 0.2 SBU"
@@ -454,7 +463,7 @@ echo -e "$DONE"
 echo -e $Findutils_Tool "$TOOL_READY"
 ###********************************
 
-
+debug_mode true
 
 ### Gawk
 echo -e "$START_JOB" " 0.1 SBU"
@@ -479,7 +488,7 @@ echo -e "$DONE"
 echo -e  $Gawk_Tool "$TOOL_READY"
 ###********************************
 
-
+debug_mode true
 
 ### Grep
 echo -e "$START_JOB" " 0.1 SBU"
@@ -503,7 +512,7 @@ echo -e "$DONE"
 echo -e  $Grep_Tool "$TOOL_READY"
 ###********************************
 
-
+debug_mode true
 
 ### Gzip
 echo -e "$START_JOB" " 0.1 SBU"
@@ -525,7 +534,7 @@ echo -e "$DONE"
 echo -e $Gzip_Tool "$TOOL_READY"
 ###********************************
 
-
+debug_mode true
 
 ### Make
 echo -e "$START_JOB" " 0.1 SBU"
@@ -550,7 +559,7 @@ echo -e "$DONE"
 echo -e $Make_Tool "$TOOL_READY"
 ###********************************
 
-
+debug_mode true
 
 ### Patch
 echo -e "$START_JOB" " 0.1 SBU"
@@ -574,7 +583,7 @@ echo -e "$DONE"
 echo -e  $Patch_Tool "$TOOL_READY"
 ###********************************
 
-
+debug_mode true
 
 ### Sed
 echo -e "$START_JOB" " 0.1 SBU"
@@ -598,7 +607,7 @@ echo -e "$DONE"
 echo -e $Sed_Tool "$TOOL_READY"
 ###********************************
 
-
+debug_mode true
 
 ### Tar
 echo -e "$START_JOB" " 0.1 SBU"
@@ -622,7 +631,7 @@ echo -e "$DONE"
 echo -e $Tar_Tool "$TOOL_READY"
 ###********************************
 
-
+debug_mode true
 
 ### Xz
 echo -e "$START_JOB" " 0.1 SBU"
@@ -650,16 +659,15 @@ echo -e "$DONE"
 echo -e $Xz_Tool "$TOOL_READY"
 ###********************************
 
-
+debug_mode true
 
 ### Binutils_P2
 echo -e "$START_JOB" " 0.4 SBU"
 echo $Binutils_P2
-tar -xf "$Binutils_P2.tar.xz"
+extract_tar_files_and_mkdir $LFS/sources "$Binutils_P2"
 cd $Binutils_P2
 
 sed '6009s/$add_dir//' -i ltmain.sh
-mkdir build
 cd    build
 
 ../configure                   \
@@ -689,12 +697,12 @@ echo -e "$DONE"
 echo -e $Binutils_P2 "$TOOL_READY"
 ###********************************
 
-
+debug_mode true
 
 ### GCC 2
 echo -e "$START_JOB" " 4.2 SBU"
 echo $GCC_P2
-tar -xf "$GCC_P2.tar.xz"
+extract_tar_files_and_mkdir $LFS/sources "$GCC_P2"
 cd $GCC_P2
 
 tar -xf ../$GCC_P2_mpfr.tar.xz
@@ -703,15 +711,16 @@ tar -xf ../$GCC_P2_gmp.tar.xz
 mv -v $GCC_P2_gmp gmp
 tar -xf ../$GCC_P2_mpc.tar.gz
 mv -v $GCC_P2_mpc mpc
-case $(uname -m) in
+case $CPU_SELECTED_ARCH in
     x86_64)
-        sed -e '/m64=/s/lib64/lib/' -i.orig gcc/config/i386/t-linux64
-        ;;
+        sed -e '/m64=/s/lib64/lib/' \
+        -i.orig gcc/config/i386/t-linux64
+    ;;
 esac
-sed '/thread_header =/s/@.*@/gthr-posix.h/' -i libgcc/Makefile.in libstdc++-v3/include/Makefile.in
-mkdir build
-cd       build
+sed '/thread_header =/s/@.*@/gthr-posix.h/' \
+    -i libgcc/Makefile.in libstdc++-v3/include/Makefile.in
 
+cd       build
 ../configure                                       \
     --build=$(../config.guess)                     \
     --host=$LFS_TGT                                \
@@ -747,6 +756,7 @@ echo -e $GCC_P2 "$TOOL_READY"
 ###********************************
 
 echo -e "${DONE}"
+debug_mode true
 
 
 STEP2_ENDED=true
@@ -775,4 +785,6 @@ export TIMEZONES=\"$(timedatectl list-timezones)\" #needed in step 5
 echo "$SAVE" >> $SHARED_FILE
 echo -e "STEP2_ENDED=$STEP2_ENDED"
 echo -e "$SWICH_TO_ROOT"
+
+debug_mode true
 
