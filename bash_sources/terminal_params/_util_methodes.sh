@@ -315,6 +315,7 @@ debug_mode(){
     fi
     local v=""
     if $is_debug_mode; then
-        read -p "$INPUT_ANY_CHAR_TO_CONTINUE" v
+        echo -e $INPUT_ANY_CHAR_TO_CONTINUE
+        read -p "_" v
     fi
 }

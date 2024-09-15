@@ -11,6 +11,9 @@ if [ -z "$LFS" ]; then
 fi
 cd $LFS
 rm -rf ./*
+
+debug_mode true
+
 tar -xvpf $HOME/${DISTRO_NAME}-temp-tools.tar.xz
 cp -rf $HELPER_DIR $LFS
 echo -e "$DONE"

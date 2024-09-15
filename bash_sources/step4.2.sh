@@ -10,6 +10,7 @@ cd /LFS/bash_sources
 source /.bashrc
 source ./terminal_params/_pakages_names.sh
 source ./terminal_params/_util_methodes.sh
+
 # The /var/log/wtmp file records all logins and logouts. The /var/log/lastlog file records when each user last logged in.
 # The /var/log/faillog file records failed login attempts. The /var/log/btmp file records the bad login attempts.
 touch /var/log/{btmp,lastlog,faillog,wtmp}
@@ -19,10 +20,11 @@ chmod -v 600  /var/log/btmp
 # The /run/utmp file records the users that are currently logged in. This file is created dynamically in the boot scripts.
 
 cd /sources 
+echo -e $CURRENT_USER
 
 echo -e "$START_EXTRACTION"
-extract_tar_files /sources/ "$Gettext_Tool      $Bison_Tool                $Perl_Tool     " &
-extract_tar_files /sources/ "$Texinfo_Tool      $Util_linux                $Python_Tool   "
+extract_tar_files /sources/ "$Gettext_Tool      $Bison_Tool       $Perl_Tool     " &
+extract_tar_files /sources/ "$Texinfo_Tool      $Util_linux       $Python_Tool   "
 wait
 echo -e "$DONE"
 
@@ -49,7 +51,7 @@ echo -e "$DONE"
 echo -e $Gettext_Tool "$TOOL_READY"
 #-------------------
 
-
+debug_mode true
 
 ### Bison
 echo -e "$START_JOB" " 0.2 SBU"
@@ -72,7 +74,7 @@ echo -e "$DONE"
 echo -e $Bison_Tool "$TOOL_READY"
 #-------------------
 
-
+debug_mode true
 
 ### Perl
 echo -e "$START_JOB" " 0.6 SBU"
@@ -103,7 +105,7 @@ echo -e "$DONE"
 echo -e $Perl_Tool "$TOOL_READY"
 #-------------------
 
-
+debug_mode true
 
 ### Python
 echo -e "$START_JOB" " 0.4 SBU"
@@ -127,7 +129,7 @@ echo -e "$DONE"
 echo -e $Python_Tool "$TOOL_READY"
 #-------------------
 
-
+debug_mode true
 
 ### Texinfo
 echo -e "$START_JOB" " 0.2 SBU"
@@ -149,7 +151,7 @@ echo -e "$DONE"
 echo -e $Texinfo_Tool "$TOOL_READY"
 #-------------------
 
-
+debug_mode true
 
 ### Util-linux
 echo -e "$START_JOB" " 0.2 SBU"
@@ -185,6 +187,7 @@ echo -e "$DONE"
 echo -e $Util_linux "$TOOL_READY"
 #-------------------
 
+debug_mode true
 
 echo -e "$START_CLEANING_JOB"
 rm -rf /usr/share/{info,man,doc}/*          # remove the currently installed documentation files
@@ -212,6 +215,7 @@ export STEP4_ENDED=$STEP4_ENDED
 "
 echo "$SAVE" >> /.bashrc
 
+debug_mode true
 if $BACK_UP_OS_IN_THE_END; then
     exit 0
 fi

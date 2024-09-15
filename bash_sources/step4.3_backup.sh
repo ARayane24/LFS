@@ -16,6 +16,8 @@ mountpoint -q $LFS/dev/shm && umount $LFS/dev/shm
 umount $LFS/dev/pts
 umount $LFS/{sys,proc,run,dev}
 
+debug_mode true
+
 # compress tools
 cd $LFS
 tar -cvJpf $HOME/${DISTRO_NAME}-temp-tools.tar.xz . || exit 1
