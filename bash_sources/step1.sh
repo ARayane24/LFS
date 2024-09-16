@@ -134,7 +134,7 @@ if ! [ -n "$STEP2_ENDED" ] || ! $STEP2_ENDED; then
     echo -e "$SWICH_TO_LFS"
 fi
 
-debug_mode true
+# debug_mode true
 su - "$DEV_NAME" -c " bash $NEXT_STEP " #change the user 
 
 source $SHARED_FILE #update the value of $NEXT_STEP

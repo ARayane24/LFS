@@ -11,7 +11,7 @@ cd $LFS/LFS/bash_sources
     ############################################### ${NO_STYLE}
     "
 echo -e $CURRENT_USER
-debug_mode true
+# debug_mode true
 findmnt # check For proper operation of the isolated environment, some communication with the running kernel must be established. This is done via the so-called Virtual Kernel File Systems, which will be mounted before entering the chroot environment. 
 
 #change the ownership of the $LFS/* directories to user root 
@@ -64,7 +64,7 @@ export NEXT_STEP=$NEXT_STEP
 echo "$SAVE" >> $SHARED_FILE
 
 cp -v $SHARED_FILE $LFS/.bashrc #keep shared vars
-debug_mode true
+# debug_mode true
 
 if ! [ -n "$STEP5_ENDED" ] || ! $STEP5_ENDED; then
     echo -e "$DONE"
@@ -87,7 +87,7 @@ if ! [ -n "$STEP5_ENDED" ] || ! $STEP5_ENDED; then
     fi
     cat $LFS/.bashrc > $SHARED_FILE #update shared file with last vars
     source $SHARED_FILE
-    debug_mode true
+    # debug_mode true
 
     if $BACK_UP_OS_IN_THE_END; then
 

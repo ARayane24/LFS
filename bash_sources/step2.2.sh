@@ -66,7 +66,7 @@ echo -e "$DONE"
 echo -e $Binutils_P1 "$TOOL_READY"
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###GCC: Source code -> assambly (NOTE: is not a compiler it drives the compilation op only -the compiler is cc1-)
 echo -e "$START_JOB" " 3.2 SBU"
@@ -128,7 +128,7 @@ echo -e "$DONE"
 echo -e $GCC_P1"$TOOL_READY"
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###Linux-6 headers
 echo -e "$START_JOB" " 0.1 SBU"
@@ -151,7 +151,7 @@ echo -e "$DONE"
 echo -e $Linux_Kernel "$TOOL_READY"
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###glibc (or uClibc/uClibc-ng :only for linux and suports ARM)
 echo -e "$START_JOB" " 1.3 SBU"
@@ -218,7 +218,7 @@ echo -e "$DONE"
 echo -e $Glibc_Tool "$TOOL_READY"
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ### $Libstdc_Tool
 echo -e "$START_JOB"
@@ -250,7 +250,7 @@ echo -e "${DONE}"
 echo -e $GCC_P1 "$TOOL_READY"
 ###********************************
 
-debug_mode true
+# debug_mode true
 echo -e "${DONE}"
 
 #############################################################
@@ -278,7 +278,7 @@ echo -e "$DONE"
 echo -e $M4_Tool "$TOOL_READY"
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ### Ncurses
 echo -e "$START_JOB" " 0.4 SBU"
@@ -320,7 +320,7 @@ echo -e "$DONE"
 echo -e $Ncurses_Tool "$TOOL_READY"
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ### Bash
 echo -e "$START_JOB" " 0.2 SBU"
@@ -348,7 +348,7 @@ echo -e "$DONE"
 echo -e $Bash_Tool "$TOOL_READY"
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ### Coreutils
 echo -e "$START_JOB" " 0.3 SBU"
@@ -379,7 +379,7 @@ echo -e "$DONE" $Coreutils_Tool
 echo -e $Coreutils_Tool "$TOOL_READY"
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ### Diffutils
 echo -e "$START_JOB" " 0.1 SBU"
@@ -403,7 +403,7 @@ echo -e "$DONE"
 echo -e $Diffutils_Tool "$TOOL_READY"
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ### File
 echo -e "$START_JOB" " 0.1 SBU" 
@@ -438,7 +438,7 @@ echo -e "$DONE"
 echo -e $File_Tool "$TOOL_READY"
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ### Findutils
 echo -e "$START_JOB" " 0.2 SBU"
@@ -463,7 +463,7 @@ echo -e "$DONE"
 echo -e $Findutils_Tool "$TOOL_READY"
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ### Gawk
 echo -e "$START_JOB" " 0.1 SBU"
@@ -488,7 +488,7 @@ echo -e "$DONE"
 echo -e  $Gawk_Tool "$TOOL_READY"
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ### Grep
 echo -e "$START_JOB" " 0.1 SBU"
@@ -512,7 +512,7 @@ echo -e "$DONE"
 echo -e  $Grep_Tool "$TOOL_READY"
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ### Gzip
 echo -e "$START_JOB" " 0.1 SBU"
@@ -534,7 +534,7 @@ echo -e "$DONE"
 echo -e $Gzip_Tool "$TOOL_READY"
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ### Make
 echo -e "$START_JOB" " 0.1 SBU"
@@ -559,7 +559,7 @@ echo -e "$DONE"
 echo -e $Make_Tool "$TOOL_READY"
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ### Patch
 echo -e "$START_JOB" " 0.1 SBU"
@@ -583,7 +583,7 @@ echo -e "$DONE"
 echo -e  $Patch_Tool "$TOOL_READY"
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ### Sed
 echo -e "$START_JOB" " 0.1 SBU"
@@ -607,7 +607,7 @@ echo -e "$DONE"
 echo -e $Sed_Tool "$TOOL_READY"
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ### Tar
 echo -e "$START_JOB" " 0.1 SBU"
@@ -631,7 +631,7 @@ echo -e "$DONE"
 echo -e $Tar_Tool "$TOOL_READY"
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ### Xz
 echo -e "$START_JOB" " 0.1 SBU"
@@ -659,7 +659,7 @@ echo -e "$DONE"
 echo -e $Xz_Tool "$TOOL_READY"
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ### Binutils_P2
 echo -e "$START_JOB" " 0.4 SBU"
@@ -697,7 +697,7 @@ echo -e "$DONE"
 echo -e $Binutils_P2 "$TOOL_READY"
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ### GCC 2
 echo -e "$START_JOB" " 4.2 SBU"
@@ -756,7 +756,7 @@ echo -e $GCC_P2 "$TOOL_READY"
 ###********************************
 
 echo -e "${DONE}"
-debug_mode true
+# debug_mode true
 
 
 STEP2_ENDED=true
@@ -786,5 +786,5 @@ echo "$SAVE" >> $SHARED_FILE
 echo -e "STEP2_ENDED=$STEP2_ENDED"
 echo -e "$SWICH_TO_ROOT"
 
-debug_mode true
+# debug_mode true
 

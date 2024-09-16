@@ -45,7 +45,7 @@ if [ -n "$OP_Libtool" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_GDBM: 0.1SBU
 if [ -n "$OP_GDBM" ] ;then
@@ -85,7 +85,7 @@ if [ -n "$OP_GDBM" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_Gperf: 0.1SBU
 if [ -n "$OP_Gperf" ] ;then
@@ -117,7 +117,7 @@ if [ -n "$OP_Gperf" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_Expat: 0.1SBU
 if [ -n "$OP_Expat" ] ;then
@@ -161,7 +161,7 @@ if [ -n "$OP_Expat" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_Inetutils: 0.2SBU
 if [ -n "$OP_Inetutils" ] ;then
@@ -206,7 +206,7 @@ if [ -n "$OP_Inetutils" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_Less: 0.1SBU
 if [ -n "$OP_Less" ] ;then
@@ -238,7 +238,7 @@ if [ -n "$OP_Less" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_Perl: 1.5 SBU
 if [ -n "$OP_Perl" ] ;then
@@ -289,7 +289,7 @@ if [ -n "$OP_Perl" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_XML: 0.1SBU
 if [ -n "$OP_XML" ] ;then
@@ -321,7 +321,7 @@ if [ -n "$OP_XML" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_Intltool: 0.1SBU
 if [ -n "$OP_Intltool" ] ;then
@@ -356,7 +356,7 @@ if [ -n "$OP_Intltool" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_Autoconf: 0.1SBU
 if [ -n "$OP_Autoconf" ] ;then
@@ -389,7 +389,7 @@ fi
 ###********************************
 
 sleep_before_complite
-debug_mode true
+# debug_mode true
 
 ###OP_Automake: 0.1SBU
 if [ -n "$OP_Automake" ] ;then
@@ -422,7 +422,7 @@ if [ -n "$OP_Automake" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_OpenSSL: 1.8SBU
 if [ -n "$OP_OpenSSL" ] ;then
@@ -464,7 +464,7 @@ if [ -n "$OP_OpenSSL" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_Kmod: 0.1SBU
 if [ -n "$OP_Kmod" ] ;then
@@ -499,7 +499,7 @@ fi
 ###********************************
 
 sleep_before_complite
-debug_mode true
+# debug_mode true
 
 ###OP_Libelf: 0.3SBU
 if [ -n "$OP_Libelf" ] ;then 
@@ -537,7 +537,7 @@ if [ -n "$OP_Libelf" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_Libffi: 1.8SBU
 if [ -n "$OP_Libffi" ] ;then
@@ -577,7 +577,7 @@ if [ -n "$OP_Libffi" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_Python: 1.8SBU
 if [ -n "$OP_Python" ] ;then
@@ -627,7 +627,7 @@ EOF
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_Flit_Core: 0.1SBU
 if [ -n "$OP_Flit_Core" ] ;then
@@ -646,7 +646,7 @@ fi
 ###********************************
 
 sleep_before_complite
-debug_mode true
+# debug_mode true
 
 ###OP_Wheel: 0.1SBU
 if [ -n "$OP_Wheel" ] ;then
@@ -664,7 +664,7 @@ if [ -n "$OP_Wheel" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_Setuptools: 0.1SBU
 if [ -n "$OP_Setuptools" ] ;then
@@ -682,7 +682,7 @@ if [ -n "$OP_Setuptools" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_Ninja: 0.3SBU
 if [ -n "$OP_Ninja" ] ;then
@@ -711,7 +711,7 @@ if [ -n "$OP_Ninja" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_Meson: 0.1SBU
 if [ -n "$OP_Meson" ] ;then
@@ -732,7 +732,7 @@ if [ -n "$OP_Meson" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_Coreutils: 1SBU
 if [ -n "$OP_Coreutils" ] ;then
@@ -858,7 +858,7 @@ if [ -n "$OP_Check" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_Diffutils: 0.3SBU
 if [ -n "$OP_Diffutils" ] ;then
@@ -891,7 +891,7 @@ fi
 ###********************************
 
 sleep_before_complite
-debug_mode true
+# debug_mode true
 
 ###OP_Gawk: 0.1SBU
 if [ -n "$OP_Gawk" ] ;then
@@ -932,7 +932,7 @@ if [ -n "$OP_Gawk" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_Findutils: 0.4SBU
 if [ -n "$OP_Findutils" ] ;then
@@ -965,7 +965,7 @@ if [ -n "$OP_Findutils" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_Groff: 0.2SBU
 if [ -n "$OP_Groff" ] ;then
@@ -998,7 +998,7 @@ fi
 ###********************************
 
 sleep_before_complite
-debug_mode true
+# debug_mode true
 
 ###OP_GRUB (NO_UEFI): 0.3SBU
 if [ -n "$OP_GRUB" ] && ! $UEFI;then
@@ -1085,7 +1085,7 @@ fi
 ###********************************
 
 sleep_before_complite
-debug_mode true
+# debug_mode true
 
 ###OP_Gzip: 0.3 SBU
 if [ -n "$OP_Gzip" ] ;then
@@ -1118,7 +1118,7 @@ if [ -n "$OP_Gzip" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_IPRoute: 0.1SBU
 if [ -n "$OP_IPRoute" ] ;then
@@ -1145,7 +1145,7 @@ if [ -n "$OP_IPRoute" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_Kbd: 0.1SBU
 if [ -n "$OP_Kbd" ] ;then
@@ -1187,7 +1187,7 @@ fi
 ###********************************
 
 sleep_before_complite
-debug_mode true
+# debug_mode true
 
 ###OP_Libpipeline: 0.1SBU
 if [ -n "$OP_Libpipeline" ] ;then
@@ -1252,7 +1252,7 @@ if [ -n "$OP_Make" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_Patch: 0.1SBU
 if [ -n "$OP_Patch" ] ;then
@@ -1284,7 +1284,7 @@ if [ -n "$OP_Patch" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_Tar: 0.5SBU
 if [ -n "$OP_Tar" ] ;then
@@ -1321,7 +1321,7 @@ fi
 ###********************************
 
 sleep_before_complite
-debug_mode true
+# debug_mode true
 
 ###Texinfo: 0.3SBU
 if [ -n "$Texinfo" ] ;then
@@ -1362,7 +1362,7 @@ if [ -n "$Texinfo" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_Vim: 2.5SBU
 if [ -n "$OP_Vim" ] ;then
@@ -1414,7 +1414,7 @@ EOF
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_MarkupSafe: 0.1SBU
 if [ -n "$OP_MarkupSafe" ] ;then
@@ -1433,7 +1433,7 @@ fi
 ###********************************
 
 sleep_before_complite
-debug_mode true
+# debug_mode true
 
 ###OP_Jinja: 0.1SBU
 if [ -n "$OP_Jinja" ] ;then
@@ -1451,7 +1451,7 @@ if [ -n "$OP_Jinja" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_Udev: 0.2SBU
 if [ -n "$OP_Udev" ] ;then
@@ -1539,7 +1539,7 @@ if [ -n "$OP_Udev" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_Man_DB: 0.1SBU
 if [ -n "$OP_Man_DB" ] ;then
@@ -1580,7 +1580,7 @@ if [ -n "$OP_Man_DB" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_Procps_ng: 0.1SBU
 if [ -n "$OP_Procps_ng" ] ;then
@@ -1624,7 +1624,7 @@ if [ -n "$OP_Procps_ng" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_Util_linux: 0.5SBU
 if [ -n "$OP_Util_linux" ] ;then
@@ -1680,7 +1680,7 @@ fi
 ###********************************
 
 sleep_before_complite
-debug_mode true
+# debug_mode true
 
 ###OP_E2fsprogs: 0.4SBU
 if [ -n "$OP_E2fsprogs" ] ;then
@@ -1732,7 +1732,7 @@ fi
 ###********************************
 
 sleep_before_complite
-debug_mode true
+# debug_mode true
 
 ###OP_Sysklogd: 0.1SBU
 if [ -n "$OP_Sysklogd" ] ;then
@@ -1772,7 +1772,7 @@ EOF
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_Sysvinit: 0.1 SBU
 if [ -n "$OP_Sysvinit" ] ;then
@@ -1795,7 +1795,7 @@ if [ -n "$OP_Sysvinit" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 
 

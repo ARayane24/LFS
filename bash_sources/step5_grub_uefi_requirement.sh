@@ -24,7 +24,7 @@
         echo -e $OP_Which "$TOOL_READY"
     fi
     
-    debug_mode true
+    # debug_mode true
 
     # 2 - OP_Libping 0.1SBU
     if [ -n "$OP_Libping" ] ;then
@@ -59,7 +59,7 @@
         echo -e $OP_Libping "$TOOL_READY"
     fi
 
-    debug_mode true
+    # debug_mode true
 
      # 4 - OP_Freetype step 1 0.2SBU
     if [ -n "$OP_Freetype" ] ;then
@@ -87,7 +87,7 @@
         echo -e $OP_Freetype "$TOOL_READY"
     fi
 
-    debug_mode true
+    # debug_mode true
 
     # 3 - OP_Harfbuzz 0.7SBU
     if [ -n "$OP_Harfbuzz" ] ;then
@@ -112,7 +112,7 @@
         echo -e $OP_Harfbuzz "$TOOL_READY"
     fi
 
-    debug_mode true
+    # debug_mode true
 
      # 4 - OP_Freetype step 2 0.2SBU
     if [ -n "$OP_Freetype" ] ;then
@@ -141,7 +141,7 @@
         echo -e $OP_Freetype "$TOOL_READY"
     fi
 
-    debug_mode true
+    # debug_mode true
 
       # 5 - OP_Popt 0.1SBU
     if [ -n "$OP_Popt" ] ;then
@@ -173,7 +173,7 @@
         echo -e $OP_Popt "$TOOL_READY"
     fi
 
-    debug_mode true
+    # debug_mode true
 
       # 6 - OP_Mandoc 0.1SBU
     if [ -n "$OP_Mandoc" ] ;then
@@ -198,7 +198,7 @@
         echo -e $OP_Mandoc "$TOOL_READY"
     fi
 
-    debug_mode true
+    # debug_mode true
 
       # 7 - OP_Efivar 0.1SBU
     if [ -n "$OP_Efivar" ] ;then
@@ -219,7 +219,7 @@
         echo -e $OP_Efivar "$TOOL_READY"
     fi
 
-    debug_mode true
+    # debug_mode true
 
       # 8 - OP_Efibootmgr 0.1SBU
     if [ -n "$OP_Efibootmgr" ] ;then

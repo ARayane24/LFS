@@ -16,7 +16,7 @@ mountpoint -q $LFS/dev/shm && umount $LFS/dev/shm
 umount $LFS/dev/pts
 umount $LFS/{sys,proc,run,dev}
 
-debug_mode true
+# debug_mode true
 
 # compress tools
 cd $LFS

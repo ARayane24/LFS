@@ -67,6 +67,6 @@ cat $SHARED_FILE > ~/.bashrc
 echo "$lines" >> ~/.bashrc
 echo -e "$DONE"
 
-debug_mode true
+# debug_mode true
 source ~/.bash_profile
 

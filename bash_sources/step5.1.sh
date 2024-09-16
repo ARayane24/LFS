@@ -51,7 +51,7 @@ if [ -n "$OP_Man_pages" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_Iana_Etc: 0.1SBU
 if [ -n "$OP_Iana_Etc" ] ;then
@@ -68,7 +68,7 @@ if [ -n "$OP_Iana_Etc" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_Glibc: 12SBU
 if [ -n "$OP_Glibc" ] ;then
@@ -177,7 +177,7 @@ fi
 ###********************************
 
 sleep_before_complite
-debug_mode true
+# debug_mode true
 
 
 ###OP_Zlib: 0.1SBU
@@ -211,7 +211,7 @@ if [ -n "$OP_Zlib" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_Bzip: 0.1SBU
 if [ -n "$OP_Bzip" ] ;then
@@ -246,7 +246,7 @@ if [ -n "$OP_Bzip" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_Xz:0.1SBU
 if [ -n "$OP_Xz" ] ;then
@@ -285,7 +285,7 @@ if [ -n "$OP_Xz" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_Lz4:0.1SBU
 if [ -n "$OP_Lz4" ] ;then
@@ -316,7 +316,7 @@ if [ -n "$OP_Lz4" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_Zstd:0.4SBU
 if [ -n "$OP_Zstd" ] ;then
@@ -348,7 +348,7 @@ if [ -n "$OP_Zstd" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_File:0.1SBU
 if [ -n "$OP_File" ] ;then
@@ -379,7 +379,7 @@ if [ -n "$OP_File" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_Readline:0.1SBU
 if [ -n "$OP_Readline" ] ;then
@@ -422,7 +422,7 @@ if [ -n "$OP_Readline" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OR_M4: 0.3SBU
 if [ -n "$OR_M4" ] ;then
@@ -453,7 +453,7 @@ if [ -n "$OR_M4" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_Bc: 0.1SBU
 if [ -n "$OP_Bc" ] ;then
@@ -485,7 +485,7 @@ if [ -n "$OP_Bc" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_Flex: 0.1SBU
 if [ -n "$OP_Flex" ] ;then
@@ -528,7 +528,7 @@ if [ -n "$OP_Flex" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_Tcl: 2.7SBU
 if [ -n "$OP_Tcl" ] ;then
@@ -595,7 +595,7 @@ if [ -n "$OP_Tcl" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_Expect: 0.2SBU
 if [ -n "$OP_Expect" ] ;then
@@ -638,7 +638,7 @@ if [ -n "$OP_Expect" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_DejaGNU: 0.1SBU
 if [ -n "$OP_DejaGNU" ] ;then
@@ -672,7 +672,7 @@ if [ -n "$OP_DejaGNU" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_Pkgconf: 0.1SBU
 if [ -n "$OP_Pkgconf" ] ;then
@@ -707,7 +707,7 @@ fi
 ###********************************
 
 sleep_before_complite
-debug_mode true
+# debug_mode true
 
 ###OP_Binutils: 2.2SBU
 if [ -n "$OP_Binutils" ] ;then
@@ -756,7 +756,7 @@ if [ -n "$OP_Binutils" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_GMP: 0.3SBU
 if [ -n "$OP_GMP" ] ;then
@@ -809,7 +809,7 @@ if [ -n "$OP_GMP" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_MPFR: 0.3SBU
 if [ -n "$OP_MPFR" ] ;then
@@ -850,7 +850,7 @@ if [ -n "$OP_MPFR" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_MPC: 0.1SBU
 if [ -n "$OP_MPC" ] ;then
@@ -889,7 +889,7 @@ if [ -n "$OP_MPC" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_Attr: 0.1SBU
 if [ -n "$OP_Attr" ] ;then
@@ -929,7 +929,7 @@ if [ -n "$OP_Attr" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_Acl part 1: 0.1SBU
 if [ -n "$OP_Acl" ] ;then
@@ -960,7 +960,7 @@ if [ -n "$OP_Acl" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_Libcap: 0.1SBU
 if [ -n "$OP_Libcap" ] ;then
@@ -992,7 +992,7 @@ if [ -n "$OP_Libcap" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_Libxcrypt: 0.1SBU
 if [ -n "$OP_Libxcrypt" ] ;then
@@ -1036,7 +1036,7 @@ if [ -n "$OP_Libxcrypt" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_Shadow: 0.1SBU
 if [ -n "$OP_Shadow" ] ;then
@@ -1092,7 +1092,7 @@ fi
 
 
 sleep_before_complite
-debug_mode true
+# debug_mode true
 
 
 ###OP_GCC: 42SBU
@@ -1195,7 +1195,7 @@ fi
 ###********************************
 
 sleep_before_complite
-debug_mode true
+# debug_mode true
 
 
 ###OP_Ncurses: 0.2SBU
@@ -1245,7 +1245,7 @@ if [ -n "$OP_Ncurses" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_Sed: 0.3SBU
 if [ -n "$OP_Sed" ] ;then
@@ -1281,7 +1281,7 @@ if [ -n "$OP_Sed" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_Psmisc: 0.1SBU
 if [ -n "$OP_Psmisc" ] ;then
@@ -1313,7 +1313,7 @@ if [ -n "$OP_Psmisc" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_Gettext: 1.4SBU
 if [ -n "$OP_Gettext" ] ;then
@@ -1355,7 +1355,7 @@ if [ -n "$OP_Gettext" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_Bison: 2.3SBU
 if [ -n "$OP_Bison" ] ;then
@@ -1388,7 +1388,7 @@ fi
 ###********************************
 
 sleep_before_complite
-debug_mode true
+# debug_mode true
 
 ###OP_Grep: 0.4SBU
 if [ -n "$OP_Grep" ] ;then
@@ -1421,7 +1421,7 @@ if [ -n "$OP_Grep" ] ;then
 fi
 ###********************************
 
-debug_mode true
+# debug_mode true
 
 ###OP_Bash: 1.2SBU
 if [ -n "$OP_Bash" ] ;then
