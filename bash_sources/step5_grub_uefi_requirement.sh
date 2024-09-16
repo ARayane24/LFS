@@ -23,7 +23,9 @@
         echo -e "$DONE" 
         echo -e $OP_Which "$TOOL_READY"
     fi
-  
+    
+    debug_mode true
+
     # 2 - OP_Libping 0.1SBU
     if [ -n "$OP_Libping" ] ;then
         echo -e "$START_JOB" " 0.1 SBU"
@@ -35,14 +37,13 @@
        
         if $STATIC_ONLY;then
             ./configure --prefix=/usr \
-                    --enable-static \
                     --disable-shared 
         else
              ./configure --prefix=/usr --disable-static
         fi
 
-        make -s &&
-        make -s install
+        make &&
+        make install
         if [ $? -ne 0 ]; then
             echo -e "$BUILD_FAILED"
             exit 1
@@ -57,6 +58,8 @@
         echo -e "$DONE" 
         echo -e $OP_Libping "$TOOL_READY"
     fi
+
+    debug_mode true
 
      # 4 - OP_Freetype step 1 0.2SBU
     if [ -n "$OP_Freetype" ] ;then
@@ -84,6 +87,8 @@
         echo -e $OP_Freetype "$TOOL_READY"
     fi
 
+    debug_mode true
+
     # 3 - OP_Harfbuzz 0.7SBU
     if [ -n "$OP_Harfbuzz" ] ;then
         echo -e "$START_JOB" " 0.7 SBU"
@@ -106,6 +111,8 @@
         echo -e "$DONE" 
         echo -e $OP_Harfbuzz "$TOOL_READY"
     fi
+
+    debug_mode true
 
      # 4 - OP_Freetype step 2 0.2SBU
     if [ -n "$OP_Freetype" ] ;then
@@ -134,6 +141,8 @@
         echo -e $OP_Freetype "$TOOL_READY"
     fi
 
+    debug_mode true
+
       # 5 - OP_Popt 0.1SBU
     if [ -n "$OP_Popt" ] ;then
         echo -e "$START_JOB" " 0.1 SBU"
@@ -141,7 +150,7 @@
         cd $OP_Popt
         
         if $STATIC_ONLY;then
-            ./configure --prefix=/usr --enable-static \
+            ./configure --prefix=/usr \
                     --disable-shared 
         else
             ./configure --prefix=/usr --disable-static
@@ -163,6 +172,8 @@
         echo -e "$DONE" 
         echo -e $OP_Popt "$TOOL_READY"
     fi
+
+    debug_mode true
 
       # 6 - OP_Mandoc 0.1SBU
     if [ -n "$OP_Mandoc" ] ;then
@@ -187,6 +198,8 @@
         echo -e $OP_Mandoc "$TOOL_READY"
     fi
 
+    debug_mode true
+
       # 7 - OP_Efivar 0.1SBU
     if [ -n "$OP_Efivar" ] ;then
         echo -e "$START_JOB" " 0.1 SBU"
@@ -205,6 +218,8 @@
         echo -e "$DONE" 
         echo -e $OP_Efivar "$TOOL_READY"
     fi
+
+    debug_mode true
 
       # 8 - OP_Efibootmgr 0.1SBU
     if [ -n "$OP_Efibootmgr" ] ;then

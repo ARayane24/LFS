@@ -51,8 +51,7 @@ if [ -n "$OP_Man_pages" ] ;then
 fi
 ###********************************
 
-
-
+debug_mode true
 
 ###OP_Iana_Etc: 0.1SBU
 if [ -n "$OP_Iana_Etc" ] ;then
@@ -69,7 +68,7 @@ if [ -n "$OP_Iana_Etc" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_Glibc: 12SBU
 if [ -n "$OP_Glibc" ] ;then
@@ -140,8 +139,7 @@ EOF
     ZONEINFO=/usr/share/zoneinfo
     mkdir -pv $ZONEINFO/{posix,right}
 
-    for tz in etcetera southamerica northamerica europe africa antarctica  \
-            asia australasia backward; do
+    for tz in etcetera southamerica northamerica europe africa antarctica asia australasia backward; do
         zic -L /dev/null   -d $ZONEINFO       ${tz}
         zic -L /dev/null   -d $ZONEINFO/posix ${tz}
         zic -L leapseconds -d $ZONEINFO/right ${tz}
@@ -179,6 +177,7 @@ fi
 ###********************************
 
 sleep_before_complite
+debug_mode true
 
 
 ###OP_Zlib: 0.1SBU
@@ -212,7 +211,7 @@ if [ -n "$OP_Zlib" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_Bzip: 0.1SBU
 if [ -n "$OP_Bzip" ] ;then
@@ -247,7 +246,7 @@ if [ -n "$OP_Bzip" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_Xz:0.1SBU
 if [ -n "$OP_Xz" ] ;then
@@ -257,7 +256,6 @@ if [ -n "$OP_Xz" ] ;then
 
     if $STATIC_ONLY;then
         ./configure --prefix=/usr    \
-                --enable-static \
                 --disable-shared \
                 --docdir=/usr/share/doc/$OP_Xz
     else
@@ -287,7 +285,7 @@ if [ -n "$OP_Xz" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_Lz4:0.1SBU
 if [ -n "$OP_Lz4" ] ;then
@@ -318,7 +316,7 @@ if [ -n "$OP_Lz4" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_Zstd:0.4SBU
 if [ -n "$OP_Zstd" ] ;then
@@ -350,7 +348,7 @@ if [ -n "$OP_Zstd" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_File:0.1SBU
 if [ -n "$OP_File" ] ;then
@@ -381,7 +379,7 @@ if [ -n "$OP_File" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_Readline:0.1SBU
 if [ -n "$OP_Readline" ] ;then
@@ -396,7 +394,6 @@ if [ -n "$OP_Readline" ] ;then
 
     if $STATIC_ONLY;then
         ./configure --prefix=/usr    \
-                --enable-static \
                 --disable-shared \
                 --with-curses    \
                 --docdir=/usr/share/doc/$OP_Readline
@@ -425,7 +422,7 @@ if [ -n "$OP_Readline" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OR_M4: 0.3SBU
 if [ -n "$OR_M4" ] ;then
@@ -456,7 +453,7 @@ if [ -n "$OR_M4" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_Bc: 0.1SBU
 if [ -n "$OP_Bc" ] ;then
@@ -488,7 +485,7 @@ if [ -n "$OP_Bc" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_Flex: 0.1SBU
 if [ -n "$OP_Flex" ] ;then
@@ -499,7 +496,6 @@ if [ -n "$OP_Flex" ] ;then
    if $STATIC_ONLY;then
         ./configure --prefix=/usr \
                 --docdir=/usr/share/doc/$OP_Flex \
-                --enable-static \
                 --disable-shared
     else
         ./configure --prefix=/usr \
@@ -532,7 +528,7 @@ if [ -n "$OP_Flex" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_Tcl: 2.7SBU
 if [ -n "$OP_Tcl" ] ;then
@@ -599,7 +595,7 @@ if [ -n "$OP_Tcl" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_Expect: 0.2SBU
 if [ -n "$OP_Expect" ] ;then
@@ -642,7 +638,7 @@ if [ -n "$OP_Expect" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_DejaGNU: 0.1SBU
 if [ -n "$OP_DejaGNU" ] ;then
@@ -676,7 +672,7 @@ if [ -n "$OP_DejaGNU" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_Pkgconf: 0.1SBU
 if [ -n "$OP_Pkgconf" ] ;then
@@ -686,8 +682,7 @@ if [ -n "$OP_Pkgconf" ] ;then
 
      if $STATIC_ONLY;then
         ./configure --prefix=/usr \
-                --docdir=/usr/share/doc/$OP_Pkgconf\
-                --enable-static \
+                --docdir=/usr/share/doc/$OP_Pkgconf \
                 --disable-shared 
     else
         ./configure --prefix=/usr               \
@@ -712,6 +707,7 @@ fi
 ###********************************
 
 sleep_before_complite
+debug_mode true
 
 ###OP_Binutils: 2.2SBU
 if [ -n "$OP_Binutils" ] ;then
@@ -760,7 +756,7 @@ if [ -n "$OP_Binutils" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_GMP: 0.3SBU
 if [ -n "$OP_GMP" ] ;then
@@ -781,8 +777,7 @@ if [ -n "$OP_GMP" ] ;then
     if $STATIC_ONLY;then
         $CPU_ARCH_IS_32BIT_X86 ./configure --prefix=/usr \
                                             --enable-cxx     \
-                                            --docdir=/usr/share/doc/$OP_GMP\
-                                            --enable-static \
+                                            --docdir=/usr/share/doc/$OP_GMP \
                                             --disable-shared $MY_CONFIG_PARAM
     else
         $CPU_ARCH_IS_32BIT_X86 ./configure --prefix=/usr \
@@ -799,8 +794,13 @@ if [ -n "$OP_GMP" ] ;then
     
     make check 2>&1 | tee gmp-check-log
     awk '/# PASS:/{total+=$3} ; END{print total}' gmp-check-log
-    make install
-    make install-html
+
+    make install && make install-html
+    if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
 
     cd /sources/
     rm -Rf $OP_GMP #rm extracted pkg
@@ -809,7 +809,7 @@ if [ -n "$OP_GMP" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_MPFR: 0.3SBU
 if [ -n "$OP_MPFR" ] ;then
@@ -820,8 +820,7 @@ if [ -n "$OP_MPFR" ] ;then
      if $STATIC_ONLY;then
         ./configure --prefix=/usr \
                 --enable-thread-safe \
-                --docdir=/usr/share/doc/$OP_MPFR\
-                --enable-static \
+                --docdir=/usr/share/doc/$OP_MPFR \
                 --disable-shared 
     else
         ./configure --prefix=/usr \
@@ -851,7 +850,7 @@ if [ -n "$OP_MPFR" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_MPC: 0.1SBU
 if [ -n "$OP_MPC" ] ;then
@@ -861,8 +860,7 @@ if [ -n "$OP_MPC" ] ;then
 
      if $STATIC_ONLY;then
         ./configure --prefix=/usr \
-                --docdir=/usr/share/doc/$OP_MPC\
-                --enable-static \
+                --docdir=/usr/share/doc/$OP_MPC \
                 --disable-shared 
     else
         ./configure --prefix=/usr \
@@ -891,7 +889,7 @@ if [ -n "$OP_MPC" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_Attr: 0.1SBU
 if [ -n "$OP_Attr" ] ;then
@@ -902,8 +900,7 @@ if [ -n "$OP_Attr" ] ;then
      if $STATIC_ONLY;then
         ./configure --prefix=/usr \
                 --sysconfdir=/etc \
-                --docdir=/usr/share/doc/$OP_Attr\
-                --enable-static \
+                --docdir=/usr/share/doc/$OP_Attr \
                 --disable-shared 
     else
         ./configure --prefix=/usr \
@@ -932,7 +929,7 @@ if [ -n "$OP_Attr" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_Acl part 1: 0.1SBU
 if [ -n "$OP_Acl" ] ;then
@@ -942,7 +939,6 @@ if [ -n "$OP_Acl" ] ;then
 
     if $STATIC_ONLY;then
         ./configure --prefix=/usr         \
-            --enable-static \
             --disable-shared \
             --docdir=/usr/share/doc/$OP_Acl
     else
@@ -964,6 +960,7 @@ if [ -n "$OP_Acl" ] ;then
 fi
 ###********************************
 
+debug_mode true
 
 ###OP_Libcap: 0.1SBU
 if [ -n "$OP_Libcap" ] ;then
@@ -995,7 +992,7 @@ if [ -n "$OP_Libcap" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_Libxcrypt: 0.1SBU
 if [ -n "$OP_Libxcrypt" ] ;then
@@ -1007,7 +1004,6 @@ if [ -n "$OP_Libxcrypt" ] ;then
         ./configure --prefix=/usr                \
                     --enable-hashes=strong,glibc \
                     --enable-obsolete-api=no     \
-                    --enable-static \
                     --disable-shared \
                     --disable-failure-tokens
     else
@@ -1040,6 +1036,7 @@ if [ -n "$OP_Libxcrypt" ] ;then
 fi
 ###********************************
 
+debug_mode true
 
 ###OP_Shadow: 0.1SBU
 if [ -n "$OP_Shadow" ] ;then
@@ -1060,7 +1057,6 @@ if [ -n "$OP_Shadow" ] ;then
     touch /usr/bin/passwd
     if $STATIC_ONLY;then
         ./configure --sysconfdir=/etc   \
-            --enable-static \
             --disable-shared \
             --with-{b,yes}crypt \
             --without-libbsd    \
@@ -1096,6 +1092,7 @@ fi
 
 
 sleep_before_complite
+debug_mode true
 
 
 ###OP_GCC: 42SBU
@@ -1198,6 +1195,8 @@ fi
 ###********************************
 
 sleep_before_complite
+debug_mode true
+
 
 ###OP_Ncurses: 0.2SBU
 if [ -n "$OP_Ncurses" ] ;then
@@ -1246,7 +1245,7 @@ if [ -n "$OP_Ncurses" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_Sed: 0.3SBU
 if [ -n "$OP_Sed" ] ;then
@@ -1282,7 +1281,7 @@ if [ -n "$OP_Sed" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_Psmisc: 0.1SBU
 if [ -n "$OP_Psmisc" ] ;then
@@ -1314,7 +1313,7 @@ if [ -n "$OP_Psmisc" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_Gettext: 1.4SBU
 if [ -n "$OP_Gettext" ] ;then
@@ -1324,8 +1323,7 @@ if [ -n "$OP_Gettext" ] ;then
 
     if $STATIC_ONLY;then
         ./configure --prefix=/usr \
-                --docdir=/usr/share/doc/$OP_Gettext\
-                --enable-static \
+                --docdir=/usr/share/doc/$OP_Gettext \
                 --disable-shared 
     else
         ./configure --prefix=/usr \
@@ -1357,7 +1355,7 @@ if [ -n "$OP_Gettext" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_Bison: 2.3SBU
 if [ -n "$OP_Bison" ] ;then
@@ -1390,10 +1388,11 @@ fi
 ###********************************
 
 sleep_before_complite
+debug_mode true
 
 ###OP_Grep: 0.4SBU
 if [ -n "$OP_Grep" ] ;then
-    echo -e "$START_JOB" " 0.4SBU"
+    echo -e "$START_JOB" " 0.4 SBU"
     echo $OP_Grep
     cd $OP_Grep
 
@@ -1422,7 +1421,7 @@ if [ -n "$OP_Grep" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_Bash: 1.2SBU
 if [ -n "$OP_Bash" ] ;then

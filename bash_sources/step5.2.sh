@@ -45,7 +45,7 @@ if [ -n "$OP_Libtool" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_GDBM: 0.1SBU
 if [ -n "$OP_GDBM" ] ;then
@@ -56,7 +56,6 @@ if [ -n "$OP_GDBM" ] ;then
     if $STATIC_ONLY;then
         ./configure --prefix=/usr \
                 --enable-libgdbm-compat \
-                --enable-static \
                 --disable-shared 
     else
         ./configure --prefix=/usr \
@@ -86,7 +85,7 @@ if [ -n "$OP_GDBM" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_Gperf: 0.1SBU
 if [ -n "$OP_Gperf" ] ;then
@@ -118,7 +117,7 @@ if [ -n "$OP_Gperf" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_Expat: 0.1SBU
 if [ -n "$OP_Expat" ] ;then
@@ -129,7 +128,6 @@ if [ -n "$OP_Expat" ] ;then
     if $STATIC_ONLY;then
         ./configure --prefix=/usr \
                     --docdir=/usr/share/doc/$OP_Expat \
-                    --enable-static \
                     --disable-shared 
     else
         ./configure --prefix=/usr \
@@ -163,7 +161,7 @@ if [ -n "$OP_Expat" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_Inetutils: 0.2SBU
 if [ -n "$OP_Inetutils" ] ;then
@@ -208,7 +206,7 @@ if [ -n "$OP_Inetutils" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_Less: 0.1SBU
 if [ -n "$OP_Less" ] ;then
@@ -240,7 +238,7 @@ if [ -n "$OP_Less" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_Perl: 1.5 SBU
 if [ -n "$OP_Perl" ] ;then
@@ -291,7 +289,7 @@ if [ -n "$OP_Perl" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_XML: 0.1SBU
 if [ -n "$OP_XML" ] ;then
@@ -323,7 +321,7 @@ if [ -n "$OP_XML" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_Intltool: 0.1SBU
 if [ -n "$OP_Intltool" ] ;then
@@ -358,7 +356,7 @@ if [ -n "$OP_Intltool" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_Autoconf: 0.1SBU
 if [ -n "$OP_Autoconf" ] ;then
@@ -391,6 +389,7 @@ fi
 ###********************************
 
 sleep_before_complite
+debug_mode true
 
 ###OP_Automake: 0.1SBU
 if [ -n "$OP_Automake" ] ;then
@@ -423,7 +422,7 @@ if [ -n "$OP_Automake" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_OpenSSL: 1.8SBU
 if [ -n "$OP_OpenSSL" ] ;then
@@ -453,7 +452,11 @@ if [ -n "$OP_OpenSSL" ] ;then
     fi
     echo -e "$BUILD_SUCCEEDED"
     mv -v /usr/share/doc/openssl /usr/share/doc/$OP_OpenSSL
-    cp -vfr doc/* /usr/share/doc/$OP_OpenSSL
+
+    if $ADD_OPTIONNAL_DOCS; then
+        cp -vfr doc/* /usr/share/doc/$OP_OpenSSL
+    fi
+    
     cd /sources/
     rm -Rf $OP_OpenSSL #rm extracted pkg
     echo -e "$DONE" 
@@ -461,7 +464,7 @@ if [ -n "$OP_OpenSSL" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_Kmod: 0.1SBU
 if [ -n "$OP_Kmod" ] ;then
@@ -496,6 +499,7 @@ fi
 ###********************************
 
 sleep_before_complite
+debug_mode true
 
 ###OP_Libelf: 0.3SBU
 if [ -n "$OP_Libelf" ] ;then 
@@ -533,7 +537,7 @@ if [ -n "$OP_Libelf" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_Libffi: 1.8SBU
 if [ -n "$OP_Libffi" ] ;then
@@ -543,7 +547,6 @@ if [ -n "$OP_Libffi" ] ;then
 
     if $STATIC_ONLY;then
         ./configure --prefix=/usr          \
-                --enable-static \
                 --disable-shared \
                 --with-gcc-arch=$CPU_SELECTED_ARCH #optimize for the selected cpu
     else
@@ -574,7 +577,7 @@ if [ -n "$OP_Libffi" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_Python: 1.8SBU
 if [ -n "$OP_Python" ] ;then
@@ -624,7 +627,7 @@ EOF
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_Flit_Core: 0.1SBU
 if [ -n "$OP_Flit_Core" ] ;then
@@ -643,6 +646,7 @@ fi
 ###********************************
 
 sleep_before_complite
+debug_mode true
 
 ###OP_Wheel: 0.1SBU
 if [ -n "$OP_Wheel" ] ;then
@@ -660,7 +664,7 @@ if [ -n "$OP_Wheel" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_Setuptools: 0.1SBU
 if [ -n "$OP_Setuptools" ] ;then
@@ -678,7 +682,7 @@ if [ -n "$OP_Setuptools" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_Ninja: 0.3SBU
 if [ -n "$OP_Ninja" ] ;then
@@ -707,7 +711,7 @@ if [ -n "$OP_Ninja" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_Meson: 0.1SBU
 if [ -n "$OP_Meson" ] ;then
@@ -728,7 +732,7 @@ if [ -n "$OP_Meson" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_Coreutils: 1SBU
 if [ -n "$OP_Coreutils" ] ;then
@@ -736,10 +740,7 @@ if [ -n "$OP_Coreutils" ] ;then
     echo $OP_Coreutils
     cd $OP_Coreutils
 
-    patch -Np1 -i ../$OP_Coreutils-i18n-1.patch
-
-    sed -e '/n_out += n_hold/,+4 s|.*bufsize.*|//&|' \
-    -i src/split.c
+    patch -Np1 -i ../$OP_Coreutils-i18n-2.patch
 
     autoreconf -fiv
     FORCE_UNSAFE_CONFIGURE=1 ./configure \
@@ -756,7 +757,7 @@ if [ -n "$OP_Coreutils" ] ;then
         make NON_ROOT_USERNAME=tester check-root
         groupadd -g 102 dummy -U tester
         chown -R tester . 
-        su tester -c "PATH=$PATH make RUN_EXPENSIVE_TESTS=yes check"
+        su tester -c "PATH=$PATH make RUN_EXPENSIVE_TESTS=yes check" < /dev/null
         groupdel dummy
     fi
 
@@ -790,7 +791,6 @@ if [ -n "$OP_Acl" ] ;then
 
     if $STATIC_ONLY;then
         ./configure --prefix=/usr         \
-            --enable-static \
             --disable-shared \
             --docdir=/usr/share/doc/$OP_Acl
     else
@@ -831,7 +831,6 @@ if [ -n "$OP_Check" ] ;then
 
     if $STATIC_ONLY;then
        ./configure --prefix=/usr \
-                --enable-static \
                 --disable-shared 
     else
         ./configure --prefix=/usr --disable-static
@@ -859,7 +858,7 @@ if [ -n "$OP_Check" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_Diffutils: 0.3SBU
 if [ -n "$OP_Diffutils" ] ;then
@@ -892,6 +891,7 @@ fi
 ###********************************
 
 sleep_before_complite
+debug_mode true
 
 ###OP_Gawk: 0.1SBU
 if [ -n "$OP_Gawk" ] ;then
@@ -932,7 +932,7 @@ if [ -n "$OP_Gawk" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_Findutils: 0.4SBU
 if [ -n "$OP_Findutils" ] ;then
@@ -965,7 +965,7 @@ if [ -n "$OP_Findutils" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_Groff: 0.2SBU
 if [ -n "$OP_Groff" ] ;then
@@ -998,6 +998,7 @@ fi
 ###********************************
 
 sleep_before_complite
+debug_mode true
 
 ###OP_GRUB (NO_UEFI): 0.3SBU
 if [ -n "$OP_GRUB" ] && ! $UEFI;then
@@ -1084,6 +1085,7 @@ fi
 ###********************************
 
 sleep_before_complite
+debug_mode true
 
 ###OP_Gzip: 0.3 SBU
 if [ -n "$OP_Gzip" ] ;then
@@ -1116,7 +1118,7 @@ if [ -n "$OP_Gzip" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_IPRoute: 0.1SBU
 if [ -n "$OP_IPRoute" ] ;then
@@ -1143,7 +1145,7 @@ if [ -n "$OP_IPRoute" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_Kbd: 0.1SBU
 if [ -n "$OP_Kbd" ] ;then
@@ -1185,6 +1187,7 @@ fi
 ###********************************
 
 sleep_before_complite
+debug_mode true
 
 ###OP_Libpipeline: 0.1SBU
 if [ -n "$OP_Libpipeline" ] ;then
@@ -1249,7 +1252,7 @@ if [ -n "$OP_Make" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_Patch: 0.1SBU
 if [ -n "$OP_Patch" ] ;then
@@ -1281,7 +1284,7 @@ if [ -n "$OP_Patch" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_Tar: 0.5SBU
 if [ -n "$OP_Tar" ] ;then
@@ -1318,6 +1321,7 @@ fi
 ###********************************
 
 sleep_before_complite
+debug_mode true
 
 ###Texinfo: 0.3SBU
 if [ -n "$Texinfo" ] ;then
@@ -1358,7 +1362,7 @@ if [ -n "$Texinfo" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_Vim: 2.5SBU
 if [ -n "$OP_Vim" ] ;then
@@ -1410,7 +1414,7 @@ EOF
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_MarkupSafe: 0.1SBU
 if [ -n "$OP_MarkupSafe" ] ;then
@@ -1429,6 +1433,7 @@ fi
 ###********************************
 
 sleep_before_complite
+debug_mode true
 
 ###OP_Jinja: 0.1SBU
 if [ -n "$OP_Jinja" ] ;then
@@ -1446,7 +1451,7 @@ if [ -n "$OP_Jinja" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_Udev: 0.2SBU
 if [ -n "$OP_Udev" ] ;then
@@ -1534,7 +1539,7 @@ if [ -n "$OP_Udev" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_Man_DB: 0.1SBU
 if [ -n "$OP_Man_DB" ] ;then
@@ -1543,7 +1548,7 @@ if [ -n "$OP_Man_DB" ] ;then
     cd $OP_Man_DB
 
     ./configure --prefix=/usr                         \
-            --docdir=/usr/share/doc/man-db-2.12.1 \
+            --docdir=/usr/share/doc/$OP_Man_DB    \
             --sysconfdir=/etc                     \
             --disable-setuid                      \
             --enable-cache-owner=bin              \
@@ -1575,7 +1580,7 @@ if [ -n "$OP_Man_DB" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_Procps_ng: 0.1SBU
 if [ -n "$OP_Procps_ng" ] ;then
@@ -1586,7 +1591,6 @@ if [ -n "$OP_Procps_ng" ] ;then
     if $STATIC_ONLY;then
         ./configure --prefix=/usr                 \
                     --docdir=/usr/share/doc/$OP_Procps_ng \
-                    --enable-static \
                     --disable-shared \
                     --disable-kill
     else
@@ -1620,7 +1624,7 @@ if [ -n "$OP_Procps_ng" ] ;then
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_Util_linux: 0.5SBU
 if [ -n "$OP_Util_linux" ] ;then
@@ -1676,6 +1680,7 @@ fi
 ###********************************
 
 sleep_before_complite
+debug_mode true
 
 ###OP_E2fsprogs: 0.4SBU
 if [ -n "$OP_E2fsprogs" ] ;then
@@ -1727,6 +1732,7 @@ fi
 ###********************************
 
 sleep_before_complite
+debug_mode true
 
 ###OP_Sysklogd: 0.1SBU
 if [ -n "$OP_Sysklogd" ] ;then
@@ -1766,7 +1772,7 @@ EOF
 fi
 ###********************************
 
-
+debug_mode true
 
 ###OP_Sysvinit: 0.1 SBU
 if [ -n "$OP_Sysvinit" ] ;then
@@ -1789,136 +1795,7 @@ if [ -n "$OP_Sysvinit" ] ;then
 fi
 ###********************************
 
-export USING_CRACKLIB=false
-
-###OP_CrackLib (BLFS): 0.1SBU
-if [ -n "$OP_CrackLib" ] ;then
-    echo -e "$START_JOB" " 0.1 SBU"
-    echo $OP_CrackLib
-    cd $OP_CrackLib
-
-    ./configure --prefix=/usr    \
-            --disable-static \
-            --with-default-dict=/usr/lib/cracklib/pw_dict
-    
-    make && make install
-    if [ $? -ne 0 ]; then
-        echo -e "$BUILD_FAILED"
-        exit 1
-    fi
-    echo -e "$BUILD_SUCCEEDED"
-
-    install -v -m644 -D    ../$OP_CrackLib_words.xz \
-        /usr/share/dict/cracklib-words.xz    &&
-
-    unxz -v                  /usr/share/dict/cracklib-words.xz    &&
-    ln -v -sf cracklib-words /usr/share/dict/words                &&
-    echo $(hostname) >>      /usr/share/dict/cracklib-extra-words &&
-    install -v -m755 -d      /usr/lib/cracklib                    &&
-
-    create-cracklib-dict     /usr/share/dict/cracklib-words \
-                            /usr/share/dict/cracklib-extra-words
-
-    cd /sources/
-    # ADD passwords lists
-    bunzip2 -k $OP_CrackLib_jhon_psw.txt.bz2
-    mv $OP_CrackLib_jhon_psw.txt /usr/share/dict/$OP_CrackLib_jhon_psw.txt
-
-    bunzip2 -k $OP_CrackLib_cain_psw.txt.bz2
-    mv $OP_CrackLib_cain_psw.txt /usr/share/dict/$OP_CrackLib_cain_psw.txt
-    
-    bunzip2 -k $OP_CrackLib_500_psw.txt.bz2
-    mv $OP_CrackLib_500_psw.txt /usr/share/dict/$OP_CrackLib_500_psw.txt
-    
-    bunzip2 -k $OP_CrackLib_twitter_psw.txt.bz2
-    mv $OP_CrackLib_twitter_psw.txt /usr/share/dict/$OP_CrackLib_twitter_psw.txt
-
-    # update cracklib
-    create-cracklib-dict /usr/share/dict/cracklib-words \
-                            /usr/share/dict/cracklib-extra-words \
-                            /usr/share/dict/$OP_CrackLib_jhon_psw.txt \
-                            /usr/share/dict/$OP_CrackLib_cain_psw.txt \
-                            /usr/share/dict/$OP_CrackLib_500_psw.txt \
-                            /usr/share/dict/$OP_CrackLib_twitter_psw.txt
-
-    if $DO_OPTIONNAL_TESTS; then
-        make test
-    fi
-
-    USING_CRACKLIB=true
-    cd /sources/
-    rm -Rf $OP_CrackLib #rm extracted pkg
-    echo -e "$DONE" 
-    echo -e $OP_CrackLib "$TOOL_READY"
-fi
-###********************************
-
-
-
-###OP_Shadow 2: 0.1SBU
-if [ -n "$OP_Shadow" ] ;then
-    echo -e "$START_JOB" " 0.1 SBU"
-    echo $OP_Shadow
-    extract_tar_files /sources "$OP_Shadow"
-    cd $OP_Shadow
-
-    OPTIONNAL_HIGH_SECURITY=""
-    if $USING_CRACKLIB; then
-        OPTIONNAL_HIGH_SECURITY=" \ --with-libcrack"
-    fi
-
-    sed -i 's/groups$(EXEEXT) //' src/Makefile.in
-    find man -name Makefile.in -exec sed -i 's/groups\.1 / /'   {} \;
-    find man -name Makefile.in -exec sed -i 's/getspnam\.3 / /' {} \;
-    find man -name Makefile.in -exec sed -i 's/passwd\.5 / /'   {} \;
-
-    sed -e 's:#ENCRYPT_METHOD DES:ENCRYPT_METHOD YESCRYPT:' \
-    -e 's:/var/spool/mail:/var/mail:'                   \
-    -e '/PATH=/{s@/sbin:@@;s@/bin:@@}'                  \
-    -i etc/login.defs
-
-    if $USING_CRACKLIB; then
-        sed -i 's:DICTPATH.*:DICTPATH\t/lib/cracklib/pw_dict:' etc/login.defs
-    fi
-
-    touch /usr/bin/passwd
-    if $STATIC_ONLY;then
-        ./configure --sysconfdir=/etc   \
-            --enable-static \
-            --disable-shared \
-            --with-{b,yes}crypt \
-            --without-libbsd    \
-            --with-group-name-max-length=32
-            $OPTIONNAL_HIGH_SECURITY
-    else
-       ./configure --sysconfdir=/etc   \
-            --disable-static    \
-            --with-{b,yes}crypt \
-            --without-libbsd    \
-            --with-group-name-max-length=32
-            $OPTIONNAL_HIGH_SECURITY
-    fi
-    make && make exec_prefix=/usr install && make -C man install-man
-    if [ $? -ne 0 ]; then
-        echo -e "$BUILD_FAILED"
-        exit 1
-    fi
-    echo -e "$BUILD_SUCCEEDED"
-
-    pwconv
-    grpconv
-    mkdir -p /etc/default
-    useradd -D --gid 999
-    sed -i '/MAIL/s/yes/no/' /etc/default/useradd
-
-    passwd $My_ROOT #change password of Root user
-
-    cd /sources/
-    rm -Rf $OP_Shadow #rm extracted pkg
-    echo -e "$DONE" 
-    echo -e $OP_Shadow "$TOOL_READY"
-fi
-###********************************
+debug_mode true
 
 
 
