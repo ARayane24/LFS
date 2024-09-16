@@ -16,7 +16,7 @@ echo -e $CURRENT_USER
 
 #creating new bash profile for the new user by Adding some lines to the file ~/.bash_profile to isolate variables from the host system and prevent them from being leaked into the build environment
 cat > ~/.bash_profile <<EOF
-exec env -i HOME=$HOME TERM=$TERM PS1='\u:\w\$ ' /bin/bash -c \"bash ./step2.2.sh\"
+exec env -i HOME=$HOME TERM=$TERM PS1='\u:\w\$ ' /bin/bash -c "bash ./step2.2.sh"
 EOF
 echo -e "$DONE \n"
 
