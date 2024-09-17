@@ -7,6 +7,16 @@ source ~/.bashrc
 source ./terminal_params/_util_methodes.sh
 source ./terminal_params/_pakages_names.sh
 
+
+rm /bin/sh
+ln -s /usr/bin/bash /bin/sh
+rm /usr/bin/awk
+ln -s /usr/bin/gawk /usr/bin/awk
+rm /usr/bin/yacc
+ln -s /usr/bin/bison /usr/bin/yacc
+echo -e "$DONE"
+
+
 echo -e "$N_THREADS $(nproc)"
 if [ -z "${LFS_TGT+x}" ]; then
     echo "Variable is not defined. Exiting."
