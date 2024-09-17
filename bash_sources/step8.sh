@@ -282,9 +282,6 @@ if [ -n "$Linux_Kernel" ] ;then
    echo -e "$MAKING_EFI_System_Partition"
    lsblk
    EFI_System_Partition=$(read_non_empty_string "$INPUT_EFI_System_Partition_NAME")
-   mkfs.vfat /dev/$EFI_System_Partition
-
-   fdisk /dev/$EFI_System_Partition
 
    mount --mkdir -v -t vfat /dev/$EFI_System_Partition -o codepage=437,iocharset=iso8859-1 \
          /boot/efi
