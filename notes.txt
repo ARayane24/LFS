@@ -1,6 +1,7 @@
 ### TO-DO List *********************************************************************
 # check step2.2.sh [44] [683] you might need to change the gnu value to work on arm 
 # check start.sh to change "root" key word in the system edit [54]
+# check if the user has the required pkges and apps before start (instead of asking them)
 ************************************************************************************
 
 
