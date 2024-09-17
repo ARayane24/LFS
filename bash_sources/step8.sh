@@ -229,7 +229,6 @@ cat > /etc/fstab <<EOF
 $DISTRO_PARTITION_NAME  /              ext4     defaults            1     1
 /dev/nvme0n1p4          swap           swap     pri=1               0     0
 /dev/nvme0n1p6          /boot          ext4     noauto,defaults     1     2 
-/dev/nvme0n1p1          /boot/efi      vfat     codepage=437,iocharset=iso8859-1 0 1
 proc                    /proc          proc     nosuid,noexec,nodev 0     0
 sysfs                   /sys           sysfs    nosuid,noexec,nodev 0     0
 devpts                  /dev/pts       devpts   gid=5,mode=620      0     0
@@ -241,6 +240,8 @@ cgroup2                 /sys/fs/cgroup cgroup2  nosuid,noexec,nodev 0     0
 # End /etc/fstab
 EOF
 cd /sources
+
+
 
 
 
@@ -276,8 +277,24 @@ if [ -n "$Linux_Kernel" ] ;then
    echo -e "$BUILD_SUCCEEDED"
 
    mount /boot
-   mount --mkdir -v -t vfat /dev/nvme0n1p1 -o codepage=437,iocharset=iso8859-1 \
-      /boot/efi
+
+   ## Find or Create the EFI System Partition
+   echo -e "$MAKING_EFI_System_Partition"
+   lsblk
+   EFI_System_Partition=$(read_non_empty_string "$INPUT_EFI_System_Partition_NAME")
+   mkfs.vfat /dev/$EFI_System_Partition
+
+   fdisk /dev/$EFI_System_Partition
+
+   mount --mkdir -v -t vfat /dev/$EFI_System_Partition -o codepage=437,iocharset=iso8859-1 \
+         /boot/efi
+
+   cat >> /etc/fstab << EOF
+   /dev/$EFI_System_Partition /boot/efi vfat codepage=437,iocharset=iso8859-1 0 1
+EOF
+   echo -e "$DONE"
+   ###*********************************
+
 
    cp -iv arch/x86/boot/bzImage /boot/vmlinuz-6.10.5-$DISTRO_NAME
    cp -iv System.map /boot/System.map-6.10.5
@@ -312,7 +329,7 @@ set timeout=5
 
 insmod part_gpt
 insmod ext2
-set root=(hd0,6)
+set root=(hd1,6)
 
 insmod efi_gop
 insmod efi_uga
@@ -333,24 +350,9 @@ EOF
 
 
 
-## Find or Create the EFI System Partition
-echo -e "$MAKING_EFI_System_Partition"
-lsblk
-EFI_System_Partition=$(read_non_empty_string "$INPUT_EFI_System_Partition_NAME")
-mkfs.vfat /dev/$EFI_System_Partition
 
-fdisk /dev/$EFI_System_Partition
 
-mount --mkdir -v -t vfat /dev/$EFI_System_Partition -o codepage=437,iocharset=iso8859-1 \
-      /boot/efi
-
-cat >> /etc/fstab << EOF
-/dev/$EFI_System_Partition /boot/efi vfat codepage=437,iocharset=iso8859-1 0 1
-EOF
-echo -e "$DONE"
-###*********************************
-
-echo 12.2 > /etc/lfs-release
+echo "12.2" > /etc/lfs-release
 
 cat > /etc/lsb-release <<EOF
 DISTRIB_ID="$DISTRO_NAME"
