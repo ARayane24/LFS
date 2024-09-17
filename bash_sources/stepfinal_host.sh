@@ -12,4 +12,4 @@ fi
 rm -Rf $LFS/*
 userdel -r $DEV_NAME
 groupdel $DEV_NAME
-
+exit

@@ -1373,8 +1373,15 @@ if [ -n "$OP_Vim" ] ;then
     echo '#define SYS_VIMRC_FILE "/etc/vimrc"' >> src/feature.h
     ./configure --prefix=/usr
     make
+    if [ $? -ne 0 ]; then
+        echo -e "$BUILD_FAILED"
+        exit 1
+    fi
+    echo -e "$BUILD_SUCCEEDED"
+
     chown -R tester .
-    su tester -c "TERM=xterm-256color LANG=en_US.UTF-8 make -j1 test"  &> vim-test.log
+    su tester -c "TERM=xterm-256color LANG=en_US.UTF-8 make -j1 test" \
+        &> vim-test.log
 
     make install
     if [ $? -ne 0 ]; then
@@ -1389,7 +1396,7 @@ if [ -n "$OP_Vim" ] ;then
     done
     ln -sv ../vim/vim91/doc /usr/share/doc/$OP_Vim
 
-    cat > /etc/vimrc <<EOF
+    cat > /etc/vimrc << "EOF"
 " Begin /etc/vimrc
 
 " Ensure defaults are set before customizing settings, not after

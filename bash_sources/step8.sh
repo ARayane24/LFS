@@ -38,13 +38,16 @@ fi
 
 bash /usr/lib/udev/init-net-rules.sh 
 cat /etc/udev/rules.d/70-persistent-net.rules # enp60s0
+export network_card_name=$(grep 'NAME="' /etc/udev/rules.d/70-persistent-net.rules | sed -E 's/.*NAME="([^"]*)".*/\1/'
+)
+export network_card_ip="192.168.1.21"
 
 cd /etc/sysconfig/
-cat > ifconfig.eth0 << "EOF"
+cat > ifconfig.eth0 <<EOF
 ONBOOT=yes
-IFACE=enp60s0
+IFACE=$network_card_name
 SERVICE=ipv4-static
-IP=192.168.1.21
+IP=$network_card_ip
 GATEWAY=192.168.0.1
 PREFIX=24
 BROADCAST=192.168.0.255
@@ -53,19 +56,17 @@ EOF
 cat > /etc/resolv.conf << "EOF"
 # Begin /etc/resolv.conf
 domain 
-nameserver 192.168.0.0
+#nameserver <IP address of your primary nameserver>
 #nameserver <IP address of your secondary nameserver>
 # End /etc/resolv.conf
 EOF
 
 echo "$DESTRO_HOSTNAME" > /etc/hostname
 
-# 192.168.1.21 ip-machine
 cat > /etc/hosts <<EOF
 # Begin /etc/hosts
 127.0.0.1 localhost.localdomain localhost
-127.0.1.1 $DESTRO_HOSTNAME.mynet.org $DESTRO_HOSTNAME
-192.168.1.21 $DESTRO_HOSTNAME.mynet.org $DESTRO_HOSTNAME
+127.0.1.1 $DESTRO_HOSTNAME
 # End /etc/hosts
 EOF
 
@@ -222,20 +223,20 @@ EOF
 cat > /etc/fstab <<EOF
 # Begin /etc/fstab
 
-# file system  mount-point    type     options             dump  fsck
-#                                                                order
+# file system           mount-point    type     options             dump  fsck
+#                                                                         order
 
-/dev/nvme0n1p5 /              ext4     defaults            1     1
-/dev/nvme0n1p4 swap           swap     pri=1               0     0
-/dev/nvme0n1p6 /boot          ext4     noauto,defaults     1     2 
-/dev/nvme0n1p1 /boot/efi      vfat     codepage=437,iocharset=iso8859-1 0 1
-proc           /proc          proc     nosuid,noexec,nodev 0     0
-sysfs          /sys           sysfs    nosuid,noexec,nodev 0     0
-devpts         /dev/pts       devpts   gid=5,mode=620      0     0
-tmpfs          /run           tmpfs    defaults            0     0
-devtmpfs       /dev           devtmpfs mode=0755,nosuid    0     0
-tmpfs          /dev/shm       tmpfs    nosuid,nodev        0     0
-cgroup2        /sys/fs/cgroup cgroup2  nosuid,noexec,nodev 0     0
+$DISTRO_PARTITION_NAME  /              ext4     defaults            1     1
+/dev/nvme0n1p4          swap           swap     pri=1               0     0
+/dev/nvme0n1p6          /boot          ext4     noauto,defaults     1     2 
+/dev/nvme0n1p1          /boot/efi      vfat     codepage=437,iocharset=iso8859-1 0 1
+proc                    /proc          proc     nosuid,noexec,nodev 0     0
+sysfs                   /sys           sysfs    nosuid,noexec,nodev 0     0
+devpts                  /dev/pts       devpts   gid=5,mode=620      0     0
+tmpfs                   /run           tmpfs    defaults            0     0
+devtmpfs                /dev           devtmpfs mode=0755,nosuid    0     0
+tmpfs                   /dev/shm       tmpfs    nosuid,nodev        0     0
+cgroup2                 /sys/fs/cgroup cgroup2  nosuid,noexec,nodev 0     0
 
 # End /etc/fstab
 EOF

@@ -25,13 +25,13 @@ if $USER; then
     #   *${NO_STYLE}$START_STEP0${STEP}*   #
     ############################################### ${NO_STYLE}
     "
-    exportDEV_NAME=$(read_non_empty_string "${INPUT_NEW_USER_NAME_msg}" )
+    export DEV_NAME=$(read_non_empty_string "${INPUT_NEW_USER_NAME_msg}" )
     echo -e "\n"
 
-    DISTRO_NAME=$(read_non_empty_string "${INPUT_THE_NAME_OF_THE_NEW_DISTRO_msg}")
+    export DISTRO_NAME=$(read_non_empty_string "${INPUT_THE_NAME_OF_THE_NEW_DISTRO_msg}")
     echo -e "\n"
     
-    DESTRO_HOSTNAME=$(read_non_empty_string "${INPUT_HOST_NAME}")
+    export DESTRO_HOSTNAME=$(read_non_empty_string "${INPUT_HOST_NAME}")
     echo -e "\n"
 
     echo -e "${STEP}
