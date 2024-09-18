@@ -151,7 +151,7 @@ formatted_locale=$(echo "$chosen_local" | sed -E 's/\.(utf8|UTF-8|[a-zA-Z0-9_-]+
 cat > /etc/profile <<EOF
 # Begin /etc/profile
 
-for i in $(locale); do
+for i in  $(locale) ; do
   unset ${i%=*}
 done
 
