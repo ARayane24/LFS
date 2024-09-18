@@ -38,7 +38,7 @@ fi
 # debug_mode true
 
 bash /usr/lib/udev/init-net-rules.sh 
-cat /etc/udev/rules.d/70-persistent-net.rules # enp60s0
+#cat /etc/udev/rules.d/70-persistent-net.rules # enp60s0
 export network_card_name=$(grep 'NAME="' /etc/udev/rules.d/70-persistent-net.rules | sed -E 's/.*NAME="([^"]*)".*/\1/'
 )
 export network_card_ip="192.168.1.21"

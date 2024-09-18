@@ -128,7 +128,7 @@ export INPUT_ANY_CHAR_TO_CONTINUE=\"${OK}(input any char to continue ...) ${NO_S
 export INPUT_EFI_System_Partition_NAME=\"Input the name of partition you want to use as efi boot partion (Note: its type should be FAT32) : \"
 export INPUT_swp_Partition_NAME=\"Input the name of partition you want to use as swap partion (Note: the name is needed not the full path) : \"
 export INPUT_boot_Partition_NAME=\"Input the name of partition you want to use as the boot partion (Note: the name is needed not the full path) : \"
-export INPUT_boot_Partition_NAME=\"Input the name of the boot partion (Note: the needed value should be in the form of (hd<n>,<m>) where n: N° of disk && m: N° of partition in it ex: (hd0,6)) : \"
+export INPUT_boot_partition_root_NAME=\"Input the name of the boot partion (Note: the needed value should be in the form of (hd<n>,<m>) where n: N° of disk && m: N° of partition in it ex: (hd0,6)) : \"
 
 
 export MAKING_EM_BOOT_DISK=\"${PROCESS}Making emergency boot disk ...${NO_STYLE}\"
