@@ -35,6 +35,7 @@ if [ -n "$SC_LFS_Bootscripts" ] ;then
 fi
 ###********************************
 
+# debug_mode true
 
 bash /usr/lib/udev/init-net-rules.sh 
 cat /etc/udev/rules.d/70-persistent-net.rules # enp60s0
@@ -52,6 +53,8 @@ GATEWAY=192.168.1.1
 PREFIX=24
 BROADCAST=192.168.1.255
 EOF
+
+# debug_mode true
 
 cat > /etc/resolv.conf << "EOF"
 # Begin /etc/resolv.conf
@@ -100,6 +103,7 @@ s1:1:respawn:/sbin/sulogin
 # End /etc/inittab
 EOF
 
+
 ## TZ
 cat > /etc/sysconfig/clock << "EOF"
 # Begin /etc/sysconfig/clock
@@ -124,6 +128,7 @@ FONT="Lat2-Terminus16"
 # End /etc/sysconfig/console
 EOF
 
+# debug_mode true
 
 ## sys local
 echo -e "$CHOOSE_SYS_LOCAL"
@@ -216,7 +221,7 @@ cat > /etc/shells << "EOF"
 # End /etc/shells
 EOF
 
-
+# debug_mode true
 
 fdisk -l
 swap_partition=$(read_non_empty_string "$INPUT_swp_Partition_NAME")
@@ -243,13 +248,11 @@ cgroup2                 /sys/fs/cgroup cgroup2  nosuid,noexec,nodev 0     0
 
 # End /etc/fstab
 EOF
+
+
+# debug_mode true
+
 cd /sources
-
-
-
-
-
-
 ###Linux_Kernel: 2.5SBU
 if [ -n "$Linux_Kernel" ] ;then
    echo -e "$START_JOB" " 2.5 SBU"
@@ -303,6 +306,7 @@ if [ -n "$Linux_Kernel" ] ;then
 fi
 ###********************************
 
+# debug_mode true
 
 ## Find or Create the EFI System Partition
 echo -e "$MAKING_EFI_System_Partition"
@@ -317,6 +321,7 @@ EOF
 echo -e "$DONE"
 ###*********************************
 
+# debug_mode true
 
 ## Minimal Boot Configuration with GRUB and EFI
 grub-install --target=$CPU_SELECTED_ARCH-efi --removable
@@ -331,6 +336,8 @@ EOF
 ## Setting Up the Configuration
 grub-install --bootloader-id=$DISTRO_NAME --recheck
 
+
+# debug_mode true
 
 df -h
 boot_partition_root=$(read_non_empty_string "$INPUT_boot_partition_root_NAME")
@@ -380,6 +387,7 @@ VERSION_CODENAME="$DISTRO_NAME"
 HOME_URL="https://github.com/ARayane24/LFS"
 EOF
 
+# debug_mode true
 
 popd
 echo -e "${STEP}
