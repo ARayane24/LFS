@@ -223,7 +223,7 @@ EOF
 
 # debug_mode true
 
-fdisk -l
+
 swap_partition=$(read_non_empty_string "$INPUT_swp_Partition_NAME")
 boot_partition=$(read_non_empty_string "$INPUT_boot_Partition_NAME")
 
@@ -283,9 +283,6 @@ if [ -n "$Linux_Kernel" ] ;then
    fi
    echo -e "$BUILD_SUCCEEDED"
 
-
-   df -h
-
    mount /boot
 
    cp -iv arch/x86/boot/bzImage /boot/vmlinuz-6.10.5-$DISTRO_NAME
@@ -310,7 +307,7 @@ fi
 
 ## Find or Create the EFI System Partition
 echo -e "$MAKING_EFI_System_Partition"
-fdisk -l
+
 EFI_System_Partition=$(read_non_empty_string "$INPUT_EFI_System_Partition_NAME")
 
 mount --mkdir -v -t vfat /dev/$EFI_System_Partition -o codepage=437,iocharset=iso8859-1 /boot/efi
@@ -339,7 +336,7 @@ grub-install --bootloader-id=$DISTRO_NAME --recheck
 
 # debug_mode true
 
-df -h
+
 boot_partition_root=$(read_non_empty_string "$INPUT_boot_partition_root_NAME")
 
 cat > /boot/grub/grub.cfg << EOF
