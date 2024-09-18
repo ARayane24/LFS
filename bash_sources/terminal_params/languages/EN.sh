@@ -125,7 +125,11 @@ export NOT_VALID_SYS_L=\"${ERROR}ERROR: Not valid local !!${NO_STYLE}\"
 export VALID_SYS_L=\"${OK}Your choosen local is : ${NO_STYLE}\"
 export INPUT_ANY_CHAR_TO_CONTINUE=\"${OK}(input any char to continue ...) ${NO_STYLE} \"
 
-export INPUT_EFI_System_Partition_NAME=\"Input the name of partition you want to use as boot partion (note: its type should be FAT32) : \"
+export INPUT_EFI_System_Partition_NAME=\"Input the name of partition you want to use as efi boot partion (Note: its type should be FAT32) : \"
+export INPUT_swp_Partition_NAME=\"Input the name of partition you want to use as swap partion (Note: the name is needed not the full path) : \"
+export INPUT_boot_Partition_NAME=\"Input the name of partition you want to use as the boot partion (Note: the name is needed not the full path) : \"
+export INPUT_boot_Partition_NAME=\"Input the name of the boot partion (Note: the needed value should be in the form of (hd<n>,<m>) where n: N° of disk && m: N° of partition in it ex: (hd0,6)) : \"
+
 
 export MAKING_EM_BOOT_DISK=\"${PROCESS}Making emergency boot disk ...${NO_STYLE}\"
 export MAKING_EM_BOOT_DISK=\"${PROCESS}Making the EFI System Partition ...${NO_STYLE}\"
@@ -142,7 +146,7 @@ export EMPTY_INPUT_IS_NOT_ALLOWED=\"${ERROR}ERROR : EMPTY INPUT IS NOT ALLOWED !
 
 
 
-export END_OF_BASH_WORK=\"This bash script was made by ATOUI Rayane the leader of chroot team in the hackathon (first Linux from scratch in algeria) \n thank you for usig this tool !! \"
+export END_OF_BASH_WORK=\"This bash script was made by ATOUI Rayane the leader of chroot team in the hackathon (first Linux from scratch in algeria) \n thank you for usig this tool !! \n the next thing you need to do is to reboot your system \"
 "
 
 echo "$SAVE" >> $SHARED_FILE

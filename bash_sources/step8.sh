@@ -48,14 +48,14 @@ ONBOOT=yes
 IFACE=$network_card_name
 SERVICE=ipv4-static
 IP=$network_card_ip
-GATEWAY=192.168.0.1
+GATEWAY=192.168.1.1
 PREFIX=24
-BROADCAST=192.168.0.255
+BROADCAST=192.168.1.255
 EOF
 
 cat > /etc/resolv.conf << "EOF"
 # Begin /etc/resolv.conf
-domain 
+nameserver 8.8.8.8
 #nameserver <IP address of your primary nameserver>
 #nameserver <IP address of your secondary nameserver>
 # End /etc/resolv.conf
@@ -65,7 +65,7 @@ echo "$DESTRO_HOSTNAME" > /etc/hostname
 
 cat > /etc/hosts <<EOF
 # Begin /etc/hosts
-127.0.0.1 localhost.localdomain localhost
+127.0.0.1 localhost
 127.0.1.1 $DESTRO_HOSTNAME
 # End /etc/hosts
 EOF
@@ -118,9 +118,7 @@ EOF
 cat > /etc/sysconfig/console << "EOF"
 # Begin /etc/sysconfig/console
 
-LOGLEVEL="3"
 UNICODE="1"
-KEYMAP="uk"
 FONT="Lat2-Terminus16"
 
 # End /etc/sysconfig/console
@@ -219,6 +217,11 @@ cat > /etc/shells << "EOF"
 EOF
 
 
+
+fdisk -l
+swap_partition=$(read_non_empty_string "$INPUT_swp_Partition_NAME")
+boot_partition=$(read_non_empty_string "$INPUT_boot_Partition_NAME")
+
 ## Creating the /etc/fstab File
 cat > /etc/fstab <<EOF
 # Begin /etc/fstab
@@ -227,8 +230,9 @@ cat > /etc/fstab <<EOF
 #                                                                         order
 
 $DISTRO_PARTITION_NAME  /              ext4     defaults            1     1
-/dev/nvme0n1p4          swap           swap     pri=1               0     0
-/dev/nvme0n1p6          /boot          ext4     noauto,defaults     1     2 
+/dev/$swap_partition    swap           swap     pri=1               0     0
+/dev/$boot_partition    /boot          ext4     noauto,defaults     1     2 
+
 proc                    /proc          proc     nosuid,noexec,nodev 0     0
 sysfs                   /sys           sysfs    nosuid,noexec,nodev 0     0
 devpts                  /dev/pts       devpts   gid=5,mode=620      0     0
@@ -276,22 +280,10 @@ if [ -n "$Linux_Kernel" ] ;then
    fi
    echo -e "$BUILD_SUCCEEDED"
 
+
+   df -h
+
    mount /boot
-
-   ## Find or Create the EFI System Partition
-   echo -e "$MAKING_EFI_System_Partition"
-   lsblk
-   EFI_System_Partition=$(read_non_empty_string "$INPUT_EFI_System_Partition_NAME")
-
-   mount --mkdir -v -t vfat /dev/$EFI_System_Partition -o codepage=437,iocharset=iso8859-1 \
-         /boot/efi
-
-   cat >> /etc/fstab << EOF
-   /dev/$EFI_System_Partition /boot/efi vfat codepage=437,iocharset=iso8859-1 0 1
-EOF
-   echo -e "$DONE"
-   ###*********************************
-
 
    cp -iv arch/x86/boot/bzImage /boot/vmlinuz-6.10.5-$DISTRO_NAME
    cp -iv System.map /boot/System.map-6.10.5
@@ -303,21 +295,45 @@ EOF
 
    chown -R 0:0 ../$Linux_Kernel
 
-   grub-install --target=x86_64-efi --removable
-   mountpoint /sys/firmware/efi/efivars || mount -v -t efivarfs efivarfs /sys/firmware/efi/efivars
-
-   cat >> /etc/fstab <<EOF
-efivarfs /sys/firmware/efi/efivars efivarfs defaults 0 0
-EOF
-
-   grub-install --bootloader-id=$DISTRO_NAME --recheck
 
    cd /sources/
    #  rm -Rf $Linux_Kernel #rm extracted pkg
-   #  echo -e "$DONE" 
-   #  echo -e $Linux_Kernel "$TOOL_READY"
+   echo -e "$DONE" 
+   echo -e $Linux_Kernel "$TOOL_READY"
 fi
 ###********************************
+
+
+## Find or Create the EFI System Partition
+echo -e "$MAKING_EFI_System_Partition"
+fdisk -l
+EFI_System_Partition=$(read_non_empty_string "$INPUT_EFI_System_Partition_NAME")
+
+mount --mkdir -v -t vfat /dev/$EFI_System_Partition -o codepage=437,iocharset=iso8859-1 /boot/efi
+
+cat >> /etc/fstab << EOF
+/dev/$EFI_System_Partition /boot/efi vfat codepage=437,iocharset=iso8859-1 0 1
+EOF
+echo -e "$DONE"
+###*********************************
+
+
+## Minimal Boot Configuration with GRUB and EFI
+grub-install --target=$CPU_SELECTED_ARCH-efi --removable
+
+## Mount the EFI Variable File System
+mountpoint /sys/firmware/efi/efivars || mount -v -t efivarfs efivarfs /sys/firmware/efi/efivars
+
+cat >> /etc/fstab <<EOF
+efivarfs /sys/firmware/efi/efivars efivarfs defaults 0 0
+EOF
+
+## Setting Up the Configuration
+grub-install --bootloader-id=$DISTRO_NAME --recheck
+
+
+df -h
+boot_partition_root=$(read_non_empty_string "$INPUT_boot_partition_root_NAME")
 
 cat > /boot/grub/grub.cfg << EOF
 # Begin /boot/grub/grub.cfg
@@ -326,7 +342,7 @@ set timeout=5
 
 insmod part_gpt
 insmod ext2
-set root=(hd1,6)
+set root=$boot_partition_root
 
 insmod efi_gop
 insmod efi_uga
@@ -345,10 +361,7 @@ EOF
 
 
 
-
-
-
-
+## The end
 echo "12.2" > /etc/lfs-release
 
 cat > /etc/lsb-release <<EOF
@@ -376,23 +389,3 @@ echo -e "${STEP}
     "
 
 echo -e "$DONE"
-echo -e "$END_OF_BASH_WORK"
-
-logout
-
-umount -v $LFS/dev/pts
-mountpoint -q $LFS/dev/shm && umount -v $LFS/dev/shm
-umount -v $LFS/dev
-umount -v $LFS/run
-umount -v $LFS/proc
-umount -v $LFS/sys
-
-umount -v $LFS/home
-umount -v $LFS
-
-umount -v $LFS
-
-cd $LFS
-tar -cvJpf $HOME/${DISTRO_NAME}-temp-os.tar.xz .
-echo -e "$DONE"
-echo $HOME/${DISTRO_NAME}-temp-os.tar.xz

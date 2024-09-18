@@ -217,6 +217,24 @@ if   [ -z "$SKIP_RESTORE" ] && [ -n "$STEP1_ENDED" ] && [ "$STEP1_ENDED" = true 
 fi
 
 
+### ALL the steps has finished
+umount -v $LFS/dev/pts
+mountpoint -q $LFS/dev/shm && umount -v $LFS/dev/shm
+umount -v $LFS/dev
+umount -v $LFS/run
+umount -v $LFS/proc
+umount -v $LFS/sys
+
+umount -v $LFS/home
+umount -v $LFS
+
+umount -v $LFS
+echo -e "$END_OF_BASH_WORK"
+
+#cd $LFS
+#tar -cvJpf $HOME/${DISTRO_NAME}-temp-os.tar.xz .
+#echo -e "$DONE"
+#echo $HOME/${DISTRO_NAME}-temp-os.tar.xz
 
 
 

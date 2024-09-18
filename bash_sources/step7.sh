@@ -19,4 +19,4 @@ userdel -r tester
     ############################################### ${NO_STYLE}
     "
 
-#source /LFS/bash_sources/step8.sh
+source /LFS/bash_sources/step8.sh
