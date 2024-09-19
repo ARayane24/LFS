@@ -217,6 +217,11 @@ if   [ -z "$SKIP_RESTORE" ] && [ -n "$STEP1_ENDED" ] && [ "$STEP1_ENDED" = true 
 fi
 
 
+
+#########################
+###** Start chap 11 **###
+#########################
+
 ### ALL the steps has finished
 umount -v $LFS/dev/pts
 mountpoint -q $LFS/dev/shm && umount -v $LFS/dev/shm

@@ -3,6 +3,11 @@
 # don't edit this file to insure that it works properly unless you know what are you doing
 
 
+
+########################
+###** Start chap 8 **###
+########################
+
 pushd /sources/
 #***************************************************************************#
    echo -e "${STEP}

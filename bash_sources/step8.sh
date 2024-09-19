@@ -3,6 +3,12 @@
 # don't edit this file to insure that it works properly unless you know what are you doing
 
 
+
+########################
+###** Start chap 9 **###
+########################
+
+
 echo -e "${STEP}
     ###############################################
     #   *${NO_STYLE}$START_STEP8${STEP}*   #
@@ -220,6 +226,13 @@ cat > /etc/shells << "EOF"
 
 # End /etc/shells
 EOF
+
+
+
+#########################
+###** Start chap 10 **###
+#########################
+
 
 # debug_mode true
 

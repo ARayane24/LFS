@@ -48,6 +48,11 @@ fi
     ############################################### ${NO_STYLE}
     "
 
+
+########################
+###** Start chap 2 **###
+########################
+
 #export Important vars
 export LFS=/mnt/$DISTRO_NAME
 export PATH=$PATH:/usr/sbin #to let the os find all the commands
@@ -58,12 +63,24 @@ create_and_save_partition $LFS $SAVE_Partition || {
     exit 1
 }
 
+
+########################
+###** Start chap 3 **###
+########################
+
 cp -rf $HELPER_DIR $LFS
 chmod -v a+wt $LFS/LFS #all users can write. only the owner of the file who can delete it
 
 
 #mouve sources if foound to sources dir in the partion file
 mv -f $LFS/LFS/sources $LFS || downlaod_code_source_pkgs $LFS
+
+
+
+########################
+###** Start chap 4 **###
+########################
+
 
 chmod -v a+wt $LFS/sources #all users can write. only the owner of the file who can delete it
 #change the owner to root
