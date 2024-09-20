@@ -204,7 +204,18 @@ SAVE="
     #   *  Starting  *   #
     ######################
     cd $HELPER_DIR
+    rm /bin/sh
+    ln -s /usr/bin/bash /bin/sh
+    rm /usr/bin/awk
+    ln -s /usr/bin/gawk /usr/bin/awk
+    rm /usr/bin/yacc
+    ln -s /usr/bin/bison /usr/bin/yacc
+    echo -e "$DONE"
+
+    
     source ./bash_sources/step1.sh
+
+
     export SKIP_RESTORE=true
     echo "export SKIP_RESTORE=true" >> $SHARED_FILE
 fi

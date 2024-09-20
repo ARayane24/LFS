@@ -136,7 +136,7 @@ extract_tar_files() {
 create_and_save_partition(){
     local LFS=$1
     local SAVE_Partition=$2
-    local disk_partition_name=
+    local disk_partition_name=""
 
 
     systemctl daemon-reload #update

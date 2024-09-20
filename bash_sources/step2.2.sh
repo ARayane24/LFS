@@ -48,7 +48,7 @@ echo $Binutils_P1
 
 time {
     cd $Binutils_P1/build
-    # "-prefix=$LFS/tools" install the Binutils programs in the $LFS/tools directory.
+    # "--prefix=$LFS/tools" install the Binutils programs in the $LFS/tools directory.
     # "--with-sysroot=$LFS" look in $LFS for the target system libraries as needed.
     # "--target=$LFS_TGT" target tuple 
 
@@ -93,8 +93,7 @@ mv -v $GCC_P1_mpc mpc
 # It adjusts the configuration to ensure that certain libraries are found in the correct directory,
 case $CPU_SELECTED_ARCH in
 x86_64)
-    sed -e '/m64=/s/lib64/lib/' \
-        -i.orig gcc/config/i386/t-linux64
+    sed -e '/m64=/s/lib64/lib/' -i.orig gcc/config/i386/t-linux64
 ;;
 esac
 
@@ -129,8 +128,7 @@ fi
 echo -e "$BUILD_SUCCEEDED"
 
 cd ..
-cat gcc/limitx.h gcc/glimits.h gcc/limity.h > \
-  `dirname $($LFS_TGT-gcc -print-libgcc-file-name)`/include/limits.h
+cat gcc/limitx.h gcc/glimits.h gcc/limity.h > `dirname $($LFS_TGT-gcc -print-libgcc-file-name)`/include/limits.h
 
 cd $LFS/sources/
 rm -Rf $GCC_P1
@@ -202,9 +200,8 @@ sed '/RTLDLIST=/s@/usr@@g' -i $LFS/usr/bin/ldd
 #test
 echo -e "$START_TEST"
 echo 'int main(){}' | $LFS_TGT-gcc -xc -
-readelf -l a.out | grep ld-linux
 echo -e "$EXPECT_OUTPUT"
-echo "[Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]"
+echo "[Requesting program interpreter: /lib64/ld-linux-x86-64.so.2] or for 32-bit machines, the interpreter name will be /lib/ld-linux.so.2"
 # Check the program interpreter using readelf and grep for ld-linux
 output=$(readelf -l a.out | grep ld-linux)
 echo -e "\n$REAL_OUTPUT"
@@ -213,14 +210,10 @@ echo $output
 # Expected output format check
 if echo "$output" | grep -E '/lib(64)?/ld-linux(-x86-64)?\.so\.2'; then
     echo -e "$TEST_PASS"
-    # Clean up
-    rm -v a.out
 else
-    echo -e "Interpreter "
-    # Clean up and exit with an error
-    rm -v a.out
     exit 1
 fi
+rm -v a.out
 
 cd $LFS/sources/
 rm -Rf $Glibc_Tool
@@ -325,8 +318,7 @@ fi
 echo -e "$BUILD_SUCCEEDED"
 
 ln -sv libncursesw.so $LFS/usr/lib/libncurses.so
-sed -e 's/^#if.*XOPEN.*$/#if 1/' \
-    -i $LFS/usr/include/curses.h
+sed -e 's/^#if.*XOPEN.*$/#if 1/' -i $LFS/usr/include/curses.h
 
 cd $LFS/sources/
 rm -Rf $Ncurses_Tool
@@ -727,12 +719,10 @@ tar -xf ../$GCC_P2_mpc.tar.gz
 mv -v $GCC_P2_mpc mpc
 case $CPU_SELECTED_ARCH in
     x86_64)
-        sed -e '/m64=/s/lib64/lib/' \
-        -i.orig gcc/config/i386/t-linux64
+        sed -e '/m64=/s/lib64/lib/' -i.orig gcc/config/i386/t-linux64
     ;;
 esac
-sed '/thread_header =/s/@.*@/gthr-posix.h/' \
-    -i libgcc/Makefile.in libstdc++-v3/include/Makefile.in
+sed '/thread_header =/s/@.*@/gthr-posix.h/' -i libgcc/Makefile.in libstdc++-v3/include/Makefile.in
 
 cd       build
 ../configure                                       \

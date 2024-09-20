@@ -11,11 +11,11 @@
 # Important vars
 export USER=true #true : use the user inputs else use the default
 export SAVE_Partition=true
-export THIS_FILE_LOCATION=$(pwd)
-export Logs_path=$THIS_FILE_LOCATION/logs #show results only
+export Logs_path="$HELPER_DIR/logs" #show results only
 # copied vars to other user
 export DEV_NAME=lfs
 export DISTRO_NAME=lfs
+export DESTRO_HOSTNAME=lfs
 
 
 #***************************************************************************#
@@ -59,7 +59,7 @@ export PATH=$PATH:/usr/sbin #to let the os find all the commands
 
 #create partion
 create_and_save_partition $LFS $SAVE_Partition || {
-    echo "$STOP_MSG_ERROR"
+    echo -e "$STOP_MSG_ERROR"
     exit 1
 }
 
@@ -72,20 +72,18 @@ cp -rf $HELPER_DIR $LFS
 chmod -v a+wt $LFS/LFS #all users can write. only the owner of the file who can delete it
 
 
-#mouve sources if foound to sources dir in the partion file
+#mouve sources if found to sources dir in the partion file
 mv -f $LFS/LFS/sources $LFS || downlaod_code_source_pkgs $LFS
-
-
-
-########################
-###** Start chap 4 **###
-########################
-
 
 chmod -v a+wt $LFS/sources #all users can write. only the owner of the file who can delete it
 #change the owner to root
 chown root:root $LFS/sources/*
 chown root:root $LFS/LFS/*
+
+
+########################
+###** Start chap 4 **###
+########################
 
 
 echo -e "$CREATE_DIR_TO_PUT_RESULTS_OF_COMPILE"
@@ -109,9 +107,12 @@ useradd -s /bin/bash -g $DEV_NAME -m -k /dev/null $DEV_NAME
 passwd $DEV_NAME #password for user
 
 #Setting the owner to DEV_NAME
-chown -v $DEV_NAME $LFS/{usr{,/*},lib,var,etc,bin,sbin,tools}
+chown -v $DEV_NAME $LFS/{usr{,/*},lib,var,etc,bin,sbin,tools} || {
+    echo -e "$STOP_MSG_ERROR"
+    exit 1
+}
 case $CPU_SELECTED_ARCH in
-x86_64) chown -v $DEV_NAME $LFS/lib64 ;;
+    x86_64) chown -v $DEV_NAME $LFS/lib64 ;;
 esac
 fg #connfirme that there is no error
 echo -e "$DONE \n"
@@ -152,7 +153,7 @@ if ! [ -n "$STEP2_ENDED" ] || ! $STEP2_ENDED; then
 fi
 
 # debug_mode true
-su - "$DEV_NAME" -c " bash $NEXT_STEP " #change the user 
+su - "$DEV_NAME" -c " bash $NEXT_STEP " #change the user && run $NEXT_STEP
 
 source $SHARED_FILE #update the value of $NEXT_STEP
 
