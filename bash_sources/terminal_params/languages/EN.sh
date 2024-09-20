@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# this bash code was made by ATOUI Rayane to automate the operation of creating Linux from scratch with the help of LFS book v12 (https://www.linuxfromscratch.org/lfs)
+# this bash code was made by chroot team to automate the operation of creating Linux from scratch with the help of LFS book v12 (https://www.linuxfromscratch.org/lfs)
 # don't edit this file to insure that it works properly unless you know what are you doing
 
 SAVE="
@@ -146,7 +146,7 @@ export EMPTY_INPUT_IS_NOT_ALLOWED=\"${ERROR}ERROR : EMPTY INPUT IS NOT ALLOWED !
 
 
 
-export END_OF_BASH_WORK=\"This bash script was made by ATOUI Rayane the leader of chroot team in the hackathon (first Linux from scratch in algeria) \n thank you for usig this tool !! \n the next thing you need to do is to reboot your system \"
+export END_OF_BASH_WORK=\"This bash script was made by chroot team in the hackathon (first Linux from scratch in algeria) \n thank you for usig this tool !! \n the next thing you need to do is to reboot your system \"
 "
 
 echo "$SAVE" >> $SHARED_FILE
