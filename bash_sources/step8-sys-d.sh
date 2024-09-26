@@ -2,25 +2,29 @@
 # this bash code was made by chroot team to automate the operation of creating Linux from scratch with the help of LFS book v12 (https://www.linuxfromscratch.org/lfs)
 # don't edit this file to insure that it works properly unless you know what are you doing
 
- echo -e "${STEP}
+
+
+########################
+###** Start chap 9 **###
+########################
+
+
+echo -e "${STEP}
     ###############################################
-    #   *${NO_STYLE}$START_STEP7${STEP}*   #
+    #   *${NO_STYLE}$START_STEP8${STEP}*   #
     ############################################### ${NO_STYLE}
     "
 
-rm -rf /tmp/{*,.*}
-find /usr/lib /usr/libexec -name \*.la -delete
-find /usr -depth -name ${CPU_SELECTED_ARCH}-${DISTRO_NAME}-linux-gnu\* | xargs rm -rf
-userdel -r tester
+pushd /sources
 
- echo -e "${STEP}
+
+
+
+popd
+echo -e "${STEP}
     ###############################################
-    #   *${NO_STYLE}$END_STEP7${STEP}*     #
+    #   *${NO_STYLE}$END_STEP8${STEP}*     #
     ############################################### ${NO_STYLE}
     "
 
-if [ -n "$SYSTEM_V" ] && $SYSTEM_V; then
-    source /LFS/bash_sources/step8-sys-v.sh
-else
-    source /LFS/bash_sources/step8-sys-d.sh
-fi
+echo -e "$DONE"

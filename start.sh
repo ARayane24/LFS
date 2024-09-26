@@ -169,18 +169,28 @@ SAVE="
     else
         echo -e "$YOUR_TARGET_IS_NOT_UEFI"
     fi
-    ######################
-    #   * Debug mode *   #
-    ######################
+    #######################
+    #   * Debug files *   #
+    #######################
     KEEP_DEBUG_FILES=$(yes_no_question "$DO_YOU_WANNA_KEEP_DEBUG_FILES")
     if $KEEP_DEBUG_FILES; then
         echo -e "$YEP_KEEP_DEBUG_FILES"
     else
         echo -e "$NO_KEEP_DEBUG_FILES"
     fi
+    #############################
+    #    *  System v && d *     #
+    #############################
+    USE_SYSTEM_V=$(yes_no_question "$DO_YOU_WANNA_USE_SYSTEM_V_OR_D")
+    if $USE_SYSTEM_V; then
+        echo -e "$YEP_USE_STSTEM_V"
+    else
+        echo -e "$NO_USE_STSTEM_D"
+    fi
 
     SAVE="
     # Backup
+    export SYSTEM_V=$USE_SYSTEM_V
     export BACK_UP_OS_IN_THE_END=${BACK_UP_OS_IN_THE_END}
     export STATIC_ONLY=${STATIC_ONLY}
     export DO_OPTIONNAL_TESTS=$WANT_TO_DO_OPTIONNAL_TESTS
@@ -197,9 +207,9 @@ SAVE="
     #############################
     echo -e "$CHOOSE_CPU_ARCHI"
     select_cpu_archi
+
+
     source $SHARED_FILE ## update selected cpu var value
-    
-    
     ######################
     #   *  Starting  *   #
     ######################

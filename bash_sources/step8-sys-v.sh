@@ -318,63 +318,65 @@ fi
 
 # debug_mode true
 
-## Find or Create the EFI System Partition
-echo -e "$MAKING_EFI_System_Partition"
+if $UEFI; then
+   ## Find or Create the EFI System Partition
+   echo -e "$MAKING_EFI_System_Partition"
 
-EFI_System_Partition=$(read_non_empty_string "$INPUT_EFI_System_Partition_NAME")
+   EFI_System_Partition=$(read_non_empty_string "$INPUT_EFI_System_Partition_NAME")
 
-mount --mkdir -v -t vfat /dev/$EFI_System_Partition -o codepage=437,iocharset=iso8859-1 /boot/efi
+   mount --mkdir -v -t vfat /dev/$EFI_System_Partition -o codepage=437,iocharset=iso8859-1 /boot/efi
 
-cat >> /etc/fstab << EOF
-/dev/$EFI_System_Partition /boot/efi vfat codepage=437,iocharset=iso8859-1 0 1
+   cat >> /etc/fstab << EOF
+   /dev/$EFI_System_Partition /boot/efi vfat codepage=437,iocharset=iso8859-1 0 1
 EOF
-echo -e "$DONE"
-###*********************************
+   echo -e "$DONE"
+   ###*********************************
 
-# debug_mode true
+   # debug_mode true
 
-## Minimal Boot Configuration with GRUB and EFI
-grub-install --target=$CPU_SELECTED_ARCH-efi --removable
+   ## Minimal Boot Configuration with GRUB and EFI
+   grub-install --target=$CPU_SELECTED_ARCH-efi --removable
 
-## Mount the EFI Variable File System
-mountpoint /sys/firmware/efi/efivars || mount -v -t efivarfs efivarfs /sys/firmware/efi/efivars
+   ## Mount the EFI Variable File System
+   mountpoint /sys/firmware/efi/efivars || mount -v -t efivarfs efivarfs /sys/firmware/efi/efivars
 
-cat >> /etc/fstab <<EOF
-efivarfs /sys/firmware/efi/efivars efivarfs defaults 0 0
+   cat >> /etc/fstab <<EOF
+   efivarfs /sys/firmware/efi/efivars efivarfs defaults 0 0
 EOF
 
-## Setting Up the Configuration
-grub-install --bootloader-id=$DISTRO_NAME --recheck
+   ## Setting Up the Configuration
+   grub-install --bootloader-id=$DISTRO_NAME --recheck
 
 
-# debug_mode true
+   # debug_mode true
 
 
-boot_partition_root=$(read_non_empty_string "$INPUT_boot_partition_root_NAME")
+   boot_partition_root=$(read_non_empty_string "$INPUT_boot_partition_root_NAME")
 
-cat > /boot/grub/grub.cfg << EOF
-# Begin /boot/grub/grub.cfg
-set default=0
-set timeout=5
+   cat > /boot/grub/grub.cfg << EOF
+   # Begin /boot/grub/grub.cfg
+   set default=0
+   set timeout=5
 
-insmod part_gpt
-insmod ext2
-set root=$boot_partition_root
+   insmod part_gpt
+   insmod ext2
+   set root=$boot_partition_root
 
-insmod efi_gop
-insmod efi_uga
-if loadfont /boot/grub/fonts/unicode.pf2; then
-  terminal_output gfxterm
+   insmod efi_gop
+   insmod efi_uga
+   if loadfont /boot/grub/fonts/unicode.pf2; then
+   terminal_output gfxterm
+   fi
+
+   menuentry "GNU/Linux, $DISTRO_NAME" {
+   linux   /vmlinuz-6.10.5-$DISTRO_NAME root=$DISTRO_PARTITION_NAME ro
+   }
+
+   menuentry "Firmware Setup" {
+   fwsetup
+   }
+EOF
 fi
-
-menuentry "GNU/Linux, $DISTRO_NAME" {
-  linux   /vmlinuz-6.10.5-$DISTRO_NAME root=$DISTRO_PARTITION_NAME ro
-}
-
-menuentry "Firmware Setup" {
-  fwsetup
-}
-EOF
 
 
 

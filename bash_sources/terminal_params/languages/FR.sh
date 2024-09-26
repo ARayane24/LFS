@@ -6,6 +6,10 @@
 SAVE="
 ###Language
 #msgs:
+export DO_YOU_WANNA_USE_SYSTEM_V_OR_D=\"Voulez-vous créer un système-V ? [y/n] \"
+export YEP_USE_STSTEM_V=\"${OK}Vous avez indiqué que vous souhaitez créer un système V\n${NO_STYLE}\"
+export NO_USE_STSTEM_D=\"${OK}Vous avez indiqué que vous souhaitez créer un système D\n${NO_STYLE}\"
+
 export CURRENT_USER=\"${PROCESS} L'utilisateur actuel est : \$(whoami)\n${NO_STYLE}\"
 
 export DO_YOU_WANNA_KEEP_DEBUG_FILES=\"Voulez-vous conserver les fichiers de débogage ? [y/n]\"
