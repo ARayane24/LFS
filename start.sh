@@ -120,7 +120,7 @@ SAVE="
     #######################
     echo -e "$DO_YOU_WANT_BACKUP_OS_REC"
     BACK_UP_OS_IN_THE_END=$(yes_no_question "$DO_YOU_WANT_BACKUP_OS")
-    if $STATIC_ONLY; then
+    if $BACK_UP_OS_IN_THE_END; then
         echo -e "$YES_BACK_UP_OS"
     else
         echo -e "$NO_BACK_UP_OS"
@@ -229,7 +229,7 @@ SAVE="
     export SKIP_RESTORE=true
     echo "export SKIP_RESTORE=true" >> $SHARED_FILE
 fi
-# [ -z "$SKIP_RESTORE" ] : if SKIP_RESTORE is empty
+# [ -n "$SKIP_RESTORE" ] : if SKIP_RESTORE is empty
 if   [ -z "$SKIP_RESTORE" ] && [ -n "$STEP1_ENDED" ] && [ "$STEP1_ENDED" = true ] \
    && [ -n "$STEP2_ENDED" ] && [ "$STEP2_ENDED" = true ] \
    && [ -n "$STEP3_ENDED" ] && [ "$STEP3_ENDED" = true ] ; then
