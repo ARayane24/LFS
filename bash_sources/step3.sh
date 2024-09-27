@@ -94,7 +94,7 @@ if ! [ -n "$STEP5_ENDED" ] || ! $STEP5_ENDED; then
     source $SHARED_FILE
     # debug_mode true
 
-    if $BACK_UP_OS_IN_THE_END; then
+    if $BACK_UP_OS_IN_THE_END && $STEP4_ENDED; then
 
       source ./step4.3_backup.sh
 

@@ -32,7 +32,7 @@ mkdir -pv /var/lib/{color,misc,locate}
 ln -sfv /run /var/run
 ln -sfv /run/lock /var/lock
 
-install -dv -m 0750 /root         # only root
+install -dv -m 0750 /$My_ROOT         # only root
 install -dv -m 1777 /tmp /var/tmp #sticky bit
 
 
@@ -84,7 +84,7 @@ nogroup:x:65534:
 EOF
 
 else
-     cat > /etc/group <<EOF
+     cat > /etc/passwd <<EOF
 $My_ROOT:x:0:0:$My_ROOT:/$My_ROOT:/bin/bash
 bin:x:1:1:bin:/dev/null:/usr/bin/false
 daemon:x:6:6:Daemon User:/dev/null:/usr/bin/false
