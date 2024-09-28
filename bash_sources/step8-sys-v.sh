@@ -64,9 +64,7 @@ EOF
 
 cat > /etc/resolv.conf << "EOF"
 # Begin /etc/resolv.conf
-nameserver 8.8.8.8
-#nameserver <IP address of your primary nameserver>
-#nameserver <IP address of your secondary nameserver>
+nameserver 8.8.8.8 #DNS GOOOGLE
 # End /etc/resolv.conf
 EOF
 

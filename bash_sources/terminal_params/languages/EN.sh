@@ -137,6 +137,13 @@ export INPUT_boot_partition_root_NAME=\"Input the name of the boot partion (Note
 
 export MAKING_EM_BOOT_DISK=\"${PROCESS}Making emergency boot disk ...${NO_STYLE}\"
 export MAKING_EM_BOOT_DISK=\"${PROCESS}Making the EFI System Partition ...${NO_STYLE}\"
+
+export INPUT_MAC_ADDRESS_eth_NAME=\"Input the mac@ of your network card (eth): \"
+export INPUT_MAC_ADDRESS_wifi_NAME=\"Input the mac@ of your network card (wifi): \"
+
+export INPUT_interface_eth_NAME=\"Input the interface name of your network card (eth): \"
+export INPUT_interface_wifi_NAME=\"Input the interface name of your network card (wifi): \"
+
 export END_STEP8=\"${TITLE}  END 8 - System config -   ${NO_STYLE}\"
 #**************
 

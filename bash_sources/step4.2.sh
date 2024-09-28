@@ -23,8 +23,8 @@ cd /sources
 echo -e $CURRENT_USER
 
 echo -e "$START_EXTRACTION"
-extract_tar_files /sources/ "$Gettext_Tool      $Bison_Tool       $Perl_Tool     " &
-extract_tar_files /sources/ "$Texinfo_Tool      $Util_linux       $Python_Tool   "
+extract_tar_files /sources "$Gettext_Tool      $Bison_Tool       $Perl_Tool     " &
+extract_tar_files /sources "$Texinfo_Tool      $Util_linux       $Python_Tool   "
 wait
 echo -e "$DONE"
 

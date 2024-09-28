@@ -137,6 +137,14 @@ export INPUT_boot_partition_root_NAME=\"Saisissez le nom de la partition de dém
 
 export MAKING_EM_BOOT_DISK=\"${PROCESS}Créer un disque de démarrage d'urgence ...${NO_STYLE}\"
 export MAKING_EM_BOOT_DISK=\"${PROCESS}Création de la partition du système EFI ...${NO_STYLE}\"
+
+
+export INPUT_MAC_ADDRESS_eth_NAME=\"Saisissez le mac@ de votre carte réseau (eth): \"
+export INPUT_MAC_ADDRESS_wifi_NAME=\"Saisissez le mac@ de votre carte réseau (wifi): \"
+
+export INPUT_interface_eth_NAME=\"Saisissez le nom de l'interface de votre carte réseau (eth): \"
+export INPUT_interface_wifi_NAME=\"Saisissez le nom de l'interface de votre carte réseau (wifi): \"
+
 export END_STEP8=\"${TITLE}  END 8 - System config -   ${NO_STYLE}\"
 #**************
 

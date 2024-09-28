@@ -30,7 +30,7 @@ extract_tar_files /sources "$OP_Mandoc         $OP_Efivar                  $OP_E
 extract_tar_files /sources "$Texinfo           $OP_Vim                     $OP_MarkupSafe          $OP_Jinja       $OP_Udev            $OP_Man_DB              $OP_Procps_ng           $OP_Util_linux          $OP_E2fsprogs           $OP_Sysklogd             " &
 extract_tar_files /sources "$OP_Sysvinit       $SC_LFS_Bootscripts         $SC_BLFS_Bootscripts    $OP_CrackLib    $OP_Udev            $OP_CrackLib_words      $OP_CrackLib_jhon_psw   $OP_CrackLib_cain_psw   $OP_CrackLib_500_psw    $OP_CrackLib_twitter_psw " &
 extract_tar_files /sources "$OP_dhcpcd         $OP_dosfstools          " &
-if [ -n "$SYSTEM_V" ] && !$SYSTEM_V; then
+if [ -n "$SYSTEM_V" ] && ! $SYSTEM_V; then
     extract_tar_files /sources "$OP_D_DBus"
 fi
 wait
@@ -1491,5 +1491,5 @@ EOF
     rm -Rf \"$OP_Bash\"; 
     echo -e \"$DONE\";
     echo -e \"$OP_Bash $TOOL_READY\";
-    bash ./step5.2.sh"
+    bash /LFS/bash_sources/step5.2.sh"
 fi
