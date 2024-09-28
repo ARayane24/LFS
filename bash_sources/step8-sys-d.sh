@@ -20,7 +20,8 @@ pushd /sources
 ## Network config
 ln -s /dev/null /etc/systemd/network/99-default.link
 
-export MAC_ADDRESS_NAME=$(read_non_empty_string "$INPUT_MAC_ADDRESS_eth_NAME")
+#ip link show to find answers
+export MAC_ADDRESS_NAME=$(read_non_empty_string "$INPUT_MAC_ADDRESS_eth_NAME") 
 export INTERFACE_NAME=$(read_non_empty_string "$INPUT_interface_eth_NAME")
 
 cat > /etc/systemd/network/10-$INTERFACE_NAME.link <<EOF
@@ -132,7 +133,7 @@ cat > /etc/locale.conf <<EOF
 LANG=$formatted_locale.$CHOOSEN_CHARMAP
 EOF
 
-cat > /etc/profile <<EOF
+cat > /etc/profile <<"EOF"
 # Begin /etc/profile
 
 for i in $(locale); do
@@ -302,22 +303,82 @@ fi
 
 # debug_mode true
 
-boot_partition_root=$(read_non_empty_string "$INPUT_boot_partition_root_NAME")
+if $IS_UEFI; then
+   ## Find or Create the EFI System Partition
+   echo -e "$MAKING_EFI_System_Partition"
 
-cat > /boot/grub/grub.cfg << EOF
-# Begin /boot/grub/grub.cfg
-set default=0
-set timeout=5
+   EFI_System_Partition=$(read_non_empty_string "$INPUT_EFI_System_Partition_NAME")
 
-insmod part_gpt
-insmod ext2
-set root=$boot_partition_root
+   mount --mkdir -v -t vfat /dev/$EFI_System_Partition -o codepage=437,iocharset=iso8859-1 /boot/efi
 
-
-menuentry "GNU/Linux, $DISTRO_NAME" {
-linux   /boot/vmlinuz-6.10.5-$DISTRO_NAME root=$DISTRO_PARTITION_NAME ro
-}
+   cat >> /etc/fstab << EOF
+   /dev/$EFI_System_Partition /boot/efi vfat codepage=437,iocharset=iso8859-1 0 1
 EOF
+   echo -e "$DONE"
+   ###*********************************
+
+   # debug_mode true
+
+   ## Minimal Boot Configuration with GRUB and EFI
+   grub-install --target=$CPU_SELECTED_ARCH-efi --removable
+
+   ## Mount the EFI Variable File System
+   mountpoint /sys/firmware/efi/efivars || mount -v -t efivarfs efivarfs /sys/firmware/efi/efivars
+
+   cat >> /etc/fstab <<EOF
+   efivarfs /sys/firmware/efi/efivars efivarfs defaults 0 0
+EOF
+
+   ## Setting Up the Configuration
+   grub-install --bootloader-id=$DISTRO_NAME --recheck
+
+
+   # debug_mode true
+
+
+   boot_partition_root=$(read_non_empty_string "$INPUT_boot_partition_root_NAME")
+
+   cat > /boot/grub/grub.cfg << EOF
+   # Begin /boot/grub/grub.cfg
+   set default=0
+   set timeout=5
+
+   insmod part_gpt
+   insmod ext2
+   set root=$boot_partition_root
+
+   insmod efi_gop
+   insmod efi_uga
+   if loadfont /boot/grub/fonts/unicode.pf2; then
+   terminal_output gfxterm
+   fi
+
+   menuentry "GNU/Linux, $DISTRO_NAME" {
+   linux   /vmlinuz-6.10.5-$DISTRO_NAME root=$DISTRO_PARTITION_NAME ro
+   }
+
+   menuentry "Firmware Setup" {
+   fwsetup
+   }
+EOF
+else
+   boot_partition_root=$(read_non_empty_string "$INPUT_boot_partition_root_NAME")
+
+   cat > /boot/grub/grub.cfg << EOF
+   # Begin /boot/grub/grub.cfg
+   set default=0
+   set timeout=5
+
+   insmod part_gpt
+   insmod ext2
+   set root=$boot_partition_root
+
+
+   menuentry "GNU/Linux, $DISTRO_NAME" {
+   linux   /boot/vmlinuz-6.10.5-$DISTRO_NAME root=$DISTRO_PARTITION_NAME ro
+   }
+EOF
+fi
 
 ## The end
 echo "12.2" > /etc/lfs-release

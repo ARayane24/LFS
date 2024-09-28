@@ -152,7 +152,7 @@ done
 CHOOSEN_CHARMAP="$(LC_ALL="$chosen_local" locale charmap)"
 formatted_locale=$(echo "$chosen_local" | sed -E 's/\.(utf8|UTF-8|[a-zA-Z0-9_-]+)$//')
 
-cat > /etc/profile <<EOF
+cat > /etc/profile <<"EOF"
 # Begin /etc/profile
 
 for i in  $(locale) ; do
@@ -372,6 +372,23 @@ EOF
 
    menuentry "Firmware Setup" {
    fwsetup
+   }
+EOF
+else
+   boot_partition_root=$(read_non_empty_string "$INPUT_boot_partition_root_NAME")
+
+   cat > /boot/grub/grub.cfg << EOF
+   # Begin /boot/grub/grub.cfg
+   set default=0
+   set timeout=5
+
+   insmod part_gpt
+   insmod ext2
+   set root=$boot_partition_root
+
+
+   menuentry "GNU/Linux, $DISTRO_NAME" {
+   linux   /boot/vmlinuz-6.10.5-$DISTRO_NAME root=$DISTRO_PARTITION_NAME ro
    }
 EOF
 fi

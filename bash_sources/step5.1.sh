@@ -128,7 +128,7 @@ if [ -n "$OP_Glibc" ] ;then
     localedef -i ja_JP -f SHIFT_JIS ja_JP.SJIS 2> /dev/null || true
 
     if [ -n "$SYSTEM_V" ] && $SYSTEM_V; then
-        cat > /etc/nsswitch.conf <<EOF
+        cat > /etc/nsswitch.conf <<"EOF"
         # Begin /etc/nsswitch.conf
         passwd: files
         group: files
