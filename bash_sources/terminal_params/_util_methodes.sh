@@ -1,4 +1,4 @@
-
+#!/bin/bash
 
 
 ### Some important methodes
@@ -97,9 +97,6 @@ extract_tar_files_and_mkdir() {
 }
 
 
-
-
-
 extract_tar_files() {
     local dir="$1"
     local list_files=($2)
@@ -132,6 +129,7 @@ extract_tar_files() {
         echo -e "$founded_files $DONE"
     done
 }
+
 
 create_and_save_partition(){
     local LFS=$1
@@ -278,11 +276,13 @@ read_positive_numbers_only(){
     echo "$USER_pos_number"
 }
 
+
 sleep_before_complite(){
     echo -e "${PROCESS}$SLEEPPING_AFTER" "12.2SBU" "$FOR" "$SLEEP_FOR_N_SECONDS s " "...${NO_STYLE}"
     sleep $SLEEP_FOR_N_SECONDS
     echo -e "${PROCESS}$WAKINNG ${NO_STYLE}"
 }
+
 
 read_non_empty_string(){
     local MESSAGE_ASK_FOR_INPUT="$1"
@@ -304,6 +304,7 @@ read_non_empty_string(){
 
     echo "$USER_input"
 }
+
 
 debug_mode(){
     # used to wait until the user inputs somthing (or just entre) this allows him to read the output of console 

@@ -354,7 +354,7 @@ EOF
    fi
 
    menuentry "GNU/Linux, $DISTRO_NAME" {
-   linux   /vmlinuz-6.10.5-$DISTRO_NAME root=$DISTRO_PARTITION_NAME ro
+   linux   /boot/vmlinuz-6.10.5-$DISTRO_NAME root=$DISTRO_PARTITION_NAME ro
    }
 
    menuentry "Firmware Setup" {

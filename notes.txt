@@ -19,6 +19,7 @@ replace vim in step5.2.sh [1372]
 extract blfs packages names :
 grep -Pzr -o  "Download \(HTTP\):\s*<a\s*class=\"ulink\" href=\s*\n\s*\"https?://(?:www\.)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,4}(?:/\S*)"  BLFS-BOOK-12.2-systemd-nochunks.html > f
 grep -Pzr -o  "https?://(?:www\.)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,4}(?:/\S*)"  f | sed "s/\">/\n/g" | sed "s/<\/a>/\n/g" > fd
+sort -u fd -o fd
 ****************************************************************************************************************************
  
 
