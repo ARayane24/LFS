@@ -369,7 +369,7 @@ export PKG_uhttpmock_="uhttpmock-0.11.0"
 export PKG_links_="links-2.30"
 export PKG_lynx="lynx2.9.2"
 
-## Mail/News Clients
+## Mail News Clients
 export PKG_fetchmail_="fetchmail-6.4.39"
 export PKG_heirloom_mailx_orig="heirloom-mailx_12.5.orig"
 export PKG_mutt_="mutt-2.2.13"

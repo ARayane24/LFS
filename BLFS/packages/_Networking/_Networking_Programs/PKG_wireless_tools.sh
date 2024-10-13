@@ -5,7 +5,7 @@
 
 file_name="PKG_wireless_tools"
 file_name_compiled="${file_name}_compiled"
-path_to_compiled_pkgs="../../../../../../../../../compiled_pckages.sh"
+path_to_compiled_pkgs="../../../../../../../../compiled_pckages.sh"
 
 ## check if already has been compiled
 source "$path_to_compiled_pkgs"

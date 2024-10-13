@@ -42,26 +42,6 @@ fi
 PKG_cracklib_() {
     # code
 
-    ./configure --prefix=/usr    \
-            --disable-static \
-            --with-default-dict=/usr/lib/cracklib/pw_dict &&
-    make
-    make install
-
-    if $DO_OPTIONNAL_TESTS ; then
-        -u tester bash -c \"make test\"
-    fi
-
-    install -v -m644 -D    ../cracklib-words-2.10.2.xz \
-                         /usr/share/dict/cracklib-words.xz    &&
-
-    unxz -v                  /usr/share/dict/cracklib-words.xz    &&
-    ln -v -sf cracklib-words /usr/share/dict/words                &&
-    echo $(hostname) >>      /usr/share/dict/cracklib-extra-words &&
-    install -v -m755 -d      /usr/lib/cracklib                    &&
-
-    create-cracklib-dict     /usr/share/dict/cracklib-words \
-                            /usr/share/dict/cracklib-extra-words
 
     # end
     echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs

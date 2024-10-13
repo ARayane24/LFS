@@ -5,7 +5,7 @@
 
 
 # Define input file and number of lines to skip
-input_file="/home/user/Desktop/LFS/BLFS/Packages/all_packages_index.sh"
+input_file="/home/user/Desktop/LFS/BLFS/packages/all_packages_index.sh"
 number_of_lines_skiped=5
 pre_count=0
 
@@ -33,7 +33,10 @@ while IFS= read -r line; do
             echo "Entered directory: $dir_name (count increased to $count)"
         else
             echo "Returned to parent directory (count: $count not greater than $pre_count)"
-            cd .. || exit 1
+            for ((i = 0; i <= (pre_count - count); i++)); do
+                # Return to the parent directory
+                cd .. || exit 1
+            done
         fi
 
         # Clean up the directory name by removing '#' and replacing spaces with underscores

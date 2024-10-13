@@ -41,14 +41,7 @@ fi
 # Use eval to define the function
 PKG_make_ca_() {
     # code
-    make install &&
-    install -vdm755 /etc/ssl/local
 
-    /usr/sbin/make-ca -g
-
-    systemctl enable update-pki.timer
-
-    ##### TODO: add advanced options
 
     # end
     echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
