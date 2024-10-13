@@ -41,10 +41,34 @@ fi
 # Use eval to define the function
 PKG_util_macros_() {
     # code
+    ###PKG_util_macros: 3SBU
+    if [[ -n "$PKG_util_macros" && "$next_pkg" = "$PKG_util_macros" ]] ;then
+        extract_tar_files /sources "$PKG_util_macros"
+        echo -e "$PKG_util_macros" " 3 SBU"
+        echo $PKG_util_macros
+        cd $PKG_util_macros
 
+        ./configure $XORG_CONFIG
 
-    # end
-    echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+        make install
+        if [ $? -ne 0 ]; then
+            echo -e "$BUILD_FAILED"
+            echo "export next_pkg=$next_pkg" >> /.bashrc
+            exit 1
+        fi
+        echo -e "$BUILD_SUCCEEDED"
+
+        
+        cd /sources/blfs
+        rm -Rf $PKG_util_macros #rm extracted pkg
+        echo -e "$DONE" 
+        echo -e $PKG_util_macros "$TOOL_READY"
+        next_pkg="$PKG_xorg_proto"
+
+        # end
+        echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+    fi
+    ###********************************
 }
 
 

@@ -41,10 +41,46 @@ fi
 # Use eval to define the function
 PKG_polkit_() {
     # code
+    ###PKG_polkit: 0.1SBU
+    if [[ -n "$PKG_polkit" && "$next_pkg" = "$PKG_polkit" ]] ;then
+        extract_tar_files /sources "$PKG_polkit"
+        echo -e "$PKG_polkit" " 0.1 SBU"
+        echo $PKG_polkit
+        cd $PKG_polkit
 
+        mkdir build &&
+        cd    build &&
 
-    # end
-    echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+        cmake -D CMAKE_INSTALL_PREFIX=/usr \
+            -D CMAKE_BUILD_TYPE=Release  \
+            -D PHONON_BUILD_QT5=OFF      \
+            .. &&
+        make
+        if [ $? -ne 0 ]; then
+            echo -e "$BUILD_FAILED"
+            echo "export next_pkg=$next_pkg" >> /.bashrc
+            exit 1
+        fi
+        echo -e "$BUILD_SUCCEEDED"
+
+        make install
+        if [ $? -ne 0 ]; then
+            echo -e "$BUILD_FAILED"
+            echo "export next_pkg=$next_pkg" >> /.bashrc
+            exit 1
+        fi
+        echo -e "$BUILD_SUCCEEDED"
+
+        cd /sources/blfs
+        rm -Rf $PKG_polkit #rm extracted pkg
+        echo -e "$DONE" 
+        echo -e $PKG_polkit "$TOOL_READY"
+        next_pkg="$"
+        
+        # end
+        echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+    fi
+    ###********************************
 }
 
 

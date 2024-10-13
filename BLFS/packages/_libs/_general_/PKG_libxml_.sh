@@ -41,10 +41,56 @@ fi
 # Use eval to define the function
 PKG_libxml_() {
     # code
+    ###PKG_libxml: 0.4SBU
+    if [[ -n "$PKG_libxml" && "$next_pkg" = "$PKG_libxml" ]] ;then
+        extract_tar_files /sources "$PKG_libxml"
+        echo -e "$PKG_libxml" " 0.4 SBU"
+        echo $PKG_libxml
+        cd $PKG_libxml
+    
+        patch -Np1 -i ../$PKG_libxml-upstream_fix-2.patch
 
+        ./configure --prefix=/usr           \
+                --sysconfdir=/etc       \
+                --disable-static        \
+                --with-history          \
+                --with-icu              \
+                PYTHON=/usr/bin/python3 \
+                --docdir=/usr/share/doc/$PKG_libxml &&
+        make
+        if [ $? -ne 0 ]; then
+            echo -e "$BUILD_FAILED"
+            echo "export next_pkg=$next_pkg" >> /.bashrc
+            exit 1
+        fi
+        echo -e "$BUILD_SUCCEEDED"
 
-    # end
-    echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+        if $DO_OPTIONNAL_TESTS; then
+            tar xf ../xmlts20130923.tar.gz
+            make check-valgrind > check.log
+            grep -E '^Total|expected|Ran' check.log
+        fi
+
+        make install
+        if [ $? -ne 0 ]; then
+            echo -e "$BUILD_FAILED"
+            echo "export next_pkg=$next_pkg" >> /.bashrc
+            exit 1
+        fi
+        echo -e "$BUILD_SUCCEEDED"
+
+        rm -vf /usr/lib/libxml2.la && sed '/libs=/s/xml2.*/xml2"/' -i /usr/bin/xml2-config
+
+        cd /sources/blfs
+        rm -Rf $PKG_libxml #rm extracted pkg
+        echo -e "$DONE" 
+        echo -e $PKG_libxml "$TOOL_READY"
+        next_pkg="$PKG_nghttp2"
+    
+        # end
+        echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+    fi
+    ###********************************
 }
 
 

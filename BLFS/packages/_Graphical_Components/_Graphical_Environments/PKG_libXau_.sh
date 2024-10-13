@@ -41,10 +41,44 @@ fi
 # Use eval to define the function
 PKG_libXau_() {
     # code
+    ###PKG_libxau: 0.1SBU
+    if [[ -n "$PKG_libxau" && "$next_pkg" = "$PKG_libxau" ]] ;then
+        extract_tar_files /sources "$PKG_libxau"
+        echo -e "$PKG_libxau" " 0.1 SBU"
+        echo $PKG_libxau
+        cd $PKG_libxau
 
+        ./configure $XORG_CONFIG &&
+        make
+        if [ $? -ne 0 ]; then
+            echo -e "$BUILD_FAILED"
+            echo "export next_pkg=$next_pkg" >> /.bashrc
+            exit 1
+        fi
+        echo -e "$BUILD_SUCCEEDED"
 
-    # end
-    echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+        if $DO_OPTIONNAL_TESTS; then
+            make check
+        fi
+        
+        make install
+        if [ $? -ne 0 ]; then
+            echo -e "$BUILD_FAILED"
+            echo "export next_pkg=$next_pkg" >> /.bashrc
+            exit 1
+        fi
+        echo -e "$BUILD_SUCCEEDED"
+
+        cd /sources/blfs
+        rm -Rf $PKG_libxau #rm extracted pkg
+        echo -e "$DONE" 
+        echo -e $PKG_libxau "$TOOL_READY"
+        next_pkg="$PKG_libXdmcp"
+    
+        # end
+        echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+    fi
+    ###********************************
 }
 
 

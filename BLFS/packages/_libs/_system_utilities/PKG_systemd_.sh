@@ -41,10 +41,57 @@ fi
 # Use eval to define the function
 PKG_systemd_() {
     # code
+    ###PKG_Systemd: 0.1SBU
+    if [[ -n "$PKG_Systemd" ]] ;then
+        extract_tar_files /sources "$PKG_Systemd"
+        echo -e "$PKG_Systemd" " 0.1 SBU"
+        echo $PKG_Systemd
+        cd $PKG_Systemd
 
+        sed -i -e 's/GROUP="render"/GROUP="video"/' \
+        -e 's/GROUP="sgx", //' rules.d/50-udev-default.rules.in
 
-    # end
-    echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+        mkdir build &&
+        cd    build &&
+
+        meson setup ..                 \
+            --prefix=/usr            \
+            --buildtype=release      \
+            -D default-dnssec=no     \
+            -D firstboot=false       \
+            -D install-tests=false   \
+            -D ldconfig=false        \
+            -D man=auto              \
+            -D sysusers=false        \
+            -D rpmmacrosdir=no       \
+            -D homed=disabled        \
+            -D userdb=false          \
+            -D mode=release          \
+            -D pam=enabled           \
+            -D pamconfdir=/etc/pam.d \
+            -D dev-kvm-mode=0660     \
+            -D nobody-group=nogroup  \
+            -D sysupdate=disabled    \
+            -D ukify=disabled        \
+            -D docdir=/usr/share/doc/systemd-256.4 &&
+
+        ninja
+
+        if $DO_OPTIONNAL_TESTS; then
+            ninja test
+        fi
+
+        ninja install
+
+        cd /sources/blfs
+        rm -Rf $PKG_Systemd #rm extracted pkg
+        echo -e "$DONE" 
+        echo -e $PKG_Systemd "$TOOL_READY"
+
+        # end
+        echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+    fi
+    ###********************************
 }
 
 

@@ -41,10 +41,47 @@ fi
 # Use eval to define the function
 PKG_icuc_srctgz() {
     # code
+        ###PKG_icu: 0.7SBU
+    if [[ -n "$PKG_icu" && -z "$next_pkg" ]] ;then
+        extract_tar_files /sources "${PKG_icu}4c-75_1-src"
+        echo -e "$PKG_icu" " 0.7 SBU"
+        echo $PKG_icu
+        cd $PKG_icu
+    
+        cd source
 
+        ./configure --prefix=/usr
+        
+        make
+        if [ $? -ne 0 ]; then
+            echo -e "$BUILD_FAILED"
+            echo "export next_pkg=$next_pkg" >> /.bashrc
+            exit 1
+        fi
+        echo -e "$BUILD_SUCCEEDED"
 
-    # end
-    echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+        if $DO_OPTIONNAL_TESTS; then
+            make check
+        fi
+
+        make install
+        if [ $? -ne 0 ]; then
+            echo -e "$BUILD_FAILED"
+            echo "export next_pkg=$next_pkg" >> /.bashrc
+            exit 1
+        fi
+        echo -e "$BUILD_SUCCEEDED"
+
+        cd /sources/blfs
+        rm -Rf $PKG_icu #rm extracted pkg
+        echo -e "$DONE" 
+        echo -e $PKG_icu "$TOOL_READY"
+        next_pkg="$PKG_Valgrind"
+        
+        # end
+        echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+    fi
+    ###********************************
 }
 
 

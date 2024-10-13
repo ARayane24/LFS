@@ -41,10 +41,47 @@ fi
 # Use eval to define the function
 PKG_libunistring_() {
     # code
+    ###PKG_libunistring: 0.5SBU
+    if [[ -n "$PKG_libunistring" && "$next_pkg" = "$PKG_libunistring" ]] ;then
+        extract_tar_files /sources "$PKG_libunistring"
+        echo -e "$PKG_libunistring" " 0.5 SBU"
+        echo $PKG_libunistring
+        cd $PKG_libunistring
 
+        ./configure --prefix=/usr    \
+                --disable-static \
+                --docdir=/usr/share/doc/$PKG_libunistring &&
+        make
+        if [ $? -ne 0 ]; then
+            echo -e "$BUILD_FAILED"
+            echo "export next_pkg=$next_pkg" >> /.bashrc
+            exit 1
+        fi
+        echo -e "$BUILD_SUCCEEDED"
 
-    # end
-    echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+        if $DO_OPTIONNAL_TESTS; then
+            make check
+        fi
+
+        make install
+        if [ $? -ne 0 ]; then
+            echo -e "$BUILD_FAILED"
+            echo "export next_pkg=$next_pkg" >> /.bashrc
+            exit 1
+        fi
+        echo -e "$BUILD_SUCCEEDED"
+
+        
+        cd /sources/blfs
+        rm -Rf $PKG_libunistring #rm extracted pkg
+        echo -e "$DONE" 
+        echo -e $PKG_libunistring "$TOOL_READY"
+        next_pkg="$PKG_libidn2"
+        
+        # end
+        echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+    fi
+    ###********************************
 }
 
 

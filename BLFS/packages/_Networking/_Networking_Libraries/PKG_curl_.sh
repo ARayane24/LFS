@@ -41,10 +41,58 @@ fi
 # Use eval to define the function
 PKG_curl_() {
     # code
+    ###PKG_curl: 0.2SBU
+    if [[ -n "$PKG_curl" && "$next_pkg" = "$PKG_curl" ]] ;then
+        extract_tar_files /sources "$PKG_curl"
+        echo -e "$PKG_curl" " 0.2 SBU"
+        echo $PKG_curl
+        cd $PKG_curl
+
+        ./configure --prefix=/usr                           \
+                    --disable-static                        \
+                    --with-openssl                          \
+                    --enable-threaded-resolver              \
+                    --with-ca-path=/etc/ssl/certs &&
+        make
+        if [ $? -ne 0 ]; then
+            echo -e "$BUILD_FAILED"
+            echo "export next_pkg=$next_pkg" >> /.bashrc
+            exit 1
+        fi
+        echo -e "$BUILD_SUCCEEDED"
 
 
-    # end
-    echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+        if $DO_OPTIONNAL_TESTS; then
+            make test
+        fi
+
+        make install
+        if [ $? -ne 0 ]; then
+            echo -e "$BUILD_FAILED"
+            echo "export next_pkg=$next_pkg" >> /.bashrc
+            exit 1
+        fi
+        echo -e "$BUILD_SUCCEEDED"
+
+        rm -rf docs/examples/.deps &&
+
+        find docs \( -name Makefile\* -o  \
+                    -name \*.1       -o  \
+                    -name \*.3       -o  \
+                    -name CMakeLists.txt \) -delete &&
+
+        cp -v -R docs -T /usr/share/doc/$PKG_curl
+        
+        cd /sources/blfs
+        rm -Rf $PKG_curl #rm extracted pkg
+        echo -e "$DONE" 
+        echo -e $PKG_curl "$TOOL_READY"
+        next_pkg="$PKG_CMake"
+        
+        # end
+        echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+    fi
+    ###********************************
 }
 
 

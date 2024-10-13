@@ -41,10 +41,46 @@ fi
 # Use eval to define the function
 PKG_libidn2_() {
     # code
+    ###PKG_libidn2: 0.1SBU
+    if [[ -n "$PKG_libidn2" && "$next_pkg" = "$PKG_libidn2" ]] ;then
+        extract_tar_files /sources "$PKG_libidn2"
+        echo -e "$PKG_libidn2" " 0.1 SBU"
+        echo $PKG_libidn2
+        cd $PKG_libidn2
+
+        ./configure --prefix=/usr --disable-static &&
+        make
+        if [ $? -ne 0 ]; then
+            echo -e "$BUILD_FAILED"
+            echo "export next_pkg=$next_pkg" >> /.bashrc
+            exit 1
+        fi
+        echo -e "$BUILD_SUCCEEDED"
+
+        if $DO_OPTIONNAL_TESTS; then
+            make check
+        fi
+
+        make install
+        if [ $? -ne 0 ]; then
+            echo -e "$BUILD_FAILED"
+            echo "export next_pkg=$next_pkg" >> /.bashrc
+            exit 1
+        fi
+        echo -e "$BUILD_SUCCEEDED"
+
+        
+        cd /sources/blfs
+        rm -Rf $PKG_libidn2 #rm extracted pkg
+        echo -e "$DONE" 
+        echo -e $PKG_libidn2 "$TOOL_READY"
+        next_pkg="$PKG_libpsl"
 
 
-    # end
-    echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+        # end
+        echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+    fi
+    ###********************************
 }
 
 

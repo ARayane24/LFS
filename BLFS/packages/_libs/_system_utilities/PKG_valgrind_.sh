@@ -41,10 +41,47 @@ fi
 # Use eval to define the function
 PKG_valgrind_() {
     # code
+    ###PKG_Valgrind: 0.5SBU
+    if [[ -n "$PKG_Valgrind" && "$next_pkg" = "$PKG_Valgrind" ]] ;then
+        extract_tar_files /sources "$PKG_Valgrind"
+        echo -e "$PKG_Valgrind" " 0.5 SBU"
+        echo $PKG_Valgrind
+        cd $PKG_Valgrind
+    
+        sed -i 's|/doc/valgrind||' docs/Makefile.in &&
 
+        ./configure --prefix=/usr \
+                    --datadir=/usr/share/doc/$PKG_Valgrind
+        make
+        if [ $? -ne 0 ]; then
+            echo -e "$BUILD_FAILED"
+            echo "export next_pkg=$next_pkg" >> /.bashrc
+            exit 1
+        fi
+        echo -e "$BUILD_SUCCEEDED"
 
-    # end
-    echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+        sed -e 's@prereq:.*@prereq: false@' \
+        -i {helgrind,drd}/tests/pth_cond_destroy_busy.vgtest
+
+        make install
+        if [ $? -ne 0 ]; then
+            echo -e "$BUILD_FAILED"
+            echo "export next_pkg=$next_pkg" >> /.bashrc
+            exit 1
+        fi
+        echo -e "$BUILD_SUCCEEDED"
+
+        
+        cd /sources/blfs
+        rm -Rf $PKG_Valgrind #rm extracted pkg
+        echo -e "$DONE" 
+        echo -e $PKG_Valgrind "$TOOL_READY"
+        next_pkg="$PKG_libxml"
+        
+        # end
+        echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+    fi
+    ###********************************
 }
 
 

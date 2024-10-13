@@ -41,10 +41,47 @@ fi
 # Use eval to define the function
 PKG_nghttp_() {
     # code
+    ###PKG_nghttp2: 0.4SBU
+    if [[ -n "$PKG_nghttp2" && "$next_pkg" = "$PKG_nghttp2" ]] ;then
+        extract_tar_files /sources "$PKG_nghttp2" 
+        echo -e "$PKG_nghttp2" " 0.4 SBU"
+        echo $PKG_nghttp2
+        cd $PKG_nghttp2
+    
+        ./configure --prefix=/usr     \
+                    --disable-static  \
+                    --enable-lib-only \
+                    --docdir=/usr/share/doc/$PKG_libxml &&
+        make
+        if [ $? -ne 0 ]; then
+            echo -e "$BUILD_FAILED"
+            echo "export next_pkg=$next_pkg" >> /.bashrc
+            exit 1
+        fi
+        echo -e "$BUILD_SUCCEEDED"
 
+        if $DO_OPTIONNAL_TESTS; then
+            make check
+        fi
 
-    # end
-    echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+        make install
+        if [ $? -ne 0 ]; then
+            echo -e "$BUILD_FAILED"
+            echo "export next_pkg=$next_pkg" >> /.bashrc
+            exit 1
+        fi
+        echo -e "$BUILD_SUCCEEDED"
+
+        cd /sources/blfs
+        rm -Rf $PKG_libxml #rm extracted pkg
+        echo -e "$DONE" 
+        echo -e $PKG_libxml "$TOOL_READY"
+        next_pkg="$PKG_libuv"
+        
+        # end
+        echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+    fi
+    ###********************************
 }
 
 

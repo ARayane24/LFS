@@ -41,10 +41,58 @@ fi
 # Use eval to define the function
 PKG_shadow_() {
     # code
+    ###PKG_shadow: 0.1SBU
+    if [[ -n "$PKG_shadow" ]] ;then
+        extract_tar_files /sources "$PKG_shadow"
+        echo -e "$PKG_shadow" " 0.1 SBU"
+        echo $PKG_shadow
+        cd $PKG_shadow
 
+        sed -i 's/groups$(EXEEXT) //' src/Makefile.in          &&
 
-    # end
-    echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+        find man -name Makefile.in -exec sed -i 's/groups\.1 / /'   {} \; &&
+        find man -name Makefile.in -exec sed -i 's/getspnam\.3 / /' {} \; &&
+        find man -name Makefile.in -exec sed -i 's/passwd\.5 / /'   {} \; &&
+
+        sed -e 's@#ENCRYPT_METHOD DES@ENCRYPT_METHOD YESCRYPT@' \
+            -e 's@/var/spool/mail@/var/mail@'                   \
+            -e '/PATH=/{s@/sbin:@@;s@/bin:@@}'                  \
+            -i etc/login.defs                                   &&
+
+        ./configure --sysconfdir=/etc   \
+                    --disable-static    \
+                    --without-libbsd    \
+                    --with-{b,yes}crypt &&
+        make
+        if [ $? -ne 0 ]; then
+            echo -e "$BUILD_FAILED"
+            exit 1
+        fi
+        echo -e "$BUILD_SUCCEEDED"
+
+        make exec_prefix=/usr pamddir= install
+        if [ $? -ne 0 ]; then
+            echo -e "$BUILD_FAILED"
+            exit 1
+        fi
+        echo -e "$BUILD_SUCCEEDED"
+
+        make -C man install-man
+        if [ $? -ne 0 ]; then
+            echo -e "$BUILD_FAILED"
+            exit 1
+        fi
+        echo -e "$BUILD_SUCCEEDED"
+
+        cd "/sources/blfs"
+        rm -Rf $PKG_shadow #rm extracted pkg
+        echo -e "$DONE" 
+        echo -e $PKG_shadow "$TOOL_READY"
+
+        # end
+        echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+    fi
+    ###********************************
 }
 
 

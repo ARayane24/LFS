@@ -41,10 +41,47 @@ fi
 # Use eval to define the function
 PKG_phonon_backend_vlc_() {
     # code
+    ###PKG_phonon_backend: 0.1SBU
+    if [[ -n "$PKG_phonon_backend" && "$next_pkg" = "$PKG_phonon_backend" ]] ;then
+        extract_tar_files /sources "$PKG_phonon_backend"   
+        echo -e "$PKG_phonon_backend" " 0.1 SBU"
+        echo $PKG_phonon_backend
+        cd $PKG_PKG_phonon_backendvlc
+
+        mkdir build &&
+        cd    build &&
+
+        cmake -D CMAKE_INSTALL_PREFIX=/usr \
+            -D CMAKE_BUILD_TYPE=Release  \
+            -D PHONON_BUILD_QT5=OFF      \
+            .. &&
+        make
+        if [ $? -ne 0 ]; then
+            echo -e "$BUILD_FAILED"
+            echo "export next_pkg=$next_pkg" >> /.bashrc
+            exit 1
+        fi
+        echo -e "$BUILD_SUCCEEDED"
+
+        make install
+        if [ $? -ne 0 ]; then
+            echo -e "$BUILD_FAILED"
+            echo "export next_pkg=$next_pkg" >> /.bashrc
+            exit 1
+        fi
+        echo -e "$BUILD_SUCCEEDED"
+
+        cd /sources/blfs
+        rm -Rf $PKG_phonon_backend #rm extracted pkg
+        echo -e "$DONE" 
+        echo -e $PKG_phonon_backend "$TOOL_READY"
+        next_pkg="$PKG_Linux_PAM"
 
 
-    # end
-    echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+        # end
+        echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+    fi
+    ###********************************
 }
 
 

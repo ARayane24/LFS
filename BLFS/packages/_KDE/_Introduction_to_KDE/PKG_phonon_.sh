@@ -41,10 +41,46 @@ fi
 # Use eval to define the function
 PKG_phonon_() {
     # code
+    ###PKG_phonon: 0.1SBU
+    if [[ -n "$PKG_phonon" && "$next_pkg" = "$PKG_phonon" ]] ;then
+        extract_tar_files /sources "$PKG_phonon"
+        echo -e "$PKG_phonon" " 0.1 SBU"
+        echo $PKG_phonon
+        cd $PKG_phonon
 
+        mkdir build &&
+        cd    build &&
 
-    # end
-    echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+        cmake -D CMAKE_INSTALL_PREFIX=/usr \
+            -D CMAKE_BUILD_TYPE=Release  \
+            -D PHONON_BUILD_QT5=OFF      \
+            -W no-dev .. &&
+        make
+        if [ $? -ne 0 ]; then
+            echo -e "$BUILD_FAILED"
+            echo "export next_pkg=$next_pkg" >> /.bashrc
+            exit 1
+        fi
+        echo -e "$BUILD_SUCCEEDED"
+
+        make install
+        if [ $? -ne 0 ]; then
+            echo -e "$BUILD_FAILED"
+            echo "export next_pkg=$next_pkg" >> /.bashrc
+            exit 1
+        fi
+        echo -e "$BUILD_SUCCEEDED"
+
+        cd /sources/blfs
+        rm -Rf $PKG_phonon #rm extracted pkg
+        echo -e "$DONE" 
+        echo -e $PKG_phonon "$TOOL_READY"
+        next_pkg="$PKG_vlc"
+
+        # end
+        echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+    fi
+    ###********************************
 }
 
 

@@ -41,10 +41,36 @@ fi
 # Use eval to define the function
 PKG_libpsl_() {
     # code
+    ###PKG_libpsl: 0.1SBU
+    if [[ -n "$PKG_libpsl" && "$next_pkg" = "$PKG_libpsl" ]] ;then
+        extract_tar_files /sources "$PKG_libpsl"
+        echo -e "$PKG_libpsl" " 0.1 SBU"
+        echo $PKG_libpsl
+        cd $PKG_libpsl
 
+        mkdir build &&
+        cd    build &&
 
-    # end
-    echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+        meson setup --prefix=/usr --buildtype=release &&
+
+        ninja
+
+        if $DO_OPTIONNAL_TESTS; then
+            ninja test
+        fi
+
+        ninja install
+        
+        cd /sources/blfs
+        rm -Rf $PKG_libpsl #rm extracted pkg
+        echo -e "$DONE" 
+        echo -e $PKG_libpsl "$TOOL_READY"
+        next_pkg="$PKG_curl"
+
+        # end
+        echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+    fi
+    ###********************************
 }
 
 

@@ -41,10 +41,33 @@ fi
 # Use eval to define the function
 PKG_xorgproto_() {
     # code
+    ###PKG_xorg_proto: 0.1SBU
+    if [[ -n "$PKG_xorg_proto" && "$next_pkg" = "$PKG_xorg_proto" ]] ;then
+        extract_tar_files /sources "$PKG_xorg_proto"
+        echo -e "$PKG_xorg_proto" " 0.1 SBU"
+        echo $PKG_xorg_proto
+        cd $PKG_xorg_proto
 
+        mkdir build &&
+        cd    build &&
 
-    # end
-    echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+        meson setup --prefix=$XORG_PREFIX .. &&
+        ninja
+
+        ninja install &&
+        
+        mv -v $XORG_PREFIX/share/doc/xorgproto{,-2024.1}
+        
+        cd /sources/blfs
+        rm -Rf $PKG_xorg_proto #rm extracted pkg
+        echo -e "$DONE" 
+        echo -e $PKG_xorg_proto "$TOOL_READY"
+        next_pkg="$PKG_libxau"
+    
+        # end
+        echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+    fi
+    ###********************************
 }
 
 
