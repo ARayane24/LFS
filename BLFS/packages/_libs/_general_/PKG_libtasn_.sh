@@ -41,7 +41,16 @@ fi
 # Use eval to define the function
 PKG_libtasn_() {
     # code
+    ./configure --prefix=/usr --disable-static
+    make
 
+    if $DO_OPTIONNAL_TESTS; then
+        make check
+    fi
+
+    make install
+
+    make -C doc/reference install-data-local
 
     # end
     echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs

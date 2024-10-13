@@ -30,7 +30,7 @@ fi
 
 # optional packages::
 if [[ -n "$optional_packages" && $optional_packages ]]; then
-   
+    call_method "$PKG_which_" "BLFS/Packages/libs/system_utils/$PKG_which_.sh"
    
 
 fi
@@ -42,6 +42,20 @@ fi
 PKG_valgrind_() {
     # code
 
+    sed -i 's|/doc/valgrind||' docs/Makefile.in &&
+
+    ./configure --prefix=/usr \
+                --datadir=/usr/share/doc/$file_name &&
+    make
+
+    if $DO_OPTIONNAL_TESTS ; then
+        make regtest
+    fi
+
+    sed -e 's@prereq:.*@prereq: false@' \
+    -i {helgrind,drd}/tests/pth_cond_destroy_busy.vgtest
+
+    make install
 
     # end
     echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
