@@ -964,6 +964,15 @@ https://xorg.freedesktop.org/archive/individual/proto/xorgproto-2024.1.tar.xz
 http://tango.freedesktop.org/releases/icon-naming-utils-0.8.90.tar.bz2
 http://www.andre-simon.de/zip/highlight-4.13.tar.bz2
 http://www.mirbsd.org/MirOS/dist/mir/cpio/paxmirabilis-20240817.tgz
+https://anduin.linuxfromscratch.org/BLFS/OpenJDK/OpenJDK-22.0.2/OpenJDK-22.0.2+9-i686-bin.tar.xz
+https://anduin.linuxfromscratch.org/BLFS/OpenJDK/OpenJDK-22.0.2/OpenJDK-22.0.2+9-x86_64-bin.tar.xz
+https://anduin.linuxfromscratch.org/BLFS/OpenJDK/OpenJDK-22.0.2/jtreg-7.3.1+1.tar.gz
+https://download.documentfoundation.org/libreoffice/src/24.8.0/libreoffice-24.8.0.3.tar.xz
+https://download.documentfoundation.org/libreoffice/src/24.8.0/libreoffice-dictionaries-24.8.0.3.tar.xz
+https://download.documentfoundation.org/libreoffice/src/24.8.0/libreoffice-help-24.8.0.3.tar.xz
+https://download.documentfoundation.org/libreoffice/src/24.8.0/libreoffice-translations-24.8.0.3.tar.xz
+https://www.linuxfromscratch.org/patches/blfs/12.2/libreoffice-24.8.0.3-boost_fixes-1.patch
+https://github.com/i-rinat/libvdpau-va-gl/archive/v0.4.2/libvdpau-va-gl-0.4.2.tar.gz
 
 https://www.linuxfromscratch.org/patches/blfs/12.2/audiofile-0.3.6-consolidated_patches-1.patch
 https://www.linuxfromscratch.org/patches/blfs/12.2/avahi-0.8-ipv6_race_condition_fix-1.patch
