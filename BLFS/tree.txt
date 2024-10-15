@@ -1,0 +1,7595 @@
+
+
+PKG: Foreword
+
+PKG: Who Would Want to Read                 this Book
+
+PKG: Organization
+
+PKG: Chapter1.Welcome to BLFS
+
+PKG: Which                   Sections of the Book Do I Want?
+
+PKG: Conventions Used                   in this Book
+
+PKG: Book Version
+
+PKG: Mirror Sites
+
+PKG: Getting the Source                   Packages
+
+PKG: Change Log
+
+PKG: Mailing Lists
+
+PKG: Editor Notes
+
+PKG: Asking for Help and the                   FAQ
+
+PKG: Credits
+
+PKG: Contact                   Information
+
+PKG: Chapter2.Important Information
+
+PKG: Notes on Building                   Software
+
+PKG: The /usr Versus                   /usr/local Debate
+
+PKG: Optional Patches
+
+PKG: BLFS Systemd                   Units
+
+PKG: About Libtool Archive                   (.la) files
+
+PKG: Libraries: Static or                   shared?
+
+PKG: Locale                   Related Issues
+
+PKG: Going Beyond BLFS
+
+PKG: Chapter3.After LFS                 Configuration Issues
+
+PKG: Creating a Custom Boot Device
+
+PKG: About Console Fonts
+
+PKG: About                   Firmware
+
+PKG: About                   Devices
+
+PKG: Configuring for Adding Users
+
+PKG: About System Users and Groups
+
+PKG: The Bash Shell Startup Files
+
+PKG: The /etc/vimrc and ~/.vimrc                   Files
+
+PKG: Customizing your Logon with                   /etc/issue
+
+PKG: Chapter4.Security
+
+PKG: Vulnerabilities
+
+PKG: make-ca-1.14
+	#required
+		|--p11-kit-0.25.5
+		|--libtasn1-4.19.0
+	#optional
+		|--NSS-3.103
+
+PKG: CrackLib-2.10.2
+
+PKG: cryptsetup-2.7.4
+	#required
+		|--JSON-C-0.17
+		|--LVM2-2.03.26
+		|--Popt-1.19
+	#optional
+		|--Asciidoctor-2.0.23
+		|--libpwquality-1.4.5
+
+PKG: Cyrus SASL-2.1.28
+	#recommended
+		|--lmdb-0.9.31
+	#optional
+		|--Linux-PAM-1.6.1
+		|--MIT Kerberos V5-1.21.3
+		|--MariaDB-10.11.8
+		|--OpenLDAP-2.6.8
+		|--PostgreSQL-16.4
+		|--Sphinx-8.0.2
+		|--SQLite-3.46.1
+
+PKG: GnuPG-2.4.5
+	#required
+		|--libassuan-3.0.1
+		|--libgcrypt-1.11.0
+		|--libksba-1.6.7
+		|--npth-1.7
+		|--OpenLDAP-2.6.8
+	#recommended
+		|--GnuTLS-3.8.7.1
+		|--pinentry-1.3.1
+	#optional
+		|--cURL-8.9.1
+		|--Fuse-3.16.2
+		|--ImageMagick-7.1.1-36
+		|--libusb-1.0.27
+		|--Chapter21.Mail Server Software
+		|--SQLite-3.46.1
+		|--texlive-20240312-source
+		|--install-tl-unx
+
+PKG: GnuTLS-3.8.7.1
+	#required
+		|--Nettle-3.10
+	#recommended
+		|--make-ca-1.14
+		|--libunistring-1.2
+		|--libtasn1-4.19.0
+		|--p11-kit-0.25.5
+	#optional
+		|--brotli-1.1.0
+		|--Doxygen-1.12.0
+		|--GTK-Doc-1.34.0
+		|--libidn-1.42
+		|--libidn2-2.3.7
+		|--libseccomp-2.5.5
+		|--Net-tools-2.10
+		|--texlive-20240312-source
+		|--install-tl-unx
+		|--Unbound-1.21.0
+		|--Valgrind-3.23.0
+
+PKG: GPGME-1.23.2
+	#required
+		|--libassuan-3.0.1
+	#optional
+		|--Doxygen-1.12.0
+		|--Graphviz-12.1.0
+		|--GnuPG-2.4.5
+		|--Clisp-2.49
+		|--qt5-components-5.15.14
+		|--SWIG-4.2.1
+
+PKG: iptables-1.8.10
+	#optional
+		|--libpcap-1.10.4
+
+PKG: Setting Up a                   Network Firewall
+
+PKG: libcap-2.70 with                   PAM
+	#required
+		|--Linux-PAM-1.6.1
+
+PKG: Linux-PAM-1.6.1
+	#optional
+		|--libnsl-2.0.1
+		|--libtirpc-1.3.5
+		|--rpcsvc-proto-1.4.4
+	#required
+		|--Shadow-4.16.0
+		|--Systemd-256.4
+	#recommended
+		|--libpwquality-1.4.5
+
+PKG: liboauth-1.0.3
+	#required
+		|--cURL-8.9.1
+	#optional
+		|--NSS-3.103
+		|--Doxygen-1.12.0
+
+PKG: libpwquality-1.4.5
+	#required
+		|--CrackLib-2.10.2
+	#recommended
+		|--Linux-PAM-1.6.1
+
+PKG: MIT Kerberos V5-1.21.3
+	#optional
+		|--BIND Utilities-9.20.0
+		|--CrackLib-2.10.2
+		|--GnuPG-2.4.5
+		|--keyutils-1.6.3
+		|--OpenLDAP-2.6.8
+		|--Valgrind-3.23.0
+		|--yasm-1.3.0
+
+PKG: Nettle-3.10
+	#optional
+		|--Valgrind-3.23.0
+
+PKG: NSS-3.103
+	#required
+		|--NSPR-4.35
+	#recommended
+		|--SQLite-3.46.1
+		|--p11-kit-0.25.5
+
+PKG: OpenSSH-9.8p1
+	#optional
+		|--GDB-15.1
+		|--Linux-PAM-1.6.1
+		|--Shadow-4.16.0
+		|--Xorg Applications
+		|--Setting up the Xorg Build Environment
+		|--MIT Kerberos V5-1.21.3
+		|--Which-2.21 and Alternatives
+	#optional
+		|--Net-tools-2.10
+		|--Sysstat-12.7.6
+
+PKG: p11-kit-0.25.5
+	#recommended
+		|--libtasn1-4.19.0
+	#recommended
+		|--make-ca-1.14
+	#optional
+		|--GTK-Doc-1.34.0
+		|--libxslt-1.1.42
+		|--NSS-3.103
+
+PKG: Polkit-125
+	#required
+		|--GLib-2.80.4
+	#recommended
+		|--duktape-2.7.0
+		|--libxslt-1.1.42
+		|--Linux-PAM-1.6.1
+	#optional
+		|--GTK-Doc-1.34.0
+		|--dbusmock-0.32.1
+		|--SpiderMonkey from firefox-115.14.0
+	#required
+		|--Systemd-256.4
+	#optional
+		|--Building Plasma
+		|--gnome-shell-46.4
+		|--polkit-gnome-0.105
+		|--lxqt-policykit-2.0.0
+
+PKG: polkit-gnome-0.105
+	#required
+		|--AccountsService-23.13.9
+		|--GTK+-3.24.43
+		|--Polkit-125
+
+PKG: Shadow-4.16.0
+	#required
+		|--Linux-PAM-1.6.1
+		|--CrackLib-2.10.2
+	#optional
+
+PKG: ssh-askpass-9.8p1
+	#required
+		|--GTK+-3.24.43
+		|--Sudo-1.9.15p5
+		|--Xorg Libraries
+		|--Chapter24.Graphical Environments
+
+PKG: stunnel-5.72
+	#optional
+		|--libnsl-2.0.1
+
+PKG: Sudo-1.9.15p5
+	#optional
+		|--Linux-PAM-1.6.1
+		|--MIT Kerberos V5-1.21.3
+		|--OpenLDAP-2.6.8
+		|--Chapter21.Mail Server Software
+
+PKG: Tripwire-2.4.3.7
+	#optional
+		|--Chapter21.Mail Server Software
+
+PKG: Chapter5.File Systems                 and Disk Management
+
+PKG: About initramfs
+
+PKG: btrfs-progs-6.10.1
+	#required
+		|--LZO-2.10
+	#optional
+		|--LVM2-2.03.26
+		|--Sphinx-8.0.2
+		|--Sphinx_rtd_theme-2.0.0
+
+PKG: dosfstools-4.2
+
+PKG: Fuse-3.16.2
+	#optional
+		|--Doxygen-1.12.0
+		|--Pytest-8.3.2
+
+PKG: jfsutils-1.1.15
+
+PKG: LVM2-2.03.26
+	#required
+		|--libaio-0.3.113
+	#optional
+		|--mdadm-4.3
+		|--Valgrind-3.23.0
+		|--Which-2.21 and Alternatives
+		|--xfsprogs-6.9.0
+
+PKG: About Logical Volume                   Management (LVM)
+
+PKG: About RAID
+
+PKG: mdadm-4.3
+	#optional
+		|--Chapter21.Mail Server Software
+
+PKG: ntfs-3g-2022.10.3
+	#optional
+
+PKG: gptfdisk-1.0.10
+	#required
+		|--Popt-1.19
+	#optional
+		|--icu-75.1
+
+PKG: parted-3.6
+	#recommended
+		|--LVM2-2.03.26
+	#optional
+		|--dosfstools-4.2
+		|--texlive-20240312-source
+		|--install-tl-unx
+
+PKG: smartmontools-7.4
+	#optional
+		|--cURL-8.9.1
+		|--Lynx-2.9.2
+		|--Wget-1.24.5
+		|--GnuPG-2.4.5
+
+PKG: sshfs-3.7.3
+	#required
+		|--Fuse-3.16.2
+		|--GLib-2.80.4
+		|--OpenSSH-9.8p1
+	#optional
+		|--docutils-0.21.2
+
+PKG: xfsprogs-6.9.0
+	#required
+		|--inih-58
+		|--liburcu-0.14.0
+	#optional
+		|--icu-75.1
+
+PKG: Packages for UEFI Boot
+
+PKG: efivar-39
+	#recommended
+		|--mandoc-1.14.6
+
+PKG: efibootmgr-18
+	#required
+		|--efivar-39
+		|--Popt-1.19
+
+PKG: GRUB-2.12 for EFI
+	#recommended
+		|--efibootmgr-18
+		|--FreeType-2.13.3
+	#optional
+		|--LVM2-2.03.26
+		|--Fuse-3.16.2
+
+PKG: Using GRUB to Set                   Up the Boot Process with UEFI
+
+PKG: Chapter6.Text Editors
+
+PKG: Bluefish-2.2.15
+	#required
+		|--GTK+-3.24.43
+	#recommended
+		|--desktop-file-utils-0.27
+	#optional
+		|--enchant-2.8.2
+		|--Gucharmap-15.1.5
+
+PKG: Ed-1.20.2
+	#required
+		|--libarchive-3.7.4
+
+PKG: Emacs-29.4
+	#recommended
+		|--harfBuzz-9.0.0
+		|--giflib-5.2.2
+		|--GnuTLS-3.8.7.1
+		|--Jansson-2.14
+		|--libtiff-4.6.0
+	#optional
+		|--Chapter24.Graphical Environments
+		|--alsa-lib-1.2.12
+		|--Cairo-1.18.0
+		|--dbus-1.14.10
+		|--GLib-2.80.4
+		|--gsettings-desktop-schemas-46.1
+		|--GPM-1.20.7
+		|--GTK+-3.24.43
+		|--ImageMagick-7.1.1-36
+		|--Little CMS-2.16
+		|--libjpeg-turbo-3.0.1
+		|--libpng-1.6.43
+		|--librsvg-2.58.3
+		|--libseccomp-2.5.5
+		|--libwebp-1.4.0
+		|--libxml2-2.13.3
+		|--MIT Kerberos V5-1.21.3
+		|--SQLite-3.46.1
+		|--Valgrind-3.23.0
+
+PKG: Gedit-47.0
+	#required
+		|--gsettings-desktop-schemas-46.1
+		|--itstool-2.0.7
+		|--libgedit-amtk-5.8.0
+		|--libgedit-gtksourceview-299.2.1
+		|--libhandy-1.8.3
+		|--libpeas-1.36.0
+	#recommended
+		|--gspell-1.12.2
+		|--Gvfs-1.54.2
+		|--ISO Codes-4.16.0
+		|--PyGObject-3.48.2
+	#optional
+		|--GTK-Doc-1.34.0
+		|--Vala-0.56.17
+
+PKG: JOE-4.6
+
+PKG: kate-24.08.0
+	#required
+		|--Building KDE Frameworks 6.5.0 (KF6)
+
+PKG: Mousepad-0.6.2
+	#required
+		|--gtksourceview4-4.8.4
+	#optional
+		|--DConf-0.40.0 / DConf-Editor-45.0.1
+		|--dbus-glib-0.112
+
+PKG: Nano-8.1
+
+PKG: Vim-9.1.0660
+	#recommended
+		|--Chapter24.Graphical Environments
+		|--GTK+-3.24.43
+	#optional
+		|--GPM-1.20.7
+		|--Lua-5.4.7
+		|--Ruby-3.3.4
+		|--rsync-3.3.0
+
+PKG: Chapter7.Shells
+
+PKG: Dash-0.5.12
+	#optional
+
+PKG: Tcsh-6.24.13
+
+PKG: zsh-5.9
+	#optional
+		|--Valgrind-3.23.0
+
+PKG: Chapter8.Virtualization
+
+PKG: qemu-9.0.2
+	#required
+		|--GLib-2.80.4
+		|--Pixman-0.43.4
+	#recommended
+		|--alsa-lib-1.2.12
+		|--dtc-1.7.1
+		|--libslirp-4.8.0
+		|--SDL2-2.30.6
+	#optional
+		|--Pipewire-1.2.3
+		|--PulseAudio-17.0
+		|--BlueZ-5.77
+		|--cURL-8.9.1
+		|--Cyrus SASL-2.1.28
+		|--Fuse-3.16.2
+		|--GnuTLS-3.8.7.1
+		|--GTK+-3.24.43
+		|--keyutils-1.6.3
+		|--libaio-0.3.113
+		|--libusb-1.0.27
+		|--libgcrypt-1.11.0
+		|--libjpeg-turbo-3.0.1
+		|--libseccomp-2.5.5
+		|--libssh2-1.11.0
+		|--libpng-1.6.43
+		|--libtasn1-4.19.0
+		|--Linux-PAM-1.6.1
+		|--LZO-2.10
+		|--Nettle-3.10
+		|--Mesa-24.1.5
+		|--VTE-0.76.4
+	#optional
+		|--Sphinx_rtd_theme-2.0.0
+
+PKG: Chapter9.General Libraries
+
+PKG: Abseil-cpp-20240722.0
+	#required
+		|--CMake-3.30.2
+
+PKG: AppStream-1.0.3
+	#required
+		|--cURL-8.9.1
+		|--itstool-2.0.7
+		|--libxml2-2.13.3
+		|--libxmlb-0.3.19
+		|--libyaml-0.2.5
+	#optional
+		|--Gi-DocGen-2024.1
+		|--Qt-6.7.2
+
+PKG: appstream-glib-0.8.3
+	#required
+		|--cURL-8.9.1
+		|--gdk-pixbuf-2.42.12
+		|--libarchive-3.7.4
+	#optional
+		|--docbook-xml-4.5
+		|--docbook-xsl-nons-1.79.2
+		|--GTK-Doc-1.34.0
+		|--libxslt-1.1.42
+		|--libyaml-0.2.5
+
+PKG: Apr-1.7.4
+
+PKG: Apr-Util-1.6.3
+	#required
+		|--Apr-1.7.4
+	#optional
+		|--MariaDB-10.11.8
+		|--OpenLDAP-2.6.8
+		|--PostgreSQL-16.4
+		|--SQLite-3.46.1
+		|--unixODBC-2.3.12
+
+PKG: Aspell-0.60.8.1
+	#required
+		|--Which-2.21 and Alternatives
+
+PKG: boost-1.86.0
+	#recommended
+		|--Which-2.21 and Alternatives
+	#optional
+		|--icu-75.1
+		|--NumPy-2.1.0
+
+PKG: brotli-1.1.0
+	#required
+		|--CMake-3.30.2
+	#optional
+		|--Pytest-8.3.2
+
+PKG: CLucene-2.3.3.4
+	#required
+		|--CMake-3.30.2
+	#recommended
+		|--boost-1.86.0
+
+PKG: dbus-glib-0.112
+	#required
+		|--dbus-1.14.10
+		|--GLib-2.80.4
+	#optional
+		|--GTK-Doc-1.34.0
+
+PKG: Double-conversion-3.3.0
+	#required
+		|--CMake-3.30.2
+
+PKG: duktape-2.7.0
+
+PKG: enchant-2.8.2
+	#required
+		|--GLib-2.80.4
+	#recommended
+		|--Aspell-0.60.8.1
+	#optional
+		|--dbus-glib-0.112
+		|--Doxygen-1.12.0
+
+PKG: Exempi-2.6.5
+	#required
+		|--boost-1.86.0
+	#required
+		|--Valgrind-3.23.0
+
+PKG: fftw-3.3.10
+
+PKG: fmt-11.0.2
+
+PKG: GLib-2.80.4
+	#required
+		|--Packaging-24.1
+	#recommended
+		|--docutils-0.21.2
+		|--libxslt-1.1.42
+		|--PCRE2-10.44
+	#optional
+		|--Cairo-1.18.0
+		|--dbus-1.14.10
+		|--Fuse-3.16.2
+		|--GDB-15.1
+		|--Gjs-1.80.2
+		|--GTK-Doc-1.34.0
+		|--docbook-xml-4.5
+		|--docbook-xsl-nons-1.79.2
+		|--Gi-DocGen-2024.1
+		|--glib-networking-2.80.0
+		|--Mako-1.3.5
+		|--Markdown-3.6
+	#recommended
+		|--shared-mime-info-2.4
+		|--desktop-file-utils-0.27
+
+PKG: GLibmm-2.66.7
+	#required
+		|--GLib-2.80.4
+		|--libsigc++-2.12.1
+	#optional
+		|--Doxygen-1.12.0
+		|--glib-networking-2.80.0
+		|--GnuTLS-3.8.7.1
+		|--libxslt-1.1.42
+
+PKG: GLibmm-2.80.0
+	#required
+		|--GLib-2.80.4
+		|--libsigc++-3.6.0
+	#optional
+		|--Doxygen-1.12.0
+		|--glib-networking-2.80.0
+		|--GnuTLS-3.8.7.1
+		|--libxslt-1.1.42
+
+PKG: GMime-3.2.7
+	#required
+		|--GLib-2.80.4
+		|--libgpg-error-1.50
+	#optional
+		|--DocBook-utils-0.6.14
+		|--GPGME-1.23.2
+		|--GTK-Doc-1.34.0
+		|--libnsl-2.0.1
+		|--Vala-0.56.17
+
+PKG: gsl-2.8
+	#optional
+		|--Sphinx_rtd_theme-2.0.0
+
+PKG: gspell-1.12.2
+	#required
+		|--enchant-2.8.2
+		|--icu-75.1
+		|--GTK+-3.24.43
+	#optional
+		|--GLib-2.80.4
+		|--GTK-Doc-1.34.0
+		|--Vala-0.56.17
+		|--Valgrind-3.23.0
+
+PKG: highway-1.2.0
+	#required
+		|--CMake-3.30.2
+
+PKG: icu-75.1
+	#optional
+		|--LLVM-18.1.7
+		|--Doxygen-1.12.0
+
+PKG: inih-58
+
+PKG: Intel-gmmlib-22.4.1
+	#required
+		|--CMake-3.30.2
+
+PKG: Jansson-2.14
+
+PKG: JSON-C-0.17
+	#required
+		|--CMake-3.30.2
+	#optional
+		|--Doxygen-1.12.0
+		|--Graphviz-12.1.0
+
+PKG: JSON-GLib-1.8.0
+	#required
+		|--GLib-2.80.4
+	#optional
+		|--GTK-Doc-1.34.0
+
+PKG: keyutils-1.6.3
+	#optional
+		|--LSB-Tools-0.12
+
+PKG: libaio-0.3.113
+
+PKG: libarchive-3.7.4
+	#recommended
+		|--libxml2-2.13.3
+	#optional
+		|--LZO-2.10
+		|--Nettle-3.10
+		|--PCRE2-10.44
+
+PKG: libassuan-3.0.1
+	#required
+		|--libgpg-error-1.50
+	#optional
+		|--texlive-20240312-source
+		|--install-tl-unx
+
+PKG: libatasmart-0.19
+
+PKG: libatomic_ops-7.8.2
+
+PKG: libblockdev-3.1.1
+	#required
+		|--GLib-2.80.4
+	#recommended
+		|--cryptsetup-2.7.4
+		|--keyutils-1.6.3
+		|--libbytesize-2.11
+		|--libnvme-1.10
+		|--LVM2-2.03.26
+	#optional
+		|--btrfs-progs-6.10.1
+		|--GTK-Doc-1.34.0
+		|--mdadm-4.3
+		|--parted-3.6
+
+PKG: libbytesize-2.11
+	#required
+		|--PCRE2-10.44
+		|--Pygments-2.18.0
+	#optional
+		|--GTK-Doc-1.34.0
+
+PKG: libclc-18.1.7
+	#required
+		|--SPIRV-LLVM-Translator-18.1.3
+
+PKG: libcloudproviders-0.3.6
+	#required
+		|--GLib-2.80.4
+		|--Vala-0.56.17
+	#optional
+		|--GTK-Doc-1.34.0
+
+PKG: libdaemon-0.14
+	#optional
+		|--Doxygen-1.12.0
+		|--Lynx-2.9.2
+
+PKG: libdisplay-info-0.2.0
+	#required
+		|--hwdata-0.385
+
+PKG: libgcrypt-1.11.0
+	#required
+		|--libgpg-error-1.50
+	#optional
+		|--texlive-20240312-source
+		|--install-tl-unx
+
+PKG: libgpg-error-1.50
+
+PKG: libgsf-1.14.52
+	#required
+		|--GLib-2.80.4
+		|--libxml2-2.13.3
+	#recommended
+		|--gdk-pixbuf-2.42.12
+	#optional
+		|--GTK-Doc-1.34.0
+		|--p7zip-17.04
+		|--UnZip-6.0
+		|--Valgrind-3.23.0
+
+PKG: libgudev-238
+	#required
+		|--GLib-2.80.4
+	#optional
+		|--GTK-Doc-1.34.0
+		|--Umockdev-0.18.3
+
+PKG: libgusb-0.4.9
+	#required
+		|--JSON-GLib-1.8.0
+		|--libusb-1.0.27
+	#recommended
+		|--GLib-2.80.4
+		|--hwdata-0.385
+		|--Vala-0.56.17
+	#optional
+		|--Gi-DocGen-2024.1
+		|--Umockdev-0.18.3
+
+PKG: libical-3.0.18
+	#required
+		|--CMake-3.30.2
+	#recommended
+		|--GLib-2.80.4
+		|--Vala-0.56.17
+	#optional
+		|--Doxygen-1.12.0
+		|--Graphviz-12.1.0
+		|--GTK-Doc-1.34.0
+		|--icu-75.1
+		|--PyGObject-3.48.2
+
+PKG: libidn-1.42
+	#optional
+		|--Emacs-29.4
+		|--GTK-Doc-1.34.0
+		|--OpenJDK-22.0.2
+		|--Valgrind-3.23.0
+
+PKG: libidn2-2.3.7
+	#recommended
+		|--libunistring-1.2
+	#optional
+		|--Git-2.46.0
+		|--GTK-Doc-1.34.0
+
+PKG: libksba-1.6.7
+	#required
+		|--libgpg-error-1.50
+	#optional
+		|--Valgrind-3.23.0
+
+PKG: liblinear-247
+
+PKG: libmbim-1.26.4
+	#recommended
+		|--GLib-2.80.4
+	#optional
+		|--GTK-Doc-1.34.0
+
+PKG: libnvme-1.10
+	#optional
+		|--JSON-C-0.17
+		|--keyutils-1.6.3
+		|--SWIG-4.2.1
+
+PKG: libpaper-2.2.5
+
+PKG: libportal-0.7.1
+	#required
+		|--GLib-2.80.4
+	#recommended
+		|--GTK+-3.24.43
+		|--GTK-4.14.5
+	#optional
+		|--Gi-DocGen-2024.1
+		|--dbusmock-0.32.1
+		|--Pytest-8.3.2
+		|--qt5-components-5.15.14
+		|--Vala-0.56.17
+
+PKG: libptytty-2.0
+	#required
+		|--CMake-3.30.2
+
+PKG: libqalculate-5.2.0
+	#required
+		|--cURL-8.9.1
+		|--icu-75.1
+		|--libxml2-2.13.3
+	#optional
+		|--Doxygen-1.12.0
+
+PKG: libqmi-1.30.8
+	#required
+		|--GLib-2.80.4
+		|--libgudev-238
+	#recommended
+		|--libmbim-1.26.4
+	#optional
+		|--GTK-Doc-1.34.0
+
+PKG: libseccomp-2.5.5
+	#optional
+		|--Which-2.21 and Alternatives
+		|--Valgrind-3.23.0
+
+PKG: libsigc++-2.12.1
+	#recommended
+		|--boost-1.86.0
+		|--libxslt-1.1.42
+	#optional
+		|--DocBook-utils-0.6.14
+		|--docbook-xml-5.0
+		|--Doxygen-1.12.0
+		|--fop-2.9
+
+PKG: libsigc++-3.6.0
+	#recommended
+		|--boost-1.86.0
+		|--libxslt-1.1.42
+	#optional
+		|--DocBook-utils-0.6.14
+		|--docbook-xml-5.0
+		|--Doxygen-1.12.0
+		|--fop-2.9
+
+PKG: libsigsegv-2.14
+
+PKG: libssh2-1.11.0
+	#optional
+		|--CMake-3.30.2
+		|--libgcrypt-1.11.0
+		|--OpenSSH-9.8p1
+
+PKG: libstatgrab-0.92.1
+	#optional
+		|--log4cplus-2.1.1
+
+PKG: libtasn1-4.19.0
+	#optional
+		|--GTK-Doc-1.34.0
+		|--Valgrind-3.23.0
+
+PKG: libunistring-1.2
+	#optional
+		|--texlive-20240312-source
+		|--install-tl-unx
+
+PKG: libunwind-1.6.2
+	#optional
+		|--texlive-20240312-source
+
+PKG: liburcu-0.14.0
+
+PKG: libusb-1.0.27
+	#optional
+		|--Doxygen-1.12.0
+
+PKG: libuv-1.48.0
+	#optional
+		|--Sphinx-8.0.2
+
+PKG: libxkbcommon-1.7.0
+	#required
+		|--XKeyboardConfig-2.42
+	#recommended
+		|--libxcb-1.17.0
+		|--Wayland-1.23.0
+		|--Wayland-Protocols-1.36
+	#optional
+		|--Doxygen-1.12.0
+		|--Xorg-Server-21.1.13
+		|--Xwayland-24.1.2
+
+PKG: libxml2-2.13.3
+	#recommended
+		|--icu-75.1
+	#optional
+		|--Valgrind-3.23.0
+
+PKG: libxmlb-0.3.19
+	#required
+		|--GLib-2.80.4
+	#optional
+		|--GTK-Doc-1.34.0
+
+PKG: libxslt-1.1.42
+	#required
+		|--libxml2-2.13.3
+	#recommended
+		|--docbook-xml-4.5
+		|--docbook-xsl-nons-1.79.2
+	#optional
+		|--libgcrypt-1.11.0
+
+PKG: libwacom-2.12.2
+	#required
+		|--libevdev 1.13.2
+		|--libgudev-238
+	#recommended
+		|--libxml2-2.13.3
+	#optional
+		|--Doxygen-1.12.0
+		|--Git-2.46.0
+		|--librsvg-2.58.3
+		|--Valgrind-3.23.0
+		|--Pytest-8.3.2
+
+PKG: libyaml-0.2.5
+	#optional
+		|--Doxygen-1.12.0
+
+PKG: log4cplus-2.1.1
+	#optional
+		|--qt5-components-5.15.14
+
+PKG: LZO-2.10
+
+PKG: mtdev-1.1.7
+
+PKG: Node.js-20.16.0
+	#required
+		|--Which-2.21 and Alternatives
+	#recommended
+		|--brotli-1.1.0
+		|--c-ares-1.33.0
+		|--icu-75.1
+		|--libuv-1.48.0
+		|--nghttp2-1.62.1
+	#optional
+
+PKG: npth-1.7
+
+PKG: NSPR-4.35
+
+PKG: PCRE2-10.44
+	#optional
+		|--Valgrind-3.23.0
+
+PKG: Popt-1.19
+	#optional
+		|--Doxygen-1.12.0
+
+PKG: Protobuf-27.3
+	#required
+		|--Abseil-cpp-20240722.0
+		|--CMake-3.30.2
+	#optional
+
+PKG: Protobuf-c-1.5.0
+	#required
+		|--Protobuf-27.3
+	#optional
+		|--Doxygen-1.12.0
+
+PKG: Qca-2.3.9
+	#required
+		|--make-ca-1.14
+		|--CMake-3.30.2
+		|--Qt-6.7.2
+		|--Which-2.21 and Alternatives
+
+PKG: qcoro-0.10.0
+	#required
+		|--Qt-6.7.2
+
+PKG: SpiderMonkey                   from firefox-115.14.0
+	#required
+		|--icu-75.1
+		|--Rustc-1.80.1
+		|--Which-2.21 and Alternatives
+	#recommended
+		|--LLVM-18.1.7
+
+PKG: SPIRV-Headers-1.3.290.0
+	#required
+		|--CMake-3.30.2
+
+PKG: SPIRV-Tools-1.3.290.0
+	#required
+		|--CMake-3.30.2
+		|--SPIRV-Headers-1.3.290.0
+
+PKG: SPIRV-LLVM-Translator-18.1.3
+	#required
+		|--libxml2-2.13.3
+		|--LLVM-18.1.7
+		|--SPIRV-Tools-1.3.290.0
+
+PKG: Talloc-2.4.2
+	#optional
+		|--docbook-xml-4.5
+		|--docbook-xsl-nons-1.79.2
+		|--libxslt-1.1.42
+		|--GDB-15.1
+		|--Git-2.46.0
+		|--libnsl-2.0.1
+		|--libtirpc-1.3.5
+		|--Valgrind-3.23.0
+		|--xfsprogs-6.9.0
+
+PKG: Uchardet-0.0.8
+	#required
+		|--CMake-3.30.2
+
+PKG: Umockdev-0.18.3
+	#required
+		|--libgudev-238
+		|--libpcap-1.10.4
+		|--Vala-0.56.17
+	#optional
+		|--GTK-Doc-1.34.0
+
+PKG: utfcpp-4.0.5
+	#required
+		|--CMake-3.30.2
+
+PKG: Wayland-1.23.0
+	#required
+		|--libxml2-2.13.3
+	#optional
+		|--Doxygen-1.12.0
+		|--Graphviz-12.1.0
+		|--xmlto-0.0.29
+		|--docbook-xml-4.5
+		|--docbook-xsl-nons-1.79.2
+		|--libxslt-1.1.42
+
+PKG: Wayland-Protocols-1.36
+	#required
+		|--Wayland-1.23.0
+
+PKG: wv-1.2.9
+	#required
+		|--libgsf-1.14.52
+		|--libpng-1.6.43
+	#optional
+
+PKG: Xapian-1.4.26
+	#optional
+		|--Valgrind-3.23.0
+
+PKG: Chapter10.Graphics and                 Font Libraries
+
+PKG: AAlib-1.4rc5
+	#optional
+		|--Xorg Libraries
+		|--Xorg Fonts
+		|--slang-2.3.3
+		|--GPM-1.20.7
+
+PKG: babl-0.1.108
+	#recommended
+		|--GLib-2.80.4
+		|--librsvg-2.58.3
+	#optional
+		|--Little CMS-2.16
+
+PKG: Exiv2-0.28.3
+	#required
+		|--CMake-3.30.2
+	#recommended
+		|--brotli-1.1.0
+		|--cURL-8.9.1
+		|--inih-58
+	#optional
+	#optional
+		|--Doxygen-1.12.0
+		|--Graphviz-12.1.0
+		|--libxslt-1.1.42
+
+PKG: FreeType-2.13.3
+	#recommended
+		|--harfBuzz-9.0.0
+		|--libpng-1.6.43
+		|--Which-2.21 and Alternatives
+	#optional
+		|--brotli-1.1.0
+		|--librsvg-2.58.3
+	#optional
+
+PKG: Fontconfig-2.15.0
+	#required
+		|--FreeType-2.13.3
+	#optional
+		|--Bubblewrap-0.9.0
+		|--cURL-8.9.1
+		|--UnZip-6.0
+		|--JSON-C-0.17
+		|--DocBook-utils-0.6.14
+		|--libxml2-2.13.3
+		|--texlive-20240312-source
+		|--install-tl-unx
+
+PKG: FriBidi-1.0.15
+	#optional
+
+PKG: gegl-0.4.48
+	#required
+		|--babl-0.1.108
+		|--JSON-GLib-1.8.0
+	#recommended
+		|--GLib-2.80.4
+		|--Graphviz-12.1.0
+		|--Pygments-2.18.0
+		|--PyGObject-3.48.2
+	#optional
+		|--Asciidoc-10.2.1
+		|--Cairo-1.18.0
+		|--FFmpeg-7.0.2
+		|--gdk-pixbuf-2.42.12
+		|--gexiv2-0.14.3
+		|--GTK-Doc-1.34.0
+		|--JasPer-4.2.4
+		|--Little CMS-2.16
+		|--libraw-0.21.2
+		|--librsvg-2.58.3
+		|--Libspiro-20220722
+		|--libtiff-4.6.0
+		|--libwebp-1.4.0
+		|--Pango-1.54.0
+		|--Poppler-24.08.0
+		|--Ruby-3.3.4
+		|--SDL2-2.30.6
+		|--v4l-utils-1.28.1
+		|--Vala-0.56.17
+
+PKG: giflib-5.2.2
+	#required
+		|--xmlto-0.0.29
+
+PKG: Glad-2.0.6
+	#optional
+		|--Pytest-8.3.2
+		|--Rustc-1.80.1
+		|--Xorg Libraries
+
+PKG: GLM-1.0.1
+
+PKG: Graphite2-1.3.14
+	#required
+		|--CMake-3.30.2
+	#optional
+		|--FreeType-2.13.3
+		|--harfBuzz-9.0.0
+	#optional
+		|--Asciidoc-10.2.1
+		|--Doxygen-1.12.0
+		|--texlive-20240312-source
+		|--install-tl-unx
+	#optional
+	#optional
+
+PKG: harfBuzz-9.0.0
+	#recommended
+		|--GLib-2.80.4
+		|--Graphite2-1.3.14
+		|--texlive-20240312-source
+		|--LibreOffice-24.8.0
+		|--icu-75.1
+		|--FreeType-2.13.3
+	#optional
+		|--Cairo-1.18.0
+		|--Git-2.46.0
+		|--GTK-Doc-1.34.0
+
+PKG: JasPer-4.2.4
+	#required
+		|--CMake-3.30.2
+	#recommended
+		|--libjpeg-turbo-3.0.1
+	#optional
+		|--Freeglut-3.6.0
+		|--Doxygen-1.12.0
+		|--texlive-20240312-source
+
+PKG: Little CMS-2.16
+	#optional
+		|--libjpeg-turbo-3.0.1
+		|--libtiff-4.6.0
+
+PKG: libavif-1.1.1
+	#required
+		|--libaom-3.9.1
+	#recommended
+		|--gdk-pixbuf-2.42.12
+	#optional
+
+PKG: libexif-0.6.24
+	#optional
+		|--Doxygen-1.12.0
+		|--Graphviz-12.1.0
+
+PKG: libgxps-0.3.2
+	#required
+		|--GTK+-3.24.43
+		|--Little CMS-2.16
+		|--libarchive-3.7.4
+		|--libjpeg-turbo-3.0.1
+		|--libtiff-4.6.0
+		|--libxslt-1.1.42
+	#optional
+		|--Git-2.46.0
+		|--GTK-Doc-1.34.0
+
+PKG: libjpeg-turbo-3.0.1
+	#required
+		|--CMake-3.30.2
+	#recommended
+		|--NASM-2.16.03
+		|--yasm-1.3.0
+
+PKG: libjxl-0.10.3
+	#required
+		|--brotli-1.1.0
+		|--CMake-3.30.2
+		|--giflib-5.2.2
+		|--highway-1.2.0
+		|--Little CMS-2.16
+		|--libjpeg-turbo-3.0.1
+		|--libpng-1.6.43
+	#recommended
+		|--gdk-pixbuf-2.42.12
+	#optional
+		|--Doxygen-1.12.0
+		|--Graphviz-12.1.0
+		|--Java-22.0.2
+		|--libavif-1.1.1
+		|--libwebp-1.4.0
+
+PKG: libmng-2.0.3
+	#required
+		|--libjpeg-turbo-3.0.1
+		|--Little CMS-2.16
+
+PKG: libmypaint-1.6.1
+	#required
+		|--JSON-C-0.17
+	#recommended
+		|--GLib-2.80.4
+	#optional
+		|--Doxygen-1.12.0
+
+PKG: libpng-1.6.43
+
+PKG: libraw-0.21.2
+	#recommended
+		|--libjpeg-turbo-3.0.1
+		|--JasPer-4.2.4
+		|--Little CMS-2.16
+
+PKG: librsvg-2.58.3
+	#required
+		|--Cairo-1.18.0
+		|--gdk-pixbuf-2.42.12
+		|--Pango-1.54.0
+		|--Rustc-1.80.1
+	#recommended
+		|--GLib-2.80.4
+		|--Vala-0.56.17
+	#optional
+		|--docutils-0.21.2
+		|--Gi-DocGen-2024.1
+		|--Xorg Fonts
+
+PKG: Libspiro-20220722
+
+PKG: libtiff-4.6.0
+	#recommended
+		|--CMake-3.30.2
+	#optional
+		|--Freeglut-3.6.0
+		|--libjpeg-turbo-3.0.1
+		|--Sphinx-8.0.2
+		|--libwebp-1.4.0
+
+PKG: libwebp-1.4.0
+	#recommended
+		|--libjpeg-turbo-3.0.1
+		|--libpng-1.6.43
+		|--libtiff-4.6.0
+		|--sdl12-compat-1.2.68
+	#optional
+		|--Freeglut-3.6.0
+		|--giflib-5.2.2
+
+PKG: mypaint-brushes-1.3.1
+	#required
+		|--libmypaint-1.6.1
+
+PKG: newt-0.52.24
+	#required
+		|--Popt-1.19
+		|--slang-2.3.3
+	#recommended
+		|--GPM-1.20.7
+
+PKG: opencv-4.10.0
+	#required
+		|--CMake-3.30.2
+		|--UnZip-6.0
+	#recommended
+		|--FFmpeg-7.0.2
+		|--gst-plugins-base-1.24.7
+		|--GTK+-3.24.43
+		|--JasPer-4.2.4
+		|--libexif-0.6.24
+		|--libjpeg-turbo-3.0.1
+		|--libpng-1.6.43
+		|--libtiff-4.6.0
+		|--libwebp-1.4.0
+		|--OpenJPEG-2.5.2
+		|--v4l-utils-1.28.1
+		|--xine-lib-1.2.13
+	#optional
+		|--apache-ant-1.10.14
+		|--Doxygen-1.12.0
+		|--Java-22.0.2
+		|--NumPy-2.1.0
+		|--Protobuf-27.3
+
+PKG: OpenJPEG-2.5.2
+	#required
+		|--CMake-3.30.2
+	#optional
+		|--Git-2.46.0
+		|--Little CMS-2.16
+		|--libpng-1.6.43
+		|--libtiff-4.6.0
+		|--Doxygen-1.12.0
+
+PKG: Pixman-0.43.4
+	#optional
+		|--libpng-1.6.43
+
+PKG: Poppler-24.08.0
+	#required
+		|--CMake-3.30.2
+		|--Fontconfig-2.15.0
+		|--GLib-2.80.4
+	#recommended
+		|--boost-1.86.0
+		|--Cairo-1.18.0
+		|--GPGME-1.23.2
+		|--Little CMS-2.16
+		|--libjpeg-turbo-3.0.1
+		|--libpng-1.6.43
+		|--libtiff-4.6.0
+		|--NSS-3.103
+		|--OpenJPEG-2.5.2
+		|--Qt-6.7.2
+		|--okular-24.08.0
+	#optional
+		|--cURL-8.9.1
+		|--gdk-pixbuf-2.42.12
+		|--Git-2.46.0
+		|--GTK-Doc-1.34.0
+		|--GTK+-3.24.43
+		|--qt5-components-5.15.14
+
+PKG: Potrace-1.16
+	#recommended
+		|--LLVM-18.1.7
+
+PKG: Qpdf-11.9.1
+	#required
+		|--libjpeg-turbo-3.0.1
+	#optional
+		|--ghostscript-10.03.1
+		|--GnuTLS-3.8.7.1
+		|--libtiff-4.6.0
+		|--Sphinx-8.0.2
+		|--Sphinx_rtd_theme-2.0.0
+		|--texlive-20240312-source
+		|--install-tl-unx
+
+PKG: qrencode-4.1.1
+	#recommended
+		|--libpng-1.6.43
+	#optional
+		|--Doxygen-1.12.0
+		|--SDL2-2.30.6
+
+PKG: sassc-3.6.2
+
+PKG: webp-pixbuf-loader-0.2.7
+	#required
+		|--gdk-pixbuf-2.42.12
+		|--libwebp-1.4.0
+
+PKG: woff2-1.0.2
+	#required
+		|--brotli-1.1.0
+		|--CMake-3.30.2
+
+PKG: Chapter11.General                 Utilities
+
+PKG: Asciidoctor-2.0.23
+	#required
+		|--Ruby-3.3.4
+
+PKG: Bogofilter-1.2.5
+	#recommended
+		|--gsl-2.8
+		|--libxml2-2.13.3
+		|--SQLite-3.46.1
+	#optional
+		|--lmdb-0.9.31
+		|--xmlto-0.0.29
+
+PKG: Compface-1.5.2
+
+PKG: desktop-file-utils-0.27
+	#required
+		|--GLib-2.80.4
+	#optional
+		|--Emacs-29.4
+
+PKG: dos2unix-7.5.2
+
+PKG: Graphviz-12.1.0
+	#optional
+		|--Pango-1.54.0
+		|--Cairo-1.18.0
+		|--Xorg Libraries
+		|--Fontconfig-2.15.0
+		|--libpng-1.6.43
+		|--gegl-0.4.48
+	#optional
+		|--libjpeg-turbo-3.0.1
+	#optional
+	#optional
+		|--libwebp-1.4.0
+	#optional
+		|--ghostscript-10.03.1
+		|--librsvg-2.58.3
+		|--Poppler-24.08.0
+	#optional
+		|--Freeglut-3.6.0
+		|--qt5-components-5.15.14
+	#optional
+		|--SWIG-4.2.1
+		|--GCC-14.2.0
+		|--Guile-3.0.10
+		|--OpenJDK-22.0.2
+		|--Lua-5.4.7
+		|--PHP-8.3.10
+		|--Ruby-3.3.4
+		|--Tk-8.6.14
+	#optional
+	#optional
+		|--ghostscript-10.03.1
+
+PKG: GTK-Doc-1.34.0
+	#required
+		|--docbook-xml-4.5
+		|--docbook-xsl-nons-1.79.2
+		|--GLib-2.80.4
+		|--itstool-2.0.7
+		|--libxslt-1.1.42
+		|--Pygments-2.18.0
+	#optional
+		|--fop-2.9
+		|--GLib-2.80.4
+		|--Which-2.21 and Alternatives
+		|--lxml-5.3.0
+
+PKG: Highlight-4.13
+	#required
+		|--boost-1.86.0
+		|--Lua-5.4.7
+	#optional
+		|--Qt-6.7.2
+
+PKG: ibus-1.5.30
+	#required
+		|--DConf-0.40.0 / DConf-Editor-45.0.1
+		|--ISO Codes-4.16.0
+		|--Vala-0.56.17
+	#recommended
+		|--GLib-2.80.4
+		|--GTK+-3.24.43
+		|--libnotify-0.8.3
+	#optional
+		|--GTK-4.14.5
+		|--GTK-Doc-1.34.0
+		|--D-Bus Python-1.3.2
+		|--PyGObject-3.48.2
+		|--libxkbcommon-1.7.0
+		|--Wayland-1.23.0
+
+PKG: ImageMagick-7.1.1-36
+	#recommended
+		|--Xorg Libraries
+	#optional
+		|--LLVM-18.1.7
+		|--Cups-2.4.10
+		|--cURL-8.9.1
+		|--FFmpeg-7.0.2
+		|--fftw-3.3.10
+		|--p7zip-17.04
+		|--SANE-1.2.1
+		|--Wget-1.24.5
+		|--xdg-utils-1.2.1
+		|--xterm-393
+		|--GnuPG-2.4.5
+	#optional
+		|--JasPer-4.2.4
+		|--Little CMS-2.16
+		|--libgxps-0.3.2
+		|--libjpeg-turbo-3.0.1
+		|--libjxl-0.10.3
+		|--libpng-1.6.43
+		|--libraw-0.21.2
+		|--librsvg-2.58.3
+		|--libtiff-4.6.0
+		|--libwebp-1.4.0
+		|--OpenJPEG-2.5.2
+		|--Pango-1.54.0
+	#optional
+		|--DejaVu fonts
+		|--ghostscript-10.03.1
+		|--Gimp-20240711
+		|--Graphviz-12.1.0
+		|--Inkscape-1.3.2
+	#optional
+		|--Enscript-1.6.6
+		|--Potrace-1.16
+		|--texlive-20240312-source
+		|--install-tl-unx
+
+PKG: ISO Codes-4.16.0
+
+PKG: lsof-4.99.0
+	#required
+		|--libtirpc-1.3.5
+	#optional
+		|--Nmap-7.95
+
+PKG: mandoc-1.14.6
+
+PKG: pinentry-1.3.1
+	#required
+		|--libassuan-3.0.1
+		|--libgpg-error-1.50
+	#optional
+		|--Emacs-29.4
+		|--FLTK-1.3.9
+		|--Gcr-4.3.0
+		|--Gcr-3.41.2
+		|--Building KDE Frameworks 6.5.0 (KF6)
+		|--kwayland-6.1.4 for lxqt
+		|--libsecret-0.21.4
+		|--qt5-components-5.15.14
+
+PKG: Screen-4.9.1
+	#optional
+		|--Linux-PAM-1.6.1
+
+PKG: shared-mime-info-2.4
+	#required
+		|--GLib-2.80.4
+		|--libxml2-2.13.3
+	#optional
+		|--xmlto-0.0.29
+
+PKG: Sharutils-4.15.2
+
+PKG: tidy-html5-5.8.0
+	#required
+		|--CMake-3.30.2
+	#recommended
+		|--libxslt-1.1.42
+
+PKG: Time-1.9
+
+PKG: tree-2.1.3
+
+PKG: unixODBC-2.3.12
+	#optional
+
+PKG: xdg-dbus-proxy-0.1.5
+	#required
+		|--GLib-2.80.4
+
+PKG: Xdg-user-dirs-0.18
+	#optional
+		|--docbook-xml-4.5
+		|--docbook-xsl-nons-1.79.2
+		|--libxslt-1.1.42
+
+PKG: Chapter12.System Utilities
+
+PKG: AccountsService-23.13.9
+	#required
+		|--Polkit-125
+	#recommended
+		|--GLib-2.80.4
+		|--Systemd-256.4
+		|--Vala-0.56.17
+	#optional
+		|--GTK-Doc-1.34.0
+		|--xmlto-0.0.29
+	#optional
+		|--dbusmock-0.32.1
+		|--PyGObject-3.48.2
+
+PKG: acpid-2.0.34
+
+PKG: at-3.2.5
+	#required
+		|--Chapter21.Mail Server Software
+	#optional
+		|--Linux-PAM-1.6.1
+
+PKG: autofs-5.1.9
+	#required
+		|--libtirpc-1.3.5
+		|--rpcsvc-proto-1.4.4
+	#optional
+		|--NFS-Utils-2.6.4
+		|--libnsl-2.0.1
+		|--libxml2-2.13.3
+		|--MIT Kerberos V5-1.21.3
+		|--OpenLDAP-2.6.8
+		|--Cyrus SASL-2.1.28
+
+PKG: BlueZ-5.77
+	#required
+		|--dbus-1.14.10
+		|--GLib-2.80.4
+		|--libical-3.0.18
+	#optional
+		|--docutils-0.21.2
+
+PKG: Bubblewrap-0.9.0
+	#optional
+		|--libxslt-1.1.42
+		|--libseccomp-2.5.5
+
+PKG: Colord-1.4.7
+	#required
+		|--dbus-1.14.10
+		|--GLib-2.80.4
+		|--Little CMS-2.16
+		|--Polkit-125
+		|--SQLite-3.46.1
+	#recommended
+		|--libgudev-238
+		|--libgusb-0.4.9
+		|--Systemd-256.4
+		|--Vala-0.56.17
+	#optional
+		|--gnome-desktop-44.1
+		|--colord-gtk-0.3.1
+		|--DocBook-utils-0.6.14
+		|--GTK-Doc-1.34.0
+		|--libxslt-1.1.42
+		|--SANE-1.2.1
+
+PKG: cpio-2.15
+	#optional
+		|--texlive-20240312-source
+		|--install-tl-unx
+
+PKG: cups-pk-helper-0.2.7
+	#required
+		|--Cups-2.4.10
+		|--Polkit-125
+
+PKG: dbus-1.14.10
+	#recommended
+		|--Xorg Libraries
+	#optional
+		|--Systemd-256.4
+		|--D-Bus Python-1.3.2
+		|--PyGObject-3.48.2
+		|--Valgrind-3.23.0
+		|--Doxygen-1.12.0
+		|--xmlto-0.0.29
+
+PKG: Fcron-3.2.1
+	#optional
+		|--Chapter21.Mail Server Software
+		|--Vim-9.1.0660
+		|--Linux-PAM-1.6.1
+		|--DocBook-utils-0.6.14
+
+PKG: GPM-1.20.7
+	#optional
+		|--texlive-20240312-source
+
+PKG: Hdparm-9.65
+
+PKG: hwdata-0.385
+
+PKG: LSB-Tools-0.12
+
+PKG: Lm-sensors-3-6-0
+	#required
+		|--Which-2.21 and Alternatives
+	#optional
+
+PKG: Logrotate-3.22.0
+	#required
+		|--Popt-1.19
+	#optional
+		|--Chapter21.Mail Server Software
+
+PKG: MC-4.8.32
+	#required
+		|--GLib-2.80.4
+	#recommended
+		|--slang-2.3.3
+	#optional
+		|--Doxygen-1.12.0
+		|--GPM-1.20.7
+		|--Graphviz-12.1.0
+		|--libssh2-1.11.0
+		|--PCRE2-10.44
+		|--Ruby-3.3.4
+		|--UnZip-6.0
+		|--Chapter24.Graphical Environments
+		|--Zip-3.0
+
+PKG: ModemManager-1.18.12
+	#required
+		|--libgudev-238
+	#recommended
+		|--GLib-2.80.4
+		|--libmbim-1.26.4
+		|--libqmi-1.30.8
+		|--Polkit-125
+		|--Vala-0.56.17
+	#optional
+		|--GTK-Doc-1.34.0
+
+PKG: notification-daemon-3.20.0
+	#required
+		|--GTK+-3.24.43
+		|--libcanberra-0.30
+		|--GTK+-3.24.43
+
+PKG: p7zip-17.04
+	#optional
+
+PKG: Pax-20240817
+
+PKG: pciutils-3.13.0
+	#recommended
+		|--hwdata-0.385
+
+PKG: pm-utils-1.4.1
+	#optional
+		|--xmlto-0.0.29
+	#optional
+		|--Hdparm-9.65
+		|--Wireless Tools-29
+
+PKG: Power-profiles-daemon-0.21
+	#required
+		|--Polkit-125
+		|--PyGObject-3.48.2
+		|--UPower-1.90.4
+	#optional
+		|--GTK-Doc-1.34.0
+		|--dbusmock-0.32.1
+		|--Umockdev-0.18.3
+
+PKG: Raptor-2.0.16
+	#required
+		|--cURL-8.9.1
+		|--libxslt-1.1.42
+	#optional
+		|--GTK-Doc-1.34.0
+		|--icu-75.1
+
+PKG: Rasqal-0.9.33
+	#required
+		|--Raptor-2.0.16
+	#optional
+		|--libgcrypt-1.11.0
+
+PKG: Redland-1.0.17
+	#required
+		|--Rasqal-0.9.33
+	#optional
+		|--SQLite-3.46.1
+		|--MariaDB-10.11.8
+		|--PostgreSQL-16.4
+
+PKG: sg3_utils-1.48
+
+PKG: sysmon-qt-2.0.1
+	#required
+		|--Qt-6.7.2
+	#recommended
+		|--Lm-sensors-3-6-0
+
+PKG: Sysstat-12.7.6
+	#recommended
+		|--Fcron-3.2.1
+
+PKG: Systemd-256.4
+	#recommended
+		|--Linux-PAM-1.6.1
+		|--Polkit-125
+	#optional
+		|--btrfs-progs-6.10.1
+		|--cURL-8.9.1
+		|--cryptsetup-2.7.4
+		|--Git-2.46.0
+		|--GnuTLS-3.8.7.1
+		|--iptables-1.8.10
+		|--libgcrypt-1.11.0
+		|--libidn2-2.3.7
+		|--libpwquality-1.4.5
+		|--libseccomp-2.5.5
+		|--libxkbcommon-1.7.0
+		|--make-ca-1.14
+		|--p11-kit-0.25.5
+		|--PCRE2-10.44
+		|--qemu-9.0.2
+		|--qrencode-4.1.1
+		|--rsync-3.3.0
+		|--Sphinx-8.0.2
+		|--Valgrind-3.23.0
+		|--zsh-5.9
+	#optional
+		|--docbook-xml-4.5
+		|--docbook-xsl-nons-1.79.2
+		|--libxslt-1.1.42
+		|--lxml-5.3.0
+
+PKG: UDisks-2.10.1
+	#required
+		|--libatasmart-0.19
+		|--libblockdev-3.1.1
+		|--libgudev-238
+		|--libxslt-1.1.42
+		|--Polkit-125
+	#recommended
+		|--Systemd-256.4
+	#optional
+		|--GLib-2.80.4
+	#optional
+		|--D-Bus Python-1.3.2
+		|--GTK-Doc-1.34.0
+		|--LVM2-2.03.26
+		|--PyGObject-3.48.2
+
+PKG: UnRar-7.0.9
+
+PKG: UnZip-6.0
+
+PKG: UPower-1.90.4
+	#required
+		|--libgudev-238
+		|--libusb-1.0.27
+	#optional
+		|--GLib-2.80.4
+	#optional
+		|--GTK-Doc-1.34.0
+		|--libxslt-1.1.42
+		|--docbook-xsl-nons-1.79.2
+		|--PyGObject-3.48.2
+		|--dbusmock-0.32.1
+		|--Umockdev-0.18.3
+
+PKG: usbutils-017
+	#required
+		|--libusb-1.0.27
+	#recommended
+		|--hwdata-0.385
+
+PKG: Which-2.21 and Alternatives
+
+PKG: xdotool-3.20211022.1
+
+PKG: Zip-3.0
+
+PKG: Chapter13.Programming
+
+PKG: Cbindgen-0.27.0
+	#required
+		|--Rustc-1.80.1
+
+PKG: Clisp-2.49
+	#recommended
+		|--libsigsegv-2.14
+	#optional
+		|--libnsl-2.0.1
+
+PKG: CMake-3.30.2
+	#recommended
+		|--cURL-8.9.1
+		|--libarchive-3.7.4
+		|--libuv-1.48.0
+		|--nghttp2-1.62.1
+	#optional
+		|--GCC-14.2.0
+		|--Git-2.46.0
+		|--Mercurial-6.8.1
+		|--OpenJDK-22.0.2
+		|--Qt-6.7.2
+		|--Sphinx-8.0.2
+		|--Subversion-1.14.3
+
+PKG: Doxygen-1.12.0
+	#required
+		|--CMake-3.30.2
+		|--Git-2.46.0
+	#recommended
+		|--Qt-6.7.2
+	#optional
+		|--Graphviz-12.1.0
+		|--ghostscript-10.03.1
+		|--libxml2-2.13.3
+		|--LLVM-18.1.7
+		|--qt5-components-5.15.14
+		|--texlive-20240312-source
+		|--install-tl-unx
+		|--Xapian-1.4.26
+
+PKG: dtc-1.7.1
+	#optional
+		|--libyaml-0.2.5
+		|--SWIG-4.2.1
+		|--texlive-20240312-source
+
+PKG: GCC-14.2.0
+	#optional
+		|--GDB-15.1
+		|--Graphviz-12.1.0
+		|--libpng-1.6.43
+		|--Valgrind-3.23.0
+
+PKG: GC-8.2.6
+	#optional
+		|--libatomic_ops-7.8.2
+
+PKG: GDB-15.1
+	#recommended
+		|--six-1.16.0
+	#optional
+		|--Doxygen-1.12.0
+		|--GCC-14.2.0
+		|--Guile-3.0.10
+		|--Rustc-1.80.1
+		|--Valgrind-3.23.0
+
+PKG: Git-2.46.0
+	#recommended
+		|--cURL-8.9.1
+	#optional
+		|--Apache-2.4.62
+		|--Fcron-3.2.1
+		|--GnuPG-2.4.5
+		|--OpenSSH-9.8p1
+		|--PCRE2-10.44
+		|--Subversion-1.14.3
+		|--Tk-8.6.14
+		|--Valgrind-3.23.0
+		|--IO::Socket::SSL-2.088
+		|--Systemd-256.4
+		|--Linux-PAM-1.6.1
+	#optional
+		|--xmlto-0.0.29
+		|--Asciidoc-10.2.1
+
+PKG: Running a Git Server
+	#required
+		|--Git-2.46.0
+		|--OpenSSH-9.8p1
+
+PKG: Guile-3.0.10
+	#required
+		|--GC-8.2.6
+		|--libunistring-1.2
+	#optional
+		|--Emacs-29.4
+		|--GDB-15.1
+
+PKG: LLVM-18.1.7
+	#required
+		|--CMake-3.30.2
+	#optional
+		|--Doxygen-1.12.0
+		|--Git-2.46.0
+		|--Graphviz-12.1.0
+		|--libxml2-2.13.3
+		|--psutil-6.0.0
+		|--Pygments-2.18.0
+		|--PyYAML-6.0.2
+		|--rsync-3.3.0
+		|--Systemd-256.4
+		|--texlive-20240312-source
+		|--install-tl-unx
+		|--Valgrind-3.23.0
+		|--Zip-3.0
+
+PKG: Lua-5.4.7
+
+PKG: Lua-5.2.4
+
+PKG: Mercurial-6.8.1
+	#optional
+		|--docutils-0.21.2
+		|--Git-2.46.0
+		|--GPGME-1.23.2
+		|--OpenSSH-9.8p1
+		|--Pygments-2.18.0
+		|--Rustc-1.80.1
+		|--Subversion-1.14.3
+
+PKG: NASM-2.16.03
+	#optional
+		|--Asciidoc-10.2.1
+		|--xmlto-0.0.29
+
+PKG: Patchelf-0.18.0
+
+PKG: Perl Modules
+	#required
+		|--UnZip-6.0
+	#required
+		|--Business::ISBN::Data-20240807.001
+	#required
+		|--Tie::Cycle-1.228
+	#required
+		|--Clone-0.46
+		|--File::Find::Rule-0.34
+	#required
+		|--DateTime-1.65
+	#required
+		|--DateTime::Format::Strptime-1.79
+		|--Params::Validate-1.31
+	#recommended
+		|--Test::Warnings-0.033
+	#required
+		|--HTML::Tagset-3.24
+		|--HTTP::Message-6.46
+	#required
+		|--HTTP::Message-6.46
+	#required
+		|--make-ca-1.14
+		|--Net::SSLeay-1.94
+	#recommended
+		|--URI-5.28
+	#required
+		|--File::Listing-6.16
+		|--HTTP::CookieJar-0.014
+		|--HTTP::Cookies-6.11
+		|--HTTP::Daemon-6.16
+		|--HTTP::Negotiate-6.01
+		|--HTML::Parser-3.83
+		|--Net::HTTP-6.23
+		|--Try::Tiny-0.31
+		|--WWW::RobotRules-6.02
+	#recommended
+		|--Test::Fatal-0.017
+		|--Test::Needs-0.002010
+		|--Test::RequiresInternet-0.05
+	#required
+		|--List::SomeUtils-0.59
+		|--List::UtilsBy-0.12
+	#required
+		|--Exporter::Tiny-1.006002
+		|--List::MoreUtils::XS-0.430
+	#required
+		|--IO::Socket::SSL-2.088
+		|--LWP (libwww-perl-6.77)
+		|--make-ca-1.14
+	#recommended
+		|--Test::Exception-0.43
+	#required
+		|--Text::Diff-1.45
+	#recommended
+		|--Capture::Tiny-0.48
+	#required
+		|--Config::AutoConf-0.320
+		|--ExtUtils::LibBuilder-0.08
+	#recommended
+		|--Text::CSV_XS-1.56
+		|--biber-2.20
+	#required
+		|--MIME::Charset-1.013.1
+		|--Wget-1.24.5
+	#recommended
+	#recommended
+		|--Test::Fatal-0.017
+		|--Test::Needs-0.002010
+		|--Test::Warnings-0.033
+	#optional
+		|--Business::ISBN-3.009
+	#required
+		|--XML::LibXML-2.0210
+	#required
+		|--libxslt-1.1.42
+		|--XML::LibXML-2.0210
+	#optional
+		|--XML::SAX-1.02
+
+PKG: Perl Module                   Dependencies
+	#required
+		|--Capture::Tiny-0.48
+		|--File::Which-1.27
+		|--FFI::CheckLib-0.31
+		|--File::chdir-0.1011
+	#required
+		|--Alien::Build-2.83
+		|--URI-5.28
+	#required
+		|--Alien::Build::Plugin::Download::GitLab-0.01
+		|--libxml2-2.13.3
+		|--Path::Tiny-0.146
+	#recommended
+		|--Test::Simple-1.302200
+	#required
+		|--Module::Implementation-0.09
+		|--Sub::Exporter::Progressive-0.001013
+		|--Variable::Magic-0.64
+	#recommended
+		|--Try::Tiny-0.31
+	#recommended
+		|--B::COW-0.007
+	#required
+		|--Capture::Tiny-0.48
+		|--File::Slurper-0.014
+	#required
+		|--DateTime::Locale-1.43
+		|--DateTime::TimeZone-2.62
+	#recommended
+		|--CPAN::Meta::Check-0.018
+		|--Test::Fatal-0.017
+		|--Test::Warnings-0.033
+		|--Test::Without::Module-0.23
+	#required
+		|--DateTime-1.65
+	#required
+		|--Dist::CheckConflicts-0.11
+		|--File::ShareDir-1.118
+		|--namespace::autoclean-0.29
+		|--Params::ValidationCompiler-0.31
+	#recommended
+		|--CPAN::Meta::Check-0.018
+		|--IPC::System::Simple-1.30
+		|--Test::File::ShareDir-1.001002
+	#required
+		|--Class::Singleton-1.6
+		|--Module::Runtime-0.016
+		|--Params::ValidationCompiler-0.31
+	#recommended
+		|--Test::Fatal-0.017
+		|--Test::Requires-0.11
+		|--DateTime-1.65
+	#required
+		|--Module::Runtime-0.016
+	#recommended
+		|--Test::Fatal-0.017
+	#recommended
+		|--Test::Fatal-0.017
+		|--Test::Requires-0.11
+	#required
+		|--Class::Data::Inheritable-0.09
+		|--Devel::StackTrace-2.05
+	#required
+		|--Module::Build-0.4234
+	#recommended
+		|--Capture::Tiny-0.48
+		|--File::Which-1.27
+		|--Path::Tiny-0.146
+		|--Test::Simple-1.302200
+	#recommended
+		|--Path::Tiny-0.146
+		|--Test::Deep-1.204
+		|--Test::Fatal-0.017
+		|--Test::File-1.993
+		|--Test::Warnings-0.033
+	#required
+		|--Number::Compare-0.03
+		|--Text::Glob-0.11
+	#required
+		|--HTTP::Date-6.06
+	#required
+		|--Class::Inspector-1.36
+		|--File::ShareDir::Install-0.14
+	#required
+		|--HTTP::Date-6.06
+	#recommended
+		|--Test::Deep-1.204
+		|--Test::Requires-0.11
+		|--URI-5.28
+	#required
+		|--HTTP::Message-6.46
+	#recommended
+		|--TimeDate-2.33
+	#required
+		|--Clone-0.46
+		|--Encode::Locale-1.05
+		|--HTTP::Date-6.06
+		|--IO::HTML-1.004
+		|--LWP::MediaTypes-6.04
+		|--URI-5.28
+	#recommended
+		|--Test::Needs-0.002010
+		|--Try::Tiny-0.31
+	#recommended
+		|--HTTP::Message-6.46
+	#required
+		|--Module::Implementation-0.09
+		|--List::SomeUtils::XS-0.58
+	#recommended
+		|--Test::LeakTrace-0.17
+		|--Test::Warnings-0.033
+	#recommended
+		|--Test::Fatal-0.017
+	#recommended
+		|--Encode::EUCJPASCII-0.03
+		|--Encode::HanExtra-0.23
+		|--Encode::JIS2K-0.05
+		|--biber-2.20
+	#required
+		|--Module::Runtime-0.016
+		|--Try::Tiny-0.31
+	#recommended
+		|--Test::Fatal-0.017
+		|--Test::Requires-0.11
+	#required
+		|--namespace::clean-0.27
+		|--Sub::Identify-0.14
+	#recommended
+		|--Test::Needs-0.002010
+	#required
+		|--B::Hooks::EndOfScope-0.28
+		|--Package::Stash-0.40
+	#required
+		|--URI-5.28
+	#required
+		|--Dist::CheckConflicts-0.11
+		|--Module::Implementation-0.09
+	#recommended
+		|--CPAN::Meta::Check-0.018
+		|--Test::Fatal-0.017
+		|--Test::Needs-0.002010
+	#required
+		|--Module::Build-0.4234
+		|--Module::Implementation-0.09
+	#recommended
+		|--Test::Fatal-0.017
+		|--Test::Requires-0.11
+	#required
+		|--Exception::Class-1.45
+		|--Specio-0.48
+	#recommended
+		|--Test::Without::Module-0.23
+		|--Test2::Plugin::NoWarnings-0.10
+	#required
+		|--Devel::StackTrace-2.05
+		|--Eval::Closure-0.14
+		|--Module::Runtime-0.016
+		|--Role::Tiny-2.002004
+		|--Sub::Quote-2.006008
+		|--Try::Tiny-0.31
+	#recommended
+		|--MRO::Compat-0.15
+		|--Test::Fatal-0.017
+		|--Test::Needs-0.002010
+	#optional
+		|--namespace::autoclean-0.29
+	#required
+		|--Sub::Uplevel-0.2800
+	#required
+		|--Try::Tiny-0.31
+	#recommended
+		|--Test::utf8-1.02
+	#required
+		|--Class:Tiny-1.008
+		|--File::Copy::Recursive-0.45
+		|--File::ShareDir-1.118
+		|--Path::Tiny-0.146
+		|--Scope::Guard-0.21
+	#recommended
+		|--Test::Fatal-0.017
+	#required
+		|--Term::Table-0.022
+	#required
+		|--Test::Simple-1.302200
+	#recommended
+		|--IPC::Run3-0.049
+	#required
+		|--Algorithm::Diff-1.201
+	#optional
+		|--Capture::Tiny-0.48
+	#required
+		|--LWP (libwww-perl-6.77)
+	#required
+		|--Alien::Libxml2-0.19
+		|--XML::SAX-1.02
+	#required
+		|--libxml2-2.13.3
+		|--XML::NamespaceSupport-1.12
+		|--XML::SAX::Base-1.09
+
+PKG: PHP-8.3.10
+	#recommended
+		|--Apache-2.4.62
+		|--libxml2-2.13.3
+	#optional
+		|--Aspell-0.60.8.1
+		|--enchant-2.8.2
+		|--libxslt-1.1.42
+		|--Chapter21.Mail Server Software
+		|--PCRE2-10.44
+	#optional
+		|--FreeType-2.13.3
+		|--libexif-0.6.24
+		|--libjpeg-turbo-3.0.1
+		|--libpng-1.6.43
+		|--libtiff-4.6.0
+		|--libwebp-1.4.0
+		|--Chapter24.Graphical Environments
+	#optional
+		|--cURL-8.9.1
+		|--tidy-html5-5.8.0
+	#optional
+		|--lmdb-0.9.31
+		|--MariaDB-10.11.8
+		|--OpenLDAP-2.6.8
+		|--PostgreSQL-16.4
+		|--SQLite-3.46.1
+		|--unixODBC-2.3.12
+	#optional
+		|--Cyrus SASL-2.1.28
+		|--MIT Kerberos V5-1.21.3
+
+PKG: Python-3.12.5
+	#recommended
+		|--SQLite-3.46.1
+	#optional
+		|--BlueZ-5.77
+		|--GDB-15.1
+		|--Valgrind-3.23.0
+	#optional
+		|--libnsl-2.0.1
+		|--Tk-8.6.14
+
+PKG: Python-3.11.1
+	#recommended
+		|--SQLite-3.46.1
+
+PKG: Python                   Modules
+	#optional
+		|--docbook-xsl-nons-1.79.2
+		|--fop-2.9
+		|--libxslt-1.1.42
+		|--Lynx-2.9.2
+	#required
+		|--Setuptools_scm-8.1.0
+	#optional
+		|--lxml-5.3.0
+		|--Pytest-8.3.2
+	#required
+		|--Msgpack-1.0.8
+		|--Requests-2.32.3
+	#required
+		|--D-Bus Python-1.3.2
+	#optional
+		|--Pytest-8.3.2
+		|--PyGObject-3.48.2
+		|--BlueZ-5.77
+		|--UPower-1.90.4
+	#required
+		|--dbus-1.14.10
+		|--GLib-2.80.4
+		|--Meson_python-0.16.0
+		|--Patchelf-0.18.0
+	#required
+		|--Chardet-5.2.0
+		|--Doxygen-1.12.0
+	#required
+		|--Doxygen-1.12.0
+	#optional
+		|--Pytest-8.3.2
+	#required
+		|--Markdown-3.6
+		|--Packaging-24.1
+		|--Pygments-2.18.0
+		|--Typogrify-2.0.7
+	#optional
+		|--Graphviz-12.1.0
+		|--Pytest-8.3.2
+	#required
+		|--six-1.16.0
+		|--webencodings-0.5.1
+	#required
+		|--libxslt-1.1.42
+	#optional
+		|--Pytest-8.3.2
+	#required
+		|--Cython-3.0.11
+		|--Meson_python-0.16.0
+		|--Pyproject-Metadata-0.8.0
+	#optional
+		|--GCC-14.2.0
+	#optional
+		|--Attrs-24.2.0
+		|--Pytest-8.3.2
+		|--Pytz-2024.1
+	#optional
+		|--Pytest-8.3.2
+	#required
+		|--PyGObject-3.48.2
+	#recommended
+		|--at-spi2-core-2.52.0
+	#required
+		|--Cairo-1.18.0
+	#optional
+		|--Pytest-8.3.2
+	#required
+		|--Hatchling-1.25.0
+	#optional
+		|--Pytest-8.3.2
+	#required
+		|--GLib-2.80.4
+	#recommended
+		|--PyCairo-1.26.1
+	#optional
+		|--GTK-4.14.5
+		|--Pytest-8.3.2
+	#optional
+	#optional
+		|--Pytest-8.3.2
+	#required
+		|--Setuptools_scm-8.1.0
+	#optional
+		|--Pytest-8.3.2
+	#required
+		|--Iniconfig-2.0.0
+		|--Packaging-24.1
+		|--Pluggy-1.5.0
+	#recommended
+		|--Setuptools_scm-8.1.0
+	#optional
+		|--Attrs-24.2.0
+		|--Pygments-2.18.0
+		|--Requests-2.32.3
+	#required
+		|--Cython-3.0.11
+		|--libyaml-0.2.5
+	#optional
+		|--Pytest-8.3.2
+	#required
+		|--Commonmark-0.9.1
+		|--Sphinx-8.0.2
+	#optional
+		|--Pytest-8.3.2
+	#required
+		|--Charset-normalizer-3.3.2
+		|--Idna-3.7
+		|--Urllib3-2.2.2
+	#recommended
+		|--make-ca-1.14
+		|--p11-kit-0.25.5
+	#optional
+	#optional
+		|--Pytest-8.3.2
+	#required
+		|--six-1.16.0
+	#required
+		|--certifi-2024.7.4
+		|--Urllib3-2.2.2
+	#required
+		|--Alabaster-1.0.0
+		|--babel-2.16.0
+		|--docutils-0.21.2
+		|--Imagesize-1.4.1
+		|--Packaging-24.1
+		|--Pygments-2.18.0
+		|--Requests-2.32.3
+		|--Snowballstemmer-2.2.0
+		|--Sphinxcontrib-applehelp-2.0.0
+		|--Sphinxcontrib-devhelp-2.0.0
+		|--Sphinxcontrib-htmlhelp-2.0.1
+		|--Sphinxcontrib-jsmath-1.0.1
+		|--Sphinxcontrib-qthelp-2.0.0
+		|--Sphinxcontrib-serializinghtml-2.0.0
+	#optional
+		|--Cython-3.0.11
+		|--html5lib-1.1
+		|--Pytest-8.3.2
+		|--texlive-20240312-source
+	#required
+		|--Sphinx-8.0.2
+		|--Sphinxcontrib-jquery-4.1
+	#optional
+		|--Pytest-8.3.2
+
+PKG: Python Dependencies
+	#required
+		|--Hatch-Fancy-Pypi-Readme-24.1.0
+		|--Hatch_vcs-0.4.0
+	#optional
+		|--Pytest-8.3.2
+	#required
+		|--Pytz-2024.1
+	#optional
+		|--Pytest-8.3.2
+		|--Python-3.12.5
+	#optional
+		|--Pytest-8.3.2
+	#optional
+		|--Pytest-8.3.2
+		|--Python-3.12.5
+		|--SQLite-3.46.1
+	#optional
+		|--Pytest-8.3.2
+	#optional
+		|--Pytest-8.3.2
+	#required
+		|--Editables-0.5
+		|--Packaging-24.1
+		|--Pathspec-0.12.1
+		|--Pluggy-1.5.0
+		|--Trove-Classifiers-2024.7.2
+	#required
+		|--Hatchling-1.25.0
+	#optional
+		|--Pytest-8.3.2
+	#required
+		|--Hatchling-1.25.0
+		|--Setuptools_scm-8.1.0
+	#optional
+		|--Git-2.46.0
+		|--Pytest-8.3.2
+	#optional
+		|--Pytest-8.3.2
+	#optional
+		|--Pytest-8.3.2
+		|--Requests-2.32.3
+	#required
+		|--Hatch_vcs-0.4.0
+	#optional
+		|--Pytest-8.3.2
+		|--PyYAML-6.0.2
+	#required
+		|--Pyproject-Metadata-0.8.0
+	#optional
+		|--Cython-3.0.11
+		|--Git-2.46.0
+		|--Pytest-8.3.2
+		|--Python-3.12.5
+		|--SQLite-3.46.1
+	#required
+		|--Cython-3.0.11
+		|--Setuptools_scm-8.1.0
+	#optional
+		|--Pytest-8.3.2
+	#optional
+		|--Pytest-8.3.2
+	#recommended
+		|--Setuptools_scm-8.1.0
+	#optional
+		|--Pytest-8.3.2
+	#required
+		|--Packaging-24.1
+	#optional
+		|--Pytest-8.3.2
+	#optional
+		|--Pytest-8.3.2
+	#required
+		|--Packaging-24.1
+	#optional
+		|--Git-2.46.0
+		|--Mercurial-6.8.1
+		|--Pytest-8.3.2
+		|--Sudo-1.9.15p5
+	#optional
+		|--Pytest-8.3.2
+		|--Sphinx-8.0.2
+	#optional
+		|--Pytest-8.3.2
+		|--Sphinx-8.0.2
+	#optional
+		|--Pytest-8.3.2
+		|--Sphinx-8.0.2
+		|--html5lib-1.1
+	#required
+		|--Sphinx-8.0.2
+	#optional
+		|--Pytest-8.3.2
+	#optional
+		|--Pytest-8.3.2
+		|--Sphinx-8.0.2
+	#optional
+		|--Pytest-8.3.2
+		|--Sphinx-8.0.2
+	#optional
+		|--Pytest-8.3.2
+		|--Sphinx-8.0.2
+	#optional
+		|--Pytest-8.3.2
+	#required
+		|--Smartypants-2.0.1
+	#required
+		|--Hatchling-1.25.0
+	#optional
+		|--Pytest-8.3.2
+
+PKG: Ruby-3.3.4
+	#required
+		|--libyaml-0.2.5
+	#optional
+		|--Doxygen-1.12.0
+		|--Graphviz-12.1.0
+		|--Rustc-1.80.1
+		|--Tk-8.6.14
+		|--Valgrind-3.23.0
+
+PKG: Rustc-1.80.1
+	#required
+		|--CMake-3.30.2
+		|--cURL-8.9.1
+	#recommended
+		|--libssh2-1.11.0
+		|--LLVM-18.1.7
+		|--SQLite-3.46.1
+	#optional
+		|--GDB-15.1
+		|--Git-2.46.0
+		|--GCC-14.2.0
+
+PKG: rust-bindgen-0.70.0
+	#required
+		|--Rustc-1.80.1
+		|--LLVM-18.1.7
+
+PKG: SCons-4.8.0
+
+PKG: slang-2.3.3
+	#optional
+		|--libpng-1.6.43
+
+PKG: Subversion-1.14.3
+	#required
+		|--Apr-Util-1.6.3
+		|--SQLite-3.46.1
+	#recommended
+		|--Serf-1.3.10
+	#optional
+		|--Apache-2.4.62
+		|--boost-1.86.0
+		|--Cyrus SASL-2.1.28
+		|--dbus-1.14.10
+		|--Doxygen-1.12.0
+		|--gnome-keyring-46.2
+		|--libsecret-0.21.4
+		|--Py3c-1.4
+		|--Python-3.12.5
+		|--Ruby-3.3.4
+		|--SWIG-4.2.1
+	#optional
+		|--OpenJDK-22.0.2
+		|--apache-ant-1.10.14
+
+PKG: Running a Subversion                   Server
+	#required
+		|--Subversion-1.14.3
+		|--OpenSSH-9.8p1
+
+PKG: SWIG-4.2.1
+	#required
+		|--PCRE2-10.44
+	#optional
+		|--boost-1.86.0
+
+PKG: Tk-8.6.14
+	#required
+		|--Xorg Libraries
+
+PKG: unifdef-2.12
+
+PKG: Vala-0.56.17
+	#required
+		|--GLib-2.80.4
+	#recommended
+		|--Graphviz-12.1.0
+	#optional
+		|--dbus-1.14.10
+		|--libxslt-1.1.42
+
+PKG: Valgrind-3.23.0
+	#optional
+		|--docbook-xml-4.5
+		|--GDB-15.1
+		|--LLVM-18.1.7
+		|--Which-2.21 and Alternatives
+
+PKG: yasm-1.3.0
+	#optional
+		|--Cython-3.0.11
+
+PKG: Java
+
+PKG: Java-22.0.2
+	#required
+		|--alsa-lib-1.2.12
+		|--Cups-2.4.10
+		|--giflib-5.2.2
+		|--Xorg Libraries
+
+PKG: OpenJDK-22.0.2
+	#required
+		|--Java-22.0.2
+		|--Configuring the Java environment
+		|--alsa-lib-1.2.12
+		|--cpio-2.15
+		|--Cups-2.4.10
+		|--UnZip-6.0
+		|--Which-2.21 and Alternatives
+		|--Xorg Libraries
+		|--Zip-3.0
+	#recommended
+		|--make-ca-1.14
+		|--giflib-5.2.2
+		|--harfBuzz-9.0.0
+		|--Little CMS-2.16
+		|--libjpeg-turbo-3.0.1
+		|--libpng-1.6.43
+		|--Wget-1.24.5
+	#optional
+		|--Git-2.46.0
+		|--Graphviz-12.1.0
+		|--Mercurial-6.8.1
+
+PKG: Configuring the Java                   environment
+
+PKG: apache-ant-1.10.14
+	#required
+		|--Binary JDK Information
+		|--OpenJDK-22.0.2
+		|--GLib-2.80.4
+
+PKG: Chapter14.Connecting to a                 Network
+
+PKG: Advanced Network Setup
+
+PKG: dhcpcd-10.0.8
+	#optional
+		|--LLVM-18.1.7
+		|--ntp-4.2.8p18
+
+PKG: Chapter15.Networking Programs
+
+PKG: bridge-utils-1.7.1
+	#optional
+		|--Net-tools-2.10
+
+PKG: cifs-utils-7.0
+	#recommended
+		|--MIT Kerberos V5-1.21.3
+		|--Talloc-2.4.2
+		|--MIT Kerberos V5-1.21.3
+	#optional
+		|--docutils-0.21.2
+		|--keyutils-1.6.3
+		|--Linux-PAM-1.6.1
+		|--Samba-4.20.4
+		|--libcap-2.70 with PAM
+
+PKG: NcFTP-3.2.7
+
+PKG: Net-tools-2.10
+
+PKG: NFS-Utils-2.6.4
+	#required
+		|--libtirpc-1.3.5
+		|--libevent-2.1.12
+		|--rpcsvc-proto-1.4.4
+		|--SQLite-3.46.1
+	#optional
+		|--Cyrus SASL-2.1.28
+		|--LVM2-2.03.26
+		|--libnsl-2.0.1
+		|--OpenLDAP-2.6.8
+		|--MIT Kerberos V5-1.21.3
+		|--libcap-2.70 with PAM
+	#required
+		|--rpcbind-1.2.7
+
+PKG: ntp-4.2.8p18
+	#required
+		|--IO::Socket::SSL-2.088
+	#optional
+		|--libcap-2.70 with PAM
+		|--libevent-2.1.12
+
+PKG: rpcbind-1.2.7
+	#required
+		|--libtirpc-1.3.5
+
+PKG: rsync-3.3.0
+	#recommended
+		|--Popt-1.19
+	#optional
+		|--Doxygen-1.12.0
+
+PKG: Samba-4.20.4
+	#required
+		|--GnuTLS-3.8.7.1
+		|--Jansson-2.14
+		|--libtirpc-1.3.5
+		|--Parse::Yapp-1.21
+		|--rpcsvc-proto-1.4.4
+	#recommended
+		|--Fuse-3.16.2
+		|--GPGME-1.23.2
+		|--icu-75.1
+		|--libtasn1-4.19.0
+		|--libxslt-1.1.42
+		|--Linux-PAM-1.6.1
+		|--MIT Kerberos V5-1.21.3
+		|--OpenLDAP-2.6.8
+	#optional
+		|--Avahi-0.8
+		|--BIND-9.20.0
+		|--Cups-2.4.10
+		|--Cyrus SASL-2.1.28
+		|--GDB-15.1
+		|--Git-2.46.0
+		|--GnuPG-2.4.5
+		|--libaio-0.3.113
+		|--libarchive-3.7.4
+		|--libcap-2.70 with PAM
+		|--libgcrypt-1.11.0
+		|--libnsl-2.0.1
+		|--libunwind-1.6.2
+		|--lmdb-0.9.31
+		|--Markdown-3.6
+		|--NSS-3.103
+		|--Popt-1.19
+		|--Talloc-2.4.2
+		|--Vala-0.56.17
+		|--Valgrind-3.23.0
+		|--xfsprogs-6.9.0
+	#optional
+		|--six-1.16.0
+		|--Pytest-8.3.2
+
+PKG: Wget-1.24.5
+	#recommended
+		|--libpsl-0.21.5
+	#recommended
+		|--make-ca-1.14
+	#optional
+		|--GnuTLS-3.8.7.1
+		|--HTTP::Daemon-6.16
+		|--IO::Socket::SSL-2.088
+		|--libidn2-2.3.7
+		|--PCRE2-10.44
+		|--Valgrind-3.23.0
+
+PKG: Configuring the Linux Kernel for                   Wireless
+
+PKG: iw-6.9
+	#required
+		|--libnl-3.10.0
+
+PKG: Wireless                   Tools-29
+
+PKG: wpa_supplicant-2.11
+	#recommended
+		|--desktop-file-utils-0.27
+		|--libnl-3.10.0
+	#optional
+		|--libxml2-2.13.3
+		|--qt5-components-5.15.14
+
+PKG: Chapter16.Networking Utilities
+
+PKG: Avahi-0.8
+	#required
+		|--GLib-2.80.4
+	#recommended
+		|--GTK+-3.24.43
+		|--libdaemon-0.14
+		|--qt5-components-5.15.14
+	#optional
+		|--D-Bus Python-1.3.2
+		|--libevent-2.1.12
+		|--Doxygen-1.12.0
+
+PKG: BIND                   Utilities-9.20.0
+	#required
+		|--liburcu-0.14.0
+		|--libuv-1.48.0
+	#recommended
+		|--JSON-C-0.17
+		|--nghttp2-1.62.1
+	#optional
+		|--libcap-2.70 with PAM
+		|--libxml2-2.13.3
+		|--Sphinx-8.0.2
+
+PKG: NetworkManager-1.48.8
+	#required
+		|--libndp-1.9
+	#recommended
+		|--cURL-8.9.1
+		|--dhcpcd-10.0.8
+		|--GLib-2.80.4
+		|--iptables-1.8.10
+		|--libpsl-0.21.5
+		|--newt-0.52.24
+		|--NSS-3.103
+		|--Polkit-125
+		|--PyGObject-3.48.2
+		|--Systemd-256.4
+		|--Vala-0.56.17
+		|--wpa_supplicant-2.11
+	#optional
+		|--BlueZ-5.77
+		|--D-Bus Python-1.3.2
+		|--GnuTLS-3.8.7.1
+		|--NSS-3.103
+		|--GTK-Doc-1.34.0
+		|--Jansson-2.14
+		|--ModemManager-1.18.12
+		|--qt5-components-5.15.14
+		|--UPower-1.90.4
+		|--Valgrind-3.23.0
+
+PKG: network-manager-applet-1.34.0
+	#required
+		|--GTK+-3.24.43
+		|--libnma-1.10.6
+		|--libsecret-0.21.4
+	#recommended
+		|--GLib-2.80.4
+		|--ModemManager-1.18.12
+	#required
+		|--Polkit-125
+		|--Optional Runtime Dependencies
+	#optional
+		|--gnome-bluetooth-46.1
+
+PKG: Nmap-7.95
+	#recommended
+		|--liblinear-247
+		|--libpcap-1.10.4
+		|--libssh2-1.11.0
+		|--Lua-5.4.7
+		|--PCRE2-10.44
+		|--PyGObject-3.48.2
+	#optional
+
+PKG: Traceroute-2.1.5
+
+PKG: Whois-5.4.3
+	#optional
+		|--libidn-1.42
+		|--libidn2-2.3.7
+
+PKG: Wireshark-4.2.6
+	#required
+		|--CMake-3.30.2
+		|--c-ares-1.33.0
+		|--GLib-2.80.4
+		|--libgcrypt-1.11.0
+		|--Qt-6.7.2
+		|--Speex-1.2.1
+	#recommended
+		|--libpcap-1.10.4
+	#optional
+		|--Asciidoctor-2.0.23
+		|--brotli-1.1.0
+		|--Doxygen-1.12.0
+		|--Git-2.46.0
+		|--GnuTLS-3.8.7.1
+		|--libnl-3.10.0
+		|--libxslt-1.1.42
+		|--libxml2-2.13.3
+		|--Lua-5.2.4
+		|--MIT Kerberos V5-1.21.3
+		|--nghttp2-1.62.1
+		|--qt5-components-5.15.14
+		|--Qt-6.7.2
+		|--SBC-2.0
+
+PKG: Chapter17.Networking                 Libraries
+
+PKG: c-ares-1.33.0
+	#required
+		|--CMake-3.30.2
+
+PKG: cURL-8.9.1
+	#recommended
+		|--libpsl-0.21.5
+	#recommended
+		|--make-ca-1.14
+	#optional
+		|--brotli-1.1.0
+		|--c-ares-1.33.0
+		|--GnuTLS-3.8.7.1
+		|--libidn2-2.3.7
+		|--libssh2-1.11.0
+		|--MIT Kerberos V5-1.21.3
+		|--nghttp2-1.62.1
+		|--OpenLDAP-2.6.8
+		|--Samba-4.20.4
+	#optional
+		|--Apache-2.4.62
+		|--stunnel-5.72
+		|--OpenSSH-9.8p1
+		|--Valgrind-3.23.0
+
+PKG: GeoClue-2.7.1
+	#required
+		|--JSON-GLib-1.8.0
+		|--libsoup-3.4.4
+	#recommended
+		|--Avahi-0.8
+		|--libnotify-0.8.3
+		|--ModemManager-1.18.12
+		|--Vala-0.56.17
+	#optional
+		|--GTK-Doc-1.34.0
+
+PKG: glib-networking-2.80.0
+	#required
+		|--GLib-2.80.4
+		|--GnuTLS-3.8.7.1
+	#recommended
+		|--gsettings-desktop-schemas-46.1
+		|--make-ca-1.14
+	#optional
+
+PKG: kdsoap-2.2.0
+	#required
+		|--qt5-components-5.15.14
+
+PKG: ldns-1.8.4
+	#optional
+		|--make-ca-1.14
+		|--libpcap-1.10.4
+		|--SWIG-4.2.1
+		|--Doxygen-1.12.0
+
+PKG: libevent-2.1.12
+	#optional
+		|--Doxygen-1.12.0
+
+PKG: libmnl-1.0.5
+	#optional
+		|--Doxygen-1.12.0
+
+PKG: libndp-1.9
+
+PKG: libnl-3.10.0
+
+PKG: libnma-1.10.6
+	#required
+		|--Gcr-3.41.2
+		|--GTK+-3.24.43
+		|--ISO Codes-4.16.0
+		|--NetworkManager-1.48.8
+	#recommended
+		|--GTK-4.14.5
+		|--Vala-0.56.17
+	#optional
+
+PKG: libnsl-2.0.1
+	#required
+		|--libtirpc-1.3.5
+
+PKG: libpcap-1.10.4
+	#optional
+		|--BlueZ-5.77
+		|--libnl-3.10.0
+		|--libusb-1.0.27
+
+PKG: libpsl-0.21.5
+	#required
+		|--libidn2-2.3.7
+		|--libunistring-1.2
+	#optional
+		|--GTK-Doc-1.34.0
+		|--Valgrind-3.23.0
+
+PKG: libslirp-4.8.0
+	#required
+		|--GLib-2.80.4
+
+PKG: libsoup-2.74.3
+	#required
+		|--glib-networking-2.80.0
+		|--libpsl-0.21.5
+		|--libxml2-2.13.3
+		|--SQLite-3.46.1
+	#recommended
+		|--GLib-2.80.4
+		|--Vala-0.56.17
+	#optional
+		|--Apache-2.4.62
+		|--brotli-1.1.0
+		|--cURL-8.9.1
+		|--MIT Kerberos V5-1.21.3
+		|--GTK-Doc-1.34.0
+		|--PHP-8.3.10
+		|--Samba-4.20.4
+
+PKG: libsoup-3.4.4
+	#required
+		|--glib-networking-2.80.0
+		|--libpsl-0.21.5
+		|--libxml2-2.13.3
+		|--nghttp2-1.62.1
+		|--SQLite-3.46.1
+	#recommended
+		|--GLib-2.80.4
+		|--Vala-0.56.17
+	#optional
+		|--Apache-2.4.62
+		|--brotli-1.1.0
+		|--cURL-8.9.1
+		|--Gi-DocGen-2024.1
+		|--MIT Kerberos V5-1.21.3
+		|--PHP-8.3.10
+		|--Samba-4.20.4
+
+PKG: libtirpc-1.3.5
+	#optional
+		|--MIT Kerberos V5-1.21.3
+
+PKG: neon-0.33.0
+	#optional
+		|--GnuTLS-3.8.7.1
+		|--libxml2-2.13.3
+		|--MIT Kerberos V5-1.21.3
+		|--NSS-3.103
+		|--xmlto-0.0.29
+
+PKG: nghttp2-1.62.1
+	#required
+		|--libxml2-2.13.3
+	#optional
+		|--boost-1.86.0
+		|--c-ares-1.33.0
+		|--Cython-3.0.11
+		|--Jansson-2.14
+		|--libevent-2.1.12
+		|--Sphinx-8.0.2
+
+PKG: rpcsvc-proto-1.4.4
+
+PKG: Serf-1.3.10
+	#required
+		|--Apr-Util-1.6.3
+		|--SCons-4.8.0
+	#optional
+		|--MIT Kerberos V5-1.21.3
+
+PKG: uhttpmock-0.11.0
+	#required
+		|--libsoup-3.4.4
+	#recommended
+		|--GLib-2.80.4
+		|--Vala-0.56.17
+	#optional
+		|--GTK-Doc-1.34.0
+
+PKG: Chapter18.Text Web                 Browsers
+
+PKG: Links-2.30
+	#recommended
+		|--libevent-2.1.12
+	#optional
+		|--GPM-1.20.7
+		|--Chapter24.Graphical Environments
+	#optional
+		|--libavif-1.1.1
+		|--libpng-1.6.43
+		|--libjpeg-turbo-3.0.1
+		|--librsvg-2.58.3
+		|--libtiff-4.6.0
+	#optional
+		|--brotli-1.1.0
+
+PKG: Lynx-2.9.2
+	#optional
+		|--GnuTLS-3.8.7.1
+		|--Zip-3.0
+		|--UnZip-6.0
+		|--Chapter21.Mail Server Software
+		|--Sharutils-4.15.2
+
+PKG: Chapter19.Mail/News                 Clients
+
+PKG: Fetchmail-6.4.39
+	#recommended
+		|--Procmail-3.24
+	#optional
+		|--MIT Kerberos V5-1.21.3
+	#optional
+		|--Python-3.12.5
+		|--Tk-8.6.14
+
+PKG: mailx-12.5
+	#optional
+		|--NSS-3.103
+		|--MIT Kerberos V5-1.21.3
+		|--Chapter21.Mail Server Software
+
+PKG: Mutt-2.2.13
+	#recommended
+		|--Lynx-2.9.2
+		|--Links-2.30
+	#optional
+		|--Aspell-0.60.8.1
+		|--Cyrus SASL-2.1.28
+		|--DocBook-utils-0.6.14
+		|--GDB-15.1
+		|--GnuPG-2.4.5
+		|--GnuTLS-3.8.7.1
+		|--GPGME-1.23.2
+		|--libidn-1.42
+		|--MIT Kerberos V5-1.21.3
+		|--Chapter21.Mail Server Software
+		|--slang-2.3.3
+		|--SQLite-3.46.1
+
+PKG: Procmail-3.24
+	#recommended
+		|--Chapter21.Mail Server Software
+	#optional
+		|--libnsl-2.0.1
+
+PKG: Other Mail and News Programs
+
+PKG: Chapter20.Major Servers
+
+PKG: Apache-2.4.62
+	#required
+		|--Apr-Util-1.6.3
+		|--PCRE2-10.44
+	#optional
+		|--brotli-1.1.0
+		|--Doxygen-1.12.0
+		|--Jansson-2.14
+		|--libxml2-2.13.3
+		|--Lua-5.4.7
+		|--Lynx-2.9.2
+		|--Links-2.30
+		|--nghttp2-1.62.1
+		|--OpenLDAP-2.6.8
+		|--Apr-Util-1.6.3
+		|--rsync-3.3.0
+
+PKG: BIND-9.20.0
+	#required
+		|--liburcu-0.14.0
+		|--libuv-1.48.0
+	#recommended
+		|--JSON-C-0.17
+		|--libcap-2.70 with PAM
+		|--nghttp2-1.62.1
+	#optional
+		|--cURL-8.9.1
+		|--libidn2-2.3.7
+		|--libxml2-2.13.3
+		|--lmdb-0.9.31
+		|--MIT Kerberos V5-1.21.3
+		|--Pytest-8.3.2
+		|--Sphinx-8.0.2
+	#optional
+		|--Net::DNS-1.46
+
+PKG: Kea 2.6.1 DHCP Server
+	#required
+		|--boost-1.86.0
+		|--log4cplus-2.1.1
+	#optional
+		|--MIT Kerberos V5-1.21.3
+		|--Valgrind-3.23.0
+		|--Doxygen-1.12.0
+		|--Graphviz-12.1.0
+		|--Sphinx_rtd_theme-2.0.0
+	#optional
+		|--MariaDB-10.11.8
+		|--PostgreSQL-16.4
+
+PKG: ProFTPD-1.3.8b
+	#optional
+		|--libcap-2.70 with PAM
+		|--libssh2-1.11.0
+		|--Linux-PAM-1.6.1
+		|--MariaDB-10.11.8
+		|--PCRE2-10.44
+		|--PostgreSQL-16.4
+
+PKG: Chapter21.Mail Server Software
+
+PKG: Dovecot-2.3.21.1
+	#required
+		|--libtirpc-1.3.5
+	#optional
+		|--CLucene-2.3.3.4
+		|--icu-75.1
+		|--libcap-2.70 with PAM
+		|--libunwind-1.6.2
+		|--Linux-PAM-1.6.1
+		|--Lua-5.4.7
+		|--MariaDB-10.11.8
+		|--OpenLDAP-2.6.8
+		|--PostgreSQL-16.4
+		|--SQLite-3.46.1
+		|--Valgrind-3.23.0
+		|--xfsprogs-6.9.0
+
+PKG: Exim-4.98
+	#required
+		|--libnsl-2.0.1
+		|--File::FcntlLock-0.22
+		|--PCRE2-10.44
+	#optional
+		|--Cyrus SASL-2.1.28
+		|--libidn-1.42
+		|--Linux-PAM-1.6.1
+		|--MariaDB-10.11.8
+		|--OpenLDAP-2.6.8
+		|--GnuTLS-3.8.7.1
+		|--PostgreSQL-16.4
+		|--SQLite-3.46.1
+		|--Chapter24.Graphical Environments
+
+PKG: Postfix-3.9.0
+	#recommended
+		|--Cyrus SASL-2.1.28
+		|--libnsl-2.0.1
+		|--lmdb-0.9.31
+	#optional
+		|--icu-75.1
+		|--MariaDB-10.11.8
+		|--OpenLDAP-2.6.8
+		|--PCRE2-10.44
+		|--PostgreSQL-16.4
+		|--SQLite-3.46.1
+
+PKG: sendmail-8.18.1
+	#required
+		|--OpenLDAP-2.6.8
+	#recommended
+		|--Cyrus SASL-2.1.28
+	#optional
+		|--ghostscript-10.03.1
+		|--Procmail-3.24
+
+PKG: Chapter22.Databases
+
+PKG: Important Notes                   About Upgrading Database Server Software
+
+PKG: lmdb-0.9.31
+
+PKG: MariaDB-10.11.8
+	#required
+		|--CMake-3.30.2
+	#recommended
+		|--libevent-2.1.12
+	#optional
+		|--boost-1.86.0
+		|--libaio-0.3.113
+		|--libxml2-2.13.3
+		|--Linux-PAM-1.6.1
+		|--LZO-2.10
+		|--MIT Kerberos V5-1.21.3
+		|--PCRE2-10.44
+		|--Ruby-3.3.4
+		|--Sphinx-8.0.2
+		|--unixODBC-2.3.12
+		|--Valgrind-3.23.0
+
+PKG: PostgreSQL-16.4
+	#optional
+		|--icu-75.1
+		|--libxml2-2.13.3
+		|--libxslt-1.1.42
+		|--OpenLDAP-2.6.8
+		|--Linux-PAM-1.6.1
+		|--MIT Kerberos V5-1.21.3
+	#optional
+		|--fop-2.9
+		|--docbook-4.5-dtd
+		|--docbook-dsssl-1.79
+		|--DocBook-utils-0.6.14
+		|--OpenJade-1.3.2
+		|--SGMLSpm-1.1
+
+PKG: SQLite-3.46.1
+	#optional
+		|--UnZip-6.0
+
+PKG: Chapter23.Other Server                 Software
+
+PKG: OpenLDAP-2.6.8
+	#recommended
+		|--Cyrus SASL-2.1.28
+	#optional
+		|--GnuTLS-3.8.7.1
+		|--unixODBC-2.3.12
+		|--MariaDB-10.11.8
+		|--PostgreSQL-16.4
+
+PKG: Unbound-1.21.0
+	#optional
+		|--libevent-2.1.12
+		|--Nettle-3.10
+		|--Protobuf-c-1.5.0
+		|--Sphinx-8.0.2
+		|--SWIG-4.2.1
+		|--Doxygen-1.12.0
+
+PKG: Chapter24.Graphical                 Environments
+
+PKG: Introduction to Xorg-7
+
+PKG: util-macros-1.20.1
+	#required
+		|--Setting up the Xorg Build Environment
+
+PKG: xorgproto-2024.1
+	#required
+		|--util-macros-1.20.1
+	#optional
+		|--fop-2.9
+		|--libxslt-1.1.42
+		|--xmlto-0.0.29
+		|--Asciidoc-10.2.1
+
+PKG: libXau-1.0.11
+	#required
+		|--xorgproto-2024.1
+
+PKG: libXdmcp-1.1.5
+	#required
+		|--xorgproto-2024.1
+	#optional
+		|--xmlto-0.0.29
+		|--fop-2.9
+		|--libxslt-1.1.42
+
+PKG: xcb-proto-1.17.0
+	#recommended
+		|--Setting up the Xorg Build Environment
+	#optional
+		|--libxml2-2.13.3
+
+PKG: libxcb-1.17.0
+	#required
+		|--libXau-1.0.11
+		|--xcb-proto-1.17.0
+	#recommended
+		|--libXdmcp-1.1.5
+	#optional
+		|--Doxygen-1.12.0
+		|--libxslt-1.1.42
+
+PKG: Xorg Libraries
+	#required
+		|--Fontconfig-2.15.0
+		|--libxcb-1.17.0
+	#optional
+		|--Asciidoc-10.2.1
+		|--xmlto-0.0.29
+		|--fop-2.9
+		|--Links-2.30
+		|--Lynx-2.9.2
+	#recommended
+		|--dbus-1.14.10
+
+PKG: libxcvt-0.1.2
+	#required
+		|--Setting up the Xorg Build Environment
+
+PKG: xcb-util-0.4.1
+	#required
+		|--libxcb-1.17.0
+	#optional
+		|--Doxygen-1.12.0
+
+PKG: xcb-util-image-0.4.1
+	#required
+		|--xcb-util-0.4.1
+	#optional
+		|--Doxygen-1.12.0
+
+PKG: xcb-util-keysyms-0.4.1
+	#required
+		|--libxcb-1.17.0
+	#optional
+		|--Doxygen-1.12.0
+
+PKG: xcb-util-renderutil-0.3.10
+	#required
+		|--libxcb-1.17.0
+	#optional
+		|--Doxygen-1.12.0
+
+PKG: xcb-util-wm-0.4.2
+	#required
+		|--libxcb-1.17.0
+	#optional
+		|--Doxygen-1.12.0
+
+PKG: xcb-util-cursor-0.1.4
+	#required
+		|--xcb-util-image-0.4.1
+		|--xcb-util-renderutil-0.3.10
+	#optional
+		|--Doxygen-1.12.0
+
+PKG: Mesa-24.1.5
+	#required
+		|--Xorg Libraries
+		|--Libdrm-2.4.122
+		|--Mako-1.3.5
+	#recommended
+	#recommended
+	#optional
+		|--libgcrypt-1.11.0
+		|--libunwind-1.6.2
+		|--Lm-sensors-3-6-0
+		|--Nettle-3.10
+		|--Valgrind-3.23.0
+
+PKG: xbitmaps-1.1.3
+	#required
+		|--util-macros-1.20.1
+
+PKG: Xorg Applications
+	#required
+		|--libpng-1.6.43
+		|--Mesa-24.1.5
+		|--xbitmaps-1.1.3
+		|--xcb-util-0.4.1
+	#optional
+		|--Linux-PAM-1.6.1
+
+PKG: luit-20240102
+	#required
+		|--Xorg Applications
+
+PKG: xcursor-themes-1.0.7
+	#required
+		|--Xorg Applications
+
+PKG: Xorg Fonts
+	#required
+		|--xcursor-themes-1.0.7
+
+PKG: XKeyboardConfig-2.42
+	#required
+		|--Xorg Libraries
+	#optional
+		|--libxkbcommon-1.7.0
+		|--Pytest-8.3.2
+		|--Xorg Applications
+
+PKG: Xwayland-24.1.2
+	#required
+		|--libxcvt-0.1.2
+		|--Pixman-0.43.4
+		|--Wayland-Protocols-1.36
+		|--Xorg Applications
+		|--Xorg Fonts
+	#recommended
+		|--libepoxy-1.5.10
+		|--libtirpc-1.3.5
+		|--Mesa-24.1.5
+	#optional
+		|--Git-2.46.0
+		|--libei-1.3.0
+		|--libgcrypt-1.11.0
+		|--Nettle-3.10
+		|--xmlto-0.0.29
+		|--Xorg Legacy
+
+PKG: Xorg-Server-21.1.13
+	#required
+		|--libxcvt-0.1.2
+		|--Pixman-0.43.4
+		|--Xorg Fonts
+		|--XKeyboardConfig-2.42
+	#recommended
+		|--libepoxy-1.5.10
+		|--libtirpc-1.3.5
+		|--Systemd-256.4
+		|--Xorg Libinput Driver-1.4.0
+	#optional
+		|--acpid-2.0.34
+		|--Doxygen-1.12.0
+		|--fop-2.9
+		|--libunwind-1.6.2
+		|--Nettle-3.10
+		|--libgcrypt-1.11.0
+		|--xcb-util-keysyms-0.4.1
+		|--xcb-util-image-0.4.1
+		|--xcb-util-renderutil-0.3.10
+		|--xcb-util-wm-0.4.2
+		|--xmlto-0.0.29
+		|--XKeyboardConfig-2.42
+
+PKG: Xorg Input Drivers
+	#optional
+		|--Doxygen-1.12.0
+		|--Valgrind-3.23.0
+	#required
+		|--libevdev 1.13.2
+		|--mtdev-1.1.7
+		|--Xorg-Server-21.1.13
+	#required
+		|--libevdev 1.13.2
+		|--mtdev-1.1.7
+	#optional
+		|--Valgrind-3.23.0
+		|--GTK+-3.24.43
+		|--libunwind-1.6.2
+		|--libwacom-2.12.2
+		|--Sphinx-8.0.2
+		|--pyparsing-3.1.2
+	#required
+		|--libinput-1.26.1
+		|--Xorg-Server-21.1.13
+	#required
+		|--libevdev 1.13.2
+		|--Xorg-Server-21.1.13
+	#required
+		|--Xorg-Server-21.1.13
+	#optional
+		|--Doxygen-1.12.0
+		|--Graphviz-12.1.0
+
+PKG: twm-1.0.12
+	#required
+		|--Xorg-Server-21.1.13
+
+PKG: xterm-393
+	#required
+		|--luit-20240102
+	#required
+		|--DejaVu fonts
+	#optional
+		|--Emacs-29.4
+		|--PCRE2-10.44
+		|--Valgrind-3.23.0
+
+PKG: xclock-1.1.1
+	#required
+		|--Xorg Libraries
+
+PKG: xinit-1.4.2
+	#required
+		|--Xorg Libraries
+	#recommended
+		|--twm-1.0.12
+		|--xclock-1.1.1
+		|--xterm-393
+
+PKG: Xorg-7 Testing                   and Configuration
+
+PKG: Tuning Fontconfig
+
+PKG: TTF                   and OTF fonts
+
+PKG: Xorg Legacy
+	#required
+		|--Xorg Fonts
+
+PKG: Chapter25.Graphical Environment                 Libraries
+
+PKG: Atkmm-2.28.4
+	#required
+		|--at-spi2-core-2.52.0
+		|--GLibmm-2.66.7
+
+PKG: Atkmm-2.36.3
+	#required
+		|--at-spi2-core-2.52.0
+		|--GLibmm-2.80.0
+
+PKG: at-spi2-core-2.52.0
+	#required
+		|--dbus-1.14.10
+		|--GLib-2.80.4
+		|--gsettings-desktop-schemas-46.1
+		|--Xorg Libraries
+	#optional
+		|--Gi-DocGen-2024.1
+		|--Sphinx-8.0.2
+
+PKG: Cairo-1.18.0
+	#required
+		|--libpng-1.6.43
+		|--Pixman-0.43.4
+	#recommended
+		|--Fontconfig-2.15.0
+		|--GLib-2.80.4
+		|--Xorg Libraries
+	#optional
+		|--ghostscript-10.03.1
+		|--GTK+-3.24.43
+		|--GTK-Doc-1.34.0
+		|--Libdrm-2.4.122
+		|--librsvg-2.58.3
+		|--libxml2-2.13.3
+		|--LZO-2.10
+		|--Mesa-24.1.5
+		|--Poppler-24.08.0
+		|--Valgrind-3.23.0
+
+PKG: libcairomm-1.0                   (cairomm-1.14.5)
+	#required
+		|--Cairo-1.18.0
+		|--libsigc++-2.12.1
+	#recommended
+		|--boost-1.86.0
+	#optional
+		|--Doxygen-1.12.0
+
+PKG: libcairomm-1.16 (cairomm-1.18.0)
+	#required
+		|--Cairo-1.18.0
+		|--libsigc++-3.6.0
+	#recommended
+		|--boost-1.86.0
+	#optional
+		|--Doxygen-1.12.0
+
+PKG: colord-gtk-0.3.1
+	#required
+		|--Colord-1.4.7
+		|--GTK+-3.24.43
+	#recommended
+		|--GLib-2.80.4
+		|--GTK-4.14.5
+		|--Vala-0.56.17
+	#optional
+		|--DocBook-utils-0.6.14
+		|--GTK-Doc-1.34.0
+
+PKG: FLTK-1.3.9
+	#required
+		|--Xorg Libraries
+	#recommended
+		|--hicolor-icon-theme-0.18
+		|--libjpeg-turbo-3.0.1
+		|--libpng-1.6.43
+	#optional
+		|--alsa-lib-1.2.12
+		|--desktop-file-utils-0.27
+		|--Doxygen-1.12.0
+		|--GLU-9.0.3
+		|--Mesa-24.1.5
+		|--texlive-20240312-source
+		|--install-tl-unx
+
+PKG: Freeglut-3.6.0
+	#required
+		|--CMake-3.30.2
+		|--Mesa-24.1.5
+	#recommended
+		|--GLU-9.0.3
+
+PKG: gdk-pixbuf-2.42.12
+	#required
+		|--GLib-2.80.4
+		|--libjpeg-turbo-3.0.1
+		|--libpng-1.6.43
+		|--shared-mime-info-2.4
+	#recommended
+		|--docutils-0.21.2
+		|--librsvg-2.58.3
+		|--libtiff-4.6.0
+	#optional
+		|--Gi-DocGen-2024.1
+		|--libavif-1.1.1
+		|--libjxl-0.10.3
+		|--webp-pixbuf-loader-0.2.7
+
+PKG: GLEW-2.2.0
+	#required
+		|--Mesa-24.1.5
+
+PKG: Glslang-14.3.0
+	#required
+		|--CMake-3.30.2
+		|--SPIRV-Tools-1.3.290.0
+
+PKG: GLU-9.0.3
+	#required
+		|--Mesa-24.1.5
+
+PKG: GOffice-0.10.57
+	#required
+		|--GTK+-3.24.43
+		|--libgsf-1.14.52
+		|--librsvg-2.58.3
+		|--libxslt-1.1.42
+		|--Which-2.21 and Alternatives
+	#optional
+		|--GLib-2.80.4
+		|--ghostscript-10.03.1
+		|--gsettings-desktop-schemas-46.1
+		|--GTK-Doc-1.34.0
+
+PKG: Grantlee-5.3.1
+	#required
+		|--CMake-3.30.2
+		|--qt5-components-5.15.14
+	#optional
+		|--Doxygen-1.12.0
+
+PKG: Graphene-1.10.8
+	#required
+		|--GLib-2.80.4
+
+PKG: GTK+-3.24.43
+	#required
+		|--at-spi2-core-2.52.0
+		|--gdk-pixbuf-2.42.12
+		|--libepoxy-1.5.10
+		|--Pango-1.54.0
+	#recommended
+		|--adwaita-icon-theme-46.2
+		|--docbook-xsl-nons-1.79.2
+		|--hicolor-icon-theme-0.18
+		|--ISO Codes-4.16.0
+		|--libxkbcommon-1.7.0
+		|--libxslt-1.1.42
+		|--sassc-3.6.2
+		|--Wayland-1.23.0
+		|--Wayland-Protocols-1.36
+	#recommended
+		|--GLib-2.80.4
+	#optional
+		|--Colord-1.4.7
+		|--Cups-2.4.10
+		|--GTK-Doc-1.34.0
+		|--libcloudproviders-0.3.6
+		|--PyAtSpi2-2.46.1
+		|--Tracker-3.7.3
+
+PKG: GTK-4.14.5
+	#required
+		|--FriBidi-1.0.15
+		|--gdk-pixbuf-2.42.12
+		|--Graphene-1.10.8
+		|--ISO Codes-4.16.0
+		|--libepoxy-1.5.10
+		|--libxkbcommon-1.7.0
+		|--Pango-1.54.0
+		|--PyGObject-3.48.2
+		|--Wayland-Protocols-1.36
+	#recommended
+		|--adwaita-icon-theme-46.2
+		|--gst-plugins-bad-1.24.7
+		|--gst-plugins-good-1.24.7
+		|--libvpx-1.14.1
+		|--hicolor-icon-theme-0.18
+		|--librsvg-2.58.3
+	#recommended
+		|--GLib-2.80.4
+	#optional
+		|--Colord-1.4.7
+		|--Cups-2.4.10
+		|--docutils-0.21.2
+		|--Gi-DocGen-2024.1
+		|--Highlight-4.13
+		|--libcloudproviders-0.3.6
+		|--sassc-3.6.2
+		|--Tracker-3.7.3
+		|--Vulkan-Loader-1.3.294
+
+PKG: Gtkmm-3.24.9
+	#required
+		|--Atkmm-2.28.4
+		|--GTK+-3.24.43
+		|--Pangomm-2.46.4
+	#optional
+		|--Doxygen-1.12.0
+
+PKG: Gtkmm-4.14.0
+	#required
+		|--Atkmm-2.36.3
+		|--GTK-4.14.5
+		|--Pangomm-2.54.0
+	#optional
+		|--Doxygen-1.12.0
+		|--Vulkan-Loader-1.3.294
+
+PKG: gtk-vnc-1.3.1
+	#required
+		|--GnuTLS-3.8.7.1
+		|--GTK+-3.24.43
+		|--libgcrypt-1.11.0
+	#recommended
+		|--GLib-2.80.4
+		|--Vala-0.56.17
+	#optional
+		|--Cyrus SASL-2.1.28
+		|--PulseAudio-17.0
+
+PKG: gtksourceview-3.24.11
+	#required
+		|--GTK+-3.24.43
+	#recommended
+		|--GLib-2.80.4
+	#optional
+		|--Vala-0.56.17
+		|--Valgrind-3.23.0
+		|--GTK-Doc-1.34.0
+		|--itstool-2.0.7
+		|--fop-2.9
+
+PKG: gtksourceview4-4.8.4
+	#required
+		|--GTK+-3.24.43
+	#recommended
+		|--GLib-2.80.4
+		|--libxml2-2.13.3
+	#optional
+		|--Vala-0.56.17
+		|--Valgrind-3.23.0
+		|--GTK-Doc-1.34.0
+		|--itstool-2.0.7
+		|--fop-2.9
+
+PKG: gtksourceview5-5.12.1
+	#required
+		|--GTK-4.14.5
+		|--PCRE2-10.44
+	#recommended
+		|--GLib-2.80.4
+		|--libxml2-2.13.3
+	#optional
+		|--Gi-DocGen-2024.1
+		|--Vala-0.56.17
+		|--Valgrind-3.23.0
+		|--Vulkan-Loader-1.3.294
+
+PKG: imlib2-1.12.3
+	#required
+		|--Xorg Libraries
+	#recommended
+		|--giflib-5.2.2
+		|--librsvg-2.58.3
+	#optional
+		|--Doxygen-1.12.0
+		|--highway-1.2.0
+		|--libjpeg-turbo-3.0.1
+		|--libjxl-0.10.3
+		|--libpng-1.6.43
+		|--libtiff-4.6.0
+		|--libwebp-1.4.0
+		|--x265-3.6
+
+PKG: kColorPicker-0.3.1
+	#required
+		|--CMake-3.30.2
+		|--Qt-6.7.2
+
+PKG: kImageAnnotator-0.7.1
+	#required
+		|--kColorPicker-0.3.1
+
+PKG: keybinder-3.0-0.3.2
+	#required
+		|--GTK+-3.24.43
+	#recommended
+		|--GLib-2.80.4
+	#optional
+		|--GTK-Doc-1.34.0
+
+PKG: libadwaita-1.5.3
+	#required
+		|--AppStream-1.0.3
+		|--GTK-4.14.5
+	#recommended
+		|--Vala-0.56.17
+	#optional
+		|--Gi-DocGen-2024.1
+
+PKG: libei-1.3.0
+	#required
+		|--Attrs-24.2.0
+	#optional
+		|--libevdev 1.13.2
+		|--libxkbcommon-1.7.0
+		|--libxml2-2.13.3
+
+PKG: libgedit-amtk-5.8.0
+	#required
+		|--GTK+-3.24.43
+	#optional
+		|--GTK-Doc-1.34.0
+		|--Valgrind-3.23.0
+
+PKG: libgedit-gtksourceview-299.2.1
+	#required
+		|--GTK+-3.24.43
+		|--libxml2-2.13.3
+	#optional
+		|--GTK-Doc-1.34.0
+
+PKG: libhandy-1.8.3
+	#required
+		|--GTK+-3.24.43
+	#recommended
+		|--Vala-0.56.17
+	#optional
+		|--GTK-Doc-1.34.0
+
+PKG: Libdrm-2.4.122
+	#recommended
+		|--Xorg Libraries
+	#optional
+		|--Cairo-1.18.0
+		|--CMake-3.30.2
+		|--docbook-xml-4.5
+		|--docbook-xsl-nons-1.79.2
+		|--docutils-0.21.2
+		|--libxslt-1.1.42
+		|--libatomic_ops-7.8.2
+		|--Valgrind-3.23.0
+
+PKG: libepoxy-1.5.10
+	#required
+		|--Mesa-24.1.5
+	#optional
+		|--Doxygen-1.12.0
+
+PKG: libnotify-0.8.3
+	#required
+		|--GTK+-3.24.43
+	#optional
+		|--GLib-2.80.4
+	#optional
+		|--Gi-DocGen-2024.1
+		|--xmlto-0.0.29
+	#required
+		|--notification-daemon-3.20.0
+		|--xfce4-notifyd-0.9.6
+		|--lxqt-notificationd-2.0.1
+
+PKG: libxklavier-5.4
+	#required
+		|--GLib-2.80.4
+		|--ISO Codes-4.16.0
+		|--libxml2-2.13.3
+		|--Xorg Libraries
+	#optional
+		|--GTK-Doc-1.34.0
+		|--Vala-0.56.17
+
+PKG: Pango-1.54.0
+	#required
+		|--Fontconfig-2.15.0
+		|--FreeType-2.13.3
+		|--harfBuzz-9.0.0
+		|--FriBidi-1.0.15
+		|--GLib-2.80.4
+	#recommended
+		|--Cairo-1.18.0
+		|--harfBuzz-9.0.0
+		|--Xorg Libraries
+	#optional
+		|--Cantarell fonts
+		|--Gi-DocGen-2024.1
+
+PKG: Pangomm-2.46.4
+	#required
+		|--libcairomm-1.0 (cairomm-1.14.5)
+		|--GLibmm-2.66.7
+		|--Pango-1.54.0
+
+PKG: Pangomm-2.54.0
+	#required
+		|--libcairomm-1.16 (cairomm-1.18.0)
+		|--GLibmm-2.80.0
+		|--Pango-1.54.0
+
+PKG: qt5-components-5.15.14
+	#required
+		|--Xorg Libraries
+	#recommended
+		|--alsa-lib-1.2.12
+		|--at-spi2-core-2.52.0
+		|--Cups-2.4.10
+		|--Double-conversion-3.3.0
+		|--GLib-2.80.4
+		|--harfBuzz-9.0.0
+		|--icu-75.1
+		|--hicolor-icon-theme-0.18
+		|--Mesa-24.1.5
+		|--libjpeg-turbo-3.0.1
+		|--libxkbcommon-1.7.0
+		|--SQLite-3.46.1
+		|--Wayland-1.23.0
+		|--xcb-util-image-0.4.1
+		|--xcb-util-keysyms-0.4.1
+		|--xcb-util-renderutil-0.3.10
+		|--xcb-util-wm-0.4.2
+	#optional
+		|--GTK+-3.24.43
+		|--libinput-1.26.1
+		|--MariaDB-10.11.8
+		|--MIT Kerberos V5-1.21.3
+		|--mtdev-1.1.7
+		|--PostgreSQL-16.4
+		|--unixODBC-2.3.12
+
+PKG: Qt-6.7.2
+	#required
+		|--Xorg Libraries
+	#recommended
+		|--alsa-lib-1.2.12
+		|--make-ca-1.14
+		|--Cups-2.4.10
+		|--Double-conversion-3.3.0
+		|--GLib-2.80.4
+		|--gst-plugins-base-1.24.7
+		|--harfBuzz-9.0.0
+		|--icu-75.1
+		|--JasPer-4.2.4
+		|--libjpeg-turbo-3.0.1
+		|--libinput-1.26.1
+		|--libmng-2.0.3
+		|--libpng-1.6.43
+		|--libtiff-4.6.0
+		|--libwebp-1.4.0
+		|--libxkbcommon-1.7.0
+		|--Mesa-24.1.5
+		|--mtdev-1.1.7
+		|--PCRE2-10.44
+		|--SQLite-3.46.1
+		|--Wayland-1.23.0
+		|--xcb-util-cursor-0.1.4
+		|--xcb-util-image-0.4.1
+		|--xcb-util-keysyms-0.4.1
+		|--xcb-util-renderutil-0.3.10
+		|--xcb-util-wm-0.4.2
+	#optional
+		|--BlueZ-5.77
+		|--GTK+-3.24.43
+		|--ibus-1.5.30
+		|--MariaDB-10.11.8
+		|--MIT Kerberos V5-1.21.3
+		|--pciutils-3.13.0
+		|--PostgreSQL-16.4
+		|--PulseAudio-17.0
+		|--SDL2-2.30.6
+		|--unixODBC-2.3.12
+
+PKG: QtWebEngine-6.7.2
+	#required
+		|--Cups-2.4.10
+		|--html5lib-1.1
+		|--Node.js-20.16.0
+		|--NSS-3.103
+		|--pciutils-3.13.0
+		|--Qt-6.7.2
+	#recommended
+		|--alsa-lib-1.2.12
+		|--PulseAudio-17.0
+		|--FFmpeg-7.0.2
+		|--icu-75.1
+		|--libwebp-1.4.0
+		|--libxslt-1.1.42
+		|--Opus-1.5.2
+	#optional
+		|--libevent-2.1.12
+		|--MIT Kerberos V5-1.21.3
+		|--Pipewire-1.2.3
+		|--Poppler-24.08.0
+
+PKG: startup-notification-0.12
+	#required
+		|--Xorg Libraries
+		|--xcb-util-0.4.1
+
+PKG: Vulkan-Headers-1.3.294
+	#required
+		|--CMake-3.30.2
+
+PKG: Vulkan-Loader-1.3.294
+	#required
+		|--CMake-3.30.2
+		|--Vulkan-Headers-1.3.294
+		|--Wayland-1.23.0
+		|--Xorg Libraries
+
+PKG: WebKitGTK-2.44.3
+	#required
+		|--Cairo-1.18.0
+		|--CMake-3.30.2
+		|--gst-plugins-base-1.24.7
+		|--gst-plugins-bad-1.24.7
+		|--GTK+-3.24.43
+		|--GTK-4.14.5
+		|--icu-75.1
+		|--Little CMS-2.16
+		|--libgudev-238
+		|--libsecret-0.21.4
+		|--libsoup-3.4.4
+		|--libtasn1-4.19.0
+		|--libwebp-1.4.0
+		|--Mesa-24.1.5
+		|--OpenJPEG-2.5.2
+		|--Ruby-3.3.4
+		|--SQLite-3.46.1
+		|--unifdef-2.12
+		|--Which-2.21 and Alternatives
+	#recommended
+		|--Bubblewrap-0.9.0
+		|--enchant-2.8.2
+		|--GeoClue-2.7.1
+		|--GLib-2.80.4
+		|--hicolor-icon-theme-0.18
+		|--libavif-1.1.1
+		|--libjxl-0.10.3
+		|--libseccomp-2.5.5
+		|--xdg-dbus-proxy-0.1.5
+	#optional
+		|--Gi-DocGen-2024.1
+		|--harfBuzz-9.0.0
+		|--Wayland-1.23.0
+		|--woff2-1.0.2
+
+PKG: xdg-desktop-portal-1.18.2
+	#required
+		|--Fuse-3.16.2
+		|--gdk-pixbuf-2.42.12
+		|--JSON-GLib-1.8.0
+		|--Pipewire-1.2.3
+		|--dbus-1.14.10
+		|--xdg-desktop-portal-gtk-1.15.1
+		|--xdg-desktop-portal-gnome-46.2
+		|--xdg-desktop-portal-lxqt-1.0.2
+	#recommended
+		|--Bubblewrap-0.9.0
+		|--docutils-0.21.2
+	#optional
+		|--GeoClue-2.7.1
+		|--Pytest-8.3.2
+		|--libportal-0.7.1
+		|--dbusmock-0.32.1
+	#optional
+		|--Sphinx-8.0.2
+
+PKG: xdg-desktop-portal-gtk-1.15.1
+	#required
+		|--GTK+-3.24.43
+		|--xdg-desktop-portal-1.18.2
+	#recommended
+		|--gnome-desktop-44.1
+
+PKG: Chapter26.Display                 Managers
+
+PKG: GDM-46.2
+	#required
+		|--AccountsService-23.13.9
+		|--DConf-0.40.0 / DConf-Editor-45.0.1
+		|--libcanberra-0.30
+		|--GTK+-3.24.43
+		|--Linux-PAM-1.6.1
+	#optional
+		|--keyutils-1.6.3
+	#required
+		|--gnome-session-46.0
+		|--gnome-shell-46.4
+		|--Systemd-256.4
+
+PKG: lightdm-1.32.0
+	#required
+		|--Exo-4.18.0
+		|--libgcrypt-1.11.0
+		|--itstool-2.0.7
+		|--Linux-PAM-1.6.1
+		|--Xorg-Server-21.1.13
+	#recommended
+		|--GLib-2.80.4
+		|--libxklavier-5.4
+		|--Vala-0.56.17
+	#optional
+		|--AccountsService-23.13.9
+		|--at-spi2-core-2.52.0
+		|--GTK-Doc-1.34.0
+		|--qt5-components-5.15.14
+
+PKG: sddm-0.21.0
+	#required
+		|--CMake-3.30.2
+		|--extra-cmake-modules-6.5.0
+		|--Qt-6.7.2
+	#recommended
+		|--docutils-0.21.2
+		|--Linux-PAM-1.6.1
+		|--UPower-1.90.4
+
+PKG: Chapter27.Window                 Managers
+
+PKG: Fluxbox-1.3.7
+	#required
+		|--Chapter24.Graphical Environments
+	#optional
+		|--dbus-1.14.10
+		|--FriBidi-1.0.15
+		|--imlib2-1.12.3
+
+PKG: IceWM-3.6.0
+	#required
+		|--CMake-3.30.2
+		|--imlib2-1.12.3
+		|--Chapter24.Graphical Environments
+	#optional
+		|--Asciidoc-10.2.1
+		|--FriBidi-1.0.15
+		|--librsvg-2.58.3
+		|--Libao-1.2.0
+		|--libsndfile-1.2.2
+		|--alsa-lib-1.2.12
+
+PKG: openbox-3.6.1
+	#required
+		|--Chapter24.Graphical Environments
+		|--Pango-1.54.0
+	#optional
+		|--dbus-1.14.10
+		|--imlib2-1.12.3
+		|--ImageMagick-7.1.1-36
+		|--PyXDG-0.28
+		|--startup-notification-0.12
+		|--librsvg-2.58.3
+
+PKG: Chapter28.Icons
+
+PKG: adwaita-icon-theme-46.2
+	#required
+		|--GTK+-3.24.43
+		|--GTK-4.14.5
+		|--librsvg-2.58.3
+	#optional
+		|--Git-2.46.0
+		|--Inkscape-1.3.2
+
+PKG: breeze-icons-6.5.0
+	#required
+		|--extra-cmake-modules-6.5.0
+		|--Qt-6.7.2
+	#optional
+		|--Building KDE Frameworks 6.5.0 (KF6)
+		|--libxml2-2.13.3
+		|--lxml-5.3.0
+
+PKG: gnome-icon-theme-3.12.0
+	#required
+		|--GTK+-3.24.43
+		|--hicolor-icon-theme-0.18
+		|--icon-naming-utils-0.8.90
+
+PKG: gnome-icon-theme-extras-3.12.0
+	#required
+		|--gnome-icon-theme-3.12.0
+	#optional
+		|--Git-2.46.0
+		|--Inkscape-1.3.2
+
+PKG: gnome-icon-theme-symbolic-3.12.0
+	#required
+		|--gnome-icon-theme-3.12.0
+	#optional
+		|--Git-2.46.0
+		|--Inkscape-1.3.2
+
+PKG: gnome-themes-extra-3.28
+	#required
+		|--GTK+-3.24.43
+		|--librsvg-2.58.3
+
+PKG: hicolor-icon-theme-0.18
+
+PKG: icon-naming-utils-0.8.90
+	#required
+		|--XML::Simple-2.25
+
+PKG: lxde-icon-theme-0.5.1
+	#optional
+		|--GTK+-3.24.43
+
+PKG: oxygen-icons-6.0.0
+	#required
+		|--extra-cmake-modules-6.5.0
+		|--Qt-6.7.2
+
+PKG: Chapter29.Introduction to KDE
+
+PKG: KDE Preliminaries
+
+PKG: extra-cmake-modules-6.5.0
+	#required
+		|--CMake-3.30.2
+	#optional
+		|--Sphinx-8.0.2
+
+PKG: Phonon-4.12.0
+	#required
+		|--CMake-3.30.2
+		|--extra-cmake-modules-6.5.0
+		|--GLib-2.80.4
+		|--Qt-6.7.2
+	#required
+		|--Phonon-backend-vlc-0.12.0
+	#optional
+		|--PulseAudio-17.0
+
+PKG: Phonon-backend-vlc-0.12.0
+	#required
+		|--Phonon-4.12.0
+		|--VLC-3.0.21
+
+PKG: Polkit-Qt-0.200.0
+	#required
+		|--CMake-3.30.2
+		|--Polkit-125
+		|--Qt-6.7.2
+
+PKG: plasma-wayland-protocols-1.13.0
+	#required
+		|--extra-cmake-modules-6.5.0
+
+PKG: Chapter30.KDE                 Frameworks 6
+
+PKG: KDE Frameworks 6                   Pre-installation Configuration
+
+PKG: Building                   KDE Frameworks 6.5.0 (KF6)
+
+PKG: Chapter31.KDE                 Frameworks 6 Based Applications
+
+PKG: ark-24.08.0
+	#required
+		|--Building KDE Frameworks 6.5.0 (KF6)
+		|--libarchive-3.7.4
+	#recommended
+		|--cpio-2.15
+		|--p7zip-17.04
+		|--UnRar-7.0.9
+		|--UnZip-6.0
+		|--Zip-3.0
+
+PKG: dolphin-24.08.0
+	#required
+		|--Building KDE Frameworks 6.5.0 (KF6)
+
+PKG: dolphin-plugins-24.08.0
+	#required
+		|--dolphin-24.08.0
+
+PKG: kdenlive-24.08.0
+	#required
+		|--Building KDE Frameworks 6.5.0 (KF6)
+		|--mlt-7.26.0
+		|--v4l-utils-1.28.1
+	#recommended
+		|--breeze-icons-6.5.0
+
+PKG: khelpcenter-24.08.0
+	#required
+		|--Building KDE Frameworks 6.5.0 (KF6)
+		|--libxml2-2.13.3
+		|--Xapian-1.4.26
+	#recommended
+		|--QtWebEngine-6.7.2
+
+PKG: Konsole-24.08.0
+	#required
+		|--Building KDE Frameworks 6.5.0 (KF6)
+
+PKG: konversation-24.08.0
+	#required
+		|--Building KDE Frameworks 6.5.0 (KF6)
+
+PKG: libkexiv2-24.08.0
+	#required
+		|--Building KDE Frameworks 6.5.0 (KF6)
+		|--Exiv2-0.28.3
+
+PKG: plasma-activities-6.1.4
+	#required
+		|--boost-1.86.0
+		|--Building KDE Frameworks 6.5.0 (KF6)
+
+PKG: okular-24.08.0
+	#required
+		|--Building KDE Frameworks 6.5.0 (KF6)
+		|--plasma-activities-6.1.4
+	#recommended
+		|--libkexiv2-24.08.0
+		|--libtiff-4.6.0
+		|--Poppler-24.08.0
+	#optional
+		|--Qca-2.3.9
+
+PKG: libkdcraw-24.08.0
+	#required
+		|--Building KDE Frameworks 6.5.0 (KF6)
+		|--libraw-0.21.2
+
+PKG: gwenview-24.08.0
+	#required
+		|--Exiv2-0.28.3
+		|--kImageAnnotator-0.7.1
+		|--Building KDE Frameworks 6.5.0 (KF6)
+		|--Little CMS-2.16
+	#recommended
+		|--libkdcraw-24.08.0
+	#optional
+		|--plasma-activities-6.1.4
+
+PKG: libkcddb-24.08.0
+	#required
+		|--Building KDE Frameworks 6.5.0 (KF6)
+	#recommended
+		|--libmusicbrainz-5.1.0
+
+PKG: k3b-24.08.0
+	#required
+		|--Building KDE Frameworks 6.5.0 (KF6)
+		|--libkcddb-24.08.0
+		|--libsamplerate-0.2.2
+		|--shared-mime-info-2.4
+	#required
+		|--UDisks-2.10.1
+	#recommended
+		|--libburn-1.5.6
+		|--Libdvdread-6.1.3
+		|--Taglib-2.0.1
+	#recommended
+		|--Cdrtools-3.02a09
+		|--dvd+rw-tools-7.1
+		|--Cdrdao-1.2.4
+	#optional
+		|--FFmpeg-7.0.2
+	#optional
+		|--FLAC-1.4.3
+		|--LAME-3.100
+		|--libmad-0.15.1b
+		|--libsndfile-1.2.2
+		|--libvorbis-1.3.7
+
+PKG: Further KDE                   packages
+
+PKG: Chapter32.KDE                 Plasma
+
+PKG: kirigami-addons-1.4.0
+	#required
+		|--Building KDE Frameworks 6.5.0 (KF6)
+	#recommended
+		|--Vulkan-Loader-1.3.294
+
+PKG: pulseaudio-qt-1.5.0
+	#required
+		|--Building KDE Frameworks 6.5.0 (KF6)
+		|--PulseAudio-17.0
+
+PKG: Building                   Plasma
+
+PKG: Chapter33.GNOME Libraries and                 Desktop
+
+PKG: Libraries
+
+PKG: Gcr-3.41.2
+	#required
+		|--GLib-2.80.4
+		|--libgcrypt-1.11.0
+		|--p11-kit-0.25.5
+	#recommended
+		|--GnuPG-2.4.5
+		|--GTK+-3.24.43
+		|--libsecret-0.21.4
+		|--libxslt-1.1.42
+		|--Vala-0.56.17
+	#optional
+		|--Gi-DocGen-2024.1
+		|--Valgrind-3.23.0
+
+PKG: Gcr-4.3.0
+	#required
+		|--GLib-2.80.4
+		|--libgcrypt-1.11.0
+		|--p11-kit-0.25.5
+	#recommended
+		|--GnuPG-2.4.5
+		|--GTK-4.14.5
+		|--libsecret-0.21.4
+		|--libxslt-1.1.42
+		|--OpenSSH-9.8p1
+		|--Vala-0.56.17
+	#optional
+		|--Gi-DocGen-2024.1
+		|--GnuTLS-3.8.7.1
+		|--Valgrind-3.23.0
+
+PKG: gsettings-desktop-schemas-46.1
+	#required
+		|--GLib-2.80.4
+
+PKG: libsecret-0.21.4
+	#required
+		|--GLib-2.80.4
+	#recommended
+		|--libgcrypt-1.11.0
+		|--GnuTLS-3.8.7.1
+		|--Vala-0.56.17
+	#optional
+		|--Gi-DocGen-2024.1
+		|--docbook-xml-4.5
+		|--docbook-xsl-nons-1.79.2
+		|--libxslt-1.1.42
+		|--Valgrind-3.23.0
+	#optional
+		|--D-Bus Python-1.3.2
+		|--Gjs-1.80.2
+		|--PyGObject-3.48.2
+	#required
+		|--gnome-keyring-46.2
+
+PKG: rest-0.9.1
+	#required
+		|--JSON-GLib-1.8.0
+		|--libsoup-3.4.4
+		|--make-ca-1.14
+	#recommended
+		|--GLib-2.80.4
+	#optional
+		|--Gi-DocGen-2024.1
+		|--libadwaita-1.5.3
+		|--gtksourceview5-5.12.1
+		|--Vala-0.56.17
+
+PKG: totem-pl-parser-3.26.6
+	#recommended
+		|--GLib-2.80.4
+		|--libarchive-3.7.4
+		|--libgcrypt-1.11.0
+	#optional
+		|--CMake-3.30.2
+		|--GTK-Doc-1.34.0
+		|--Gvfs-1.54.2
+
+PKG: VTE-0.76.4
+	#required
+		|--GTK+-3.24.43
+		|--libxml2-2.13.3
+		|--PCRE2-10.44
+	#recommended
+		|--icu-75.1
+		|--GnuTLS-3.8.7.1
+		|--GLib-2.80.4
+		|--GTK-4.14.5
+		|--Vala-0.56.17
+	#optional
+		|--Gi-DocGen-2024.1
+
+PKG: yelp-xsl-42.1
+	#required
+		|--libxslt-1.1.42
+		|--itstool-2.0.7
+
+PKG: geocode-glib-3.26.4
+	#required
+		|--JSON-GLib-1.8.0
+		|--libsoup-3.4.4
+	#recommended
+		|--GLib-2.80.4
+	#optional
+		|--GTK-Doc-1.34.0
+
+PKG: Gjs-1.80.2
+	#required
+		|--Cairo-1.18.0
+		|--dbus-1.14.10
+		|--GLib-2.80.4
+		|--SpiderMonkey from firefox-115.14.0
+	#recommended
+		|--GTK+-3.24.43
+		|--GTK-4.14.5
+	#optional
+		|--Valgrind-3.23.0
+
+PKG: gnome-autoar-0.4.4
+	#required
+		|--libarchive-3.7.4
+		|--GTK+-3.24.43
+	#recommended
+		|--Vala-0.56.17
+	#optional
+		|--GTK-Doc-1.34.0
+
+PKG: gnome-desktop-44.1
+	#required
+		|--gsettings-desktop-schemas-46.1
+		|--GTK+-3.24.43
+		|--GTK-4.14.5
+		|--ISO Codes-4.16.0
+		|--itstool-2.0.7
+		|--libseccomp-2.5.5
+		|--libxml2-2.13.3
+		|--XKeyboardConfig-2.42
+	#recommended
+		|--Bubblewrap-0.9.0
+		|--GLib-2.80.4
+	#optional
+		|--GTK-Doc-1.34.0
+
+PKG: gnome-menus-3.36.0
+	#required
+		|--GLib-2.80.4
+
+PKG: gnome-online-accounts-3.50.4
+	#required
+		|--Gcr-4.3.0
+		|--JSON-GLib-1.8.0
+		|--libadwaita-1.5.3
+		|--rest-0.9.1
+		|--Vala-0.56.17
+	#recommended
+		|--GLib-2.80.4
+	#optional
+		|--GTK-Doc-1.34.0
+		|--MIT Kerberos V5-1.21.3
+		|--Valgrind-3.23.0
+
+PKG: Grilo-0.3.16
+	#required
+		|--GLib-2.80.4
+		|--libxml2-2.13.3
+	#recommended
+		|--GTK+-3.24.43
+		|--libsoup-3.4.4
+		|--totem-pl-parser-3.26.6
+		|--Vala-0.56.17
+	#optional
+		|--liboauth-1.0.3
+		|--GTK-Doc-1.34.0
+
+PKG: libgdata-0.18.1
+	#required
+		|--libsoup-2.74.3
+		|--gnome-online-accounts-3.50.4
+		|--GTK+-3.24.43
+		|--JSON-GLib-1.8.0
+		|--Vala-0.56.17
+	#recommended
+		|--Gcr-3.41.2
+		|--GLib-2.80.4
+	#optional
+		|--GTK-Doc-1.34.0
+		|--liboauth-1.0.3
+
+PKG: libgee-0.20.6
+	#required
+		|--GLib-2.80.4
+		|--Vala-0.56.17
+	#recommended
+		|--Vala-0.56.17
+	#optional
+
+PKG: libgtop-2.41.3
+	#required
+		|--GLib-2.80.4
+		|--Xorg Libraries
+	#optional
+		|--GTK-Doc-1.34.0
+
+PKG: libgweather-4.4.2
+	#required
+		|--geocode-glib-3.26.4
+		|--GTK+-3.24.43
+		|--libsoup-3.4.4
+		|--PyGObject-3.48.2
+	#recommended
+		|--GLib-2.80.4
+		|--libxml2-2.13.3
+		|--Vala-0.56.17
+	#optional
+		|--Gi-DocGen-2024.1
+		|--LLVM-18.1.7
+
+PKG: libpeas-1.36.0
+	#required
+		|--GLib-2.80.4
+		|--GTK+-3.24.43
+	#recommended
+		|--libxml2-2.13.3
+		|--PyGObject-3.48.2
+	#optional
+		|--Gi-DocGen-2024.1
+
+PKG: libshumate-1.2.3
+	#required
+		|--GTK-4.14.5
+		|--libsoup-3.4.4
+		|--Protobuf-c-1.5.0
+	#recommended
+		|--GLib-2.80.4
+	#optional
+		|--Gi-DocGen-2024.1
+		|--Valgrind-3.23.0
+
+PKG: evolution-data-server-3.52.4
+	#required
+		|--libical-3.0.18
+		|--libsecret-0.21.4
+		|--NSS-3.103
+		|--SQLite-3.46.1
+	#recommended
+		|--gnome-online-accounts-3.50.4
+		|--GLib-2.80.4
+		|--GTK+-3.24.43
+		|--GTK-4.14.5
+		|--icu-75.1
+		|--libcanberra-0.30
+		|--libgweather-4.4.2
+		|--Vala-0.56.17
+		|--WebKitGTK-2.44.3
+	#optional
+		|--GTK-Doc-1.34.0
+		|--MIT Kerberos V5-1.21.3
+		|--Chapter21.Mail Server Software
+		|--OpenLDAP-2.6.8
+
+PKG: Tracker-3.7.3
+	#required
+		|--JSON-GLib-1.8.0
+		|--libseccomp-2.5.5
+		|--Vala-0.56.17
+	#recommended
+		|--GLib-2.80.4
+		|--icu-75.1
+		|--libsoup-3.4.4
+		|--PyGObject-3.48.2
+		|--SQLite-3.46.1
+		|--Tracker-miners-3.7.3
+	#optional
+		|--Asciidoc-10.2.1
+		|--Avahi-0.8
+		|--Graphviz-12.1.0
+		|--libsoup-2.74.3
+
+PKG: Tracker-miners-3.7.3
+	#required
+		|--gst-plugins-base-1.24.7
+		|--Tracker-3.7.3
+		|--Exempi-2.6.5
+		|--gexiv2-0.14.3
+	#recommended
+		|--giflib-5.2.2
+		|--gst-plugins-good-1.24.7
+		|--gst-libav-1.24.7
+		|--icu-75.1
+		|--libexif-0.6.24
+		|--libgxps-0.3.2
+		|--libseccomp-2.5.5
+		|--Poppler-24.08.0
+		|--UPower-1.90.4
+	#optional
+		|--Asciidoc-10.2.1
+		|--CMake-3.30.2
+		|--DConf-0.40.0 / DConf-Editor-45.0.1
+		|--FFmpeg-7.0.2
+		|--libgsf-1.14.52
+		|--NetworkManager-1.48.8
+		|--Taglib-2.0.1
+		|--totem-pl-parser-3.26.6
+
+PKG: GSound-1.0.3
+	#required
+		|--libcanberra-0.30
+	#recommended
+		|--GLib-2.80.4
+		|--Vala-0.56.17
+	#optional
+		|--GTK-Doc-1.34.0
+
+PKG: xdg-desktop-portal-gnome-46.2
+	#required
+		|--gnome-backgrounds-46.0
+		|--gnome-desktop-44.1
+		|--GTK-4.14.5
+		|--libadwaita-1.5.3
+		|--xdg-desktop-portal-1.18.2
+		|--xdg-desktop-portal-gtk-1.15.1
+
+PKG: GNOME Desktop Components
+
+PKG: DConf-0.40.0 /                   DConf-Editor-45.0.1
+	#required
+		|--dbus-1.14.10
+		|--GLib-2.80.4
+		|--GTK+-3.24.43
+		|--libhandy-1.8.3
+		|--libxml2-2.13.3
+	#recommended
+		|--libxslt-1.1.42
+		|--Vala-0.56.17
+	#optional
+		|--GTK-Doc-1.34.0
+
+PKG: gnome-backgrounds-46.0
+	#required
+		|--libjxl-0.10.3
+
+PKG: Gvfs-1.54.2
+	#required
+		|--dbus-1.14.10
+		|--GLib-2.80.4
+		|--Gcr-4.3.0
+		|--libusb-1.0.27
+		|--libsecret-0.21.4
+	#recommended
+		|--GTK+-3.24.43
+		|--libcdio-2.1.0
+		|--libgudev-238
+		|--libsoup-3.4.4
+		|--Systemd-256.4
+		|--UDisks-2.10.1
+	#optional
+		|--Apache-2.4.62
+		|--Avahi-0.8
+		|--BlueZ-5.77
+		|--Fuse-3.16.2
+		|--gnome-online-accounts-3.50.4
+		|--GTK-Doc-1.34.0
+		|--libarchive-3.7.4
+		|--libgcrypt-1.11.0
+		|--libgdata-0.18.1
+		|--libxml2-2.13.3
+		|--libxslt-1.1.42
+		|--OpenSSH-9.8p1
+		|--Samba-4.20.4
+
+PKG: gexiv2-0.14.3
+	#required
+		|--Exiv2-0.28.3
+	#recommended
+		|--Vala-0.56.17
+	#optional
+		|--GTK-Doc-1.34.0
+
+PKG: Nautilus-46.2
+	#required
+		|--Bubblewrap-0.9.0
+		|--gexiv2-0.14.3
+		|--gnome-autoar-0.4.4
+		|--gnome-desktop-44.1
+		|--libadwaita-1.5.3
+		|--libnotify-0.8.3
+		|--libportal-0.7.1
+		|--libseccomp-2.5.5
+		|--Tracker-3.7.3
+	#recommended
+		|--desktop-file-utils-0.27
+		|--Exempi-2.6.5
+		|--GLib-2.80.4
+		|--gst-plugins-base-1.24.7
+		|--libcloudproviders-0.3.6
+		|--libexif-0.6.24
+	#optional
+		|--Gi-DocGen-2024.1
+	#recommended
+		|--adwaita-icon-theme-46.2
+		|--Gvfs-1.54.2
+
+PKG: gnome-bluetooth-46.1
+	#required
+		|--GTK-4.14.5
+		|--GSound-1.0.3
+		|--libnotify-0.8.3
+		|--UPower-1.90.4
+	#recommended
+		|--GLib-2.80.4
+		|--libadwaita-1.5.3
+	#optional
+		|--GTK-Doc-1.34.0
+		|--dbusmock-0.32.1
+	#optional
+		|--BlueZ-5.77
+
+PKG: gnome-keyring-46.2
+	#required
+		|--dbus-1.14.10
+		|--Gcr-3.41.2
+	#recommended
+		|--Linux-PAM-1.6.1
+		|--libxslt-1.1.42
+		|--OpenSSH-9.8p1
+	#optional
+		|--GnuPG-2.4.5
+		|--Valgrind-3.23.0
+
+PKG: gnome-settings-daemon-46.0
+	#required
+		|--alsa-lib-1.2.12
+		|--Colord-1.4.7
+		|--Fontconfig-2.15.0
+		|--Gcr-4.3.0
+		|--GeoClue-2.7.1
+		|--geocode-glib-3.26.4
+		|--gnome-desktop-44.1
+		|--Little CMS-2.16
+		|--libcanberra-0.30
+		|--libgweather-4.4.2
+		|--libnotify-0.8.3
+		|--libwacom-2.12.2
+		|--PulseAudio-17.0
+		|--UPower-1.90.4
+	#recommended
+		|--Cups-2.4.10
+		|--NetworkManager-1.48.8
+		|--NSS-3.103
+		|--Wayland-1.23.0
+	#optional
+		|--gnome-session-46.0
+		|--Mutter-46.4
+		|--dbusmock-0.32.1
+		|--Umockdev-0.18.3
+		|--Xorg-Server-21.1.13
+		|--Xwayland-24.1.2
+
+PKG: Tecla-46.0
+	#required
+		|--libadwaita-1.5.3
+		|--libxkbcommon-1.7.0
+
+PKG: gnome-control-center-46.4
+	#required
+		|--AccountsService-23.13.9
+		|--colord-gtk-0.3.1
+		|--gnome-online-accounts-3.50.4
+		|--gnome-settings-daemon-46.0
+		|--GSound-1.0.3
+		|--libadwaita-1.5.3
+		|--libgtop-2.41.3
+		|--libpwquality-1.4.5
+		|--MIT Kerberos V5-1.21.3
+		|--shared-mime-info-2.4
+		|--Tecla-46.0
+		|--UDisks-2.10.1
+	#recommended
+		|--Cups-2.4.10
+		|--Samba-4.20.4
+		|--gnome-bluetooth-46.1
+		|--ibus-1.5.30
+		|--ModemManager-1.18.12
+		|--libnma-1.10.6
+	#optional
+		|--Xorg-Server-21.1.13
+		|--Xwayland-24.1.2
+		|--dbusmock-0.32.1
+	#optional
+		|--cups-pk-helper-0.2.7
+		|--gnome-color-manager-3.36.0
+		|--gnome-shell-46.4
+		|--sound-theme-freedesktop-0.8
+
+PKG: Mutter-46.4
+	#required
+		|--gnome-settings-daemon-46.0
+		|--Graphene-1.10.8
+		|--libei-1.3.0
+		|--libxcvt-0.1.2
+		|--libxkbcommon-1.7.0
+		|--Pipewire-1.2.3
+	#recommended
+		|--desktop-file-utils-0.27
+		|--GLib-2.80.4
+		|--startup-notification-0.12
+	#recommended
+		|--libinput-1.26.1
+		|--Wayland-1.23.0
+		|--Wayland-Protocols-1.36
+		|--Xwayland-24.1.2
+	#optional
+		|--dbusmock-0.32.1
+		|--libdisplay-info-0.2.0
+		|--Xorg-Server-21.1.13
+
+PKG: gnome-shell-46.4
+	#required
+		|--evolution-data-server-3.52.4
+		|--Gcr-4.3.0
+		|--Gjs-1.80.2
+		|--gnome-desktop-44.1
+		|--ibus-1.5.30
+		|--Mutter-46.4
+		|--Polkit-125
+		|--sassc-3.6.2
+		|--startup-notification-0.12
+	#recommended
+		|--desktop-file-utils-0.27
+		|--gnome-autoar-0.4.4
+		|--gnome-bluetooth-46.1
+		|--gst-plugins-base-1.24.7
+		|--NetworkManager-1.48.8
+		|--Power-profiles-daemon-0.21
+	#optional
+		|--GTK-Doc-1.34.0
+	#required
+		|--adwaita-icon-theme-46.2
+		|--DConf-0.40.0 / DConf-Editor-45.0.1
+		|--GDM-46.2
+		|--gnome-backgrounds-46.0
+		|--gnome-control-center-46.4
+		|--gnome-menus-3.36.0
+		|--libgweather-4.4.2
+		|--Systemd-256.4
+
+PKG: gnome-shell-extensions-46.2
+	#required
+		|--libgtop-2.41.3
+	#optional
+		|--sassc-3.6.2
+
+PKG: gnome-session-46.0
+	#required
+		|--gnome-desktop-44.1
+		|--JSON-GLib-1.8.0
+		|--Mesa-24.1.5
+		|--Systemd-256.4
+		|--UPower-1.90.4
+	#optional
+		|--xmlto-0.0.29
+		|--libxslt-1.1.42
+		|--docbook-xml-4.5
+		|--docbook-xsl-nons-1.79.2
+
+PKG: gnome-tweaks-46.1
+	#required
+		|--GTK-4.14.5
+		|--gsettings-desktop-schemas-46.1
+		|--libadwaita-1.5.3
+		|--libgudev-238
+		|--PyGObject-3.48.2
+		|--sound-theme-freedesktop-0.8
+
+PKG: gnome-user-docs-46.4
+	#required
+		|--itstool-2.0.7
+		|--libxml2-2.13.3
+
+PKG: Yelp-42.2
+	#required
+		|--gsettings-desktop-schemas-46.1
+		|--WebKitGTK-2.44.3
+		|--yelp-xsl-42.1
+	#recommended
+		|--desktop-file-utils-0.27
+	#optional
+		|--GTK-Doc-1.34.0
+
+PKG: Chapter34.
+
+PKG: Baobab-46.0
+	#required
+		|--adwaita-icon-theme-46.2
+		|--GTK-4.14.5
+		|--itstool-2.0.7
+		|--libadwaita-1.5.3
+		|--Vala-0.56.17
+
+PKG: Brasero-3.12.3
+	#required
+		|--gst-plugins-base-1.24.7
+		|--itstool-2.0.7
+		|--libcanberra-0.30
+		|--libnotify-0.8.3
+	#recommended
+		|--GLib-2.80.4
+		|--libburn-1.5.6
+		|--libisoburn-1.5.6
+		|--libisofs-1.5.6
+		|--Nautilus-46.2
+		|--Tracker-3.7.3
+		|--totem-pl-parser-3.26.6
+	#optional
+		|--GTK-Doc-1.34.0
+	#recommended
+		|--dvd+rw-tools-7.1
+		|--Gvfs-1.54.2
+	#optional
+		|--Cdrdao-1.2.4
+		|--libdvdcss-1.4.3
+		|--Cdrtools-3.02a09
+
+PKG: EOG-45.4
+	#required
+		|--adwaita-icon-theme-46.2
+		|--Exempi-2.6.5
+		|--gnome-desktop-44.1
+		|--libhandy-1.8.3
+		|--libjpeg-turbo-3.0.1
+		|--libpeas-1.36.0
+		|--shared-mime-info-2.4
+	#recommended
+		|--GLib-2.80.4
+		|--Little CMS-2.16
+		|--libexif-0.6.24
+		|--librsvg-2.58.3
+		|--webp-pixbuf-loader-0.2.7
+	#optional
+		|--GTK-Doc-1.34.0
+		|--libportal-0.7.1
+
+PKG: Evince-46.3.1
+	#required
+		|--adwaita-icon-theme-46.2
+		|--gsettings-desktop-schemas-46.1
+		|--GTK+-3.24.43
+		|--itstool-2.0.7
+		|--libhandy-1.8.3
+		|--libxml2-2.13.3
+		|--OpenJPEG-2.5.2
+	#recommended
+		|--gnome-keyring-46.2
+		|--GLib-2.80.4
+		|--libarchive-3.7.4
+		|--libsecret-0.21.4
+		|--Poppler-24.08.0
+	#optional
+		|--Cups-2.4.10
+		|--gnome-desktop-44.1
+		|--gspell-1.12.2
+		|--gst-plugins-base-1.24.7
+		|--Gi-DocGen-2024.1
+		|--libgxps-0.3.2
+		|--libtiff-4.6.0
+		|--texlive-20240312-source
+		|--install-tl-unx
+
+PKG: Evolution-3.52.4
+	#required
+		|--adwaita-icon-theme-46.2
+		|--evolution-data-server-3.52.4
+		|--Gcr-4.3.0
+		|--gnome-autoar-0.4.4
+		|--shared-mime-info-2.4
+		|--WebKitGTK-2.44.3
+	#recommended
+		|--Bogofilter-1.2.5
+		|--enchant-2.8.2
+		|--gnome-desktop-44.1
+		|--gspell-1.12.2
+		|--Highlight-4.13
+		|--itstool-2.0.7
+		|--libcanberra-0.30
+		|--libgweather-4.4.2
+		|--libnotify-0.8.3
+		|--OpenLDAP-2.6.8
+		|--Seahorse-43.0
+	#optional
+		|--GeoClue-2.7.1
+		|--geocode-glib-3.26.4
+		|--GTK-Doc-1.34.0
+
+PKG: File-Roller-44.3
+	#required
+		|--GTK-4.14.5
+		|--itstool-2.0.7
+	#recommended
+		|--cpio-2.15
+		|--desktop-file-utils-0.27
+		|--JSON-GLib-1.8.0
+		|--libarchive-3.7.4
+		|--libadwaita-1.5.3
+		|--libportal-0.7.1
+		|--Nautilus-46.2
+	#optional
+		|--Gi-DocGen-2024.1
+	#optional
+		|--UnRar-7.0.9
+		|--UnZip-6.0
+		|--Zip-3.0
+
+PKG: gnome-calculator-46.1
+	#required
+		|--gtksourceview5-5.12.1
+		|--itstool-2.0.7
+		|--libadwaita-1.5.3
+		|--libgee-0.20.6
+		|--libsoup-3.4.4
+	#recommended
+		|--Vala-0.56.17
+
+PKG: gnome-color-manager-3.36.0
+	#required
+		|--Colord-1.4.7
+		|--GTK+-3.24.43
+		|--itstool-2.0.7
+		|--Little CMS-2.16
+		|--libcanberra-0.30
+		|--libexif-0.6.24
+	#recommended
+		|--desktop-file-utils-0.27
+	#optional
+		|--appstream-glib-0.8.3
+		|--DocBook-utils-0.6.14
+
+PKG: gnome-connections-46.0
+	#required
+		|--AppStream-1.0.3
+		|--FreeRDP-3.7.0
+		|--gtk-vnc-1.3.1
+		|--itstool-2.0.7
+		|--libhandy-1.8.3
+		|--Vala-0.56.17
+
+PKG: gnome-disk-utility-46.0
+	#required
+		|--gnome-settings-daemon-46.0
+		|--itstool-2.0.7
+		|--Libdvdread-6.1.3
+		|--libhandy-1.8.3
+		|--libpwquality-1.4.5
+		|--libsecret-0.21.4
+		|--UDisks-2.10.1
+	#optional
+		|--appstream-glib-0.8.3
+
+PKG: gnome-logs-45.0
+	#required
+		|--GTK-4.14.5
+		|--gsettings-desktop-schemas-46.1
+		|--itstool-2.0.7
+		|--libadwaita-1.5.3
+
+PKG: gnome-maps-46.11
+	#required
+		|--desktop-file-utils-0.27
+		|--GeoClue-2.7.1
+		|--geocode-glib-3.26.4
+		|--Gjs-1.80.2
+		|--libadwaita-1.5.3
+		|--libportal-0.7.1
+		|--libshumate-1.2.3
+		|--libgweather-4.4.2
+		|--rest-0.9.1
+
+PKG: gnome-nettool-42.0
+	#required
+		|--GTK+-3.24.43
+		|--itstool-2.0.7
+		|--libgtop-2.41.3
+	#optional
+		|--BIND Utilities-9.20.0
+		|--Nmap-7.95
+		|--Net-tools-2.10
+		|--Traceroute-2.1.5
+		|--Whois-5.4.3
+
+PKG: gnome-power-manager-43.0
+	#required
+		|--GTK+-3.24.43
+		|--UPower-1.90.4
+	#optional
+		|--appstream-glib-0.8.3
+		|--DocBook-utils-0.6.14
+
+PKG: gnome-screenshot-41.0
+	#required
+		|--GTK+-3.24.43
+		|--libcanberra-0.30
+		|--libhandy-1.8.3
+
+PKG: gnome-system-monitor-46.0
+	#required
+		|--adwaita-icon-theme-46.2
+		|--Gtkmm-4.14.0
+		|--itstool-2.0.7
+		|--libgtop-2.41.3
+		|--libadwaita-1.5.3
+		|--librsvg-2.58.3
+	#optional
+		|--appstream-glib-0.8.3
+		|--desktop-file-utils-0.27
+
+PKG: gnome-terminal-3.52.2
+	#required
+		|--DConf-0.40.0 / DConf-Editor-45.0.1
+		|--gnome-shell-46.4
+		|--gsettings-desktop-schemas-46.1
+		|--itstool-2.0.7
+		|--libhandy-1.8.3
+		|--PCRE2-10.44
+		|--VTE-0.76.4
+	#recommended
+		|--Nautilus-46.2
+	#optional
+		|--appstream-glib-0.8.3
+		|--desktop-file-utils-0.27
+
+PKG: gnome-weather-46.0
+	#required
+		|--GeoClue-2.7.1
+		|--Gjs-1.80.2
+		|--libadwaita-1.5.3
+		|--libgweather-4.4.2
+	#optional
+		|--appstream-glib-0.8.3
+
+PKG: Gucharmap-15.1.5
+	#required
+		|--desktop-file-utils-0.27
+		|--gsettings-desktop-schemas-46.1
+		|--GTK+-3.24.43
+		|--itstool-2.0.7
+		|--PCRE2-10.44
+		|--UnZip-6.0
+	#recommended
+		|--GLib-2.80.4
+		|--Vala-0.56.17
+	#optional
+		|--appstream-glib-0.8.3
+		|--GTK-Doc-1.34.0
+
+PKG: Seahorse-43.0
+	#required
+		|--Gcr-3.41.2
+		|--GnuPG-2.4.5
+		|--GPGME-1.23.2
+		|--itstool-2.0.7
+		|--libhandy-1.8.3
+		|--libpwquality-1.4.5
+		|--libsecret-0.21.4
+		|--Vala-0.56.17
+	#recommended
+		|--libsoup-3.4.4
+		|--p11-kit-0.25.5
+		|--OpenSSH-9.8p1
+	#optional
+		|--Avahi-0.8
+	#required
+		|--gnome-keyring-46.2
+
+PKG: Snapshot-46.3
+	#required
+		|--libadwaita-1.5.3
+		|--gst-plugins-bad-1.24.7
+		|--Rustc-1.80.1
+	#required
+		|--Pipewire-1.2.3
+
+PKG: Chapter35.Xfce Desktop
+
+PKG: libxfce4util-4.18.2
+	#required
+		|--GLib-2.80.4
+	#recommended
+		|--Vala-0.56.17
+	#optional
+		|--GTK-Doc-1.34.0
+
+PKG: Xfconf-4.18.3
+	#required
+		|--libxfce4util-4.18.2
+	#optional
+		|--GTK-Doc-1.34.0
+		|--Vala-0.56.17
+
+PKG: libxfce4ui-4.18.6
+	#required
+		|--GTK+-3.24.43
+		|--Xfconf-4.18.3
+	#recommended
+		|--startup-notification-0.12
+	#optional
+		|--GTK-Doc-1.34.0
+		|--libgtop-2.41.3
+		|--libgudev-238
+
+PKG: Exo-4.18.0
+	#required
+		|--GTK+-3.24.43
+		|--libxfce4ui-4.18.6
+		|--libxfce4util-4.18.2
+	#optional
+		|--GTK-Doc-1.34.0
+
+PKG: Garcon-4.18.2
+	#required
+		|--libxfce4ui-4.18.6
+		|--GTK+-3.24.43
+	#optional
+		|--GTK-Doc-1.34.0
+
+PKG: libwnck-43.0
+	#required
+		|--GTK+-3.24.43
+	#recommended
+		|--GLib-2.80.4
+		|--startup-notification-0.12
+	#optional
+		|--GTK-Doc-1.34.0
+
+PKG: xfce4-panel-4.18.6
+	#required
+		|--Cairo-1.18.0
+		|--Exo-4.18.0
+		|--Garcon-4.18.2
+		|--libwnck-43.0
+	#optional
+		|--GTK-Doc-1.34.0
+
+PKG: thunar-4.18.11
+	#required
+		|--Exo-4.18.0
+	#required
+		|--hicolor-icon-theme-0.18
+	#recommended
+		|--libgudev-238
+		|--libnotify-0.8.3
+		|--PCRE2-10.44
+	#optional
+		|--GTK-Doc-1.34.0
+		|--Gvfs-1.54.2
+		|--libexif-0.6.24
+		|--tumbler-4.18.2
+
+PKG: thunar-volman-4.18.0
+	#required
+		|--Exo-4.18.0
+		|--libgudev-238
+	#recommended
+		|--libnotify-0.8.3
+	#recommended
+		|--Gvfs-1.54.2
+
+PKG: tumbler-4.18.2
+	#required
+		|--GLib-2.80.4
+	#optional
+		|--cURL-8.9.1
+		|--FreeType-2.13.3
+		|--gdk-pixbuf-2.42.12
+		|--gst-plugins-base-1.24.7
+		|--GTK-Doc-1.34.0
+		|--libjpeg-turbo-3.0.1
+		|--libgsf-1.14.52
+		|--libpng-1.6.43
+		|--Poppler-24.08.0
+
+PKG: xfce4-appfinder-4.18.1
+	#required
+		|--Garcon-4.18.2
+
+PKG: xfce4-power-manager-4.18.4
+	#required
+		|--libnotify-0.8.3
+		|--UPower-1.90.4
+		|--xfce4-panel-4.18.6
+	#recommended
+		|--Polkit-125
+	#optional
+		|--NetworkManager-1.48.8
+
+PKG: xfce4-settings-4.18.6
+	#required
+		|--Exo-4.18.0
+		|--Garcon-4.18.2
+	#required
+		|--gnome-icon-theme-3.12.0
+		|--lxde-icon-theme-0.5.1
+	#recommended
+		|--libcanberra-0.30
+		|--libnotify-0.8.3
+		|--libxklavier-5.4
+	#optional
+		|--Colord-1.4.7
+		|--libinput-1.26.1
+		|--UPower-1.90.4
+
+PKG: Xfdesktop-4.18.1
+	#required
+		|--Exo-4.18.0
+		|--libwnck-43.0
+	#recommended
+		|--libnotify-0.8.3
+		|--startup-notification-0.12
+		|--thunar-4.18.11
+
+PKG: Xfwm4-4.18.0
+	#required
+		|--libwnck-43.0
+		|--libxfce4ui-4.18.6
+	#recommended
+		|--startup-notification-0.12
+
+PKG: xfce4-session-4.18.4
+	#required
+		|--libwnck-43.0
+		|--libxfce4ui-4.18.6
+	#recommended
+		|--desktop-file-utils-0.27
+		|--XScreenSaver-6.09
+		|--shared-mime-info-2.4
+		|--polkit-gnome-0.105
+	#required
+		|--Xfdesktop-4.18.1
+
+PKG: Chapter36.Xfce Applications
+
+PKG: Parole-4.18.1
+	#required
+		|--dbus-glib-0.112
+		|--gst-plugins-base-1.24.7
+		|--gst-plugins-good-1.24.7
+		|--libxfce4ui-4.18.6
+	#recommended
+		|--libnotify-0.8.3
+		|--Taglib-2.0.1
+	#optional
+		|--GTK-Doc-1.34.0
+
+PKG: xfce4-terminal-1.1.3
+	#required
+		|--libxfce4ui-4.18.6
+		|--VTE-0.76.4
+
+PKG: Xfburn-0.7.2
+	#required
+		|--Exo-4.18.0
+		|--libburn-1.5.6
+		|--libisofs-1.5.6
+		|--libxfce4ui-4.18.6
+	#optional
+		|--gst-plugins-base-1.24.7
+		|--Cdrdao-1.2.4
+
+PKG: Ristretto-0.13.2
+	#required
+		|--libexif-0.6.24
+		|--libxfce4ui-4.18.6
+	#optional
+		|--tumbler-4.18.2
+
+PKG: xfce4-dev-tools-4.18.1
+	#required
+		|--GLib-2.80.4
+
+PKG: xfce4-notifyd-0.9.6
+	#required
+		|--libnotify-0.8.3
+		|--libxfce4ui-4.18.6
+		|--libcanberra-0.30
+		|--xfce4-dev-tools-4.18.1
+		|--xfce4-panel-4.18.6
+
+PKG: xfce4-pulseaudio-plugin-0.4.8
+	#required
+		|--libnotify-0.8.3
+		|--PulseAudio-17.0
+		|--xfce4-panel-4.18.6
+	#recommended
+		|--keybinder-3.0-0.3.2
+		|--pavucontrol-6.1
+
+PKG: Chapter37.LXQt Desktop
+
+PKG: LXQt                   Desktop Pre-Install Instructions
+
+PKG: KF5, Plasma, and Misc Dependencies
+
+PKG: kwindowsystem-6.5.0 for lxqt
+	#required
+		|--extra-cmake-modules-6.5.0
+		|--plasma-wayland-protocols-1.13.0
+		|--Qt-6.7.2
+		|--Xorg Libraries
+
+PKG: kconfig-6.5.0                   for lxqt
+	#required
+		|--extra-cmake-modules-6.5.0
+		|--Qt-6.7.2
+
+PKG: solid-6.5.0 for                   lxqt
+	#required
+		|--extra-cmake-modules-6.5.0
+		|--Qt-6.7.2
+	#optional
+		|--UDisks-2.10.1
+		|--UPower-1.90.4
+
+PKG: kidletime-6.5.0 for lxqt
+	#required
+		|--extra-cmake-modules-6.5.0
+		|--plasma-wayland-protocols-1.13.0
+		|--Qt-6.7.2
+
+PKG: kwayland-6.1.4 for lxqt
+	#required
+		|--extra-cmake-modules-6.5.0
+		|--Mesa-24.1.5
+		|--Wayland-1.23.0
+		|--plasma-wayland-protocols-1.13.0
+		|--Qt-6.7.2
+
+PKG: libkscreen-6.1.4 for lxqt
+	#required
+		|--plasma-wayland-protocols-1.13.0
+		|--Qt-6.7.2
+
+PKG: layer-shell-qt-6.1.4 for lxqt
+	#required
+		|--extra-cmake-modules-6.5.0
+		|--Qt-6.7.2
+
+PKG: muparser-2.3.4
+	#required
+		|--CMake-3.30.2
+
+PKG: LXQt Desktop Components
+
+PKG: lxqt-build-tools-2.0.0
+	#required
+		|--CMake-3.30.2
+		|--Qt-6.7.2
+
+PKG: libqtxdg-4.0.0
+	#required
+		|--CMake-3.30.2
+		|--Qt-6.7.2
+	#optional
+		|--GTK+-3.24.43
+
+PKG: lxqt-menu-data-2.0.0
+	#required
+		|--lxqt-build-tools-2.0.0
+
+PKG: liblxqt-2.0.0
+	#required
+		|--libqtxdg-4.0.0
+		|--kwindowsystem-6.5.0 for lxqt
+		|--Polkit-Qt-0.200.0
+
+PKG: libsysstat-1.0.0
+	#required
+		|--lxqt-build-tools-2.0.0
+
+PKG: qtxdg-tools-4.0.0
+	#required
+		|--libqtxdg-4.0.0
+
+PKG: libfm-extra-1.3.2
+	#required
+		|--GLib-2.80.4
+
+PKG: menu-cache-1.1.0
+	#required
+		|--libfm-extra-1.3.2
+	#optional
+		|--GTK-Doc-1.34.0
+		|--xdg-utils-1.2.1
+
+PKG: libfm-qt-2.0.2
+	#required
+		|--CMake-3.30.2
+		|--libexif-0.6.24
+		|--menu-cache-1.1.0
+		|--Qt-6.7.2
+
+PKG: lxqt-globalkeys-2.0.0
+	#required
+		|--liblxqt-2.0.0
+
+PKG: libdbusmenu-lxqt-0.1.0
+	#required
+		|--CMake-3.30.2
+	#optional
+
+PKG: lxqt-qtplugin-2.0.0
+	#required
+		|--liblxqt-2.0.0
+		|--libdbusmenu-lxqt-0.1.0
+
+PKG: lxqt-panel-2.0.1
+	#required
+		|--layer-shell-qt-6.1.4 for lxqt
+		|--libdbusmenu-lxqt-0.1.0
+		|--liblxqt-2.0.0
+		|--lxqt-globalkeys-2.0.0
+		|--lxqt-menu-data-2.0.0
+		|--solid-6.5.0 for lxqt
+		|--menu-cache-1.1.0
+	#recommended
+		|--PulseAudio-17.0
+		|--libstatgrab-0.92.1
+		|--libsysstat-1.0.0
+		|--libxkbcommon-1.7.0
+		|--Lm-sensors-3-6-0
+
+PKG: pcmanfm-qt-2.0.0
+	#required
+		|--layer-shell-qt-6.1.4 for lxqt
+		|--liblxqt-2.0.0
+		|--libfm-qt-2.0.2
+		|--lxqt-menu-data-2.0.0
+	#recommended
+		|--Gvfs-1.54.2
+		|--oxygen-icons-6.0.0
+
+PKG: lxqt-powermanagement-2.0.0
+	#required
+		|--liblxqt-2.0.0
+		|--kidletime-6.5.0 for lxqt
+		|--solid-6.5.0 for lxqt
+		|--UPower-1.90.4
+
+PKG: lxqt-runner-2.0.0
+	#required
+		|--lxqt-globalkeys-2.0.0
+		|--kwindowsystem-6.5.0 for lxqt
+		|--muparser-2.3.4
+
+PKG: lxqt-themes-2.0.0
+	#required
+		|--lxqt-build-tools-2.0.0
+
+PKG: lxqt-admin-2.0.0
+	#required
+		|--liblxqt-2.0.0
+		|--Polkit-125
+
+PKG: lxqt-about-2.0.0
+	#required
+		|--liblxqt-2.0.0
+
+PKG: lxqt-config-2.0.0
+	#required
+		|--liblxqt-2.0.0
+		|--kconfig-6.5.0 for lxqt
+		|--libkscreen-6.1.4 for lxqt
+		|--Xorg Libinput Driver-1.4.0
+
+PKG: lxqt-policykit-2.0.0
+	#required
+		|--liblxqt-2.0.0
+		|--Polkit-Qt-0.200.0
+
+PKG: lxqt-sudo-2.0.0
+	#required
+		|--liblxqt-2.0.0
+
+PKG: lxqt-openssh-askpass-2.0.1
+	#required
+		|--liblxqt-2.0.0
+
+PKG: lxqt-session-2.0.0
+	#required
+		|--liblxqt-2.0.0
+		|--qtxdg-tools-4.0.0
+		|--Xdg-user-dirs-0.18
+
+PKG: xdg-desktop-portal-lxqt-1.0.2
+	#required
+		|--libfm-qt-2.0.2
+		|--kwindowsystem-6.5.0 for lxqt
+		|--xdg-desktop-portal-1.18.2
+
+PKG: obconf-qt-0.16.4
+	#required
+		|--hicolor-icon-theme-0.18
+		|--lxqt-build-tools-2.0.0
+		|--openbox-3.6.1
+		|--Qt-6.7.2
+
+PKG: LXQt                   Desktop Final Instructions
+	#required
+		|--openbox-3.6.1
+		|--Xfwm4-4.18.0
+		|--Building Plasma
+		|--IceWM-3.6.0
+	#recommended
+		|--breeze-icons-6.5.0
+		|--desktop-file-utils-0.27
+	#optional
+		|--lightdm-1.32.0
+		|--sddm-0.21.0
+		|--XScreenSaver-6.09
+
+PKG: Chapter38.LXQt Applications
+
+PKG: lximage-qt-2.0.1
+	#required
+		|--libfm-qt-2.0.2
+
+PKG: lxqt-archiver-1.0.0
+	#required
+		|--libfm-qt-2.0.2
+		|--liblxqt-2.0.0
+		|--JSON-GLib-1.8.0
+
+PKG: lxqt-notificationd-2.0.1
+	#required
+		|--liblxqt-2.0.0
+
+PKG: pavucontrol-qt-2.0.0
+	#required
+		|--liblxqt-2.0.0
+		|--PulseAudio-17.0
+		|--GLib-2.80.4
+
+PKG: qps-2.9.0
+	#required
+		|--liblxqt-2.0.0
+
+PKG: qtermwidget-2.0.1
+	#required
+		|--Qt-6.7.2
+
+PKG: qterminal-2.0.1
+	#required
+		|--qtermwidget-2.0.1
+
+PKG: screengrab-2.8.0
+	#required
+		|--kwindowsystem-6.5.0 for lxqt
+		|--libqtxdg-4.0.0
+
+PKG: Chapter39.Office Programs
+
+PKG: AbiWord-3.0.5
+	#required
+		|--boost-1.86.0
+		|--cURL-8.9.1
+		|--FriBidi-1.0.15
+		|--GOffice-0.10.57
+		|--wv-1.2.9
+	#recommended
+		|--enchant-2.8.2
+	#optional
+		|--dbus-glib-0.112
+		|--evolution-data-server-3.52.4
+		|--GLib-2.80.4
+		|--libgcrypt-1.11.0
+		|--libical-3.0.18
+		|--libsoup-2.74.3
+		|--Redland-1.0.17
+		|--Valgrind-3.23.0
+
+PKG: Gnumeric-1.12.57
+	#required
+		|--GOffice-0.10.57
+		|--itstool-2.0.7
+	#recommended
+		|--adwaita-icon-theme-46.2
+		|--oxygen-icons-6.0.0
+		|--gnome-icon-theme-3.12.0
+		|--Chapter24.Graphical Environments
+		|--Yelp-42.2
+	#optional
+		|--DConf-0.40.0 / DConf-Editor-45.0.1
+		|--GLib-2.80.4
+		|--PyGObject-3.48.2
+		|--Valgrind-3.23.0
+
+PKG: LibreOffice-24.8.0
+	#required
+		|--Archive::Zip-1.68
+		|--UnZip-6.0
+		|--Wget-1.24.5
+		|--Which-2.21 and Alternatives
+		|--Zip-3.0
+	#recommended
+		|--apache-ant-1.10.14
+		|--boost-1.86.0
+		|--CLucene-2.3.3.4
+		|--Cups-2.4.10
+		|--cURL-8.9.1
+		|--libepoxy-1.5.10
+		|--libjpeg-turbo-3.0.1
+		|--LLVM-18.1.7
+		|--GLM-1.0.1
+		|--GLU-9.0.3
+		|--GPGME-1.23.2
+		|--Graphite2-1.3.14
+		|--gst-plugins-base-1.24.7
+		|--GTK+-3.24.43
+		|--harfBuzz-9.0.0
+		|--icu-75.1
+		|--libatomic_ops-7.8.2
+		|--Little CMS-2.16
+		|--librsvg-2.58.3
+		|--libtiff-4.6.0
+		|--libwebp-1.4.0
+		|--libxml2-2.13.3
+		|--libxslt-1.1.42
+		|--lxml-5.3.0
+		|--Mesa-24.1.5
+		|--NSS-3.103
+		|--OpenLDAP-2.6.8
+		|--Poppler-24.08.0
+		|--PostgreSQL-16.4
+		|--Redland-1.0.17
+		|--unixODBC-2.3.12
+	#optional
+		|--Abseil-cpp-20240722.0
+		|--Avahi-0.8
+		|--BlueZ-5.77
+		|--DConf-0.40.0 / DConf-Editor-45.0.1
+		|--desktop-file-utils-0.27
+		|--Doxygen-1.12.0
+		|--evolution-data-server-3.52.4
+		|--GDB-15.1
+		|--GnuTLS-3.8.7.1
+		|--Building KDE Frameworks 6.5.0 (KF6)
+		|--libpaper-2.2.5
+		|--MariaDB-10.11.8
+		|--MIT Kerberos V5-1.21.3
+		|--NASM-2.16.03
+		|--Qt-6.7.2
+		|--SANE-1.2.1
+		|--Valgrind-3.23.0
+		|--VLC-3.0.21
+
+PKG: Chapter40.Graphical Web                 Browsers
+
+PKG: Epiphany-46.3
+	#required
+		|--Gcr-4.3.0
+		|--gnome-desktop-44.1
+		|--ISO Codes-4.16.0
+		|--JSON-GLib-1.8.0
+		|--libadwaita-1.5.3
+		|--libportal-0.7.1
+		|--Nettle-3.10
+		|--WebKitGTK-2.44.3
+	#optional
+		|--appstream-glib-0.8.3
+	#optional
+		|--gnome-keyring-46.2
+		|--Seahorse-43.0
+
+PKG: falkon-24.08.0
+	#required
+		|--extra-cmake-modules-6.5.0
+		|--Building KDE Frameworks 6.5.0 (KF6)
+		|--QtWebEngine-6.7.2
+	#optional
+		|--gnome-keyring-46.2
+
+PKG: Firefox-128.1.0esr
+	#required
+		|--Cbindgen-0.27.0
+		|--GTK+-3.24.43
+		|--libnotify-0.8.3
+		|--LLVM-18.1.7
+		|--Node.js-20.16.0
+		|--PulseAudio-17.0
+		|--alsa-lib-1.2.12
+		|--Python-3.12.5
+		|--SQLite-3.46.1
+		|--startup-notification-0.12
+		|--UnZip-6.0
+	#recommended
+		|--icu-75.1
+		|--libevent-2.1.12
+		|--libvpx-1.14.1
+		|--libwebp-1.4.0
+		|--NASM-2.16.03
+		|--NSS-3.103
+	#optional
+		|--cURL-8.9.1
+		|--Doxygen-1.12.0
+		|--FFmpeg-7.0.2
+		|--GeoClue-2.7.1
+		|--liboauth-1.0.3
+		|--pciutils-3.13.0
+		|--Valgrind-3.23.0
+		|--Wget-1.24.5
+		|--Wireless Tools-29
+		|--yasm-1.3.0
+
+PKG: Seamonkey-2.53.18.2
+	#required
+		|--Cbindgen-0.27.0
+		|--GTK+-3.24.43
+		|--Node.js-20.16.0
+		|--Python-3.11.1
+		|--UnZip-6.0
+		|--yasm-1.3.0
+		|--Zip-3.0
+	#recommended
+		|--icu-75.1
+		|--libevent-2.1.12
+		|--libwebp-1.4.0
+		|--LLVM-18.1.7
+		|--NASM-2.16.03
+		|--NSPR-4.35
+		|--NSS-3.103
+		|--PulseAudio-17.0
+	#optional
+		|--alsa-lib-1.2.12
+		|--dbus-glib-0.112
+		|--startup-notification-0.12
+		|--Valgrind-3.23.0
+		|--Wget-1.24.5
+		|--Wireless Tools-29
+
+PKG: Chapter41.Other X-based                 Programs
+
+PKG: Balsa-2.6.4
+	#required
+		|--Aspell-0.60.8.1
+		|--enchant-2.8.2
+		|--GMime-3.2.7
+		|--GPGME-1.23.2
+		|--GTK+-3.24.43
+		|--libnotify-0.8.3
+	#required
+		|--Chapter21.Mail Server Software
+	#optional
+		|--Compface-1.5.2
+		|--Gcr-3.41.2
+		|--gtksourceview-3.24.11
+		|--libcanberra-0.30
+		|--libsecret-0.21.4
+		|--MIT Kerberos V5-1.21.3
+		|--OpenLDAP-2.6.8
+		|--Procmail-3.24
+		|--SQLite-3.46.1
+		|--WebKitGTK-2.44.3
+
+PKG: feh-3.10.3
+	#required
+		|--libpng-1.6.43
+		|--imlib2-1.12.3
+		|--giflib-5.2.2
+	#recommended
+		|--cURL-8.9.1
+	#optional
+		|--libexif-0.6.24
+	#optional
+		|--libjpeg-turbo-3.0.1
+		|--ImageMagick-7.1.1-36
+	#optional
+		|--Test::Command-0.11
+		|--mandoc-1.14.6
+
+PKG: FontForge-20230101
+	#required
+		|--Libspiro-20220722
+		|--libxml2-2.13.3
+	#recommended
+		|--GTK+-3.24.43
+	#optional
+		|--giflib-5.2.2
+		|--Git-2.46.0
+		|--libjpeg-turbo-3.0.1
+		|--libtiff-4.6.0
+		|--Sphinx-8.0.2
+		|--woff2-1.0.2
+
+PKG: FreeRDP-3.7.0
+	#required
+		|--FFmpeg-7.0.2
+		|--icu-75.1
+		|--Xorg Libraries
+	#recommended
+		|--Cairo-1.18.0
+		|--docbook-xsl-nons-1.79.2
+		|--Fuse-3.16.2
+		|--JSON-C-0.17
+		|--MIT Kerberos V5-1.21.3
+		|--libusb-1.0.27
+		|--libxkbcommon-1.7.0
+		|--Wayland-1.23.0
+	#optional
+		|--Cups-2.4.10
+		|--FAAC-1_30
+		|--FAAD2-2.11.1
+		|--fdk-aac-2.0.3
+		|--FreeRDP-3.7.0
+		|--LAME-3.100
+		|--Linux-PAM-1.6.1
+		|--PulseAudio-17.0
+
+PKG: Gimp-20240711
+	#required
+		|--appstream-glib-0.8.3
+		|--gegl-0.4.48
+		|--gexiv2-0.14.3
+		|--glib-networking-2.80.0
+		|--GTK+-3.24.43
+		|--harfBuzz-9.0.0
+		|--libmypaint-1.6.1
+		|--librsvg-2.58.3
+		|--libtiff-4.6.0
+		|--libxml2-2.13.3
+		|--Little CMS-2.16
+		|--mypaint-brushes-1.3.1
+		|--Poppler-24.08.0
+	#recommended
+		|--Graphviz-12.1.0
+		|--ghostscript-10.03.1
+		|--Gvfs-1.54.2
+		|--glib-networking-2.80.0
+		|--ISO Codes-4.16.0
+		|--libgudev-238
+		|--PyGObject-3.48.2
+		|--xdg-utils-1.2.1
+	#optional
+		|--AAlib-1.4rc5
+		|--alsa-lib-1.2.12
+		|--Gjs-1.80.2
+		|--libjxl-0.10.3
+		|--libmng-2.0.3
+		|--libunwind-1.6.2
+		|--libwebp-1.4.0
+		|--Lua-5.4.7
+		|--OpenJPEG-2.5.2
+		|--GTK-Doc-1.34.0
+	#optional
+
+PKG: Gparted-1.6.0
+	#required
+		|--Gtkmm-3.24.9
+		|--parted-3.6
+	#optional
+		|--btrfs-progs-6.10.1
+
+PKG: Inkscape-1.3.2
+	#required
+		|--boost-1.86.0
+		|--Double-conversion-3.3.0
+		|--GC-8.2.6
+		|--gsl-2.8
+		|--Gtkmm-3.24.9
+		|--libsoup-2.74.3
+		|--libxslt-1.1.42
+		|--Poppler-24.08.0
+		|--Popt-1.19
+	#recommended
+		|--ImageMagick-7.1.1-36
+		|--Little CMS-2.16
+		|--libcanberra-0.30
+		|--Potrace-1.16
+		|--CacheControl-0.14.0
+		|--CSSSelect-1.2.0
+		|--lxml-5.3.0
+		|--NumPy-2.1.0
+		|--pySerial-3.5
+		|--Scour-0.38.2
+	#optional
+		|--Aspell-0.60.8.1
+		|--dbus-1.14.10
+		|--Doxygen-1.12.0
+		|--gspell-1.12.2
+
+PKG: rxvt-unicode-9.31
+	#required
+		|--libptytty-2.0
+		|--Chapter24.Graphical Environments
+	#optional
+		|--gdk-pixbuf-2.42.12
+		|--startup-notification-0.12
+
+PKG: Thunderbird-128.1.0esr
+	#required
+		|--Cbindgen-0.27.0
+		|--GTK+-3.24.43
+		|--LLVM-18.1.7
+		|--Node.js-20.16.0
+		|--PulseAudio-17.0
+		|--alsa-lib-1.2.12
+		|--Python-3.12.5
+		|--startup-notification-0.12
+		|--UnZip-6.0
+	#recommended
+		|--libevent-2.1.12
+		|--libvpx-1.14.1
+		|--libwebp-1.4.0
+		|--NASM-2.16.03
+		|--NSPR-4.35
+		|--NSS-3.103
+	#optional
+		|--pciutils-3.13.0
+		|--Wget-1.24.5
+		|--Wireless Tools-29
+
+PKG: Tigervnc-1.14.0
+	#required
+		|--CMake-3.30.2
+		|--FLTK-1.3.9
+		|--GnuTLS-3.8.7.1
+		|--libgcrypt-1.11.0
+		|--libjpeg-turbo-3.0.1
+		|--Pixman-0.43.4
+		|--Systemd-256.4
+		|--Linux-PAM-1.6.1
+		|--Xorg Applications
+		|--xinit-1.4.2
+		|--Xorg Legacy
+	#recommended
+		|--ImageMagick-7.1.1-36
+
+PKG: Transmission-4.0.6
+	#required
+		|--cURL-8.9.1
+	#recommended
+		|--libevent-2.1.12
+		|--libpsl-0.21.5
+	#recommended
+		|--Gtkmm-4.14.0
+		|--Qt-6.7.2
+	#optional
+		|--Node.js-20.16.0
+
+PKG: xarchiver-0.5.4.23
+	#required
+		|--GTK+-3.24.43
+	#optional
+		|--cpio-2.15
+		|--LZO-2.10
+		|--p7zip-17.04
+		|--UnRar-7.0.9
+		|--UnZip-6.0
+		|--Zip-3.0
+
+PKG: xdg-utils-1.2.1
+	#required
+		|--xmlto-0.0.29
+		|--Lynx-2.9.2
+		|--Links-2.30
+	#required
+		|--Xorg Applications
+	#optional
+		|--dbus-1.14.10
+
+PKG: XScreenSaver-6.09
+	#required
+		|--GTK+-3.24.43
+		|--Xorg Applications
+	#recommended
+		|--GLU-9.0.3
+	#optional
+		|--GDM-46.2
+		|--FFmpeg-7.0.2
+		|--Linux-PAM-1.6.1
+		|--MIT Kerberos V5-1.21.3
+
+PKG: Chapter42.Multimedia                 Libraries and Drivers
+
+PKG: ALSA
+
+PKG: alsa-lib-1.2.12
+	#optional
+		|--Doxygen-1.12.0
+
+PKG: alsa-plugins-1.2.12
+	#required
+		|--alsa-lib-1.2.12
+	#optional
+		|--FFmpeg-7.0.2
+		|--libsamplerate-0.2.2
+		|--PulseAudio-17.0
+		|--Speex-1.2.1
+
+PKG: alsa-utils-1.2.12
+	#required
+		|--alsa-lib-1.2.12
+	#optional
+		|--docutils-0.21.2
+		|--fftw-3.3.10
+		|--libsamplerate-0.2.2
+		|--xmlto-0.0.29
+
+PKG: alsa-tools-1.2.11
+	#required
+		|--alsa-lib-1.2.12
+	#optional
+		|--GTK+-3.24.43
+		|--FLTK-1.3.9
+
+PKG: alsa-firmware-1.2.4
+	#required
+		|--alsa-tools-1.2.11
+	#optional
+
+PKG: AudioFile-0.3.6
+	#required
+		|--alsa-lib-1.2.12
+	#recommended
+		|--FLAC-1.4.3
+	#optional
+		|--Asciidoc-10.2.1
+		|--Valgrind-3.23.0
+
+PKG: FAAC-1_30
+
+PKG: FAAD2-2.11.1
+	#required
+		|--CMake-3.30.2
+
+PKG: fdk-aac-2.0.3
+
+PKG: FLAC-1.4.3
+	#optional
+		|--libogg-1.3.5
+		|--DocBook-utils-0.6.14
+		|--Doxygen-1.12.0
+		|--Valgrind-3.23.0
+
+PKG: frei0r-plugins-1.8.0
+
+PKG: gavl-1.4.0
+
+PKG: gstreamer-1.24.7
+	#required
+		|--GLib-2.80.4
+	#optional
+		|--GTK+-3.24.43
+		|--gsl-2.8
+		|--libunwind-1.6.2
+		|--Valgrind-3.23.0
+
+PKG: gst-plugins-base-1.24.7
+	#required
+		|--gstreamer-1.24.7
+	#recommended
+		|--alsa-lib-1.2.12
+		|--CDParanoia-III-10.2
+		|--GLib-2.80.4
+		|--ISO Codes-4.16.0
+		|--libgudev-238
+		|--libjpeg-turbo-3.0.1
+		|--libogg-1.3.5
+		|--libpng-1.6.43
+		|--libvorbis-1.3.7
+		|--Mesa-24.1.5
+		|--Pango-1.54.0
+		|--Wayland-Protocols-1.36
+		|--Xorg Libraries
+	#optional
+		|--Graphene-1.10.8
+		|--GTK+-3.24.43
+		|--Opus-1.5.2
+		|--qt5-components-5.15.14
+		|--SDL2-2.30.6
+		|--Valgrind-3.23.0
+
+PKG: gst-plugins-good-1.24.7
+	#required
+		|--gst-plugins-base-1.24.7
+	#recommended
+		|--Cairo-1.18.0
+		|--FLAC-1.4.3
+		|--gdk-pixbuf-2.42.12
+		|--LAME-3.100
+		|--libsoup-2.74.3
+		|--libsoup-3.4.4
+		|--libvpx-1.14.1
+		|--mpg123-1.32.7
+		|--NASM-2.16.03
+		|--PulseAudio-17.0
+	#optional
+		|--AAlib-1.4rc5
+		|--GTK+-3.24.43
+		|--Libdv-1.0.0
+		|--qt5-components-5.15.14
+		|--Qt-6.7.2
+		|--Speex-1.2.1
+		|--Taglib-2.0.1
+		|--Valgrind-3.23.0
+		|--v4l-utils-1.28.1
+		|--Wayland-1.23.0
+
+PKG: gst-plugins-bad-1.24.7
+	#required
+		|--gst-plugins-base-1.24.7
+	#recommended
+		|--Libdvdread-6.1.3
+		|--Libdvdnav-6.1.1
+		|--libva-2.22.0
+		|--SoundTouch-2.3.3
+	#optional
+		|--BlueZ-5.77
+		|--cURL-8.9.1
+		|--FAAC-1_30
+		|--FAAD2-2.11.1
+		|--fdk-aac-2.0.3
+		|--GTK+-3.24.43
+		|--gst-plugins-good-1.24.7
+		|--JSON-GLib-1.8.0
+		|--Little CMS-2.16
+		|--libaom-3.9.1
+		|--libass-0.17.3
+		|--libexif-0.6.24
+		|--librsvg-2.58.3
+		|--libsoup-2.74.3
+		|--libsndfile-1.2.2
+		|--libssh2-1.11.0
+		|--libusb-1.0.27
+		|--libwebp-1.4.0
+		|--libxkbcommon-1.7.0
+		|--neon-0.33.0
+		|--Nettle-3.10
+		|--libgcrypt-1.11.0
+		|--opencv-4.10.0
+		|--OpenJPEG-2.5.2
+		|--Opus-1.5.2
+		|--qrencode-4.1.1
+		|--SBC-2.0
+		|--sdl12-compat-1.2.68
+		|--Valgrind-3.23.0
+		|--Vulkan-Loader-1.3.294
+		|--Wayland-1.23.0
+		|--GTK+-3.24.43
+		|--x265-3.6
+
+PKG: gst-plugins-ugly-1.24.7
+	#required
+		|--gst-plugins-base-1.24.7
+	#recommended
+		|--Liba52-0.8.0
+		|--Libdvdread-6.1.3
+		|--x264-20240812
+	#optional
+		|--libmpeg2-0.5.1
+		|--libcdio-2.1.0
+		|--Valgrind-3.23.0
+
+PKG: gst-libav-1.24.7
+	#required
+		|--FFmpeg-7.0.2
+		|--gst-plugins-base-1.24.7
+	#recommended
+		|--yasm-1.3.0
+	#optional
+
+PKG: id3lib-3.8.3
+
+PKG: intel-media-24.2.5
+	#required
+		|--CMake-3.30.2
+		|--Intel-gmmlib-22.4.1
+		|--libva-2.22.0
+		|--Setting up the Xorg Build Environment
+
+PKG: intel-vaapi-driver-2.4.1
+	#required
+		|--libva-2.22.0
+		|--Setting up the Xorg Build Environment
+
+PKG: Liba52-0.8.0
+	#optional
+
+PKG: Libao-1.2.0
+	#optional
+		|--Chapter24.Graphical Environments
+		|--alsa-lib-1.2.12
+		|--PulseAudio-17.0
+
+PKG: libaom-3.9.1
+	#recommended
+		|--yasm-1.3.0
+		|--NASM-2.16.03
+	#optional
+		|--Doxygen-1.12.0
+
+PKG: libass-0.17.3
+	#required
+		|--FreeType-2.13.3
+		|--FriBidi-1.0.15
+		|--NASM-2.16.03
+	#recommended
+		|--Fontconfig-2.15.0
+	#optional
+		|--harfBuzz-9.0.0
+
+PKG: libcanberra-0.30
+	#required
+		|--libvorbis-1.3.7
+	#recommended
+		|--alsa-lib-1.2.12
+		|--gstreamer-1.24.7
+		|--GTK+-3.24.43
+	#optional
+		|--PulseAudio-17.0
+	#recommended
+		|--sound-theme-freedesktop-0.8
+
+PKG: libcddb-1.3.2
+
+PKG: libcdio-2.1.0
+	#optional
+		|--libcddb-1.3.2
+
+PKG: libdvdcss-1.4.3
+	#optional
+		|--Doxygen-1.12.0
+
+PKG: Libdvdread-6.1.3
+
+PKG: Libdvdnav-6.1.1
+	#required
+		|--Libdvdread-6.1.3
+
+PKG: Libdv-1.0.0
+	#optional
+		|--Popt-1.19
+		|--sdl12-compat-1.2.68
+		|--Chapter24.Graphical Environments
+
+PKG: libmad-0.15.1b
+
+PKG: libmpeg2-0.5.1
+	#optional
+		|--Chapter24.Graphical Environments
+		|--sdl12-compat-1.2.68
+
+PKG: libmusicbrainz-5.1.0
+	#required
+		|--CMake-3.30.2
+		|--libxml2-2.13.3
+		|--neon-0.33.0
+	#optional
+		|--Doxygen-1.12.0
+
+PKG: libogg-1.3.5
+
+PKG: libplacebo-7.349.0
+	#required
+		|--FFmpeg-7.0.2
+		|--Glad-2.0.6
+	#recommended
+		|--Glslang-14.3.0
+		|--Vulkan-Loader-1.3.294
+	#optional
+		|--Little CMS-2.16
+		|--libunwind-1.6.2
+
+PKG: libsamplerate-0.2.2
+	#optional
+		|--alsa-lib-1.2.12
+		|--libsndfile-1.2.2
+		|--fftw-3.3.10
+
+PKG: libsndfile-1.2.2
+	#recommended
+		|--FLAC-1.4.3
+		|--Opus-1.5.2
+		|--libvorbis-1.3.7
+	#optional
+		|--alsa-lib-1.2.12
+		|--LAME-3.100
+		|--mpg123-1.32.7
+		|--Speex-1.2.1
+		|--SQLite-3.46.1
+
+PKG: libva-2.22.0
+	#required
+		|--Setting up the Xorg Build Environment
+		|--Libdrm-2.4.122
+	#recommended
+		|--Mesa-24.1.5
+	#optional
+		|--Doxygen-1.12.0
+		|--Wayland-1.23.0
+
+PKG: libvdpau-1.5
+	#required
+		|--Xorg Libraries
+	#optional
+		|--Doxygen-1.12.0
+		|--Graphviz-12.1.0
+		|--texlive-20240312-source
+		|--install-tl-unx
+
+PKG: libvdpau-va-gl-0.4.2
+	#required
+		|--CMake-3.30.2
+		|--libvdpau-1.5
+		|--libva-2.22.0
+		|--Mesa-24.1.5
+	#optional
+		|--Doxygen-1.12.0
+		|--Graphviz-12.1.0
+		|--texlive-20240312-source
+		|--install-tl-unx
+
+PKG: libvorbis-1.3.7
+	#required
+		|--libogg-1.3.5
+	#optional
+		|--Doxygen-1.12.0
+		|--texlive-20240312-source
+		|--install-tl-unx
+
+PKG: libvpx-1.14.1
+	#recommended
+		|--yasm-1.3.0
+		|--NASM-2.16.03
+		|--Which-2.21 and Alternatives
+	#optional
+		|--cURL-8.9.1
+		|--Doxygen-1.12.0
+
+PKG: mlt-7.26.0
+
+PKG: Opus-1.5.2
+	#optional
+		|--Doxygen-1.12.0
+		|--texlive-20240312-source
+		|--install-tl-unx
+
+PKG: Pipewire-1.2.3
+	#recommended
+		|--BlueZ-5.77
+		|--gstreamer-1.24.7
+		|--gst-plugins-base-1.24.7
+		|--PulseAudio-17.0
+		|--SBC-2.0
+		|--v4l-utils-1.28.1
+		|--Wireplumber-0.5.5
+	#optional
+		|--alsa-lib-1.2.12
+		|--Avahi-0.8
+		|--fdk-aac-2.0.3
+		|--FFmpeg-7.0.2
+		|--libcanberra-0.30
+		|--Libdrm-2.4.122
+		|--libxcb-1.17.0
+		|--libsndfile-1.2.2
+		|--libusb-1.0.27
+		|--Opus-1.5.2
+		|--SDL2-2.30.6
+		|--Valgrind-3.23.0
+		|--Vulkan-Loader-1.3.294
+		|--Xorg Libraries
+		|--Doxygen-1.12.0
+		|--Graphviz-12.1.0
+
+PKG: PulseAudio-17.0
+	#required
+		|--libsndfile-1.2.2
+	#recommended
+		|--alsa-lib-1.2.12
+		|--dbus-1.14.10
+		|--GLib-2.80.4
+		|--Speex-1.2.1
+		|--Xorg Libraries
+	#optional
+		|--Avahi-0.8
+		|--BlueZ-5.77
+		|--Doxygen-1.12.0
+		|--fftw-3.3.10
+		|--GTK+-3.24.43
+		|--libsamplerate-0.2.2
+		|--SBC-2.0
+		|--Valgrind-3.23.0
+
+PKG: SBC-2.0
+	#optional
+		|--libsndfile-1.2.2
+
+PKG: sdl12-compat-1.2.68
+	#required
+		|--CMake-3.30.2
+		|--GLU-9.0.3
+		|--SDL2-2.30.6
+
+PKG: SDL2-2.30.6
+	#recommended
+		|--libxkbcommon-1.7.0
+		|--Wayland-Protocols-1.36
+		|--Xorg Libraries
+	#optional
+		|--alsa-lib-1.2.12
+		|--Doxygen-1.12.0
+		|--ibus-1.5.30
+		|--libsamplerate-0.2.2
+		|--libunwind-1.6.2
+		|--NASM-2.16.03
+		|--Pipewire-1.2.3
+		|--PulseAudio-17.0
+		|--Chapter24.Graphical Environments
+
+PKG: sound-theme-freedesktop-0.8
+
+PKG: SoundTouch-2.3.3
+
+PKG: Speex-1.2.1
+	#required
+		|--libogg-1.3.5
+	#optional
+		|--Valgrind-3.23.0
+
+PKG: Taglib-2.0.1
+	#required
+		|--CMake-3.30.2
+		|--utfcpp-4.0.5
+	#optional
+
+PKG: v4l-utils-1.28.1
+	#recommended
+		|--alsa-lib-1.2.12
+		|--GLU-9.0.3
+		|--libjpeg-turbo-3.0.1
+	#optional
+		|--Doxygen-1.12.0
+		|--Qt-6.7.2
+		|--SDL2-2.30.6
+		|--LLVM-18.1.7
+
+PKG: Wireplumber-0.5.5
+	#required
+		|--GLib-2.80.4
+		|--Pipewire-1.2.3
+		|--Systemd-256.4
+		|--Linux-PAM-1.6.1
+	#recommended
+		|--Lua-5.4.7
+	#optional
+		|--Doxygen-1.12.0
+		|--lxml-5.3.0
+		|--Sphinx-8.0.2
+		|--Sphinx_rtd_theme-2.0.0
+
+PKG: x264-20240812
+	#recommended
+		|--NASM-2.16.03
+	#optional
+
+PKG: x265-3.6
+	#required
+		|--CMake-3.30.2
+	#recommended
+		|--NASM-2.16.03
+	#optional
+
+PKG: xine-lib-1.2.13
+	#required
+		|--Chapter24.Graphical Environments
+		|--FFmpeg-7.0.2
+		|--alsa-lib-1.2.12
+		|--PulseAudio-17.0
+	#recommended
+		|--Libdvdnav-6.1.1
+	#optional
+		|--AAlib-1.4rc5
+		|--FAAD2-2.11.1
+		|--FLAC-1.4.3
+		|--gdk-pixbuf-2.42.12
+		|--GLU-9.0.3
+		|--ImageMagick-7.1.1-36
+		|--Liba52-0.8.0
+		|--libdvdcss-1.4.3
+		|--libmad-0.15.1b
+		|--libmng-2.0.3
+		|--libnsl-2.0.1
+		|--libva-2.22.0
+		|--GLU-9.0.3
+		|--libvdpau-1.5
+		|--libvorbis-1.3.7
+		|--libvpx-1.14.1
+		|--Mesa-24.1.5
+		|--Samba-4.20.4
+		|--sdl12-compat-1.2.68
+		|--Speex-1.2.1
+		|--Doxygen-1.12.0
+		|--v4l-utils-1.28.1
+
+PKG: XviD-1.3.7
+	#optional
+		|--yasm-1.3.0
+		|--NASM-2.16.03
+
+PKG: Chapter43.Audio                 Utilities
+
+PKG: Audacious-4.4
+	#required
+		|--GTK+-3.24.43
+		|--Qt-6.7.2
+	#optional
+		|--libarchive-3.7.4
+	#optional
+		|--Valgrind-3.23.0
+	#recommended
+		|--mpg123-1.32.7
+		|--FFmpeg-7.0.2
+		|--neon-0.33.0
+	#optional
+		|--alsa-lib-1.2.12
+		|--cURL-8.9.1
+		|--FAAD2-2.11.1
+		|--FLAC-1.4.3
+		|--LAME-3.100
+		|--libxml2-2.13.3
+		|--libcdio-2.1.0
+		|--libnotify-0.8.3
+		|--libsndfile-1.2.2
+		|--libvorbis-1.3.7
+		|--Pipewire-1.2.3
+		|--PulseAudio-17.0
+		|--SDL2-2.30.6
+		|--libsamplerate-0.2.2
+
+PKG: CDParanoia-III-10.2
+
+PKG: LAME-3.100
+	#optional
+		|--libsndfile-1.2.2
+		|--NASM-2.16.03
+
+PKG: mpg123-1.32.7
+	#recommended
+		|--alsa-lib-1.2.12
+	#optional
+		|--PulseAudio-17.0
+		|--sdl12-compat-1.2.68
+
+PKG: pavucontrol-6.1
+	#required
+		|--Gtkmm-4.14.0
+		|--JSON-GLib-1.8.0
+		|--libsigc++-3.6.0
+		|--PulseAudio-17.0
+	#optional
+		|--libcanberra-0.30
+		|--Lynx-2.9.2
+
+PKG: pnmixer-0.7.2
+	#required
+		|--alsa-utils-1.2.12
+		|--GTK+-3.24.43
+		|--libnotify-0.8.3
+
+PKG: vorbis-tools-1.4.2
+	#required
+		|--libvorbis-1.3.7
+	#optional
+		|--Libao-1.2.0
+	#optional
+		|--cURL-8.9.1
+		|--FLAC-1.4.3
+		|--Speex-1.2.1
+
+PKG: Chapter44.Video                 Utilities
+
+PKG: FFmpeg-7.0.2
+	#recommended
+		|--libaom-3.9.1
+		|--libass-0.17.3
+		|--fdk-aac-2.0.3
+		|--FreeType-2.13.3
+		|--LAME-3.100
+		|--libvorbis-1.3.7
+		|--libvpx-1.14.1
+		|--Opus-1.5.2
+		|--x264-20240812
+		|--x265-3.6
+		|--NASM-2.16.03
+		|--yasm-1.3.0
+	#recommended
+		|--alsa-lib-1.2.12
+		|--libva-2.22.0
+		|--SDL2-2.30.6
+	#recommended
+		|--libvdpau-1.5
+		|--libvdpau-va-gl-0.4.2
+	#optional
+		|--Doxygen-1.12.0
+		|--Fontconfig-2.15.0
+		|--FriBidi-1.0.15
+		|--frei0r-plugins-1.8.0
+		|--libcdio-2.1.0
+		|--Libdrm-2.4.122
+		|--libjxl-0.10.3
+		|--libwebp-1.4.0
+		|--opencv-4.10.0
+		|--OpenJPEG-2.5.2
+		|--GnuTLS-3.8.7.1
+		|--PulseAudio-17.0
+		|--Samba-4.20.4
+		|--Speex-1.2.1
+		|--texlive-20240312-source
+		|--install-tl-unx
+		|--v4l-utils-1.28.1
+		|--Vulkan-Loader-1.3.294
+		|--XviD-1.3.7
+		|--Chapter24.Graphical Environments
+
+PKG: mpv-0.38.0
+	#required
+		|--alsa-lib-1.2.12
+		|--FFmpeg-7.0.2
+		|--libass-0.17.3
+		|--libplacebo-7.349.0
+		|--Mesa-24.1.5
+		|--PulseAudio-17.0
+	#recommended
+		|--libjpeg-turbo-3.0.1
+		|--libva-2.22.0
+		|--libvdpau-1.5
+		|--Lua-5.2.4
+		|--Uchardet-0.0.8
+		|--Vulkan-Loader-1.3.294
+	#optional
+		|--libdvdcss-1.4.3
+		|--Libdvdread-6.1.3
+		|--Libdvdnav-6.1.1
+	#optional
+		|--Pipewire-1.2.3
+		|--SDL2-2.30.6
+	#optional
+	#optional
+		|--docutils-0.21.2
+
+PKG: VLC-3.0.21
+	#recommended
+		|--alsa-lib-1.2.12
+		|--desktop-file-utils-0.27
+		|--FFmpeg-7.0.2
+		|--Liba52-0.8.0
+		|--libgcrypt-1.11.0
+		|--libmad-0.15.1b
+		|--Lua-5.2.4
+		|--Chapter24.Graphical Environments
+	#optional
+		|--dbus-1.14.10
+		|--libidn-1.42
+		|--libssh2-1.11.0
+	#optional
+		|--libarchive-3.7.4
+		|--libcddb-1.3.2
+		|--Libdv-1.0.0
+		|--libdvdcss-1.4.3
+		|--Libdvdread-6.1.3
+		|--Libdvdnav-6.1.1
+		|--opencv-4.10.0
+		|--Samba-4.20.4
+		|--v4l-utils-1.28.1
+		|--libcdio-2.1.0
+	#optional
+		|--libogg-1.3.5
+	#optional
+		|--FAAD2-2.11.1
+		|--FLAC-1.4.3
+		|--libaom-3.9.1
+		|--libass-0.17.3
+		|--libmpeg2-0.5.1
+		|--libpng-1.6.43
+		|--libva-2.22.0
+		|--libvorbis-1.3.7
+		|--Opus-1.5.2
+		|--Speex-1.2.1
+		|--libvpx-1.14.1
+		|--x264-20240812
+	#optional
+		|--AAlib-1.4rc5
+		|--Fontconfig-2.15.0
+		|--FreeType-2.13.3
+		|--FriBidi-1.0.15
+		|--libplacebo-7.349.0
+		|--librsvg-2.58.3
+		|--libvdpau-1.5
+		|--sdl12-compat-1.2.68
+	#optional
+		|--PulseAudio-17.0
+		|--libsamplerate-0.2.2
+	#optional
+		|--FreeRDP-3.7.0
+		|--qt5-components-5.15.14
+	#optional
+	#optional
+		|--Avahi-0.8
+	#optional
+		|--GnuTLS-3.8.7.1
+		|--libnotify-0.8.3
+		|--libxml2-2.13.3
+		|--Protobuf-27.3
+		|--Taglib-2.0.1
+		|--xdg-utils-1.2.1
+
+PKG: xine-ui-0.99.14
+	#required
+		|--xine-lib-1.2.13
+		|--shared-mime-info-2.4
+	#optional
+		|--cURL-8.9.1
+		|--AAlib-1.4rc5
+
+PKG: Chapter45.CD/DVD-Writing                 Utilities
+
+PKG: Cdrdao-1.2.4
+	#recommended
+		|--Libao-1.2.0
+		|--libvorbis-1.3.7
+		|--libmad-0.15.1b
+		|--LAME-3.100
+
+PKG: Cdrtools-3.02a09
+	#required
+		|--alsa-lib-1.2.12
+
+PKG: dvd+rw-tools-7.1
+
+PKG: libburn-1.5.6
+	#optional
+		|--Doxygen-1.12.0
+
+PKG: libisoburn-1.5.6
+	#required
+		|--libburn-1.5.6
+		|--libisofs-1.5.6
+
+PKG: libisofs-1.5.6
+	#optional
+		|--Doxygen-1.12.0
+
+PKG: Chapter46.Printing
+
+PKG: Cups-2.4.10
+	#required
+		|--GnuTLS-3.8.7.1
+	#recommended
+		|--Colord-1.4.7
+		|--dbus-1.14.10
+		|--libusb-1.0.27
+		|--Linux-PAM-1.6.1
+		|--xdg-utils-1.2.1
+	#optional
+		|--Avahi-0.8
+		|--libpaper-2.2.5
+		|--MIT Kerberos V5-1.21.3
+		|--PHP-8.3.10
+	#required
+		|--cups-filters-2.0.1
+	#optional
+		|--Gutenprint-5.3.4
+
+PKG: cups-browsed-2.0.1
+	#required
+		|--Avahi-0.8
+		|--libcupsfilters-2.0.0
+		|--libppd-2.0.0
+	#optional
+		|--OpenLDAP-2.6.8
+
+PKG: cups-filters-2.0.1
+	#required
+		|--libcupsfilters-2.0.0
+		|--libppd-2.0.0
+	#optional
+		|--cups-browsed-2.0.1
+
+PKG: ghostscript-10.03.1
+	#recommended
+		|--Cups-2.4.10
+		|--Fontconfig-2.15.0
+		|--FreeType-2.13.3
+		|--Little CMS-2.16
+		|--libjpeg-turbo-3.0.1
+		|--libpng-1.6.43
+		|--libtiff-4.6.0
+		|--OpenJPEG-2.5.2
+	#optional
+		|--Cairo-1.18.0
+		|--GTK+-3.24.43
+		|--libidn-1.42
+		|--libpaper-2.2.5
+		|--libwebp-1.4.0
+		|--Chapter24.Graphical Environments
+
+PKG: Gutenprint-5.3.4
+	#recommended
+		|--Cups-2.4.10
+	#recommended
+	#recommended
+	#recommended
+	#optional
+		|--ImageMagick-7.1.1-36
+		|--texlive-20240312-source
+		|--install-tl-unx
+		|--Doxygen-1.12.0
+		|--DocBook-utils-0.6.14
+
+PKG: libcupsfilters-2.0.0
+	#required
+		|--Cups-2.4.10
+		|--GLib-2.80.4
+		|--ghostscript-10.03.1
+		|--MuPDF-1.24.8
+		|--Little CMS-2.16
+		|--Poppler-24.08.0
+		|--Qpdf-11.9.1
+	#recommended
+		|--DejaVu fonts
+		|--libexif-0.6.24
+		|--libjpeg-turbo-3.0.1
+		|--libpng-1.6.43
+		|--libtiff-4.6.0
+
+PKG: libppd-2.0.0
+	#required
+		|--libcupsfilters-2.0.0
+
+PKG: Chapter47.Scanning
+
+PKG: SANE-1.2.1
+	#optional
+		|--Avahi-0.8
+		|--Cups-2.4.10
+		|--libjpeg-turbo-3.0.1
+		|--libtiff-4.6.0
+		|--libusb-1.0.27
+		|--v4l-utils-1.28.1
+		|--texlive-20240312-source
+		|--install-tl-unx
+
+PKG: Simple-scan-46.0
+	#required
+		|--Colord-1.4.7
+		|--itstool-2.0.7
+		|--libgusb-0.4.9
+		|--libadwaita-1.5.3
+		|--libwebp-1.4.0
+		|--SANE-1.2.1
+
+PKG: Chapter48.Standard Generalized                 Markup Language (SGML)
+
+PKG: sgml-common-0.6.3
+
+PKG: docbook-3.1-dtd
+	#required
+		|--sgml-common-0.6.3
+		|--UnZip-6.0
+		|--libarchive-3.7.4
+
+PKG: docbook-4.5-dtd
+	#required
+		|--sgml-common-0.6.3
+		|--UnZip-6.0
+		|--libarchive-3.7.4
+
+PKG: OpenSP-1.5.2
+	#required
+		|--sgml-common-0.6.3
+	#optional
+		|--libnsl-2.0.1
+		|--xmlto-0.0.29
+
+PKG: OpenJade-1.3.2
+	#required
+		|--OpenSP-1.5.2
+
+PKG: docbook-dsssl-1.79
+	#required
+		|--sgml-common-0.6.3
+	#required
+		|--docbook-3.1-dtd
+		|--docbook-4.5-dtd
+		|--OpenSP-1.5.2
+		|--OpenJade-1.3.2
+
+PKG: DocBook-utils-0.6.14
+	#required
+		|--OpenJade-1.3.2
+		|--docbook-dsssl-1.79
+		|--docbook-3.1-dtd
+	#recommended
+		|--SGMLSpm-1.1
+		|--Lynx-2.9.2
+		|--Links-2.30
+
+PKG: Chapter49.Extensible Markup                 Language (XML)
+
+PKG: docbook-xml-4.5
+	#required
+		|--libxml2-2.13.3
+		|--UnZip-6.0
+		|--libarchive-3.7.4
+
+PKG: docbook-xml-5.0
+	#required
+		|--libxml2-2.13.3
+		|--UnZip-6.0
+
+PKG: docbook-xml-5.1
+	#required
+		|--libxml2-2.13.3
+		|--UnZip-6.0
+		|--libarchive-3.7.4
+
+PKG: docbook-xsl-nons-1.79.2
+	#recommended
+		|--libxml2-2.13.3
+	#optional
+		|--apache-ant-1.10.14
+		|--libxslt-1.1.42
+		|--Ruby-3.3.4
+		|--Zip-3.0
+		|--apache-ant-1.10.14
+
+PKG: itstool-2.0.7
+	#required
+		|--docbook-xml-4.5
+
+PKG: xmlto-0.0.29
+	#required
+		|--docbook-xml-4.5
+		|--docbook-xsl-nons-1.79.2
+		|--libxslt-1.1.42
+	#optional
+		|--fop-2.9
+	#optional
+		|--Links-2.30
+		|--Lynx-2.9.2
+
+PKG: Chapter50.PostScript
+
+PKG: Enscript-1.6.6
+	#optional
+		|--texlive-20240312-source
+		|--install-tl-unx
+
+PKG: ePDFView-gtk3-20200814
+	#required
+		|--GTK+-3.24.43
+		|--Poppler-24.08.0
+	#optional
+		|--Doxygen-1.12.0
+
+PKG: fop-2.9
+	#required
+		|--apache-ant-1.10.14
+	#optional
+		|--Chapter24.Graphical Environments
+
+PKG: MuPDF-1.24.8
+	#required
+		|--GLU-9.0.3
+		|--Xorg Libraries
+	#recommended
+		|--harfBuzz-9.0.0
+		|--libjpeg-turbo-3.0.1
+		|--OpenJPEG-2.5.2
+		|--cURL-8.9.1
+	#optional
+		|--xdg-utils-1.2.1
+	#required
+		|--Chapter24.Graphical Environments
+
+PKG: paps-0.8.0
+	#required
+		|--fmt-11.0.2
+		|--Pango-1.54.0
+	#optional
+		|--Doxygen-1.12.0
+
+PKG: Chapter51.Typesetting
+
+PKG: Setting the PATH for                   TeX Live
+
+PKG: install-tl-unx
+	#recommended
+		|--GnuPG-2.4.5
+		|--LWP (libwww-perl-6.77)
+	#recommended
+	#recommended
+		|--ghostscript-10.03.1
+	#recommended
+		|--Xorg Libraries
+		|--libxcb-1.17.0
+		|--Chapter24.Graphical Environments
+		|--ePDFView-gtk3-20200814
+	#recommended
+		|--Freeglut-3.6.0
+	#recommended
+	#optional
+		|--Ruby-3.3.4
+		|--Tk-8.6.14
+		|--ghostscript-10.03.1
+
+PKG: texlive-20240312-source
+	#recommended
+		|--Chapter24.Graphical Environments
+	#recommended
+		|--Cairo-1.18.0
+		|--Fontconfig-2.15.0
+		|--FreeType-2.13.3
+		|--GC-8.2.6
+		|--Graphite2-1.3.14
+		|--harfBuzz-9.0.0
+		|--icu-75.1
+		|--libpaper-2.2.5
+		|--libpng-1.6.43
+	#recommended
+		|--Setting the PATH for TeX Live
+	#optional
+	#optional
+		|--Ruby-3.3.4
+		|--Tk-8.6.14
+		|--ghostscript-10.03.1
+
+PKG: asymptote-2.91
+	#required
+		|--ghostscript-10.03.1
+		|--texlive-20240312-source
+	#recommended
+		|--cURL-8.9.1
+		|--Freeglut-3.6.0
+		|--GC-8.2.6
+		|--GLEW-2.2.0
+		|--GLM-1.0.1
+		|--libtirpc-1.3.5
+	#recommended
+		|--dvisvgm-3.4
+	#optional
+		|--fftw-3.3.10
+		|--gsl-2.8
+		|--libsigsegv-2.14
+		|--boost-1.86.0
+	#optional
+		|--ImageMagick-7.1.1-36
+		|--qt5-components-5.15.14
+
+PKG: biber-2.20
+	#required
+		|--autovivification-0.18
+		|--Business::ISBN-3.009
+		|--Business::ISMN-1.204
+		|--Business::ISSN-1.005
+		|--Class::Accessor-0.51
+		|--Data::Compare-1.29
+		|--Data::Dump-1.25
+		|--Data::Uniqid-0.12
+		|--DateTime::Calendar::Julian-0.107
+		|--DateTime::Format::Builder-0.83
+		|--Encode::EUCJPASCII-0.03
+		|--Encode::HanExtra-0.23
+		|--Encode::JIS2K-0.05
+		|--File::Slurper-0.014
+		|--IO::String-1.08
+		|--IPC::Run3-0.049
+		|--Lingua::Translit-0.29
+		|--List::AllUtils-0.19
+		|--List::MoreUtils-0.430
+		|--Log::Log4perl-1.57
+		|--LWP::Protocol::https-6.14
+		|--Module::Build-0.4234
+		|--Parse::RecDescent-1.967015
+		|--PerlIO::utf8_strict-0.010
+		|--Regexp::Common-2024080801
+		|--Sort::Key-1.33
+		|--Text::BibTeX-0.89
+		|--Text::CSV-2.04
+		|--Text::Roman-3.5
+		|--Unicode::Collate-1.31
+		|--Unicode::LineBreak-2019.001
+		|--XML::LibXML::Simple-1.01
+		|--XML::LibXSLT-2.003000
+		|--XML::Writer-0.900
+	#recommended
+		|--File::Which-1.27
+		|--Test::Differences-0.71
+
+PKG: dvisvgm-3.4
+	#required
+		|--brotli-1.1.0
+		|--ghostscript-10.03.1
+		|--Potrace-1.16
+		|--texlive-20240312-source
+	#recommended
+		|--woff2-1.0.2
+	#optional
+		|--Asciidoc-10.2.1
+		|--xmlto-0.0.29
+		|--libxslt-1.1.42
+
+PKG: xindy-2.5.1
+	#required
+		|--Clisp-2.49
+		|--texlive-20240312-source
