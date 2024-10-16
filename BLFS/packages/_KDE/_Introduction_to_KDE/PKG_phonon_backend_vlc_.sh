@@ -17,23 +17,13 @@ fi
 
 
 # required packages:: (file calls with source)
-# call_method method_name file_path(source)
+call_method "PKG_vlc_" "./packages/_Multimedia/_Video_Utilities/PKG_vlc_.sh"
 
 
 # recommended packages::
-if [[ -n "$recommended_packages" && $recommended_packages ]]; then
-   
-   
-
-fi
 
 
 # optional packages::
-if [[ -n "$optional_packages" && $optional_packages ]]; then
-   
-   
-
-fi
 
 
 
@@ -41,12 +31,13 @@ fi
 # Use eval to define the function
 PKG_phonon_backend_vlc_() {
     # code
-    ###PKG_phonon_backend: 0.1SBU
-    if [[ -n "$PKG_phonon_backend" && "$next_pkg" = "$PKG_phonon_backend" ]] ;then
-        extract_tar_files /sources "$PKG_phonon_backend"   
-        echo -e "$PKG_phonon_backend" " 0.1 SBU"
-        echo $PKG_phonon_backend
+    ###PKG_phonon_backend_vlc_: 0.2SBU
+    if [[ -n "$PKG_phonon_backend_vlc_" ]] ;then
+        extract_tar_files /sources "$PKG_phonon_backend_vlc_"   
+        echo -e "$PKG_phonon_backend_vlc_" " 0.2 SBU"
+        echo $PKG_phonon_backend_vlc_
         cd $PKG_PKG_phonon_backendvlc
+        next_pkg="$PKG_phonon"
 
         mkdir build &&
         cd    build &&
@@ -58,7 +49,7 @@ PKG_phonon_backend_vlc_() {
         make
         if [ $? -ne 0 ]; then
             echo -e "$BUILD_FAILED"
-            echo "export next_pkg=$next_pkg" >> /.bashrc
+            echo "export error_pkg=$next_pkg" >> /.bashrc
             exit 1
         fi
         echo -e "$BUILD_SUCCEEDED"
@@ -66,16 +57,15 @@ PKG_phonon_backend_vlc_() {
         make install
         if [ $? -ne 0 ]; then
             echo -e "$BUILD_FAILED"
-            echo "export next_pkg=$next_pkg" >> /.bashrc
+            echo "export error_pkg=$next_pkg" >> /.bashrc
             exit 1
         fi
         echo -e "$BUILD_SUCCEEDED"
 
         cd /sources/blfs
-        rm -Rf $PKG_phonon_backend #rm extracted pkg
+        rm -Rf $PKG_phonon_backend_vlc_ #rm extracted pkg
         echo -e "$DONE" 
-        echo -e $PKG_phonon_backend "$TOOL_READY"
-        next_pkg="$PKG_Linux_PAM"
+        echo -e $PKG_phonon_backend_vlc_ "$TOOL_READY"
 
 
         # end

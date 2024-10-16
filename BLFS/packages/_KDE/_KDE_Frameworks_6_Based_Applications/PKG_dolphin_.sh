@@ -18,22 +18,12 @@ fi
 
 # required packages:: (file calls with source)
 # call_method method_name file_path(source)
-
+source "./packages/_KDE/_KDE_Frameworks_6/building.sh"
 
 # recommended packages::
-if [[ -n "$recommended_packages" && $recommended_packages ]]; then
-   
-   
-
-fi
 
 
 # optional packages::
-if [[ -n "$optional_packages" && $optional_packages ]]; then
-   
-   
-
-fi
 
 
 
@@ -41,10 +31,47 @@ fi
 # Use eval to define the function
 PKG_dolphin_() {
     # code
+     ###PKG_dolphin_: 0.7 SBU
+    if [[ -n "$PKG_dolphin_" ]] ;then
+        extract_tar_files /sources "$PKG_dolphin_"
+        echo -e "$PKG_dolphin_" " 0.7 SBU"
+        echo $PKG_dolphin_
+        cd $PKG_dolphin_
+        next_pkg="$PKG_dolphin_"
 
 
-    # end
-    echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+        mkdir build &&
+        cd    build &&
+
+        cmake -D CMAKE_INSTALL_PREFIX=$KF6_PREFIX \
+            -D CMAKE_BUILD_TYPE=Release         \
+            -D BUILD_TESTING=OFF                \
+            -W no-dev .. &&
+        make
+        if [ $? -ne 0 ]; then
+            echo -e "$BUILD_FAILED"
+            echo "export error_pkg=$next_pkg" >> /.bashrc
+            exit 1
+        fi
+        echo -e "$BUILD_SUCCEEDED"
+
+        make install
+        if [ $? -ne 0 ]; then
+            echo -e "$BUILD_FAILED"
+            echo "export error_pkg=$next_pkg" >> /.bashrc
+            exit 1
+        fi
+        echo -e "$BUILD_SUCCEEDED"
+
+        cd /sources/blfs
+        rm -Rf $PKG_dolphin_ #rm extracted pkg
+        echo -e "$DONE" 
+        echo -e $PKG_dolphin_ "$TOOL_READY"
+
+        # end
+        echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+    fi
+    ###********************************
 }
 
 

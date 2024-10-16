@@ -18,33 +18,64 @@ fi
 
 # required packages:: (file calls with source)
 # call_method method_name file_path(source)
-
+source "./packages/_KDE/_KDE_Frameworks_6/building.sh"
+call_method "PKG_mlt_" "./packages/_Multimedia/_Multimedia_Libraries_and_Drivers/PKG_mlt_.sh"
+call_method "PKG_vl_utils_" "./packages/_Multimedia/_Multimedia_Libraries_and_Drivers/PKG_vl_utils_.sh"
 
 # recommended packages::
 if [[ -n "$recommended_packages" && $recommended_packages ]]; then
-   
-   
-
+    call_method "PKG_breeze_icons_" "./packages/_Graphical_Components/_Icons/PKG_breeze_icons_.sh"
 fi
 
 
 # optional packages::
-if [[ -n "$optional_packages" && $optional_packages ]]; then
-   
-   
-
-fi
-
 
 
 # main ::
 # Use eval to define the function
 PKG_kdenlive_() {
     # code
+     ###PKG_kdenlive_: 1.7 SBU
+    if [[ -n "$PKG_kdenlive_" ]] ;then
+        extract_tar_files /sources "$PKG_kdenlive_"
+        echo -e "$PKG_kdenlive_" " 1.7 SBU"
+        echo $PKG_kdenlive_
+        cd $PKG_kdenlive_
+        next_pkg="$PKG_kdenlive_"
 
 
-    # end
-    echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+        mkdir build &&
+        cd    build &&
+
+        cmake -D CMAKE_INSTALL_PREFIX=$KF6_PREFIX \
+            -D CMAKE_BUILD_TYPE=Release         \
+            -D BUILD_TESTING=OFF                \
+            -W no-dev .. &&
+        make
+        if [ $? -ne 0 ]; then
+            echo -e "$BUILD_FAILED"
+            echo "export error_pkg=$next_pkg" >> /.bashrc
+            exit 1
+        fi
+        echo -e "$BUILD_SUCCEEDED"
+
+        make install
+        if [ $? -ne 0 ]; then
+            echo -e "$BUILD_FAILED"
+            echo "export error_pkg=$next_pkg" >> /.bashrc
+            exit 1
+        fi
+        echo -e "$BUILD_SUCCEEDED"
+
+        cd /sources/blfs
+        rm -Rf $PKG_kdenlive_ #rm extracted pkg
+        echo -e "$DONE" 
+        echo -e $PKG_kdenlive_ "$TOOL_READY"
+
+        # end
+        echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+    fi
+    ###********************************
 }
 
 

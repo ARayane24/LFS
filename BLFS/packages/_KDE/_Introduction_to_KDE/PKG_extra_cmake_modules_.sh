@@ -22,18 +22,12 @@ fi
 
 # recommended packages::
 if [[ -n "$recommended_packages" && $recommended_packages ]]; then
-   
-   
-
+   call_method "PKG_cmake_" "./packages/_libs/_system_utilities/PKG_cmake_.sh"
 fi
 
 
 # optional packages::
-if [[ -n "$optional_packages" && $optional_packages ]]; then
-   
-   
 
-fi
 
 
 
@@ -41,12 +35,13 @@ fi
 # Use eval to define the function
 PKG_extra_cmake_modules_() {
     # code
-    ###PKG_Extra_cmake: 3SBU
-    if [[ -n "$PKG_Extra_cmake" && "$next_pkg" = "$PKG_Extra_cmake" ]] ;then
-        extract_tar_files /sources "$PKG_Extra_cmake"
-        echo -e "$PKG_Extra_cmake" " 3 SBU"
-        echo $PKG_Extra_cmake
-        cd $PKG_Extra_cmake
+    ###PKG_extra_cmake_modules_: 0.1 SBU
+    if [[ -n "$PKG_extra_cmake_modules_" ]] ;then
+        extract_tar_files /sources "$PKG_extra_cmake_modules_"
+        echo -e "$PKG_extra_cmake_modules_" " 0.1 SBU"
+        echo $PKG_extra_cmake_modules_
+        cd $PKG_extra_cmake_modules_
+        next_pkg="$PKG_extra_cmake_modules_"
 
         sed -i '/"lib64"/s/64//' kde-modules/KDEInstallDirsCommon.cmake &&
 
@@ -61,7 +56,7 @@ PKG_extra_cmake_modules_() {
         make
         if [ $? -ne 0 ]; then
             echo -e "$BUILD_FAILED"
-            echo "export next_pkg=$next_pkg" >> /.bashrc
+            echo "export error_pkg=$next_pkg" >> /.bashrc
             exit 1
         fi
         echo -e "$BUILD_SUCCEEDED"
@@ -69,16 +64,15 @@ PKG_extra_cmake_modules_() {
         make install
         if [ $? -ne 0 ]; then
             echo -e "$BUILD_FAILED"
-            echo "export next_pkg=$next_pkg" >> /.bashrc
+            echo "export error_pkg=$next_pkg" >> /.bashrc
             exit 1
         fi
         echo -e "$BUILD_SUCCEEDED"
         
         cd /sources/blfs
-        rm -Rf $PKG_Extra_cmake #rm extracted pkg
+        rm -Rf $PKG_extra_cmake_modules_ #rm extracted pkg
         echo -e "$DONE" 
-        echo -e $PKG_Extra_cmake "$TOOL_READY"
-        next_pkg="$PKG_xcb_proto"
+        echo -e $PKG_extra_cmake_modules_ "$TOOL_READY"
 
         # end
         echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs

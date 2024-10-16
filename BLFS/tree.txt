@@ -447,7 +447,7 @@ PKG: JOE-4.6
 
 PKG: kate-24.08.0
 	#required
-		|--Building KDE Frameworks 6.5.0 (KF6)
+		|--Building KDE Frameworks 6.5.0 (KF6) [done]
 
 PKG: Mousepad-0.6.2
 	#required
@@ -1651,7 +1651,7 @@ PKG: pinentry-1.3.1
 		|--FLTK-1.3.9
 		|--Gcr-4.3.0
 		|--Gcr-3.41.2
-		|--Building KDE Frameworks 6.5.0 (KF6)
+		|--Building KDE Frameworks 6.5.0 (KF6) [done]
 		|--kwayland-6.1.4 for lxqt
 		|--libsecret-0.21.4
 		|--qt5-components-5.15.14
@@ -4402,7 +4402,7 @@ PKG: lightdm-1.32.0
 PKG: sddm-0.21.0
 	#required
 		|--CMake-3.30.2
-		|--extra-cmake-modules-6.5.0
+		|--extra-cmake-modules-6.5.0  [done]
 		|--Qt-6.7.2
 	#recommended
 		|--docutils-0.21.2
@@ -4457,10 +4457,10 @@ PKG: adwaita-icon-theme-46.2
 
 PKG: breeze-icons-6.5.0
 	#required
-		|--extra-cmake-modules-6.5.0
+		|--extra-cmake-modules-6.5.0  [done]
 		|--Qt-6.7.2
 	#optional
-		|--Building KDE Frameworks 6.5.0 (KF6)
+		|--Building KDE Frameworks 6.5.0 (KF6) [done]
 		|--libxml2-2.13.3
 		|--lxml-5.3.0
 
@@ -4501,42 +4501,42 @@ PKG: lxde-icon-theme-0.5.1
 
 PKG: oxygen-icons-6.0.0
 	#required
-		|--extra-cmake-modules-6.5.0
+		|--extra-cmake-modules-6.5.0  [done]
 		|--Qt-6.7.2
 
 PKG: Chapter29.Introduction to KDE
 
 PKG: KDE Preliminaries
 
-PKG: extra-cmake-modules-6.5.0
+PKG: extra-cmake-modules-6.5.0  [done] 
 	#required
 		|--CMake-3.30.2
 	#optional
 		|--Sphinx-8.0.2
 
-PKG: Phonon-4.12.0
+PKG: Phonon-4.12.0 [done]
 	#required
 		|--CMake-3.30.2
-		|--extra-cmake-modules-6.5.0
+		|--extra-cmake-modules-6.5.0  [done]
 		|--GLib-2.80.4
 		|--Qt-6.7.2
 	#required
-		|--Phonon-backend-vlc-0.12.0
+		|--Phonon-backend-vlc-0.12.0 [done]
 	#optional
 		|--PulseAudio-17.0
 
-PKG: Phonon-backend-vlc-0.12.0
+PKG: Phonon-backend-vlc-0.12.0 [done]
 	#required
-		|--Phonon-4.12.0
+		|--Phonon-4.12.0 [done]
 		|--VLC-3.0.21
 
-PKG: Polkit-Qt-0.200.0
+PKG: Polkit-Qt-0.200.0 [done]
 	#required
 		|--CMake-3.30.2
 		|--Polkit-125
 		|--Qt-6.7.2
 
-PKG: plasma-wayland-protocols-1.13.0
+PKG: plasma-wayland-protocols-1.13.0 [done]
 	#required
 		|--extra-cmake-modules-6.5.0
 
@@ -4544,13 +4544,13 @@ PKG: Chapter30.KDE                 Frameworks 6
 
 PKG: KDE Frameworks 6                   Pre-installation Configuration
 
-PKG: Building                   KDE Frameworks 6.5.0 (KF6)
+PKG: Building KDE Frameworks 6.5.0 (KF6) [done]
 
 PKG: Chapter31.KDE                 Frameworks 6 Based Applications
 
-PKG: ark-24.08.0
+PKG: ark-24.08.0 [done]
 	#required
-		|--Building KDE Frameworks 6.5.0 (KF6)
+		|--Building KDE Frameworks 6.5.0 (KF6) [done]
 		|--libarchive-3.7.4
 	#recommended
 		|--cpio-2.15
@@ -4559,54 +4559,54 @@ PKG: ark-24.08.0
 		|--UnZip-6.0
 		|--Zip-3.0
 
-PKG: dolphin-24.08.0
+PKG: dolphin-24.08.0 [done]
 	#required
-		|--Building KDE Frameworks 6.5.0 (KF6)
+		|--Building KDE Frameworks 6.5.0 (KF6) [done]
 
-PKG: dolphin-plugins-24.08.0
+PKG: dolphin-plugins-24.08.0 [done]
 	#required
-		|--dolphin-24.08.0
+		|--dolphin-24.08.0 [done]
 
-PKG: kdenlive-24.08.0
+PKG: kdenlive-24.08.0 [done]
 	#required
-		|--Building KDE Frameworks 6.5.0 (KF6)
+		|--Building KDE Frameworks 6.5.0 (KF6) [done]
 		|--mlt-7.26.0
 		|--v4l-utils-1.28.1
 	#recommended
 		|--breeze-icons-6.5.0
 
-PKG: khelpcenter-24.08.0
+PKG: khelpcenter-24.08.0 [done]
 	#required
-		|--Building KDE Frameworks 6.5.0 (KF6)
+		|--Building KDE Frameworks 6.5.0 (KF6) [done]
 		|--libxml2-2.13.3
 		|--Xapian-1.4.26
 	#recommended
 		|--QtWebEngine-6.7.2
 
-PKG: Konsole-24.08.0
+PKG: Konsole-24.08.0 [done]
 	#required
-		|--Building KDE Frameworks 6.5.0 (KF6)
+		|--Building KDE Frameworks 6.5.0 (KF6) [done]
 
-PKG: konversation-24.08.0
+PKG: konversation-24.08.0 [done]
 	#required
-		|--Building KDE Frameworks 6.5.0 (KF6)
+		|--Building KDE Frameworks 6.5.0 (KF6) [done]
 
-PKG: libkexiv2-24.08.0
+PKG: libkexiv2-24.08.0 [done]
 	#required
-		|--Building KDE Frameworks 6.5.0 (KF6)
+		|--Building KDE Frameworks 6.5.0 (KF6) [done]
 		|--Exiv2-0.28.3
 
 PKG: plasma-activities-6.1.4
 	#required
 		|--boost-1.86.0
-		|--Building KDE Frameworks 6.5.0 (KF6)
+		|--Building KDE Frameworks 6.5.0 (KF6) [done]
 
 PKG: okular-24.08.0
 	#required
-		|--Building KDE Frameworks 6.5.0 (KF6)
+		|--Building KDE Frameworks 6.5.0 (KF6) [done]
 		|--plasma-activities-6.1.4
 	#recommended
-		|--libkexiv2-24.08.0
+		|--libkexiv2-24.08.0 [done]
 		|--libtiff-4.6.0
 		|--Poppler-24.08.0
 	#optional
@@ -4614,14 +4614,14 @@ PKG: okular-24.08.0
 
 PKG: libkdcraw-24.08.0
 	#required
-		|--Building KDE Frameworks 6.5.0 (KF6)
+		|--Building KDE Frameworks 6.5.0 (KF6) [done]
 		|--libraw-0.21.2
 
 PKG: gwenview-24.08.0
 	#required
 		|--Exiv2-0.28.3
 		|--kImageAnnotator-0.7.1
-		|--Building KDE Frameworks 6.5.0 (KF6)
+		|--Building KDE Frameworks 6.5.0 (KF6) [done]
 		|--Little CMS-2.16
 	#recommended
 		|--libkdcraw-24.08.0
@@ -4630,13 +4630,13 @@ PKG: gwenview-24.08.0
 
 PKG: libkcddb-24.08.0
 	#required
-		|--Building KDE Frameworks 6.5.0 (KF6)
+		|--Building KDE Frameworks 6.5.0 (KF6) [done]
 	#recommended
 		|--libmusicbrainz-5.1.0
 
 PKG: k3b-24.08.0
 	#required
-		|--Building KDE Frameworks 6.5.0 (KF6)
+		|--Building KDE Frameworks 6.5.0 (KF6) [done]
 		|--libkcddb-24.08.0
 		|--libsamplerate-0.2.2
 		|--shared-mime-info-2.4
@@ -4665,13 +4665,13 @@ PKG: Chapter32.KDE                 Plasma
 
 PKG: kirigami-addons-1.4.0
 	#required
-		|--Building KDE Frameworks 6.5.0 (KF6)
+		|--Building KDE Frameworks 6.5.0 (KF6) [done]
 	#recommended
 		|--Vulkan-Loader-1.3.294
 
 PKG: pulseaudio-qt-1.5.0
 	#required
-		|--Building KDE Frameworks 6.5.0 (KF6)
+		|--Building KDE Frameworks 6.5.0 (KF6) [done]
 		|--PulseAudio-17.0
 
 PKG: Building                   Plasma
@@ -5783,19 +5783,19 @@ PKG: KF5, Plasma, and Misc Dependencies
 
 PKG: kwindowsystem-6.5.0 for lxqt
 	#required
-		|--extra-cmake-modules-6.5.0
-		|--plasma-wayland-protocols-1.13.0
+		|--extra-cmake-modules-6.5.0  [done]
+		|--plasma-wayland-protocols-1.13.0 [done]
 		|--Qt-6.7.2
 		|--Xorg Libraries
 
 PKG: kconfig-6.5.0                   for lxqt
 	#required
-		|--extra-cmake-modules-6.5.0
+		|--extra-cmake-modules-6.5.0  [done]
 		|--Qt-6.7.2
 
 PKG: solid-6.5.0 for                   lxqt
 	#required
-		|--extra-cmake-modules-6.5.0
+		|--extra-cmake-modules-6.5.0  [done]
 		|--Qt-6.7.2
 	#optional
 		|--UDisks-2.10.1
@@ -5803,26 +5803,26 @@ PKG: solid-6.5.0 for                   lxqt
 
 PKG: kidletime-6.5.0 for lxqt
 	#required
-		|--extra-cmake-modules-6.5.0
-		|--plasma-wayland-protocols-1.13.0
+		|--extra-cmake-modules-6.5.0  [done]
+		|--plasma-wayland-protocols-1.13.0 [done]
 		|--Qt-6.7.2
 
 PKG: kwayland-6.1.4 for lxqt
 	#required
-		|--extra-cmake-modules-6.5.0
+		|--extra-cmake-modules-6.5.0  [done]
 		|--Mesa-24.1.5
 		|--Wayland-1.23.0
-		|--plasma-wayland-protocols-1.13.0
+		|--plasma-wayland-protocols-1.13.0 [done]
 		|--Qt-6.7.2
 
 PKG: libkscreen-6.1.4 for lxqt
 	#required
-		|--plasma-wayland-protocols-1.13.0
+		|--plasma-wayland-protocols-1.13.0 [done]
 		|--Qt-6.7.2
 
 PKG: layer-shell-qt-6.1.4 for lxqt
 	#required
-		|--extra-cmake-modules-6.5.0
+		|--extra-cmake-modules-6.5.0  [done]
 		|--Qt-6.7.2
 
 PKG: muparser-2.3.4
@@ -5851,7 +5851,7 @@ PKG: liblxqt-2.0.0
 	#required
 		|--libqtxdg-4.0.0
 		|--kwindowsystem-6.5.0 for lxqt
-		|--Polkit-Qt-0.200.0
+		|--Polkit-Qt-0.200.0 [done]
 
 PKG: libsysstat-1.0.0
 	#required
@@ -5955,7 +5955,7 @@ PKG: lxqt-config-2.0.0
 PKG: lxqt-policykit-2.0.0
 	#required
 		|--liblxqt-2.0.0
-		|--Polkit-Qt-0.200.0
+		|--Polkit-Qt-0.200.0 [done]
 
 PKG: lxqt-sudo-2.0.0
 	#required
@@ -6123,7 +6123,7 @@ PKG: LibreOffice-24.8.0
 		|--evolution-data-server-3.52.4
 		|--GDB-15.1
 		|--GnuTLS-3.8.7.1
-		|--Building KDE Frameworks 6.5.0 (KF6)
+		|--Building KDE Frameworks 6.5.0 (KF6) [done]
 		|--libpaper-2.2.5
 		|--MariaDB-10.11.8
 		|--MIT Kerberos V5-1.21.3
@@ -6153,8 +6153,8 @@ PKG: Epiphany-46.3
 
 PKG: falkon-24.08.0
 	#required
-		|--extra-cmake-modules-6.5.0
-		|--Building KDE Frameworks 6.5.0 (KF6)
+		|--extra-cmake-modules-6.5.0  [done]
+		|--Building KDE Frameworks 6.5.0 (KF6) [done]
 		|--QtWebEngine-6.7.2
 	#optional
 		|--gnome-keyring-46.2

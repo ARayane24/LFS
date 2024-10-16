@@ -17,23 +17,13 @@ fi
 
 
 # required packages:: (file calls with source)
-# call_method method_name file_path(source)
+call_method "PKG_plasma_wayland_protocols_.sh" "./packages/_KDE/_Introduction_to_KDE/PKG_plasma_wayland_protocols_.sh"
 
 
 # recommended packages::
-if [[ -n "$recommended_packages" && $recommended_packages ]]; then
-   
-   
-
-fi
 
 
 # optional packages::
-if [[ -n "$optional_packages" && $optional_packages ]]; then
-   
-   
-
-fi
 
 
 
@@ -41,10 +31,43 @@ fi
 # Use eval to define the function
 PKG_plasma_wayland_protocols_() {
     # code
+    ###PKG_plasma_wayland_protocols_: 0.1 SBU
+    if [[ -n "$PKG_plasma_wayland_protocols_" ]] ;then
+        extract_tar_files /sources "$PKG_plasma_wayland_protocols_"
+        echo -e "$PKG_plasma_wayland_protocols_" " 0.1 SBU"
+        echo $PKG_plasma_wayland_protocols_
+        cd $PKG_plasma_wayland_protocols_
+        next_pkg="$PKG_plasma_wayland_protocols_"
 
 
-    # end
-    echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+        mkdir build &&
+        cd    build &&
+
+        cmake -D CMAKE_INSTALL_PREFIX=/usr ..
+        if [ $? -ne 0 ]; then
+            echo -e "$BUILD_FAILED"
+            echo "export error_pkg=$next_pkg" >> /.bashrc
+            exit 1
+        fi
+        echo -e "$BUILD_SUCCEEDED"
+
+        make install
+        if [ $? -ne 0 ]; then
+            echo -e "$BUILD_FAILED"
+            echo "export error_pkg=$next_pkg" >> /.bashrc
+            exit 1
+        fi
+        echo -e "$BUILD_SUCCEEDED"
+
+        cd /sources/blfs
+        rm -Rf $PKG_plasma_wayland_protocols_ #rm extracted pkg
+        echo -e "$DONE" 
+        echo -e $PKG_plasma_wayland_protocols_ "$TOOL_READY"
+
+        # end
+        echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+    fi
+    ###********************************
 }
 
 

@@ -17,7 +17,9 @@ fi
 
 
 # required packages:: (file calls with source)
-# call_method method_name file_path(source)
+call_method "PKG_cmake_"                "./packages/_libs/_system_utilities/PKG_cmake_.sh"
+call_method "PKG_glib_"                 "./packages/_libs/_general_/PKG_glib_.sh"
+call_method "PKG_qt_everywhere_src_"    "./packages/_Graphical_Components/_Display_Managers/PKG_qt_everywhere_src_.sh"
 
 
 # recommended packages::
@@ -41,12 +43,14 @@ fi
 # Use eval to define the function
 PKG_phonon_() {
     # code
-    ###PKG_phonon: 0.1SBU
-    if [[ -n "$PKG_phonon" && "$next_pkg" = "$PKG_phonon" ]] ;then
-        extract_tar_files /sources "$PKG_phonon"
-        echo -e "$PKG_phonon" " 0.1 SBU"
-        echo $PKG_phonon
-        cd $PKG_phonon
+    ###PKG_phonon_: 0.2 SBU
+    if [[ -n "$PKG_phonon_" ]] ;then
+        extract_tar_files /sources "$PKG_phonon_"
+        echo -e "$PKG_phonon_" " 0.2 SBU"
+        echo $PKG_phonon_
+        cd $PKG_phonon_
+        next_pkg="$PKG_phonon_"
+
 
         mkdir build &&
         cd    build &&
@@ -58,7 +62,7 @@ PKG_phonon_() {
         make
         if [ $? -ne 0 ]; then
             echo -e "$BUILD_FAILED"
-            echo "export next_pkg=$next_pkg" >> /.bashrc
+            echo "export error_pkg=$next_pkg" >> /.bashrc
             exit 1
         fi
         echo -e "$BUILD_SUCCEEDED"
@@ -66,16 +70,15 @@ PKG_phonon_() {
         make install
         if [ $? -ne 0 ]; then
             echo -e "$BUILD_FAILED"
-            echo "export next_pkg=$next_pkg" >> /.bashrc
+            echo "export error_pkg=$next_pkg" >> /.bashrc
             exit 1
         fi
         echo -e "$BUILD_SUCCEEDED"
 
         cd /sources/blfs
-        rm -Rf $PKG_phonon #rm extracted pkg
+        rm -Rf $PKG_phonon_ #rm extracted pkg
         echo -e "$DONE" 
-        echo -e $PKG_phonon "$TOOL_READY"
-        next_pkg="$PKG_vlc"
+        echo -e $PKG_phonon_ "$TOOL_READY"
 
         # end
         echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs

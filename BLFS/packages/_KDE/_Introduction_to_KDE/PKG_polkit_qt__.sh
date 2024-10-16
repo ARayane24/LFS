@@ -17,23 +17,15 @@ fi
 
 
 # required packages:: (file calls with source)
-# call_method method_name file_path(source)
+call_method "PKG_cmake_"                "./packages/_libs/_system_utilities/PKG_cmake_.sh"
+call_method "PKG_polkit_"               "./packages/_Security/PKG_polkit_.sh"
+call_method "PKG_qt_everywhere_src_"    "./packages/_Graphical_Components/_Display_Managers/PKG_qt_everywhere_src_.sh"
 
 
 # recommended packages::
-if [[ -n "$recommended_packages" && $recommended_packages ]]; then
-   
-   
-
-fi
 
 
 # optional packages::
-if [[ -n "$optional_packages" && $optional_packages ]]; then
-   
-   
-
-fi
 
 
 
@@ -41,10 +33,47 @@ fi
 # Use eval to define the function
 PKG_polkit_qt__() {
     # code
+     ###PKG_polkit_qt__: 0.1 SBU
+    if [[ -n "$PKG_polkit_qt__" ]] ;then
+        extract_tar_files /sources "$PKG_polkit_qt__"
+        echo -e "$PKG_polkit_qt__" " 0.1 SBU"
+        echo $PKG_polkit_qt__
+        cd $PKG_polkit_qt__
+        next_pkg="$PKG_polkit_qt__"
 
 
-    # end
-    echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+        mkdir build &&
+        cd    build &&
+
+        cmake -D CMAKE_INSTALL_PREFIX=/usr \
+            -D CMAKE_BUILD_TYPE=Release  \
+            -D QT_MAJOR_VERSION=6        \
+            -W no-dev .. &&
+        make
+        if [ $? -ne 0 ]; then
+            echo -e "$BUILD_FAILED"
+            echo "export error_pkg=$next_pkg" >> /.bashrc
+            exit 1
+        fi
+        echo -e "$BUILD_SUCCEEDED"
+
+        make install
+        if [ $? -ne 0 ]; then
+            echo -e "$BUILD_FAILED"
+            echo "export error_pkg=$next_pkg" >> /.bashrc
+            exit 1
+        fi
+        echo -e "$BUILD_SUCCEEDED"
+
+        cd /sources/blfs
+        rm -Rf $PKG_polkit_qt__ #rm extracted pkg
+        echo -e "$DONE" 
+        echo -e $PKG_polkit_qt__ "$TOOL_READY"
+
+        # end
+        echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+    fi
+    ###********************************
 }
 
 
