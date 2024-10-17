@@ -4634,7 +4634,7 @@ PKG: libkcddb-24.08.0
 	#recommended
 		|--libmusicbrainz-5.1.0
 
-PKG: k3b-24.08.0
+PKG: k3b-24.08.0 [done]
 	#required
 		|--Building KDE Frameworks 6.5.0 (KF6) [done]
 		|--libkcddb-24.08.0
@@ -4663,13 +4663,13 @@ PKG: Further KDE                   packages
 
 PKG: Chapter32.KDE                 Plasma
 
-PKG: kirigami-addons-1.4.0
+PKG: kirigami-addons-1.4.0 [done]
 	#required
 		|--Building KDE Frameworks 6.5.0 (KF6) [done]
 	#recommended
 		|--Vulkan-Loader-1.3.294
 
-PKG: pulseaudio-qt-1.5.0
+PKG: pulseaudio-qt-1.5.0 [done]
 	#required
 		|--Building KDE Frameworks 6.5.0 (KF6) [done]
 		|--PulseAudio-17.0
