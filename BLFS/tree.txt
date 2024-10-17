@@ -4596,7 +4596,7 @@ PKG: libkexiv2-24.08.0 [done]
 		|--Building KDE Frameworks 6.5.0 (KF6) [done]
 		|--Exiv2-0.28.3
 
-PKG: plasma-activities-6.1.4
+PKG: plasma-activities-6.1.4 [done] 
 	#required
 		|--boost-1.86.0
 		|--Building KDE Frameworks 6.5.0 (KF6) [done]
@@ -4604,7 +4604,7 @@ PKG: plasma-activities-6.1.4
 PKG: okular-24.08.0
 	#required
 		|--Building KDE Frameworks 6.5.0 (KF6) [done]
-		|--plasma-activities-6.1.4
+		|--plasma-activities-6.1.4 [done] 
 	#recommended
 		|--libkexiv2-24.08.0 [done]
 		|--libtiff-4.6.0
@@ -4626,7 +4626,7 @@ PKG: gwenview-24.08.0
 	#recommended
 		|--libkdcraw-24.08.0
 	#optional
-		|--plasma-activities-6.1.4
+		|--plasma-activities-6.1.4 [done]
 
 PKG: libkcddb-24.08.0
 	#required
