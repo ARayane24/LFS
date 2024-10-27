@@ -19,21 +19,15 @@ fi
 # required packages:: (file calls with source)
 # call_method method_name file_path(source)
 
+call_method "PKG_wayland_" "./packages/_libs/_general_/PKG_wayland_.sh"
+
 
 # recommended packages::
-if [[ -n "$recommended_packages" && $recommended_packages ]]; then
-   
-   
 
-fi
 
 
 # optional packages::
-if [[ -n "$optional_packages" && $optional_packages ]]; then
-   
-   
 
-fi
 
 
 
@@ -41,10 +35,35 @@ fi
 # Use eval to define the function
 PKG_wayland_protocols_() {
     # code
+     ###PKG_wayland_protocols: 0.1 SBU
+    if [[ -n "$PKG_wayland_protocols" ]] ;then
+        extract_tar_files /sources "$PKG_wayland_protocols"
+        echo -e "$PKG_wayland_protocols" " 0.6 SBU"
+        echo $PKG_wayland_protocols
+        cd $PKG_wayland_protocols
+        next_pkg="$PKG_wayland_protocols"
 
 
-    # end
-    echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+        mkdir build &&
+        cd    build &&
+        meson setup --prefix=/usr --buildtype=release &&
+        ninja
+
+        if $DO_OPTIONNAL_TESTS then
+            ninja test
+        fi
+
+        ninja install
+
+        cd /sources/blfs
+        rm -Rf $PKG_wayland_protocols #rm extracted pkg
+        echo -e "$DONE" 
+        echo -e $PKG_wayland_protocols "$TOOL_READY"
+
+        # end
+        echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+    fi
+    ###********************************
 }
 
 

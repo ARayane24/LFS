@@ -22,18 +22,14 @@ fi
 
 # recommended packages::
 if [[ -n "$recommended_packages" && $recommended_packages ]]; then
-   
+   call_method "PKG_libpng_" "./packages/_libs/_graphical_and_font/PKG_libpng_.sh"
    
 
 fi
 
 
 # optional packages::
-if [[ -n "$optional_packages" && $optional_packages ]]; then
-   
-   
-
-fi
+#LIBWMF
 
 
 
@@ -42,9 +38,40 @@ fi
 PKG_wv_() {
     # code
 
+    if [[ -n "$PKG_wv_" ]] ;then
+        extract_tar_files /sources "$PKG_wv_"
+        echo -e "$PKG_wv_" " 0.4 SBU"
+        echo $PKG_wv_
+        cd $PKG_wv_
+        next_pkg="$PKG_wv_"
 
-    # end
-    echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+        ./configure --prefix=/usr --disable-static &&
+        make
+
+        if [ $? -ne 0 ]; then
+            echo -e "$BUILD_FAILED"
+            echo "export error_pkg=$next_pkg" >> /.bashrc
+            exit 1
+        fi
+        echo -e "$BUILD_SUCCEEDED"
+
+        make install
+        if [ $? -ne 0 ]; then
+            echo -e "$BUILD_FAILED"
+            echo "export error_pkg=$next_pkg" >> /.bashrc
+            exit 1
+        fi
+        echo -e "$BUILD_SUCCEEDED"
+
+        cd /sources/BLFS
+        rm -r $PKG_wv_
+        echo -e "$DONE"
+        echo -e $PKG_wv_ "$TOOL_READY"
+
+
+        # end
+        echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+    fi
 }
 
 

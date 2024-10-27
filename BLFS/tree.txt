@@ -1133,13 +1133,13 @@ PKG: Wayland-Protocols-1.36
 	#required
 		|--Wayland-1.23.0
 
-PKG: wv-1.2.9
+PKG: wv-1.2.9 [done]
 	#required
 		|--libgsf-1.14.52
 		|--libpng-1.6.43
 	#optional
 
-PKG: Xapian-1.4.26
+PKG: Xapian-1.4.26 [done]
 	#optional
 		|--Valgrind-3.23.0
 
@@ -2023,7 +2023,7 @@ PKG: Doxygen-1.12.0
 		|--qt5-components-5.15.14
 		|--texlive-20240312-source
 		|--install-tl-unx
-		|--Xapian-1.4.26
+		|--Xapian-1.4.26 [done]
 
 PKG: dtc-1.7.1
 	#optional
@@ -4579,7 +4579,7 @@ PKG: khelpcenter-24.08.0 [done]
 	#required
 		|--Building KDE Frameworks 6.5.0 (KF6) [done]
 		|--libxml2-2.13.3 [done]
-		|--Xapian-1.4.26
+		|--Xapian-1.4.26 [done]
 	#recommended
 		|--QtWebEngine-6.7.2
 
@@ -6045,7 +6045,7 @@ PKG: AbiWord-3.0.5
 		|--cURL-8.9.1
 		|--FriBidi-1.0.15
 		|--GOffice-0.10.57
-		|--wv-1.2.9
+		|--wv-1.2.9 [done]
 	#recommended
 		|--enchant-2.8.2
 	#optional
