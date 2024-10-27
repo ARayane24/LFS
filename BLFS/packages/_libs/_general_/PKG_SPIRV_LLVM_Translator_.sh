@@ -19,21 +19,17 @@ fi
 # required packages:: (file calls with source)
 # call_method method_name file_path(source)
 
+call_method "PKG_libxml_" "./packages/_libs/_general_/PKG_libxml_.sh"
+call_method "PKG_llvm_src" "./packages/_libs/_system_utilities/PKG_llvm_src.sh"
+call_method "PKG_SPIRV_Tools_" "./packages/_libs/_general_/PKG_SPIRV_Tools_.sh"
+
 
 # recommended packages::
-if [[ -n "$recommended_packages" && $recommended_packages ]]; then
-   
-   
 
-fi
 
 
 # optional packages::
-if [[ -n "$optional_packages" && $optional_packages ]]; then
-   
-   
 
-fi
 
 
 
@@ -41,10 +37,37 @@ fi
 # Use eval to define the function
 PKG_SPIRV_LLVM_Translator_() {
     # code
+     ###PKG_SPIRV_LLVM_Translator_: 0.6 SBU
+    if [[ -n "$PKG_SPIRV_LLVM_Translator_" ]] ;then
+        extract_tar_files /sources "$PKG_SPIRV_LLVM_Translator_"
+        echo -e "$PKG_SPIRV_LLVM_Translator_" " 0.6 SBU"
+        echo $PKG_SPIRV_LLVM_Translator_
+        cd $PKG_SPIRV_LLVM_Translator_
+        next_pkg="$PKG_SPIRV_LLVM_Translator_"
 
 
-    # end
-    echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+        mkdir build &&
+        cd    build &&
+
+        cmake -D CMAKE_INSTALL_PREFIX=/usr                   \
+            -D CMAKE_BUILD_TYPE=Release                    \
+            -D BUILD_SHARED_LIBS=ON                        \
+            -D CMAKE_SKIP_INSTALL_RPATH=ON                 \
+            -D LLVM_EXTERNAL_SPIRV_HEADERS_SOURCE_DIR=/usr \
+            -G Ninja ..                                    &&
+        ninja
+
+        ninja install
+
+        cd /sources/blfs
+        rm -Rf $PKG_SPIRV_LLVM_Translator_ #rm extracted pkg
+        echo -e "$DONE" 
+        echo -e $PKG_SPIRV_LLVM_Translator_ "$TOOL_READY"
+
+        # end
+        echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+    fi
+    ###********************************
 }
 
 

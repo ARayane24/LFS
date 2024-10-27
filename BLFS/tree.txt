@@ -761,7 +761,7 @@ PKG: libbytesize-2.11
 
 PKG: libclc-18.1.7
 	#required
-		|--SPIRV-LLVM-Translator-18.1.3
+		|--SPIRV-LLVM-Translator-18.1.3 [done]
 
 PKG: libcloudproviders-0.3.6
 	#required
@@ -805,7 +805,7 @@ PKG: libgudev-238
 		|--GLib-2.80.4
 	#optional
 		|--GTK-Doc-1.34.0
-		|--Umockdev-0.18.3
+		|--Umockdev-0.18.3 [done]
 
 PKG: libgusb-0.4.9
 	#required
@@ -817,7 +817,7 @@ PKG: libgusb-0.4.9
 		|--Vala-0.56.17
 	#optional
 		|--Gi-DocGen-2024.1
-		|--Umockdev-0.18.3
+		|--Umockdev-0.18.3 [done]
 
 PKG: libical-3.0.18
 	#required
@@ -968,8 +968,8 @@ PKG: libxkbcommon-1.7.0
 		|--XKeyboardConfig-2.42
 	#recommended
 		|--libxcb-1.17.0
-		|--Wayland-1.23.0
-		|--Wayland-Protocols-1.36
+		|--Wayland-1.23.0 [done]
+		|--Wayland-Protocols-1.36 [done]
 	#optional
 		|--Doxygen-1.12.0
 		|--Xorg-Server-21.1.13
@@ -1079,18 +1079,18 @@ PKG: SPIRV-Headers-1.3.290.0
 	#required
 		|--CMake-3.30.2
 
-PKG: SPIRV-Tools-1.3.290.0
+PKG: SPIRV-Tools-1.3.290.0 [done]
 	#required
 		|--CMake-3.30.2
 		|--SPIRV-Headers-1.3.290.0
 
-PKG: SPIRV-LLVM-Translator-18.1.3
+PKG: SPIRV-LLVM-Translator-18.1.3 [done]
 	#required
 		|--libxml2-2.13.3 [done]
 		|--LLVM-18.1.7
-		|--SPIRV-Tools-1.3.290.0
+		|--SPIRV-Tools-1.3.290.0 [done]
 
-PKG: Talloc-2.4.2
+PKG: Talloc-2.4.2 [done]
 	#optional
 		|--docbook-xml-4.5
 		|--docbook-xsl-nons-1.79.2
@@ -1102,11 +1102,11 @@ PKG: Talloc-2.4.2
 		|--Valgrind-3.23.0
 		|--xfsprogs-6.9.0
 
-PKG: Uchardet-0.0.8
+PKG: Uchardet-0.0.8 [done]
 	#required
 		|--CMake-3.30.2
 
-PKG: Umockdev-0.18.3
+PKG: Umockdev-0.18.3 [done]
 	#required
 		|--libgudev-238
 		|--libpcap-1.10.4
@@ -1114,11 +1114,11 @@ PKG: Umockdev-0.18.3
 	#optional
 		|--GTK-Doc-1.34.0
 
-PKG: utfcpp-4.0.5
+PKG: utfcpp-4.0.5 [done]
 	#required
 		|--CMake-3.30.2
 
-PKG: Wayland-1.23.0
+PKG: Wayland-1.23.0 [done]
 	#required
 		|--libxml2-2.13.3 [done]
 	#optional
@@ -1129,9 +1129,9 @@ PKG: Wayland-1.23.0
 		|--docbook-xsl-nons-1.79.2
 		|--libxslt-1.1.42
 
-PKG: Wayland-Protocols-1.36
+PKG: Wayland-Protocols-1.36 [done]
 	#required
-		|--Wayland-1.23.0
+		|--Wayland-1.23.0 [done]
 
 PKG: wv-1.2.9 [done]
 	#required
@@ -1590,7 +1590,7 @@ PKG: ibus-1.5.30
 		|--D-Bus Python-1.3.2
 		|--PyGObject-3.48.2
 		|--libxkbcommon-1.7.0
-		|--Wayland-1.23.0
+		|--Wayland-1.23.0 [done]
 
 PKG: ImageMagick-7.1.1-36
 	#recommended
@@ -1868,7 +1868,7 @@ PKG: Power-profiles-daemon-0.21
 	#optional
 		|--GTK-Doc-1.34.0
 		|--dbusmock-0.32.1
-		|--Umockdev-0.18.3
+		|--Umockdev-0.18.3 [done]
 
 PKG: Raptor-2.0.16
 	#required
@@ -1968,7 +1968,7 @@ PKG: UPower-1.90.4
 		|--docbook-xsl-nons-1.79.2
 		|--PyGObject-3.48.2
 		|--dbusmock-0.32.1
-		|--Umockdev-0.18.3
+		|--Umockdev-0.18.3 [done]
 
 PKG: usbutils-017
 	#required
@@ -2862,7 +2862,7 @@ PKG: bridge-utils-1.7.1
 PKG: cifs-utils-7.0
 	#recommended
 		|--MIT Kerberos V5-1.21.3
-		|--Talloc-2.4.2
+		|--Talloc-2.4.2 [done]
 		|--MIT Kerberos V5-1.21.3
 	#optional
 		|--docutils-0.21.2
@@ -2942,7 +2942,7 @@ PKG: Samba-4.20.4
 		|--Markdown-3.6
 		|--NSS-3.103
 		|--Popt-1.19
-		|--Talloc-2.4.2
+		|--Talloc-2.4.2 [done]
 		|--Vala-0.56.17
 		|--Valgrind-3.23.0
 		|--xfsprogs-6.9.0
@@ -3672,7 +3672,7 @@ PKG: Xwayland-24.1.2
 	#required
 		|--libxcvt-0.1.2
 		|--Pixman-0.43.4
-		|--Wayland-Protocols-1.36
+		|--Wayland-Protocols-1.36 [done]
 		|--Xorg Applications
 		|--Xorg Fonts
 	#recommended
@@ -3896,7 +3896,7 @@ PKG: GLEW-2.2.0
 PKG: Glslang-14.3.0
 	#required
 		|--CMake-3.30.2
-		|--SPIRV-Tools-1.3.290.0
+		|--SPIRV-Tools-1.3.290.0 [done]
 
 PKG: GLU-9.0.3
 	#required
@@ -3940,8 +3940,8 @@ PKG: GTK+-3.24.43
 		|--libxkbcommon-1.7.0
 		|--libxslt-1.1.42
 		|--sassc-3.6.2
-		|--Wayland-1.23.0
-		|--Wayland-Protocols-1.36
+		|--Wayland-1.23.0 [done]
+		|--Wayland-Protocols-1.36 [done]
 	#recommended
 		|--GLib-2.80.4
 	#optional
@@ -3962,7 +3962,7 @@ PKG: GTK-4.14.5
 		|--libxkbcommon-1.7.0
 		|--Pango-1.54.0
 		|--PyGObject-3.48.2
-		|--Wayland-Protocols-1.36
+		|--Wayland-Protocols-1.36 [done]
 	#recommended
 		|--adwaita-icon-theme-46.2
 		|--gst-plugins-bad-1.24.7
@@ -4207,7 +4207,7 @@ PKG: qt5-components-5.15.14
 		|--libjpeg-turbo-3.0.1
 		|--libxkbcommon-1.7.0
 		|--SQLite-3.46.1
-		|--Wayland-1.23.0
+		|--Wayland-1.23.0 [done]
 		|--xcb-util-image-0.4.1
 		|--xcb-util-keysyms-0.4.1
 		|--xcb-util-renderutil-0.3.10
@@ -4245,7 +4245,7 @@ PKG: Qt-6.7.2
 		|--mtdev-1.1.7
 		|--PCRE2-10.44
 		|--SQLite-3.46.1
-		|--Wayland-1.23.0
+		|--Wayland-1.23.0 [done]
 		|--xcb-util-cursor-0.1.4
 		|--xcb-util-image-0.4.1
 		|--xcb-util-keysyms-0.4.1
@@ -4298,7 +4298,7 @@ PKG: Vulkan-Loader-1.3.294
 	#required
 		|--CMake-3.30.2
 		|--Vulkan-Headers-1.3.294
-		|--Wayland-1.23.0
+		|--Wayland-1.23.0 [done]
 		|--Xorg Libraries
 
 PKG: WebKitGTK-2.44.3
@@ -4335,7 +4335,7 @@ PKG: WebKitGTK-2.44.3
 	#optional
 		|--Gi-DocGen-2024.1
 		|--harfBuzz-9.0.0
-		|--Wayland-1.23.0
+		|--Wayland-1.23.0 [done]
 		|--woff2-1.0.2
 
 PKG: xdg-desktop-portal-1.18.2
@@ -5130,12 +5130,12 @@ PKG: gnome-settings-daemon-46.0
 		|--Cups-2.4.10
 		|--NetworkManager-1.48.8
 		|--NSS-3.103
-		|--Wayland-1.23.0
+		|--Wayland-1.23.0 [done]
 	#optional
 		|--gnome-session-46.0
 		|--Mutter-46.4
 		|--dbusmock-0.32.1
-		|--Umockdev-0.18.3
+		|--Umockdev-0.18.3 [done]
 		|--Xorg-Server-21.1.13
 		|--Xwayland-24.1.2
 
@@ -5189,8 +5189,8 @@ PKG: Mutter-46.4
 		|--startup-notification-0.12
 	#recommended
 		|--libinput-1.26.1
-		|--Wayland-1.23.0
-		|--Wayland-Protocols-1.36
+		|--Wayland-1.23.0 [done]
+		|--Wayland-Protocols-1.36 [done]
 		|--Xwayland-24.1.2
 	#optional
 		|--dbusmock-0.32.1
@@ -5811,7 +5811,7 @@ PKG: kwayland-6.1.4 for lxqt
 	#required
 		|--extra-cmake-modules-6.5.0  [done]
 		|--Mesa-24.1.5
-		|--Wayland-1.23.0
+		|--Wayland-1.23.0 [done]
 		|--plasma-wayland-protocols-1.13.0 [done]
 		|--Qt-6.7.2
 
@@ -6284,7 +6284,7 @@ PKG: FreeRDP-3.7.0
 		|--MIT Kerberos V5-1.21.3
 		|--libusb-1.0.27
 		|--libxkbcommon-1.7.0
-		|--Wayland-1.23.0
+		|--Wayland-1.23.0 [done]
 	#optional
 		|--Cups-2.4.10
 		|--FAAC-1_30
@@ -6549,7 +6549,7 @@ PKG: gst-plugins-base-1.24.7
 		|--libvorbis-1.3.7
 		|--Mesa-24.1.5
 		|--Pango-1.54.0
-		|--Wayland-Protocols-1.36
+		|--Wayland-Protocols-1.36 [done]
 		|--Xorg Libraries
 	#optional
 		|--Graphene-1.10.8
@@ -6583,7 +6583,7 @@ PKG: gst-plugins-good-1.24.7
 		|--Taglib-2.0.1
 		|--Valgrind-3.23.0
 		|--v4l-utils-1.28.1
-		|--Wayland-1.23.0
+		|--Wayland-1.23.0 [done]
 
 PKG: gst-plugins-bad-1.24.7
 	#required
@@ -6624,7 +6624,7 @@ PKG: gst-plugins-bad-1.24.7
 		|--sdl12-compat-1.2.68
 		|--Valgrind-3.23.0
 		|--Vulkan-Loader-1.3.294
-		|--Wayland-1.23.0
+		|--Wayland-1.23.0 [done]
 		|--GTK+-3.24.43
 		|--x265-3.6
 
@@ -6776,7 +6776,7 @@ PKG: libva-2.22.0
 		|--Mesa-24.1.5
 	#optional
 		|--Doxygen-1.12.0
-		|--Wayland-1.23.0
+		|--Wayland-1.23.0 [done]
 
 PKG: libvdpau-1.5
 	#required
@@ -6896,7 +6896,7 @@ PKG: sdl12-compat-1.2.68
 PKG: SDL2-2.30.6
 	#recommended
 		|--libxkbcommon-1.7.0
-		|--Wayland-Protocols-1.36
+		|--Wayland-Protocols-1.36 [done]
 		|--Xorg Libraries
 	#optional
 		|--alsa-lib-1.2.12
@@ -6922,7 +6922,7 @@ PKG: Speex-1.2.1
 PKG: Taglib-2.0.1
 	#required
 		|--CMake-3.30.2
-		|--utfcpp-4.0.5
+		|--utfcpp-4.0.5 [done]
 	#optional
 
 PKG: v4l-utils-1.28.1
@@ -7127,7 +7127,7 @@ PKG: mpv-0.38.0
 		|--libva-2.22.0
 		|--libvdpau-1.5
 		|--Lua-5.2.4
-		|--Uchardet-0.0.8
+		|--Uchardet-0.0.8 [done]
 		|--Vulkan-Loader-1.3.294
 	#optional
 		|--libdvdcss-1.4.3
