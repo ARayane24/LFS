@@ -518,7 +518,7 @@ PKG: qemu-9.0.2
 
 PKG: Chapter9.General Libraries
 
-PKG: Abseil-cpp-20240722.0
+PKG: Abseil-cpp-20240722.0 [done]
 	#required
 		|--CMake-3.30.2
 
@@ -1046,7 +1046,7 @@ PKG: Popt-1.19
 
 PKG: Protobuf-27.3
 	#required
-		|--Abseil-cpp-20240722.0
+		|--Abseil-cpp-20240722.0 [done]
 		|--CMake-3.30.2
 	#optional
 
@@ -6114,7 +6114,7 @@ PKG: LibreOffice-24.8.0
 		|--Redland-1.0.17
 		|--unixODBC-2.3.12
 	#optional
-		|--Abseil-cpp-20240722.0
+		|--Abseil-cpp-20240722.0 [done]
 		|--Avahi-0.8
 		|--BlueZ-5.77
 		|--DConf-0.40.0 / DConf-Editor-45.0.1
