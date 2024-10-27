@@ -25,18 +25,13 @@ call_method "PKG_libyaml_"     "./packages/_libs/_general_/PKG_libyaml_.sh"
 
 
 # recommended packages::
-if [[ -n "$recommended_packages" && $recommended_packages ]]; then
-   
-   
 
-fi
 
 
 # optional packages::
 if [[ -n "$optional_packages" && $optional_packages ]]; then
-   
-   
-
+   call_method "PKG_gi_docgen_" "./packages/_libs/_programing/_python_modules/PKG_gi_docgen_"
+   call_method "PKG_qt_everywhere_src_" "./packages/_Graphical_Components/_Display_Managers/PKG_qt_everywhere_src_.sh"
 fi
 
 
@@ -45,10 +40,10 @@ fi
 # Use eval to define the function
 PKG_AppStream_() {
 # code
-     ###PKG_AppStream_: 0.2 SBU
+     ###PKG_AppStream_: 0.5 SBU
     if [[ -n "$PKG_AppStream_" ]] ;then
         extract_tar_files /sources "$PKG_AppStream_"
-        echo -e "$PKG_AppStream_" " 0.2 SBU"
+        echo -e "$PKG_AppStream_" " 0.5 SBU"
         echo $PKG_AppStream_
         cd $PKG_AppStream_
         next_pkg="$PKG_AppStream_"
@@ -71,6 +66,44 @@ PKG_AppStream_() {
         ninja install
         echo -e "$BUILD_SUCCEEDED"
         mv -v /usr/share/doc/appstream{,-1.0.3}
+
+        install -vdm755 /usr/share/metainfo &&
+        cat > /usr/share/metainfo/org.linuxfromscratch.lfs.xml << EOF
+        <?xml version="1.0" encoding="UTF-8"?>
+        <component type="operating-system">
+        <id>org.linuxfromscratch.lfs</id>
+        <name>${DISTRO_NAME}</name>
+        <summary>A customized Linux system built entirely from source</summary>
+        <description>
+            <p>
+            Linux From Scratch (LFS) is a project that provides you with
+            step-by-step instructions for building your own customized Linux
+            system entirely from source.
+            </p>
+        </description>
+        <url type="homepage">https://github.com/ARayane24/LFS</url>
+        <metadata_license>MIT</metadata_license>
+        <developer id='linuxfromscratch.org'>
+            <name>The Linux From Scratch Editors</name>
+        </developer>
+
+        <releases>
+            <release version="12.2" type="release" date="2024-04-01">
+            <description>
+                <p>Now contains Binutils 2.43.1, GCC-14.2.0, Glibc-2.40,
+                and Linux kernel 6.10.</p>
+            </description>
+            </release>
+
+            <release version="12.1" type="stable" date="2024-03-01">
+            <description>
+                <p>Now contains Binutils 2.42, GCC-13.2.0, Glibc-2.39,
+                and Linux kernel 6.7.</p>
+            </description>
+            </release>
+        </releases>
+        </component>
+EOF
 
         cd /sources/blfs
         rm -Rf $PKG_AppStream_ #rm extracted pkg
