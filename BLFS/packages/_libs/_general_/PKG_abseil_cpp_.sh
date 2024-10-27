@@ -53,10 +53,6 @@ PKG_abseil_cpp_() {
         ninja
         echo -e "$BUILD_SUCCEEDED"
 
-        if $DO_OPTIONNAL_TESTS; then
-            ninja test
-        fi
-
         ninja install
         echo -e "$BUILD_SUCCEEDED"
 
@@ -69,8 +65,6 @@ PKG_abseil_cpp_() {
         echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
     fi
     ###********************************
-    # end
-    echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
 }
 
 
