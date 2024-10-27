@@ -30,10 +30,10 @@ if [[ -n "$optional_packages" && $optional_packages ]]; then
 
 call_method "PKG_doxygen_src" "./packages/_libs/_system_utilities/PKG_doxygen_src.sh"
 call_method "PKG_graphviz" "./packages/_libs/_general_utilities/PKG_graphviz.sh"
-#call_method "PKG_xmlto_.sh" "./packages/_Multimedia/_Printing%2C_Scanning_and_Typesetting/_Extensible_Markup_Language_%28XML%29/PKG_xmlto_.sh"
-call_method 
-   
-   
+call_method "PKG_xmlto_.sh" "./packages/_Printing%2C_Scanning_and_Typesetting/_Extensible_Markup_Language_%28XML%29/PKG_xmlto_.sh"
+call_method "PKG_docbook_xml_zip" "./packages/_Printing%2C_Scanning_and_Typesetting/_Extensible_Markup_Language_%28XML%29/PKG_docbook_xml_zip.sh"
+call_method "PKG_docbook_xsl_nons" "./packages/_Printing%2C_Scanning_and_Typesetting/_Extensible_Markup_Language_%28XML%29/PKG_docbook_xsl_nons.sh"
+call_method "PKG_libxslt" "./packages/_libs/_general_/PKG_libxslt.sh"
 
 fi
 
@@ -46,7 +46,7 @@ PKG_wayland_() {
      ###PKG_wayland_: 0.1 SBU
     if [[ -n "$PKG_wayland_" ]] ;then
         extract_tar_files /sources "$PKG_wayland_"
-        echo -e "$PKG_wayland_" " 0.6 SBU"
+        echo -e "$PKG_wayland_" " 0.1 SBU"
         echo $PKG_wayland_
         cd $PKG_wayland_
         next_pkg="$PKG_wayland_"

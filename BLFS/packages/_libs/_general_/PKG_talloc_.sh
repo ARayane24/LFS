@@ -21,17 +21,21 @@ fi
 
 
 # recommended packages::
-if [[ -n "$recommended_packages" && $recommended_packages ]]; then
-   
-   
 
-fi
 
 
 # optional packages::
 if [[ -n "$optional_packages" && $optional_packages ]]; then
-   
-   
+
+call_method "PKG_docbook_xml_zip" "./packages/_Printing%2C_Scanning_and_Typesetting/_Extensible_Markup_Language_%28XML%29/PKG_docbook_xml_zip.sh"
+call_method "PKG_docbook_xsl_nons" "./packages/_Printing%2C_Scanning_and_Typesetting/_Extensible_Markup_Language_%28XML%29/PKG_docbook_xsl_nons.sh"
+call_method "PKG_libxslt" "./packages/_libs/_general_/PKG_libxslt.sh"
+call_method "PKG_gdb_" "./packages/_libs/_system_utilities/PKG_gdb_.sh"
+call_method "PKG_git" "./packages/_system_utilities/PKG_git.sh"
+call_method "PKG_libnsl_" "./packages/_Networking/_Networking_Libraries/PKG_libnsl_.sh"   
+call_method "PKG_libtirpc_" "./packages/_Networking/_Networking_Libraries/PKG_libtirpc_.sh"
+call_method "PKG_valgrind_" "./packages/_libs/_system_utilities/PKG_valgrind_.sh"
+call_method "PKG_xfsprogs_" "./packages/_File_Systems_and_Disk_Management/PKG_xfsprogs_.sh"
 
 fi
 
@@ -41,10 +45,45 @@ fi
 # Use eval to define the function
 PKG_talloc_() {
     # code
+     ###PKG_talloc_: 0.4 SBU
+    if [[ -n "$PKG_talloc_" ]] ;then
+        extract_tar_files /sources "$PKG_talloc_"
+        echo -e "$PKG_talloc_" " 0.4 SBU"
+        echo $PKG_talloc_
+        cd $PKG_talloc_
+        next_pkg="$PKG_talloc_"
 
+        ./configure --prefix=/usr &&
+        make
 
-    # end
-    echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+        if [ $? -ne 0 ]; then
+            echo -e "$BUILD_FAILED"
+            echo "export error_pkg=$next_pkg" >> /.bashrc
+            exit 1
+        fi
+        echo -e "$BUILD_SUCCEEDED"
+
+        if $DO_OPTIONNAL_TESTS then
+            make check
+        fi
+
+        make install
+        if [ $? -ne 0 ]; then
+            echo -e "$BUILD_FAILED"
+            echo "export error_pkg=$next_pkg" >> /.bashrc
+            exit 1
+        fi
+        echo -e "$BUILD_SUCCEEDED"
+
+        cd /sources/blfs
+        rm -Rf $PKG_talloc_ #rm extracted pkg
+        echo -e "$DONE" 
+        echo -e $PKG_talloc_ "$TOOL_READY"
+
+        # end
+        echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+    fi
+    ###********************************
 }
 
 

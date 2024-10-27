@@ -19,21 +19,16 @@ fi
 # required packages:: (file calls with source)
 # call_method method_name file_path(source)
 
+call_method "PKG_cmake_" "./packages/_libs/_system_utilities/PKG_cmake_.sh"
+
+
 
 # recommended packages::
-if [[ -n "$recommended_packages" && $recommended_packages ]]; then
-   
-   
 
-fi
 
 
 # optional packages::
-if [[ -n "$optional_packages" && $optional_packages ]]; then
-   
-   
 
-fi
 
 
 
@@ -41,10 +36,50 @@ fi
 # Use eval to define the function
 PKG_uchardet_() {
     # code
+     ###PKG_uchardet_: 0.1 SBU
+    if [[ -n "$PKG_uchardet_" ]] ;then
+        extract_tar_files /sources "$PKG_uchardet_"
+        echo -e "$PKG_uchardet_" " 0.1 SBU"
+        echo $PKG_uchardet_
+        cd $PKG_uchardet_
+        next_pkg="$PKG_uchardet_"
 
 
-    # end
-    echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+        mkdir build &&
+        cd    build &&
+
+        cmake -D CMAKE_INSTALL_PREFIX=/usr \
+            -D BUILD_STATIC=OFF          \
+            -W no-dev ..                 &&
+        make
+        if [ $? -ne 0 ]; then
+            echo -e "$BUILD_FAILED"
+            echo "export error_pkg=$next_pkg" >> /.bashrc
+            exit 1
+        fi
+        echo -e "$BUILD_SUCCEEDED"
+
+        if $DO_OPTIONNAL_TESTS then
+            make test
+        fi
+
+        make install
+        if [ $? -ne 0 ]; then
+            echo -e "$BUILD_FAILED"
+            echo "export error_pkg=$next_pkg" >> /.bashrc
+            exit 1
+        fi
+        echo -e "$BUILD_SUCCEEDED"
+
+        cd /sources/blfs
+        rm -Rf $PKG_uchardet_ #rm extracted pkg
+        echo -e "$DONE" 
+        echo -e $PKG_uchardet_ "$TOOL_READY"
+
+        # end
+        echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+    fi
+    ###********************************
 }
 
 

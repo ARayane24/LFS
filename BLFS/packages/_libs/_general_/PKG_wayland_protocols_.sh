@@ -38,7 +38,7 @@ PKG_wayland_protocols_() {
      ###PKG_wayland_protocols: 0.1 SBU
     if [[ -n "$PKG_wayland_protocols" ]] ;then
         extract_tar_files /sources "$PKG_wayland_protocols"
-        echo -e "$PKG_wayland_protocols" " 0.6 SBU"
+        echo -e "$PKG_wayland_protocols" " 0.1 SBU"
         echo $PKG_wayland_protocols
         cd $PKG_wayland_protocols
         next_pkg="$PKG_wayland_protocols"
