@@ -22,17 +22,15 @@ fi
 
 # recommended packages::
 if [[ -n "$recommended_packages" && $recommended_packages ]]; then
-   
-   
-
+    call_method "PKG_libxml_" "./packages/_libs/_general_/PKG_libxml_.sh"
 fi
 
 
 # optional packages::
 if [[ -n "$optional_packages" && $optional_packages ]]; then
-   
-   
-
+    call_method "PKG_lzo_" "./packages/_libs/_general_/PKG_lzo_.sh"
+    call_method "PKG_nettle_" "./packages/_Security/PKG_nettle_.sh"
+    call_method "PKG_pcre_" "./packages/_libs/_general_/PKG_pcre_.sh"
 fi
 
 

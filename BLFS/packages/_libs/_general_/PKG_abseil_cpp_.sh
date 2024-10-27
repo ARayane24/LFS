@@ -17,23 +17,14 @@ fi
 
 
 # required packages:: (file calls with source)
-# call_method method_name file_path(source)
+call_method "PKG_cmake_" "./packages/_libs/_system_utilities/PKG_cmake_.sh"
 
 
 # recommended packages::
-if [[ -n "$recommended_packages" && $recommended_packages ]]; then
-   
-   
 
-fi
 
 
 # optional packages::
-if [[ -n "$optional_packages" && $optional_packages ]]; then
-   
-   
-
-fi
 
 
 
@@ -41,8 +32,43 @@ fi
 # Use eval to define the function
 PKG_abseil_cpp_() {
     # code
+    # code
+     ###PKG_abseil_cpp_: 0.9 SBU
+    if [[ -n "$PKG_abseil_cpp_" ]] ;then
+        extract_tar_files /sources "$PKG_abseil_cpp_"
+        echo -e "$PKG_abseil_cpp_" " 0.9 SBU"
+        echo $PKG_abseil_cpp_
+        cd $PKG_abseil_cpp_
+        next_pkg="$PKG_abseil_cpp_"
 
 
+        mkdir build &&
+        cd    build &&
+
+        cmake -D CMAKE_INSTALL_PREFIX=/usr \
+            -D CMAKE_BUILD_TYPE=Release  \
+            -D ABSL_PROPAGATE_CXX_STD=ON \
+            -D BUILD_SHARED_LIBS=ON      \
+            -G Ninja ..                  &&
+        ninja
+        echo -e "$BUILD_SUCCEEDED"
+
+        if $DO_OPTIONNAL_TESTS; then
+            ninja test
+        fi
+
+        ninja install
+        echo -e "$BUILD_SUCCEEDED"
+
+        cd /sources/blfs
+        rm -Rf $PKG_abseil_cpp_ #rm extracted pkg
+        echo -e "$DONE" 
+        echo -e $PKG_abseil_cpp_ "$TOOL_READY"
+
+        # end
+        echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+    fi
+    ###********************************
     # end
     echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
 }

@@ -396,7 +396,7 @@ PKG: Bluefish-2.2.15
 
 PKG: Ed-1.20.2
 	#required
-		|--libarchive-3.7.4
+		|--libarchive-3.7.4 [done]
 
 PKG: Emacs-29.4
 	#recommended
@@ -421,7 +421,7 @@ PKG: Emacs-29.4
 		|--librsvg-2.58.3
 		|--libseccomp-2.5.5
 		|--libwebp-1.4.0
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 		|--MIT Kerberos V5-1.21.3
 		|--SQLite-3.46.1
 		|--Valgrind-3.23.0
@@ -445,7 +445,7 @@ PKG: Gedit-47.0
 
 PKG: JOE-4.6
 
-PKG: kate-24.08.0
+PKG: kate-24.08.0 [done]
 	#required
 		|--Building KDE Frameworks 6.5.0 (KF6) [done]
 
@@ -492,7 +492,7 @@ PKG: qemu-9.0.2
 		|--SDL2-2.30.6
 	#optional
 		|--Pipewire-1.2.3
-		|--PulseAudio-17.0
+		|--PulseAudio-17.0 [done]
 		|--BlueZ-5.77
 		|--cURL-8.9.1
 		|--Cyrus SASL-2.1.28
@@ -526,7 +526,7 @@ PKG: AppStream-1.0.3
 	#required
 		|--cURL-8.9.1
 		|--itstool-2.0.7
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 		|--libxmlb-0.3.19
 		|--libyaml-0.2.5
 	#optional
@@ -537,7 +537,7 @@ PKG: appstream-glib-0.8.3
 	#required
 		|--cURL-8.9.1
 		|--gdk-pixbuf-2.42.12
-		|--libarchive-3.7.4
+		|--libarchive-3.7.4 [done]
 	#optional
 		|--docbook-xml-4.5
 		|--docbook-xsl-nons-1.79.2
@@ -718,9 +718,9 @@ PKG: keyutils-1.6.3
 
 PKG: libaio-0.3.113
 
-PKG: libarchive-3.7.4
+PKG: libarchive-3.7.4 [done]
 	#recommended
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 	#optional
 		|--LZO-2.10
 		|--Nettle-3.10
@@ -791,7 +791,7 @@ PKG: libgpg-error-1.50
 PKG: libgsf-1.14.52
 	#required
 		|--GLib-2.80.4
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 	#recommended
 		|--gdk-pixbuf-2.42.12
 	#optional
@@ -889,7 +889,7 @@ PKG: libqalculate-5.2.0
 	#required
 		|--cURL-8.9.1
 		|--icu-75.1
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 	#optional
 		|--Doxygen-1.12.0
 
@@ -975,7 +975,7 @@ PKG: libxkbcommon-1.7.0
 		|--Xorg-Server-21.1.13
 		|--Xwayland-24.1.2
 
-PKG: libxml2-2.13.3
+PKG: libxml2-2.13.3 [done]
 	#recommended
 		|--icu-75.1
 	#optional
@@ -989,7 +989,7 @@ PKG: libxmlb-0.3.19
 
 PKG: libxslt-1.1.42
 	#required
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 	#recommended
 		|--docbook-xml-4.5
 		|--docbook-xsl-nons-1.79.2
@@ -1001,7 +1001,7 @@ PKG: libwacom-2.12.2
 		|--libevdev 1.13.2
 		|--libgudev-238
 	#recommended
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 	#optional
 		|--Doxygen-1.12.0
 		|--Git-2.46.0
@@ -1086,7 +1086,7 @@ PKG: SPIRV-Tools-1.3.290.0
 
 PKG: SPIRV-LLVM-Translator-18.1.3
 	#required
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 		|--LLVM-18.1.7
 		|--SPIRV-Tools-1.3.290.0
 
@@ -1120,7 +1120,7 @@ PKG: utfcpp-4.0.5
 
 PKG: Wayland-1.23.0
 	#required
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 	#optional
 		|--Doxygen-1.12.0
 		|--Graphviz-12.1.0
@@ -1191,7 +1191,7 @@ PKG: Fontconfig-2.15.0
 		|--UnZip-6.0
 		|--JSON-C-0.17
 		|--DocBook-utils-0.6.14
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 		|--texlive-20240312-source
 		|--install-tl-unx
 
@@ -1298,7 +1298,7 @@ PKG: libgxps-0.3.2
 	#required
 		|--GTK+-3.24.43
 		|--Little CMS-2.16
-		|--libarchive-3.7.4
+		|--libarchive-3.7.4 [done]
 		|--libjpeg-turbo-3.0.1
 		|--libtiff-4.6.0
 		|--libxslt-1.1.42
@@ -1505,7 +1505,7 @@ PKG: Asciidoctor-2.0.23
 PKG: Bogofilter-1.2.5
 	#recommended
 		|--gsl-2.8
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 		|--SQLite-3.46.1
 	#optional
 		|--lmdb-0.9.31
@@ -1663,7 +1663,7 @@ PKG: Screen-4.9.1
 PKG: shared-mime-info-2.4
 	#required
 		|--GLib-2.80.4
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 	#optional
 		|--xmlto-0.0.29
 
@@ -1723,7 +1723,7 @@ PKG: autofs-5.1.9
 	#optional
 		|--NFS-Utils-2.6.4
 		|--libnsl-2.0.1
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 		|--MIT Kerberos V5-1.21.3
 		|--OpenLDAP-2.6.8
 		|--Cyrus SASL-2.1.28
@@ -1997,7 +1997,7 @@ PKG: Clisp-2.49
 PKG: CMake-3.30.2
 	#recommended
 		|--cURL-8.9.1
-		|--libarchive-3.7.4
+		|--libarchive-3.7.4 [done]
 		|--libuv-1.48.0
 		|--nghttp2-1.62.1
 	#optional
@@ -2018,7 +2018,7 @@ PKG: Doxygen-1.12.0
 	#optional
 		|--Graphviz-12.1.0
 		|--ghostscript-10.03.1
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 		|--LLVM-18.1.7
 		|--qt5-components-5.15.14
 		|--texlive-20240312-source
@@ -2091,7 +2091,7 @@ PKG: LLVM-18.1.7
 		|--Doxygen-1.12.0
 		|--Git-2.46.0
 		|--Graphviz-12.1.0
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 		|--psutil-6.0.0
 		|--Pygments-2.18.0
 		|--PyYAML-6.0.2
@@ -2215,7 +2215,7 @@ PKG: Perl Module                   Dependencies
 		|--URI-5.28
 	#required
 		|--Alien::Build::Plugin::Download::GitLab-0.01
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 		|--Path::Tiny-0.146
 	#recommended
 		|--Test::Simple-1.302200
@@ -2401,14 +2401,14 @@ PKG: Perl Module                   Dependencies
 		|--Alien::Libxml2-0.19
 		|--XML::SAX-1.02
 	#required
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 		|--XML::NamespaceSupport-1.12
 		|--XML::SAX::Base-1.09
 
 PKG: PHP-8.3.10
 	#recommended
 		|--Apache-2.4.62
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 	#optional
 		|--Aspell-0.60.8.1
 		|--enchant-2.8.2
@@ -2933,7 +2933,7 @@ PKG: Samba-4.20.4
 		|--Git-2.46.0
 		|--GnuPG-2.4.5
 		|--libaio-0.3.113
-		|--libarchive-3.7.4
+		|--libarchive-3.7.4 [done]
 		|--libcap-2.70 with PAM
 		|--libgcrypt-1.11.0
 		|--libnsl-2.0.1
@@ -2976,7 +2976,7 @@ PKG: wpa_supplicant-2.11
 		|--desktop-file-utils-0.27
 		|--libnl-3.10.0
 	#optional
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 		|--qt5-components-5.15.14
 
 PKG: Chapter16.Networking Utilities
@@ -3002,7 +3002,7 @@ PKG: BIND                   Utilities-9.20.0
 		|--nghttp2-1.62.1
 	#optional
 		|--libcap-2.70 with PAM
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 		|--Sphinx-8.0.2
 
 PKG: NetworkManager-1.48.8
@@ -3082,7 +3082,7 @@ PKG: Wireshark-4.2.6
 		|--GnuTLS-3.8.7.1
 		|--libnl-3.10.0
 		|--libxslt-1.1.42
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 		|--Lua-5.2.4
 		|--MIT Kerberos V5-1.21.3
 		|--nghttp2-1.62.1
@@ -3198,7 +3198,7 @@ PKG: libsoup-2.74.3
 	#required
 		|--glib-networking-2.80.0
 		|--libpsl-0.21.5
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 		|--SQLite-3.46.1
 	#recommended
 		|--GLib-2.80.4
@@ -3216,7 +3216,7 @@ PKG: libsoup-3.4.4
 	#required
 		|--glib-networking-2.80.0
 		|--libpsl-0.21.5
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 		|--nghttp2-1.62.1
 		|--SQLite-3.46.1
 	#recommended
@@ -3238,14 +3238,14 @@ PKG: libtirpc-1.3.5
 PKG: neon-0.33.0
 	#optional
 		|--GnuTLS-3.8.7.1
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 		|--MIT Kerberos V5-1.21.3
 		|--NSS-3.103
 		|--xmlto-0.0.29
 
 PKG: nghttp2-1.62.1
 	#required
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 	#optional
 		|--boost-1.86.0
 		|--c-ares-1.33.0
@@ -3350,7 +3350,7 @@ PKG: Apache-2.4.62
 		|--brotli-1.1.0
 		|--Doxygen-1.12.0
 		|--Jansson-2.14
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 		|--Lua-5.4.7
 		|--Lynx-2.9.2
 		|--Links-2.30
@@ -3370,7 +3370,7 @@ PKG: BIND-9.20.0
 	#optional
 		|--cURL-8.9.1
 		|--libidn2-2.3.7
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 		|--lmdb-0.9.31
 		|--MIT Kerberos V5-1.21.3
 		|--Pytest-8.3.2
@@ -3472,7 +3472,7 @@ PKG: MariaDB-10.11.8
 	#optional
 		|--boost-1.86.0
 		|--libaio-0.3.113
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 		|--Linux-PAM-1.6.1
 		|--LZO-2.10
 		|--MIT Kerberos V5-1.21.3
@@ -3485,7 +3485,7 @@ PKG: MariaDB-10.11.8
 PKG: PostgreSQL-16.4
 	#optional
 		|--icu-75.1
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 		|--libxslt-1.1.42
 		|--OpenLDAP-2.6.8
 		|--Linux-PAM-1.6.1
@@ -3555,7 +3555,7 @@ PKG: xcb-proto-1.17.0
 	#recommended
 		|--Setting up the Xorg Build Environment
 	#optional
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 
 PKG: libxcb-1.17.0
 	#required
@@ -3814,7 +3814,7 @@ PKG: Cairo-1.18.0
 		|--GTK-Doc-1.34.0
 		|--Libdrm-2.4.122
 		|--librsvg-2.58.3
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 		|--LZO-2.10
 		|--Mesa-24.1.5
 		|--Poppler-24.08.0
@@ -4010,7 +4010,7 @@ PKG: gtk-vnc-1.3.1
 		|--Vala-0.56.17
 	#optional
 		|--Cyrus SASL-2.1.28
-		|--PulseAudio-17.0
+		|--PulseAudio-17.0 [done]
 
 PKG: gtksourceview-3.24.11
 	#required
@@ -4029,7 +4029,7 @@ PKG: gtksourceview4-4.8.4
 		|--GTK+-3.24.43
 	#recommended
 		|--GLib-2.80.4
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 	#optional
 		|--Vala-0.56.17
 		|--Valgrind-3.23.0
@@ -4043,7 +4043,7 @@ PKG: gtksourceview5-5.12.1
 		|--PCRE2-10.44
 	#recommended
 		|--GLib-2.80.4
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 	#optional
 		|--Gi-DocGen-2024.1
 		|--Vala-0.56.17
@@ -4098,7 +4098,7 @@ PKG: libei-1.3.0
 	#optional
 		|--libevdev 1.13.2
 		|--libxkbcommon-1.7.0
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 
 PKG: libgedit-amtk-5.8.0
 	#required
@@ -4110,7 +4110,7 @@ PKG: libgedit-amtk-5.8.0
 PKG: libgedit-gtksourceview-299.2.1
 	#required
 		|--GTK+-3.24.43
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 	#optional
 		|--GTK-Doc-1.34.0
 
@@ -4158,7 +4158,7 @@ PKG: libxklavier-5.4
 	#required
 		|--GLib-2.80.4
 		|--ISO Codes-4.16.0
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 		|--Xorg Libraries
 	#optional
 		|--GTK-Doc-1.34.0
@@ -4259,7 +4259,7 @@ PKG: Qt-6.7.2
 		|--MIT Kerberos V5-1.21.3
 		|--pciutils-3.13.0
 		|--PostgreSQL-16.4
-		|--PulseAudio-17.0
+		|--PulseAudio-17.0 [done]
 		|--SDL2-2.30.6
 		|--unixODBC-2.3.12
 
@@ -4273,7 +4273,7 @@ PKG: QtWebEngine-6.7.2
 		|--Qt-6.7.2
 	#recommended
 		|--alsa-lib-1.2.12
-		|--PulseAudio-17.0
+		|--PulseAudio-17.0 [done]
 		|--FFmpeg-7.0.2
 		|--icu-75.1
 		|--libwebp-1.4.0
@@ -4461,7 +4461,7 @@ PKG: breeze-icons-6.5.0
 		|--Qt-6.7.2
 	#optional
 		|--Building KDE Frameworks 6.5.0 (KF6) [done]
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 		|--lxml-5.3.0
 
 PKG: gnome-icon-theme-3.12.0
@@ -4523,7 +4523,7 @@ PKG: Phonon-4.12.0 [done]
 	#required
 		|--Phonon-backend-vlc-0.12.0 [done]
 	#optional
-		|--PulseAudio-17.0
+		|--PulseAudio-17.0 [done]
 
 PKG: Phonon-backend-vlc-0.12.0 [done]
 	#required
@@ -4551,7 +4551,7 @@ PKG: Chapter31.KDE                 Frameworks 6 Based Applications
 PKG: ark-24.08.0 [done]
 	#required
 		|--Building KDE Frameworks 6.5.0 (KF6) [done]
-		|--libarchive-3.7.4
+		|--libarchive-3.7.4 [done]
 	#recommended
 		|--cpio-2.15
 		|--p7zip-17.04
@@ -4570,7 +4570,7 @@ PKG: dolphin-plugins-24.08.0 [done]
 PKG: kdenlive-24.08.0 [done]
 	#required
 		|--Building KDE Frameworks 6.5.0 (KF6) [done]
-		|--mlt-7.26.0
+		|--mlt-7.26.0 [done]
 		|--v4l-utils-1.28.1
 	#recommended
 		|--breeze-icons-6.5.0
@@ -4578,7 +4578,7 @@ PKG: kdenlive-24.08.0 [done]
 PKG: khelpcenter-24.08.0 [done]
 	#required
 		|--Building KDE Frameworks 6.5.0 (KF6) [done]
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 		|--Xapian-1.4.26
 	#recommended
 		|--QtWebEngine-6.7.2
@@ -4672,7 +4672,7 @@ PKG: kirigami-addons-1.4.0 [done]
 PKG: pulseaudio-qt-1.5.0 [done]
 	#required
 		|--Building KDE Frameworks 6.5.0 (KF6) [done]
-		|--PulseAudio-17.0
+		|--PulseAudio-17.0 [done]
 
 PKG: Building                   Plasma
 
@@ -4752,7 +4752,7 @@ PKG: rest-0.9.1
 PKG: totem-pl-parser-3.26.6
 	#recommended
 		|--GLib-2.80.4
-		|--libarchive-3.7.4
+		|--libarchive-3.7.4 [done]
 		|--libgcrypt-1.11.0
 	#optional
 		|--CMake-3.30.2
@@ -4762,7 +4762,7 @@ PKG: totem-pl-parser-3.26.6
 PKG: VTE-0.76.4
 	#required
 		|--GTK+-3.24.43
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 		|--PCRE2-10.44
 	#recommended
 		|--icu-75.1
@@ -4801,7 +4801,7 @@ PKG: Gjs-1.80.2
 
 PKG: gnome-autoar-0.4.4
 	#required
-		|--libarchive-3.7.4
+		|--libarchive-3.7.4 [done]
 		|--GTK+-3.24.43
 	#recommended
 		|--Vala-0.56.17
@@ -4816,7 +4816,7 @@ PKG: gnome-desktop-44.1
 		|--ISO Codes-4.16.0
 		|--itstool-2.0.7
 		|--libseccomp-2.5.5
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 		|--XKeyboardConfig-2.42
 	#recommended
 		|--Bubblewrap-0.9.0
@@ -4845,7 +4845,7 @@ PKG: gnome-online-accounts-3.50.4
 PKG: Grilo-0.3.16
 	#required
 		|--GLib-2.80.4
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 	#recommended
 		|--GTK+-3.24.43
 		|--libsoup-3.4.4
@@ -4892,7 +4892,7 @@ PKG: libgweather-4.4.2
 		|--PyGObject-3.48.2
 	#recommended
 		|--GLib-2.80.4
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 		|--Vala-0.56.17
 	#optional
 		|--Gi-DocGen-2024.1
@@ -4903,7 +4903,7 @@ PKG: libpeas-1.36.0
 		|--GLib-2.80.4
 		|--GTK+-3.24.43
 	#recommended
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 		|--PyGObject-3.48.2
 	#optional
 		|--Gi-DocGen-2024.1
@@ -5011,7 +5011,7 @@ PKG: DConf-0.40.0 /                   DConf-Editor-45.0.1
 		|--GLib-2.80.4
 		|--GTK+-3.24.43
 		|--libhandy-1.8.3
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 	#recommended
 		|--libxslt-1.1.42
 		|--Vala-0.56.17
@@ -5043,10 +5043,10 @@ PKG: Gvfs-1.54.2
 		|--Fuse-3.16.2
 		|--gnome-online-accounts-3.50.4
 		|--GTK-Doc-1.34.0
-		|--libarchive-3.7.4
+		|--libarchive-3.7.4 [done]
 		|--libgcrypt-1.11.0
 		|--libgdata-0.18.1
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 		|--libxslt-1.1.42
 		|--OpenSSH-9.8p1
 		|--Samba-4.20.4
@@ -5124,7 +5124,7 @@ PKG: gnome-settings-daemon-46.0
 		|--libgweather-4.4.2
 		|--libnotify-0.8.3
 		|--libwacom-2.12.2
-		|--PulseAudio-17.0
+		|--PulseAudio-17.0 [done]
 		|--UPower-1.90.4
 	#recommended
 		|--Cups-2.4.10
@@ -5258,7 +5258,7 @@ PKG: gnome-tweaks-46.1
 PKG: gnome-user-docs-46.4
 	#required
 		|--itstool-2.0.7
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 
 PKG: Yelp-42.2
 	#required
@@ -5330,12 +5330,12 @@ PKG: Evince-46.3.1
 		|--GTK+-3.24.43
 		|--itstool-2.0.7
 		|--libhandy-1.8.3
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 		|--OpenJPEG-2.5.2
 	#recommended
 		|--gnome-keyring-46.2
 		|--GLib-2.80.4
-		|--libarchive-3.7.4
+		|--libarchive-3.7.4 [done]
 		|--libsecret-0.21.4
 		|--Poppler-24.08.0
 	#optional
@@ -5382,7 +5382,7 @@ PKG: File-Roller-44.3
 		|--cpio-2.15
 		|--desktop-file-utils-0.27
 		|--JSON-GLib-1.8.0
-		|--libarchive-3.7.4
+		|--libarchive-3.7.4 [done]
 		|--libadwaita-1.5.3
 		|--libportal-0.7.1
 		|--Nautilus-46.2
@@ -5769,7 +5769,7 @@ PKG: xfce4-notifyd-0.9.6
 PKG: xfce4-pulseaudio-plugin-0.4.8
 	#required
 		|--libnotify-0.8.3
-		|--PulseAudio-17.0
+		|--PulseAudio-17.0 [done]
 		|--xfce4-panel-4.18.6
 	#recommended
 		|--keybinder-3.0-0.3.2
@@ -5903,7 +5903,7 @@ PKG: lxqt-panel-2.0.1
 		|--solid-6.5.0 for lxqt
 		|--menu-cache-1.1.0
 	#recommended
-		|--PulseAudio-17.0
+		|--PulseAudio-17.0 [done]
 		|--libstatgrab-0.92.1
 		|--libsysstat-1.0.0
 		|--libxkbcommon-1.7.0
@@ -6017,7 +6017,7 @@ PKG: lxqt-notificationd-2.0.1
 PKG: pavucontrol-qt-2.0.0
 	#required
 		|--liblxqt-2.0.0
-		|--PulseAudio-17.0
+		|--PulseAudio-17.0 [done]
 		|--GLib-2.80.4
 
 PKG: qps-2.9.0
@@ -6103,7 +6103,7 @@ PKG: LibreOffice-24.8.0
 		|--librsvg-2.58.3
 		|--libtiff-4.6.0
 		|--libwebp-1.4.0
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 		|--libxslt-1.1.42
 		|--lxml-5.3.0
 		|--Mesa-24.1.5
@@ -6166,7 +6166,7 @@ PKG: Firefox-128.1.0esr
 		|--libnotify-0.8.3
 		|--LLVM-18.1.7
 		|--Node.js-20.16.0
-		|--PulseAudio-17.0
+		|--PulseAudio-17.0 [done]
 		|--alsa-lib-1.2.12
 		|--Python-3.12.5
 		|--SQLite-3.46.1
@@ -6208,7 +6208,7 @@ PKG: Seamonkey-2.53.18.2
 		|--NASM-2.16.03
 		|--NSPR-4.35
 		|--NSS-3.103
-		|--PulseAudio-17.0
+		|--PulseAudio-17.0 [done]
 	#optional
 		|--alsa-lib-1.2.12
 		|--dbus-glib-0.112
@@ -6260,7 +6260,7 @@ PKG: feh-3.10.3
 PKG: FontForge-20230101
 	#required
 		|--Libspiro-20220722
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 	#recommended
 		|--GTK+-3.24.43
 	#optional
@@ -6293,7 +6293,7 @@ PKG: FreeRDP-3.7.0
 		|--FreeRDP-3.7.0
 		|--LAME-3.100
 		|--Linux-PAM-1.6.1
-		|--PulseAudio-17.0
+		|--PulseAudio-17.0 [done]
 
 PKG: Gimp-20240711
 	#required
@@ -6306,7 +6306,7 @@ PKG: Gimp-20240711
 		|--libmypaint-1.6.1
 		|--librsvg-2.58.3
 		|--libtiff-4.6.0
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 		|--Little CMS-2.16
 		|--mypaint-brushes-1.3.1
 		|--Poppler-24.08.0
@@ -6381,7 +6381,7 @@ PKG: Thunderbird-128.1.0esr
 		|--GTK+-3.24.43
 		|--LLVM-18.1.7
 		|--Node.js-20.16.0
-		|--PulseAudio-17.0
+		|--PulseAudio-17.0 [done]
 		|--alsa-lib-1.2.12
 		|--Python-3.12.5
 		|--startup-notification-0.12
@@ -6473,7 +6473,7 @@ PKG: alsa-plugins-1.2.12
 	#optional
 		|--FFmpeg-7.0.2
 		|--libsamplerate-0.2.2
-		|--PulseAudio-17.0
+		|--PulseAudio-17.0 [done]
 		|--Speex-1.2.1
 
 PKG: alsa-utils-1.2.12
@@ -6572,7 +6572,7 @@ PKG: gst-plugins-good-1.24.7
 		|--libvpx-1.14.1
 		|--mpg123-1.32.7
 		|--NASM-2.16.03
-		|--PulseAudio-17.0
+		|--PulseAudio-17.0 [done]
 	#optional
 		|--AAlib-1.4rc5
 		|--GTK+-3.24.43
@@ -6669,7 +6669,7 @@ PKG: Libao-1.2.0
 	#optional
 		|--Chapter24.Graphical Environments
 		|--alsa-lib-1.2.12
-		|--PulseAudio-17.0
+		|--PulseAudio-17.0 [done]
 
 PKG: libaom-3.9.1
 	#recommended
@@ -6696,7 +6696,7 @@ PKG: libcanberra-0.30
 		|--gstreamer-1.24.7
 		|--GTK+-3.24.43
 	#optional
-		|--PulseAudio-17.0
+		|--PulseAudio-17.0 [done]
 	#recommended
 		|--sound-theme-freedesktop-0.8
 
@@ -6732,7 +6732,7 @@ PKG: libmpeg2-0.5.1
 PKG: libmusicbrainz-5.1.0
 	#required
 		|--CMake-3.30.2
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 		|--neon-0.33.0
 	#optional
 		|--Doxygen-1.12.0
@@ -6816,7 +6816,20 @@ PKG: libvpx-1.14.1
 		|--cURL-8.9.1
 		|--Doxygen-1.12.0
 
-PKG: mlt-7.26.0
+PKG: mlt-7.26.0 [done]
+	#required
+		|--frei0r-plugins-1.8.0
+		|--Qt-6.7.2
+	#optional
+		|--Doxygen-1.12.0
+		|--fftw-3.3.10
+		|--libexif-0.6.24
+		|--SDL2-2.30.6
+		|--qt5-components-5.15.14
+		|--JACK
+		|--MOVEit
+		|--SoX
+		|--vid.stab
 
 PKG: Opus-1.5.2
 	#optional
@@ -6829,7 +6842,7 @@ PKG: Pipewire-1.2.3
 		|--BlueZ-5.77
 		|--gstreamer-1.24.7
 		|--gst-plugins-base-1.24.7
-		|--PulseAudio-17.0
+		|--PulseAudio-17.0 [done]
 		|--SBC-2.0
 		|--v4l-utils-1.28.1
 		|--Wireplumber-0.5.5
@@ -6851,7 +6864,7 @@ PKG: Pipewire-1.2.3
 		|--Doxygen-1.12.0
 		|--Graphviz-12.1.0
 
-PKG: PulseAudio-17.0
+PKG: PulseAudio-17.0 [done]
 	#required
 		|--libsndfile-1.2.2
 	#recommended
@@ -6893,7 +6906,7 @@ PKG: SDL2-2.30.6
 		|--libunwind-1.6.2
 		|--NASM-2.16.03
 		|--Pipewire-1.2.3
-		|--PulseAudio-17.0
+		|--PulseAudio-17.0 [done]
 		|--Chapter24.Graphical Environments
 
 PKG: sound-theme-freedesktop-0.8
@@ -6954,7 +6967,7 @@ PKG: xine-lib-1.2.13
 		|--Chapter24.Graphical Environments
 		|--FFmpeg-7.0.2
 		|--alsa-lib-1.2.12
-		|--PulseAudio-17.0
+		|--PulseAudio-17.0 [done]
 	#recommended
 		|--Libdvdnav-6.1.1
 	#optional
@@ -6993,7 +7006,7 @@ PKG: Audacious-4.4
 		|--GTK+-3.24.43
 		|--Qt-6.7.2
 	#optional
-		|--libarchive-3.7.4
+		|--libarchive-3.7.4 [done]
 	#optional
 		|--Valgrind-3.23.0
 	#recommended
@@ -7006,13 +7019,13 @@ PKG: Audacious-4.4
 		|--FAAD2-2.11.1
 		|--FLAC-1.4.3
 		|--LAME-3.100
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 		|--libcdio-2.1.0
 		|--libnotify-0.8.3
 		|--libsndfile-1.2.2
 		|--libvorbis-1.3.7
 		|--Pipewire-1.2.3
-		|--PulseAudio-17.0
+		|--PulseAudio-17.0 [done]
 		|--SDL2-2.30.6
 		|--libsamplerate-0.2.2
 
@@ -7027,7 +7040,7 @@ PKG: mpg123-1.32.7
 	#recommended
 		|--alsa-lib-1.2.12
 	#optional
-		|--PulseAudio-17.0
+		|--PulseAudio-17.0 [done]
 		|--sdl12-compat-1.2.68
 
 PKG: pavucontrol-6.1
@@ -7035,7 +7048,7 @@ PKG: pavucontrol-6.1
 		|--Gtkmm-4.14.0
 		|--JSON-GLib-1.8.0
 		|--libsigc++-3.6.0
-		|--PulseAudio-17.0
+		|--PulseAudio-17.0 [done]
 	#optional
 		|--libcanberra-0.30
 		|--Lynx-2.9.2
@@ -7091,7 +7104,7 @@ PKG: FFmpeg-7.0.2
 		|--opencv-4.10.0
 		|--OpenJPEG-2.5.2
 		|--GnuTLS-3.8.7.1
-		|--PulseAudio-17.0
+		|--PulseAudio-17.0 [done]
 		|--Samba-4.20.4
 		|--Speex-1.2.1
 		|--texlive-20240312-source
@@ -7108,7 +7121,7 @@ PKG: mpv-0.38.0
 		|--libass-0.17.3
 		|--libplacebo-7.349.0
 		|--Mesa-24.1.5
-		|--PulseAudio-17.0
+		|--PulseAudio-17.0 [done]
 	#recommended
 		|--libjpeg-turbo-3.0.1
 		|--libva-2.22.0
@@ -7142,7 +7155,7 @@ PKG: VLC-3.0.21
 		|--libidn-1.42
 		|--libssh2-1.11.0
 	#optional
-		|--libarchive-3.7.4
+		|--libarchive-3.7.4 [done]
 		|--libcddb-1.3.2
 		|--Libdv-1.0.0
 		|--libdvdcss-1.4.3
@@ -7177,7 +7190,7 @@ PKG: VLC-3.0.21
 		|--libvdpau-1.5
 		|--sdl12-compat-1.2.68
 	#optional
-		|--PulseAudio-17.0
+		|--PulseAudio-17.0 [done]
 		|--libsamplerate-0.2.2
 	#optional
 		|--FreeRDP-3.7.0
@@ -7188,7 +7201,7 @@ PKG: VLC-3.0.21
 	#optional
 		|--GnuTLS-3.8.7.1
 		|--libnotify-0.8.3
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 		|--Protobuf-27.3
 		|--Taglib-2.0.1
 		|--xdg-utils-1.2.1
@@ -7346,13 +7359,13 @@ PKG: docbook-3.1-dtd
 	#required
 		|--sgml-common-0.6.3
 		|--UnZip-6.0
-		|--libarchive-3.7.4
+		|--libarchive-3.7.4 [done]
 
 PKG: docbook-4.5-dtd
 	#required
 		|--sgml-common-0.6.3
 		|--UnZip-6.0
-		|--libarchive-3.7.4
+		|--libarchive-3.7.4 [done]
 
 PKG: OpenSP-1.5.2
 	#required
@@ -7388,24 +7401,24 @@ PKG: Chapter49.Extensible Markup                 Language (XML)
 
 PKG: docbook-xml-4.5
 	#required
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 		|--UnZip-6.0
-		|--libarchive-3.7.4
+		|--libarchive-3.7.4 [done]
 
 PKG: docbook-xml-5.0
 	#required
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 		|--UnZip-6.0
 
 PKG: docbook-xml-5.1
 	#required
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 		|--UnZip-6.0
-		|--libarchive-3.7.4
+		|--libarchive-3.7.4 [done]
 
 PKG: docbook-xsl-nons-1.79.2
 	#recommended
-		|--libxml2-2.13.3
+		|--libxml2-2.13.3 [done]
 	#optional
 		|--apache-ant-1.10.14
 		|--libxslt-1.1.42

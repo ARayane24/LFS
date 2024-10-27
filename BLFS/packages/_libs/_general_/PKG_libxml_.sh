@@ -22,17 +22,13 @@ fi
 
 # recommended packages::
 if [[ -n "$recommended_packages" && $recommended_packages ]]; then
-   
-   
-
+    call_method "PKG_icuc_srctgz" "./packages/_libs/_general_/PKG_icuc_srctgz.sh"
 fi
 
 
 # optional packages::
 if [[ -n "$optional_packages" && $optional_packages ]]; then
-   
-   
-
+    call_method "PKG_valgrind_" "./packages/_libs/_system_utilities/PKG_valgrind_.sh"
 fi
 
 
@@ -42,7 +38,7 @@ fi
 PKG_libxml_() {
     # code
     ###PKG_libxml: 0.4SBU
-    if [[ -n "$PKG_libxml" && "$next_pkg" = "$PKG_libxml" ]] ;then
+    if [[ -n "$PKG_libxml" ]] ;then
         extract_tar_files /sources "$PKG_libxml"
         echo -e "$PKG_libxml" " 0.4 SBU"
         echo $PKG_libxml
