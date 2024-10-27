@@ -1452,7 +1452,7 @@ PKG: Poppler-24.08.0
 		|--NSS-3.103
 		|--OpenJPEG-2.5.2
 		|--Qt-6.7.2
-		|--okular-24.08.0
+		|--okular-24.08.0 [done]
 	#optional
 		|--cURL-8.9.1
 		|--gdk-pixbuf-2.42.12
@@ -4601,7 +4601,7 @@ PKG: plasma-activities-6.1.4 [done]
 		|--boost-1.86.0
 		|--Building KDE Frameworks 6.5.0 (KF6) [done]
 
-PKG: okular-24.08.0
+PKG: okular-24.08.0 [done]
 	#required
 		|--Building KDE Frameworks 6.5.0 (KF6) [done]
 		|--plasma-activities-6.1.4 [done] 
@@ -4612,23 +4612,23 @@ PKG: okular-24.08.0
 	#optional
 		|--Qca-2.3.9
 
-PKG: libkdcraw-24.08.0
+PKG: libkdcraw-24.08.0 [done]
 	#required
 		|--Building KDE Frameworks 6.5.0 (KF6) [done]
 		|--libraw-0.21.2
 
-PKG: gwenview-24.08.0
+PKG: gwenview-24.08.0 [done]
 	#required
 		|--Exiv2-0.28.3
 		|--kImageAnnotator-0.7.1
 		|--Building KDE Frameworks 6.5.0 (KF6) [done]
 		|--Little CMS-2.16
 	#recommended
-		|--libkdcraw-24.08.0
+		|--libkdcraw-24.08.0 [done]
 	#optional
 		|--plasma-activities-6.1.4 [done]
 
-PKG: libkcddb-24.08.0
+PKG: libkcddb-24.08.0 [done]
 	#required
 		|--Building KDE Frameworks 6.5.0 (KF6) [done]
 	#recommended
@@ -4637,7 +4637,7 @@ PKG: libkcddb-24.08.0
 PKG: k3b-24.08.0 [done]
 	#required
 		|--Building KDE Frameworks 6.5.0 (KF6) [done]
-		|--libkcddb-24.08.0
+		|--libkcddb-24.08.0 [done]
 		|--libsamplerate-0.2.2
 		|--shared-mime-info-2.4
 	#required
