@@ -21,30 +21,52 @@ fi
 
 
 # recommended packages::
-if [[ -n "$recommended_packages" && $recommended_packages ]]; then
-   
-   
-
-fi
 
 
 # optional packages::
-if [[ -n "$optional_packages" && $optional_packages ]]; then
-   
-   
-
-fi
 
 
 
 # main ::
 # Use eval to define the function
 PKG_fmt_() {
-    # code
+        # code
+     ###PKG_fmt_: 0.1 SBU
+    if [[ -n "$PKG_fmt_" ]] ;then
+        extract_tar_files /sources "$PKG_fmt_"
+        echo -e "$PKG_fmt_" " 0.1 SBU"
+        echo $PKG_fmt_
+        cd $PKG_fmt_
+        next_pkg="$PKG_fmt_"
 
 
-    # end
-    echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+        mkdir build &&
+        cd    build &&
+
+        cmake -D CMAKE_INSTALL_PREFIX=/usr     \
+            -D CMAKE_INSTALL_LIBDIR=/usr/lib \
+            -D BUILD_SHARED_LIBS=ON          \
+            -D FMT_TEST=OFF                  \
+            -G Ninja ..                      &&
+        ninja
+        
+
+        if $DO_OPTIONNAL_TESTS; then
+             ninja test
+        fi
+
+        ninja install
+        
+
+        cd /sources/blfs
+        rm -Rf $PKG_fmt_ #rm extracted pkg
+        echo -e "$DONE" 
+        echo -e $PKG_fmt_ "$TOOL_READY"
+
+        # end
+        echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+    fi
+    ###********************************
 }
 
 

@@ -21,19 +21,10 @@ fi
 
 
 # recommended packages::
-if [[ -n "$recommended_packages" && $recommended_packages ]]; then
-   
-   
-
-fi
 
 
 # optional packages::
-if [[ -n "$optional_packages" && $optional_packages ]]; then
-   
-   
 
-fi
 
 
 
@@ -41,10 +32,96 @@ fi
 # Use eval to define the function
 PKG_fftw_() {
     # code
+     ###PKG_fftw_: 1.6 SBU
+    if [[ -n "$PKG_fftw_" ]] ;then
+        extract_tar_files /sources "$PKG_fftw_"
+        echo -e "$PKG_fftw_" " 1.6 SBU"
+        echo $PKG_fftw_
+        cd $PKG_fftw_
+        next_pkg="$PKG_fftw_"
 
 
-    # end
-    echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+       ./configure --prefix=/usr    \
+            --enable-shared  \
+            --disable-static \
+            --enable-threads \
+            --enable-sse2    \
+            --enable-avx     \
+            --enable-avx2    &&
+        make
+        if [ $? -ne 0 ]; then
+            echo -e "$BUILD_FAILED"
+            echo "export error_pkg=$next_pkg" >> /.bashrc
+            exit 1
+        fi
+        echo -e "$BUILD_SUCCEEDED"
+
+        if $DO_OPTIONNAL_TESTS; then
+             make check
+        fi
+
+        make install
+        if [ $? -ne 0 ]; then
+            echo -e "$BUILD_FAILED"
+            echo "export error_pkg=$next_pkg" >> /.bashrc
+            exit 1
+        fi
+        echo -e "$BUILD_SUCCEEDED"
+
+        make clean &&
+
+        ./configure --prefix=/usr    \
+                    --enable-shared  \
+                    --disable-static \
+                    --enable-threads \
+                    --enable-sse2    \
+                    --enable-avx     \
+                    --enable-avx2    \
+                    --enable-float   &&
+        make
+         if [ $? -ne 0 ]; then
+            echo -e "$BUILD_FAILED"
+            echo "export error_pkg=$next_pkg" >> /.bashrc
+            exit 1
+        fi
+
+        make install
+        if [ $? -ne 0 ]; then
+            echo -e "$BUILD_FAILED"
+            echo "export error_pkg=$next_pkg" >> /.bashrc
+            exit 1
+        fi
+
+        make clean &&
+
+        ./configure --prefix=/usr    \
+                    --enable-shared  \
+                    --disable-static \
+                    --enable-threads \
+                    --enable-long-double &&
+        make
+        if [ $? -ne 0 ]; then
+            echo -e "$BUILD_FAILED"
+            echo "export error_pkg=$next_pkg" >> /.bashrc
+            exit 1
+        fi
+
+        make install
+        if [ $? -ne 0 ]; then
+            echo -e "$BUILD_FAILED"
+            echo "export error_pkg=$next_pkg" >> /.bashrc
+            exit 1
+        fi
+
+        cd /sources/blfs
+        rm -Rf $PKG_fftw_ #rm extracted pkg
+        echo -e "$DONE" 
+        echo -e $PKG_fftw_ "$TOOL_READY"
+
+        # end
+        echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+    fi
+    ###********************************
 }
 
 

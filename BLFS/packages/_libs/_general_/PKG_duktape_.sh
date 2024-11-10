@@ -21,30 +21,53 @@ fi
 
 
 # recommended packages::
-if [[ -n "$recommended_packages" && $recommended_packages ]]; then
-   
-   
-
-fi
-
 
 # optional packages::
-if [[ -n "$optional_packages" && $optional_packages ]]; then
-   
-   
-
-fi
 
 
 
 # main ::
 # Use eval to define the function
 PKG_duktape_() {
-    # code
+       # code
+     ###PKG_duktape_: 0.3 SBU
+    if [[ -n "$PKG_duktape_" ]] ;then
+        extract_tar_files /sources "$PKG_duktape_"
+        echo -e "$PKG_duktape_" " 0.3 SBU"
+        echo $PKG_duktape_
+        cd $PKG_duktape_
+        next_pkg="$PKG_duktape_"
 
 
-    # end
-    echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+        sed -i 's/-Os/-O2/' Makefile.sharedlibrary
+        make -f Makefile.sharedlibrary INSTALL_PREFIX=/usr
+        if [ $? -ne 0 ]; then
+            echo -e "$BUILD_FAILED"
+            echo "export error_pkg=$next_pkg" >> /.bashrc
+            exit 1
+        fi
+        echo -e "$BUILD_SUCCEEDED"
+
+        
+        make -f Makefile.sharedlibrary INSTALL_PREFIX=/usr install
+        if [ $? -ne 0 ]; then
+            echo -e "$BUILD_FAILED"
+            echo "export error_pkg=$next_pkg" >> /.bashrc
+            exit 1
+        fi
+        echo -e "$BUILD_SUCCEEDED"
+
+
+        
+        cd /sources/blfs
+        rm -Rf $PKG_duktape_ #rm extracted pkg
+        echo -e "$DONE" 
+        echo -e $PKG_duktape_ "$TOOL_READY"
+
+        # end
+        echo -e "$file_name_compiled=true" >> $path_to_compiled_pkgs
+    fi
+    ###********************************
 }
 
 

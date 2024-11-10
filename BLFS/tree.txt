@@ -131,7 +131,7 @@ PKG: GnuTLS-3.8.7.1
 		|--libtasn1-4.19.0
 		|--p11-kit-0.25.5
 	#optional
-		|--brotli-1.1.0
+		|--brotli-1.1.0 [done]
 		|--Doxygen-1.12.0
 		|--GTK-Doc-1.34.0
 		|--libidn-1.42
@@ -236,7 +236,7 @@ PKG: Polkit-125
 	#required
 		|--GLib-2.80.4
 	#recommended
-		|--duktape-2.7.0
+		|--duktape-2.7.0 [done]
 		|--libxslt-1.1.42
 		|--Linux-PAM-1.6.1
 	#optional
@@ -391,7 +391,7 @@ PKG: Bluefish-2.2.15
 	#recommended
 		|--desktop-file-utils-0.27
 	#optional
-		|--enchant-2.8.2
+		|--enchant-2.8.2 [done]
 		|--Gucharmap-15.1.5
 
 PKG: Ed-1.20.2
@@ -454,7 +454,7 @@ PKG: Mousepad-0.6.2
 		|--gtksourceview4-4.8.4
 	#optional
 		|--DConf-0.40.0 / DConf-Editor-45.0.1
-		|--dbus-glib-0.112
+		|--dbus-glib-0.112 [done]
 
 PKG: Nano-8.1
 
@@ -557,60 +557,60 @@ PKG: Apr-Util-1.6.3 [done]
 		|--SQLite-3.46.1
 		|--unixODBC-2.3.12
 
-PKG: Aspell-0.60.8.1
+PKG: Aspell-0.60.8.1 [done]
 	#required
 		|--Which-2.21 and Alternatives
 
-PKG: boost-1.86.0
+PKG: boost-1.86.0 [done]
 	#recommended
 		|--Which-2.21 and Alternatives
 	#optional
 		|--icu-75.1
 		|--NumPy-2.1.0
 
-PKG: brotli-1.1.0
+PKG: brotli-1.1.0 [done]
 	#required
 		|--CMake-3.30.2
 	#optional
 		|--Pytest-8.3.2
 
-PKG: CLucene-2.3.3.4
+PKG: CLucene-2.3.3.4 [done]
 	#required
 		|--CMake-3.30.2
 	#recommended
-		|--boost-1.86.0
+		|--boost-1.86.0 [done]
 
-PKG: dbus-glib-0.112
+PKG: dbus-glib-0.112 [done]
 	#required
 		|--dbus-1.14.10
 		|--GLib-2.80.4
 	#optional
 		|--GTK-Doc-1.34.0
 
-PKG: Double-conversion-3.3.0
+PKG: Double-conversion-3.3.0 [done]
 	#required
 		|--CMake-3.30.2
 
-PKG: duktape-2.7.0
+PKG: duktape-2.7.0 [done]
 
-PKG: enchant-2.8.2
+PKG: enchant-2.8.2 [done]
 	#required
 		|--GLib-2.80.4
 	#recommended
-		|--Aspell-0.60.8.1
+		|--Aspell-0.60.8.1 [done]
 	#optional
-		|--dbus-glib-0.112
+		|--dbus-glib-0.112 [done]
 		|--Doxygen-1.12.0
 
-PKG: Exempi-2.6.5
+PKG: Exempi-2.6.5 [done]
 	#required
-		|--boost-1.86.0
-	#required
+		|--boost-1.86.0 [done]
+	#optional
 		|--Valgrind-3.23.0
 
-PKG: fftw-3.3.10
+PKG: fftw-3.3.10 [done]
 
-PKG: fmt-11.0.2
+PKG: fmt-11.0.2 [done]
 
 PKG: GLib-2.80.4
 	#required
@@ -673,7 +673,7 @@ PKG: gsl-2.8
 
 PKG: gspell-1.12.2
 	#required
-		|--enchant-2.8.2
+		|--enchant-2.8.2 [done]
 		|--icu-75.1
 		|--GTK+-3.24.43
 	#optional
@@ -909,7 +909,7 @@ PKG: libseccomp-2.5.5
 
 PKG: libsigc++-2.12.1
 	#recommended
-		|--boost-1.86.0
+		|--boost-1.86.0 [done]
 		|--libxslt-1.1.42
 	#optional
 		|--DocBook-utils-0.6.14
@@ -919,7 +919,7 @@ PKG: libsigc++-2.12.1
 
 PKG: libsigc++-3.6.0
 	#recommended
-		|--boost-1.86.0
+		|--boost-1.86.0 [done]
 		|--libxslt-1.1.42
 	#optional
 		|--DocBook-utils-0.6.14
@@ -1025,7 +1025,7 @@ PKG: Node.js-20.16.0
 	#required
 		|--Which-2.21 and Alternatives
 	#recommended
-		|--brotli-1.1.0
+		|--brotli-1.1.0 [done]
 		|--c-ares-1.33.0
 		|--icu-75.1
 		|--libuv-1.48.0
@@ -1163,7 +1163,7 @@ PKG: Exiv2-0.28.3
 	#required
 		|--CMake-3.30.2
 	#recommended
-		|--brotli-1.1.0
+		|--brotli-1.1.0 [done]
 		|--cURL-8.9.1
 		|--inih-58
 	#optional
@@ -1178,7 +1178,7 @@ PKG: FreeType-2.13.3
 		|--libpng-1.6.43
 		|--Which-2.21 and Alternatives
 	#optional
-		|--brotli-1.1.0
+		|--brotli-1.1.0 [done]
 		|--librsvg-2.58.3
 	#optional
 
@@ -1315,7 +1315,7 @@ PKG: libjpeg-turbo-3.0.1
 
 PKG: libjxl-0.10.3
 	#required
-		|--brotli-1.1.0
+		|--brotli-1.1.0 [done]
 		|--CMake-3.30.2
 		|--giflib-5.2.2
 		|--highway-1.2.0
@@ -1442,7 +1442,7 @@ PKG: Poppler-24.08.0
 		|--Fontconfig-2.15.0
 		|--GLib-2.80.4
 	#recommended
-		|--boost-1.86.0
+		|--boost-1.86.0 [done]
 		|--Cairo-1.18.0
 		|--GPGME-1.23.2
 		|--Little CMS-2.16
@@ -1493,7 +1493,7 @@ PKG: webp-pixbuf-loader-0.2.7
 
 PKG: woff2-1.0.2
 	#required
-		|--brotli-1.1.0
+		|--brotli-1.1.0 [done]
 		|--CMake-3.30.2
 
 PKG: Chapter11.General                 Utilities
@@ -1570,7 +1570,7 @@ PKG: GTK-Doc-1.34.0
 
 PKG: Highlight-4.13
 	#required
-		|--boost-1.86.0
+		|--boost-1.86.0 [done]
 		|--Lua-5.4.7
 	#optional
 		|--Qt-6.7.2
@@ -1600,7 +1600,7 @@ PKG: ImageMagick-7.1.1-36
 		|--Cups-2.4.10
 		|--cURL-8.9.1
 		|--FFmpeg-7.0.2
-		|--fftw-3.3.10
+		|--fftw-3.3.10 [done]
 		|--p7zip-17.04
 		|--SANE-1.2.1
 		|--Wget-1.24.5
@@ -2410,8 +2410,8 @@ PKG: PHP-8.3.10
 		|--Apache-2.4.62
 		|--libxml2-2.13.3 [done]
 	#optional
-		|--Aspell-0.60.8.1
-		|--enchant-2.8.2
+		|--Aspell-0.60.8.1 [done]
+		|--enchant-2.8.2 [done]
 		|--libxslt-1.1.42
 		|--Chapter21.Mail Server Software
 		|--PCRE2-10.44
@@ -2752,7 +2752,7 @@ PKG: Subversion-1.14.3
 		|--Serf-1.3.10
 	#optional
 		|--Apache-2.4.62
-		|--boost-1.86.0
+		|--boost-1.86.0 [done]
 		|--Cyrus SASL-2.1.28
 		|--dbus-1.14.10
 		|--Doxygen-1.12.0
@@ -2775,7 +2775,7 @@ PKG: SWIG-4.2.1
 	#required
 		|--PCRE2-10.44
 	#optional
-		|--boost-1.86.0
+		|--boost-1.86.0 [done]
 
 PKG: Tk-8.6.14
 	#required
@@ -3076,7 +3076,7 @@ PKG: Wireshark-4.2.6
 		|--libpcap-1.10.4
 	#optional
 		|--Asciidoctor-2.0.23
-		|--brotli-1.1.0
+		|--brotli-1.1.0 [done]
 		|--Doxygen-1.12.0
 		|--Git-2.46.0
 		|--GnuTLS-3.8.7.1
@@ -3102,7 +3102,7 @@ PKG: cURL-8.9.1
 	#recommended
 		|--make-ca-1.14
 	#optional
-		|--brotli-1.1.0
+		|--brotli-1.1.0 [done]
 		|--c-ares-1.33.0
 		|--GnuTLS-3.8.7.1
 		|--libidn2-2.3.7
@@ -3205,7 +3205,7 @@ PKG: libsoup-2.74.3
 		|--Vala-0.56.17
 	#optional
 		|--Apache-2.4.62
-		|--brotli-1.1.0
+		|--brotli-1.1.0 [done]
 		|--cURL-8.9.1
 		|--MIT Kerberos V5-1.21.3
 		|--GTK-Doc-1.34.0
@@ -3224,7 +3224,7 @@ PKG: libsoup-3.4.4
 		|--Vala-0.56.17
 	#optional
 		|--Apache-2.4.62
-		|--brotli-1.1.0
+		|--brotli-1.1.0 [done]
 		|--cURL-8.9.1
 		|--Gi-DocGen-2024.1
 		|--MIT Kerberos V5-1.21.3
@@ -3247,7 +3247,7 @@ PKG: nghttp2-1.62.1
 	#required
 		|--libxml2-2.13.3 [done]
 	#optional
-		|--boost-1.86.0
+		|--boost-1.86.0 [done]
 		|--c-ares-1.33.0
 		|--Cython-3.0.11
 		|--Jansson-2.14
@@ -3287,7 +3287,7 @@ PKG: Links-2.30
 		|--librsvg-2.58.3
 		|--libtiff-4.6.0
 	#optional
-		|--brotli-1.1.0
+		|--brotli-1.1.0 [done]
 
 PKG: Lynx-2.9.2
 	#optional
@@ -3319,7 +3319,7 @@ PKG: Mutt-2.2.13
 		|--Lynx-2.9.2
 		|--Links-2.30
 	#optional
-		|--Aspell-0.60.8.1
+		|--Aspell-0.60.8.1 [done]
 		|--Cyrus SASL-2.1.28
 		|--DocBook-utils-0.6.14
 		|--GDB-15.1
@@ -3347,7 +3347,7 @@ PKG: Apache-2.4.62
 		|--Apr-Util-1.6.3 [done]
 		|--PCRE2-10.44
 	#optional
-		|--brotli-1.1.0
+		|--brotli-1.1.0 [done]
 		|--Doxygen-1.12.0
 		|--Jansson-2.14
 		|--libxml2-2.13.3 [done]
@@ -3380,7 +3380,7 @@ PKG: BIND-9.20.0
 
 PKG: Kea 2.6.1 DHCP Server
 	#required
-		|--boost-1.86.0
+		|--boost-1.86.0 [done]
 		|--log4cplus-2.1.1
 	#optional
 		|--MIT Kerberos V5-1.21.3
@@ -3407,7 +3407,7 @@ PKG: Dovecot-2.3.21.1
 	#required
 		|--libtirpc-1.3.5
 	#optional
-		|--CLucene-2.3.3.4
+		|--CLucene-2.3.3.4 [done]
 		|--icu-75.1
 		|--libcap-2.70 with PAM
 		|--libunwind-1.6.2
@@ -3470,7 +3470,7 @@ PKG: MariaDB-10.11.8
 	#recommended
 		|--libevent-2.1.12
 	#optional
-		|--boost-1.86.0
+		|--boost-1.86.0 [done]
 		|--libaio-0.3.113
 		|--libxml2-2.13.3 [done]
 		|--Linux-PAM-1.6.1
@@ -3825,7 +3825,7 @@ PKG: libcairomm-1.0                   (cairomm-1.14.5)
 		|--Cairo-1.18.0
 		|--libsigc++-2.12.1
 	#recommended
-		|--boost-1.86.0
+		|--boost-1.86.0 [done]
 	#optional
 		|--Doxygen-1.12.0
 
@@ -3834,7 +3834,7 @@ PKG: libcairomm-1.16 (cairomm-1.18.0)
 		|--Cairo-1.18.0
 		|--libsigc++-3.6.0
 	#recommended
-		|--boost-1.86.0
+		|--boost-1.86.0 [done]
 	#optional
 		|--Doxygen-1.12.0
 
@@ -4198,7 +4198,7 @@ PKG: qt5-components-5.15.14
 		|--alsa-lib-1.2.12
 		|--at-spi2-core-2.52.0
 		|--Cups-2.4.10
-		|--Double-conversion-3.3.0
+		|--Double-conversion-3.3.0 [done]
 		|--GLib-2.80.4
 		|--harfBuzz-9.0.0
 		|--icu-75.1
@@ -4228,7 +4228,7 @@ PKG: Qt-6.7.2
 		|--alsa-lib-1.2.12
 		|--make-ca-1.14
 		|--Cups-2.4.10
-		|--Double-conversion-3.3.0
+		|--Double-conversion-3.3.0 [done]
 		|--GLib-2.80.4
 		|--gst-plugins-base-1.24.7
 		|--harfBuzz-9.0.0
@@ -4324,7 +4324,7 @@ PKG: WebKitGTK-2.44.3
 		|--Which-2.21 and Alternatives
 	#recommended
 		|--Bubblewrap-0.9.0
-		|--enchant-2.8.2
+		|--enchant-2.8.2 [done]
 		|--GeoClue-2.7.1
 		|--GLib-2.80.4
 		|--hicolor-icon-theme-0.18
@@ -4598,7 +4598,7 @@ PKG: libkexiv2-24.08.0 [done]
 
 PKG: plasma-activities-6.1.4 [done] 
 	#required
-		|--boost-1.86.0
+		|--boost-1.86.0 [done]
 		|--Building KDE Frameworks 6.5.0 (KF6) [done]
 
 PKG: okular-24.08.0 [done]
@@ -4963,7 +4963,7 @@ PKG: Tracker-miners-3.7.3
 	#required
 		|--gst-plugins-base-1.24.7
 		|--Tracker-3.7.3
-		|--Exempi-2.6.5
+		|--Exempi-2.6.5 [done]
 		|--gexiv2-0.14.3
 	#recommended
 		|--giflib-5.2.2
@@ -5072,7 +5072,7 @@ PKG: Nautilus-46.2
 		|--Tracker-3.7.3
 	#recommended
 		|--desktop-file-utils-0.27
-		|--Exempi-2.6.5
+		|--Exempi-2.6.5 [done]
 		|--GLib-2.80.4
 		|--gst-plugins-base-1.24.7
 		|--libcloudproviders-0.3.6
@@ -5307,7 +5307,7 @@ PKG: Brasero-3.12.3
 PKG: EOG-45.4
 	#required
 		|--adwaita-icon-theme-46.2
-		|--Exempi-2.6.5
+		|--Exempi-2.6.5 [done]
 		|--gnome-desktop-44.1
 		|--libhandy-1.8.3
 		|--libjpeg-turbo-3.0.1
@@ -5359,7 +5359,7 @@ PKG: Evolution-3.52.4
 		|--WebKitGTK-2.44.3
 	#recommended
 		|--Bogofilter-1.2.5
-		|--enchant-2.8.2
+		|--enchant-2.8.2 [done]
 		|--gnome-desktop-44.1
 		|--gspell-1.12.2
 		|--Highlight-4.13
@@ -5722,7 +5722,7 @@ PKG: Chapter36.Xfce Applications
 
 PKG: Parole-4.18.1
 	#required
-		|--dbus-glib-0.112
+		|--dbus-glib-0.112 [done]
 		|--gst-plugins-base-1.24.7
 		|--gst-plugins-good-1.24.7
 		|--libxfce4ui-4.18.6
@@ -6041,15 +6041,15 @@ PKG: Chapter39.Office Programs
 
 PKG: AbiWord-3.0.5
 	#required
-		|--boost-1.86.0
+		|--boost-1.86.0 [done]
 		|--cURL-8.9.1
 		|--FriBidi-1.0.15
 		|--GOffice-0.10.57
 		|--wv-1.2.9 [done]
 	#recommended
-		|--enchant-2.8.2
+		|--enchant-2.8.2 [done]
 	#optional
-		|--dbus-glib-0.112
+		|--dbus-glib-0.112 [done]
 		|--evolution-data-server-3.52.4
 		|--GLib-2.80.4
 		|--libgcrypt-1.11.0
@@ -6083,8 +6083,8 @@ PKG: LibreOffice-24.8.0
 		|--Zip-3.0
 	#recommended
 		|--apache-ant-1.10.14
-		|--boost-1.86.0
-		|--CLucene-2.3.3.4
+		|--boost-1.86.0 [done]
+		|--CLucene-2.3.3.4 [done]
 		|--Cups-2.4.10
 		|--cURL-8.9.1
 		|--libepoxy-1.5.10
@@ -6211,7 +6211,7 @@ PKG: Seamonkey-2.53.18.2
 		|--PulseAudio-17.0 [done]
 	#optional
 		|--alsa-lib-1.2.12
-		|--dbus-glib-0.112
+		|--dbus-glib-0.112 [done]
 		|--startup-notification-0.12
 		|--Valgrind-3.23.0
 		|--Wget-1.24.5
@@ -6221,8 +6221,8 @@ PKG: Chapter41.Other X-based                 Programs
 
 PKG: Balsa-2.6.4
 	#required
-		|--Aspell-0.60.8.1
-		|--enchant-2.8.2
+		|--Aspell-0.60.8.1 [done]
+		|--enchant-2.8.2 [done]
 		|--GMime-3.2.7
 		|--GPGME-1.23.2
 		|--GTK+-3.24.43
@@ -6341,8 +6341,8 @@ PKG: Gparted-1.6.0
 
 PKG: Inkscape-1.3.2
 	#required
-		|--boost-1.86.0
-		|--Double-conversion-3.3.0
+		|--boost-1.86.0 [done]
+		|--Double-conversion-3.3.0 [done]
 		|--GC-8.2.6
 		|--gsl-2.8
 		|--Gtkmm-3.24.9
@@ -6362,7 +6362,7 @@ PKG: Inkscape-1.3.2
 		|--pySerial-3.5
 		|--Scour-0.38.2
 	#optional
-		|--Aspell-0.60.8.1
+		|--Aspell-0.60.8.1 [done]
 		|--dbus-1.14.10
 		|--Doxygen-1.12.0
 		|--gspell-1.12.2
@@ -6481,7 +6481,7 @@ PKG: alsa-utils-1.2.12
 		|--alsa-lib-1.2.12
 	#optional
 		|--docutils-0.21.2
-		|--fftw-3.3.10
+		|--fftw-3.3.10 [done]
 		|--libsamplerate-0.2.2
 		|--xmlto-0.0.29
 
@@ -6754,7 +6754,7 @@ PKG: libsamplerate-0.2.2
 	#optional
 		|--alsa-lib-1.2.12
 		|--libsndfile-1.2.2
-		|--fftw-3.3.10
+		|--fftw-3.3.10 [done]
 
 PKG: libsndfile-1.2.2
 	#recommended
@@ -6822,7 +6822,7 @@ PKG: mlt-7.26.0 [done]
 		|--Qt-6.7.2
 	#optional
 		|--Doxygen-1.12.0
-		|--fftw-3.3.10
+		|--fftw-3.3.10 [done]
 		|--libexif-0.6.24
 		|--SDL2-2.30.6
 		|--qt5-components-5.15.14
@@ -6877,7 +6877,7 @@ PKG: PulseAudio-17.0 [done]
 		|--Avahi-0.8
 		|--BlueZ-5.77
 		|--Doxygen-1.12.0
-		|--fftw-3.3.10
+		|--fftw-3.3.10 [done]
 		|--GTK+-3.24.43
 		|--libsamplerate-0.2.2
 		|--SBC-2.0
@@ -7477,7 +7477,7 @@ PKG: MuPDF-1.24.8
 
 PKG: paps-0.8.0
 	#required
-		|--fmt-11.0.2
+		|--fmt-11.0.2 [done]
 		|--Pango-1.54.0
 	#optional
 		|--Doxygen-1.12.0
@@ -7541,10 +7541,10 @@ PKG: asymptote-2.91
 	#recommended
 		|--dvisvgm-3.4
 	#optional
-		|--fftw-3.3.10
+		|--fftw-3.3.10 [done]
 		|--gsl-2.8
 		|--libsigsegv-2.14
-		|--boost-1.86.0
+		|--boost-1.86.0 [done]
 	#optional
 		|--ImageMagick-7.1.1-36
 		|--qt5-components-5.15.14
@@ -7591,7 +7591,7 @@ PKG: biber-2.20
 
 PKG: dvisvgm-3.4
 	#required
-		|--brotli-1.1.0
+		|--brotli-1.1.0 [done]
 		|--ghostscript-10.03.1
 		|--Potrace-1.16
 		|--texlive-20240312-source
